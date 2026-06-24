@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<title>Catch Rate — WR / TE — 2022</title>
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { font-size: 16px; }
+body {
+  background: #0f172a; color: #e2e8f0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  max-width: 480px; margin: 0 auto; padding-bottom: 40px;
+  -webkit-text-size-adjust: 100%;
+}
+.report-header {
+  position: sticky; top: 0; z-index: 10;
+  background: #0f172a; border-bottom: 1px solid #1e293b;
+  padding: 14px 16px 10px;
+}
+.report-title  { font-size: 18px; font-weight: 700; color: #f8fafc; line-height: 1.2; }
+.report-season { font-size: 12px; color: #64748b; margin-top: 2px; }
+.metric-pill {
+  display: inline-block; margin-top: 6px; background: #1e293b;
+  border: 1px solid #334155; border-radius: 99px; padding: 3px 10px;
+  font-size: 11px; color: #94a3b8; cursor: pointer; user-select: none;
+}
+.metric-pill:active { background: #334155; }
+.metric-tooltip {
+  display: none; margin-top: 8px; background: #1e293b;
+  border: 1px solid #334155; border-radius: 8px; padding: 10px 12px;
+  font-size: 12px; color: #cbd5e1; line-height: 1.5;
+}
+.metric-tooltip.open { display: block; }
+.metric-tooltip .formula { margin-top: 5px; font-size: 11px; color: #7dd3fc; font-family: monospace; }
+.legend { display: flex; gap: 8px; padding: 8px 16px; flex-wrap: wrap; }
+.legend-item { display: flex; align-items: center; gap: 4px; font-size: 11px; color: #94a3b8; }
+.legend-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+.player-list { padding: 0 12px; }
+.player-row {
+  display: flex; align-items: center; gap: 10px;
+  padding: 10px 6px; border-bottom: 1px solid #1e293b; min-height: 52px;
+}
+.player-row:last-child { border-bottom: none; }
+.rank-badge { font-size: 13px; font-weight: 700; color: #64748b; min-width: 28px; text-align: right; flex-shrink: 0; }
+.tier-bar { width: 4px; height: 36px; border-radius: 2px; flex-shrink: 0; }
+.player-info { flex: 1; min-width: 0; }
+.player-name { font-size: 15px; font-weight: 600; color: #f1f5f9; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.player-meta { font-size: 11px; color: #64748b; margin-top: 1px; }
+.metric-value { font-size: 17px; font-weight: 700; min-width: 56px; text-align: right; flex-shrink: 0; }
+.metric-pct { font-size: 10px; color: #475569; text-align: right; line-height: 1.1; }
+.tier-elite  { color: #4ade80; } .tier-solid  { color: #60a5fa; }
+.tier-fringe { color: #f59e0b; } .tier-below  { color: #f87171; }
+.bar-elite   { background: #4ade80; } .bar-solid  { background: #60a5fa; }
+.bar-fringe  { background: #f59e0b; } .bar-below  { background: #f87171; }
+.tier-divider {
+  padding: 6px 16px 4px; font-size: 10px; font-weight: 700;
+  letter-spacing: .08em; text-transform: uppercase; color: #475569;
+  border-top: 1px solid #1e293b; margin-top: 4px;
+}
+.report-footer { padding: 20px 16px 0; font-size: 11px; color: #334155; text-align: center; }
+
+.bottom-nav {
+  position: fixed; bottom: 0; left: 50%; transform: translateX(-50%);
+  width: 100%; max-width: 480px;
+  background: #0f172a; border-top: 1px solid #1e293b;
+  display: flex; z-index: 100;
+  padding-bottom: env(safe-area-inset-bottom);
+}
+.nav-tab {
+  flex: 1; display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  padding: 8px 0 6px; text-decoration: none;
+  color: #475569; font-size: 10px; font-weight: 600;
+  letter-spacing: .03em; gap: 3px;
+  -webkit-tap-highlight-color: transparent;
+}
+.nav-tab:active { background: #1e293b; }
+.nav-tab.active { color: #4ade80; }
+.nav-icon { font-size: 18px; line-height: 1; }
+/* Push page content above nav bar */
+body { padding-bottom: calc(56px + env(safe-area-inset-bottom)) !important; }
+</style></head><body>
+<div class="report-header">
+  <div class="report-title">🏈 Catch Rate</div>
+  <div class="report-season">2022 Season · WR / TE · DTFFL Half-PPR · ↑ higher is better</div>
+  <div class="metric-pill" onclick="toggleTooltip()">catch_rate ℹ︎</div>
+  <div class="metric-tooltip" id="tooltip">Receptions divided by targets. High catch rate WRs convert their opportunity reliably. Best used alongside target share — volume + efficiency.<div class="formula">receptions / targets</div></div>
+</div>
+<div class="legend"><div class="legend-item"><div class="legend-dot" style="background:#4ade80"></div>Elite</div><div class="legend-item"><div class="legend-dot" style="background:#60a5fa"></div>Solid</div><div class="legend-item"><div class="legend-dot" style="background:#f59e0b"></div>Fringe</div><div class="legend-item"><div class="legend-dot" style="background:#f87171"></div>Below Repl.</div></div>
+<div class="player-list"><div class="tier-divider tier-elite">Elite  (Top 10)</div>
+        <div class="player-row">
+          <div class="rank-badge">1</div>
+          <div class="tier-bar bar-elite"></div>
+          <div class="player-info">
+            <div class="player-name">Will Dissly</div>
+            <div class="player-meta">SEA · TE · Peak</div>
+            <div class="player-meta">38 tgt · 89% catch · 9.2 YPT</div>
+          </div>
+          <div><div class="metric-value tier-elite">89.5%</div><div class="metric-pct">90th pct</div></div>
+        </div>
+        <div class="player-row">
+          <div class="rank-badge">2</div>
+          <div class="tier-bar bar-elite"></div>
+          <div class="player-info">
+            <div class="player-name">Laviska Shenault</div>
+            <div class="player-meta">CAR · WR · Breakout</div>
+            <div class="player-meta">32 tgt · 84% catch · 8.5 YPT</div>
+          </div>
+          <div><div class="metric-value tier-elite">84.4%</div><div class="metric-pct">93th pct</div></div>
+        </div>
+        <div class="player-row">
+          <div class="rank-badge">3</div>
+          <div class="tier-bar bar-elite"></div>
+          <div class="player-info">
+            <div class="player-name">Daniel Bellinger</div>
+            <div class="player-meta">NYG · TE · Breakout</div>
+            <div class="player-meta">36 tgt · 83% catch · 7.5 YPT</div>
+          </div>
+          <div><div class="metric-value tier-elite">83.3%</div><div class="metric-pct">85th pct</div></div>
+        </div>
+        <div class="player-row">
+          <div class="rank-badge">4</div>
+          <div class="tier-bar bar-elite"></div>
+          <div class="player-info">
+            <div class="player-name">Rashid Shaheed</div>
+            <div class="player-meta">NO · WR · Peak</div>
+            <div class="player-meta">34 tgt · 82% catch · 14.4 YPT</div>
+          </div>
+          <div><div class="metric-value tier-elite">82.4%</div><div class="metric-pct">92th pct</div></div>
+        </div>
+        <div class="player-row">
+          <div class="rank-badge">5</div>
+          <div class="tier-bar bar-elite"></div>
+          <div class="player-info">
+            <div class="player-name">Noah Gray</div>
+            <div class="player-meta">KC · TE · Breakout</div>
+            <div class="player-meta">34 tgt · 82% catch · 8.8 YPT</div>
+          </div>
+          <div><div class="metric-value tier-elite">82.4%</div><div class="metric-pct">82th pct</div></div>
+        </div>
+        <div class="player-row">
+          <div class="rank-badge">6</div>
+          <div class="tier-bar bar-elite"></div>
+          <div class="player-info">
+            <div class="player-name">Richie James</div>
+            <div class="player-meta">NYG · WR · Peak</div>
+            <div class="player-meta">70 tgt · 81% catch · 8.1 YPT</div>
+          </div>
+          <div><div class="metric-value tier-elite">81.4%</div><div class="metric-pct">92th pct</div></div>
+        </div>
+        <div class="player-row">
+          <div class="rank-badge">7</div>
+          <div class="tier-bar bar-elite"></div>
+          <div class="player-info">
+            <div class="player-name">Greg Dortch</div>
+            <div class="player-meta">ARI · WR · Peak</div>
+            <div class="player-meta">64 tgt · 81% catch · 7.3 YPT</div>
+          </div>
+          <div><div class="metric-value tier-elite">81.2%</div><div class="metric-pct">91th pct</div></div>
+        </div>
+        <div class="player-row">
+          <div class="rank-badge">8</div>
+          <div class="tier-bar bar-elite"></div>
+          <div class="player-info">
+            <div class="player-name">Dallas Goedert</div>
+            <div class="player-meta">PHI · TE · Peak</div>
+            <div class="player-meta">69 tgt · 80% catch · 10.2 YPT</div>
+          </div>
+          <div><div class="metric-value tier-elite">79.7%</div><div class="metric-pct">78th pct</div></div>
+        </div>
+        <div class="player-row">
+          <div class="rank-badge">9</div>
+          <div class="tier-bar bar-elite"></div>
+          <div class="player-info">
+            <div class="player-name">Noah Fant</div>
+            <div class="player-meta">SEA · TE · Breakout</div>
+            <div class="player-meta">63 tgt · 79% catch · 7.7 YPT</div>
+          </div>
+          <div><div class="metric-value tier-elite">79.4%</div><div class="metric-pct">77th pct</div></div>
+        </div>
+        <div class="player-row">
+          <div class="rank-badge">10</div>
+          <div class="tier-bar bar-elite"></div>
+          <div class="player-info">
+            <div class="player-name">Robert Tonyan</div>
+            <div class="player-meta">GB · TE · Peak</div>
+            <div class="player-meta">67 tgt · 79% catch · 6.9 YPT</div>
+          </div>
+          <div><div class="metric-value tier-elite">79.1%</div><div class="metric-pct">77th pct</div></div>
+        </div><div class="tier-divider tier-solid">Solid  (#11–25)</div>
+        <div class="player-row">
+          <div class="rank-badge">11</div>
+          <div class="tier-bar bar-solid"></div>
+          <div class="player-info">
+            <div class="player-name">C.J. Uzomah</div>
+            <div class="player-meta">NYJ · TE · Declining</div>
+            <div class="player-meta">27 tgt · 78% catch · 8.6 YPT</div>
+          </div>
+          <div><div class="metric-value tier-solid">77.8%</div><div class="metric-pct">75th pct</div></div>
+        </div>
+        <div class="player-row">
+          <div class="rank-badge">12</div>
+          <div class="tier-bar bar-solid"></div>
+          <div class="player-info">
+            <div class="player-name">Kylen Granson</div>
+            <div class="player-meta">IND · TE · Breakout</div>
+            <div class="player-meta">40 tgt · 78% catch · 7.5 YPT</div>
+          </div>
+          <div><div class="metric-value tier-solid">77.5%</div><div class="metric-pct">74th pct</div></div>
+        </div>
+        <div class="player-row">
+          <div class="rank-badge">13</div>
+          <div class="tier-bar bar-solid"></div>
+          <div class="player-info">
+            <div class="player-name">Isaiah Hodgins</div>
+            <div class="player-meta">NYG · WR · Breakout</div>
+            <div class="player-meta">43 tgt · 77% catch · 8.2 YPT</div>
+          </div>
+          <div><div class="metric-value tier-solid">76.7%</div><div class="metric-pct">89th pct</div></div>
+        </div>
+        <div class="player-row">
+          <div class="rank-badge">14</div>
+          <div class="tier-bar bar-solid"></div>
+          <div class="player-info">
+            <div class="player-name">Cooper Kupp</div>
+            <div class="player-meta">LA · WR · Declining</div>
+            <div class="player-meta">98 tgt · 77% catch · 8.3 YPT</div>
+          </div>
+          <div><div class="metric-value tier-solid">76.5%</div><div class="metric-pct">88th pct</div></div>
+        </div>
+        <div class="player-row">
+          <div class="rank-badge">15</div>
+          <div class="tier-bar bar-solid"></div>
+          <div class="player-info">
+            <div class="player-name">JuJu Smith-Schuster</div>
+            <div class="player-meta">KC · WR · Peak</div>
+            <div class="player-meta">102 tgt · 76% catch · 9.1 YPT</div>
+          </div>
+          <div><div class="metric-value tier-solid">76.5%</div><div class="metric-pct">88th pct</div></div>
+        </div>
+        <div class="player-row">
+          <div class="rank-badge">16</div>
+          <div class="tier-bar bar-solid"></div>
+          <div class="player-info">
+            <div class="player-name">Hayden Hurst</div>
+            <div class="player-meta">CIN · TE · Peak</div>
+            <div class="player-meta">68 tgt · 76% catch · 6.1 YPT</div>
+          </div>
+          <div><div class="metric-value tier-solid">76.5%</div><div class="metric-pct">73th pct</div></div>
+        </div>
+        <div class="player-row">
+          <div class="rank-badge">17</div>
+          <div class="tier-bar bar-solid"></div>
+          <div class="player-info">
+            <div class="player-name">Devin Duvernay</div>
+            <div class="player-meta">BAL · WR · Peak</div>
+            <div class="player-meta">49 tgt · 76% catch · 8.3 YPT</div>
+          </div>
+          <div><div class="metric-value tier-solid">75.5%</div><div class="metric-pct">88th pct</div></div>
+        </div>
+        <div class="player-row">
+          <div class="rank-badge">18</div>
+          <div class="tier-bar bar-solid"></div>
+          <div class="player-info">
+            <div class="player-name">Brandon Powell</div>
+            <div class="player-meta">LA · WR · Peak</div>
+            <div class="player-meta">32 tgt · 75% catch · 4.9 YPT</div>
+          </div>
+          <div><div class="metric-value tier-solid">75.0%</div><div class="metric-pct">86th pct</div></div>
+        </div>
+        <div class="player-row">
+          <div class="rank-badge">19</div>
+          <div class="tier-bar bar-solid"></div>
+          <div class="player-info">
+            <div class="player-name">Trey McBride</div>
+            <div class="player-meta">ARI · TE · Breakout</div>
+            <div class="player-meta">39 tgt · 74% catch · 6.8 YPT</div>
+          </div>
+          <div><div class="metric-value tier-solid">74.4%</div><div class="metric-pct">67th pct</div></div>
+        </div>
+        <div class="player-row">
+          <div class="rank-badge">20</div>
+          <div class="tier-bar bar-solid"></div>
+          <div class="player-info">
+            <div class="player-name">Wan'Dale Robinson</div>
+            <div class="player-meta">NYG · WR · Breakout</div>
+            <div class="player-meta">31 tgt · 74% catch · 7.3 YPT</div>
+          </div>
+          <div><div class="metric-value tier-solid">74.2%</div><div class="metric-pct">85th pct</div></div>
+        </div>
+        <div class="player-row">
+          <div class="rank-badge">21</div>
+          <div class="tier-bar bar-solid"></div>
+          <div class="player-info">
+            <div class="player-name">Jamal Agnew</div>
+            <div class="player-meta">JAX · WR · Peak</div>
+            <div class="player-meta">31 tgt · 74% catch · 6.1 YPT</div>
+          </div>
+          <div><div class="metric-value tier-solid">74.2%</div><div class="metric-pct">85th pct</div></div>
+        </div>
+        <div class="player-row">
+          <div class="rank-badge">22</div>
+          <div class="tier-bar bar-solid"></div>
+          <div class="player-info">
+            <div class="player-name">Keenan Allen</div>
+            <div class="player-meta">LAC · WR · Veteran</div>
+            <div class="player-meta">89 tgt · 74% catch · 8.6 YPT</div>
+          </div>
+          <div><div class="metric-value tier-solid">74.2%</div><div class="metric-pct">85th pct</div></div>
+        </div>
+        <div class="player-row">
+          <div class="rank-badge">23</div>
+          <div class="tier-bar bar-solid"></div>
+          <div class="player-info">
+            <div class="player-name">Dawson Knox</div>
+            <div class="player-meta">BUF · TE · Peak</div>
+            <div class="player-meta">65 tgt · 74% catch · 8.0 YPT</div>
+          </div>
+          <div><div class="metric-value tier-solid">73.8%</div><div class="metric-pct">66th pct</div></div>
+        </div>
+        <div class="player-row">
+          <div class="rank-badge">24</div>
+          <div class="tier-bar bar-solid"></div>
+          <div class="player-info">
+            <div class="player-name">Mecole Hardman</div>
+            <div class="player-meta">KC · WR · Peak</div>
+            <div class="player-meta">34 tgt · 74% catch · 8.7 YPT</div>
+          </div>
+          <div><div class="metric-value tier-solid">73.5%</div><div class="metric-pct">84th pct</div></div>
+        </div>
+        <div class="player-row">
+          <div class="rank-badge">25</div>
+          <div class="tier-bar bar-solid"></div>
+          <div class="player-info">
+            <div class="player-name">Colby Parkinson</div>
+            <div class="player-meta">SEA · TE · Breakout</div>
+            <div class="player-meta">34 tgt · 74% catch · 9.5 YPT</div>
+          </div>
+          <div><div class="metric-value tier-solid">73.5%</div><div class="metric-pct">65th pct</div></div>
+        </div><div class="tier-divider tier-fringe">Fringe  (#26–50)</div>
+        <div class="player-row">
+          <div class="rank-badge">26</div>
+          <div class="tier-bar bar-fringe"></div>
+          <div class="player-info">
+            <div class="player-name">Kalif Raymond</div>
+            <div class="player-meta">DET · WR · Declining</div>
+            <div class="player-meta">64 tgt · 73% catch · 9.6 YPT</div>
+          </div>
+          <div><div class="metric-value tier-fringe">73.4%</div><div class="metric-pct">84th pct</div></div>
+        </div>
+        <div class="player-row">
+          <div class="rank-badge">27</div>
+          <div class="tier-bar bar-fringe"></div>
+          <div class="player-info">
+            <div class="player-name">Rondale Moore</div>
+            <div class="player-meta">ARI · WR · Breakout</div>
+            <div class="player-meta">56 tgt · 73% catch · 7.4 YPT</div>
+          </div>
+          <div><div class="metric-value tier-fringe">73.2%</div><div class="metric-pct">83th pct</div></div>
+        </div>
+        <div class="player-row">
+          <div class="rank-badge">28</div>
+          <div class="tier-bar bar-fringe"></div>
+          <div class="player-info">
+            <div class="player-name">Kendrick Bourne</div>
+            <div class="player-meta">NE · WR · Peak</div>
+            <div class="player-meta">48 tgt · 73% catch · 9.0 YPT</div>
+          </div>
+          <div><div class="metric-value tier-fringe">72.9%</div><div class="metric-pct">83th pct</div></div>
+        </div>
+        <div class="player-row">
+          <div class="rank-badge">29</div>
+          <div class="tier-bar bar-fringe"></div>
+          <div class="player-info">
+            <div class="player-name">Kendall Hinton</div>
+            <div class="player-meta">DEN · WR · Peak</div>
+            <div class="player-meta">33 tgt · 73% catch · 9.4 YPT</div>
+          </div>
+          <div><div class="metric-value tier-fringe">72.7%</div><div class="metric-pct">82th pct</div></div>
+        </div>
+        <div class="player-row">
+          <div class="rank-badge">30</div>
+          <div class="tier-bar bar-fringe"></div>
+          <div class="player-info">
+            <div class="player-name">Amon-Ra St. Brown</div>
+            <div class="player-meta">DET · WR · Breakout</div>
+            <div class="player-meta">146 tgt · 73% catch · 8.0 YPT</div>
+          </div>
+          <div><div class="metric-value tier-fringe">72.6%</div><div class="metric-pct">81th pct</div></div>
+        </div>
+        <div class="player-row">
+          <div class="rank-badge">31</div>
+          <div class="tier-bar bar-fringe"></div>
+          <div class="player-info">
+            <div class="player-name">David Njoku</div>
+            <div class="player-meta">CLE · TE · Peak</div>
+            <div class="player-meta">80 tgt · 72% catch · 7.8 YPT</div>
+          </div>
+          <div><div class="metric-value tier-fringe">72.5%</div><div class="metric-pct">63th pct</div></div>
+        </div>
+        <div class="player-row">
+          <div class="rank-badge">32</div>
+          <div class="tier-bar bar-fringe"></div>
+          <div class="player-info">
+            <div class="player-name">Evan Engram</div>
+            <div class="player-meta">JAX · TE · Peak</div>
+            <div class="player-meta">101 tgt · 72% catch · 7.6 YPT</div>
+          </div>
+          <div><div class="metric-value tier-fringe">72.3%</div><div class="metric-pct">62th pct</div></div>
+        </div>
+        <div class="player-row">
+          <div class="rank-badge">33</div>
+          <div class="tier-bar bar-fringe"></div>
+          <div class="player-info">
+            <div class="player-name">Harrison Bryant</div>
+            <div class="player-meta">CLE · TE · Breakout</div>
+            <div class="player-meta">43 tgt · 72% catch · 5.6 YPT</div>
+          </div>
+          <div><div class="metric-value tier-fringe">72.1%</div><div class="metric-pct">61th pct</div></div>
+        </div>
+        <div class="player-row">
+          <div class="rank-badge">34</div>
+          <div class="tier-bar bar-fringe"></div>
+          <div class="player-info">
+            <div class="player-name">Travis Kelce</div>
+            <div class="player-meta">KC · TE · Veteran</div>
+            <div class="player-meta">153 tgt · 72% catch · 8.8 YPT</div>
+          </div>
+          <div><div class="metric-value tier-fringe">71.9%</div><div class="metric-pct">60th pct</div></div>
+        </div>
+        <div class="player-row">
+          <div class="rank-badge">35</div>
+          <div class="tier-bar bar-fringe"></div>
+          <div class="player-info">
+            <div class="player-name">Tyler Lockett</div>
+            <div class="player-meta">SEA · WR · Declining</div>
+            <div class="player-meta">117 tgt · 72% catch · 8.8 YPT</div>
+          </div>
+          <div><div class="metric-value tier-fringe">71.8%</div><div class="metric-pct">81th pct</div></div>
+        </div>
+        <div class="player-row">
+          <div class="rank-badge">36</div>
+          <div class="tier-bar bar-fringe"></div>
+          <div class="player-info">
+            <div class="player-name">Chris Godwin</div>
+            <div class="player-meta">TB · WR · Peak</div>
+            <div class="player-meta">145 tgt · 72% catch · 7.0 YPT</div>
+          </div>
+          <div><div class="metric-value tier-fringe">71.7%</div><div class="metric-pct">80th pct</div></div>
+        </div>
+        <div class="player-row">
+          <div class="rank-badge">37</div>
+          <div class="tier-bar bar-fringe"></div>
+          <div class="player-info">
+            <div class="player-name">Cole Kmet</div>
+            <div class="player-meta">CHI · TE · Breakout</div>
+            <div class="player-meta">70 tgt · 71% catch · 7.8 YPT</div>
+          </div>
+          <div><div class="metric-value tier-fringe">71.4%</div><div class="metric-pct">60th pct</div></div>
+        </div>
+        <div class="player-row">
+          <div class="rank-badge">38</div>
+          <div class="tier-bar bar-fringe"></div>
+          <div class="player-info">
+            <div class="player-name">Jonnu Smith</div>
+            <div class="player-meta">NE · TE · Peak</div>
+            <div class="player-meta">38 tgt · 71% catch · 6.4 YPT</div>
+          </div>
+          <div><div class="metric-value tier-fringe">71.1%</div><div class="metric-pct">59th pct</div></div>
+        </div>
+        <div class="player-row">
+          <div class="rank-badge">39</div>
+          <div class="tier-bar bar-fringe"></div>
+          <div class="player-info">
+            <div class="player-name">Russell Gage</div>
+            <div class="player-meta">TB · WR · Peak</div>
+            <div class="player-meta">72 tgt · 71% catch · 6.0 YPT</div>
+          </div>
+          <div><div class="metric-value tier-fringe">70.8%</div><div class="metric-pct">80th pct</div></div>
+        </div>
+        <div class="player-row">
+          <div class="rank-badge">40</div>
+          <div class="tier-bar bar-fringe"></div>
+          <div class="player-info">
+            <div class="player-name">DeAndre Carter</div>
+            <div class="player-meta">LAC · WR · Declining</div>
+            <div class="player-meta">65 tgt · 71% catch · 8.3 YPT</div>
+          </div>
+          <div><div class="metric-value tier-fringe">70.8%</div><div class="metric-pct">79th pct</div></div>
+        </div>
+        <div class="player-row">
+          <div class="rank-badge">41</div>
+          <div class="tier-bar bar-fringe"></div>
+          <div class="player-info">
+            <div class="player-name">Hunter Renfrow</div>
+            <div class="player-meta">LV · WR · Peak</div>
+            <div class="player-meta">51 tgt · 71% catch · 6.5 YPT</div>
+          </div>
+          <div><div class="metric-value tier-fringe">70.6%</div><div class="metric-pct">79th pct</div></div>
+        </div>
+        <div class="player-row">
+          <div class="rank-badge">42</div>
+          <div class="tier-bar bar-fringe"></div>
+          <div class="player-info">
+            <div class="player-name">Tre'Quan Smith</div>
+            <div class="player-meta">NO · WR · Peak</div>
+            <div class="player-meta">27 tgt · 70% catch · 10.3 YPT</div>
+          </div>
+          <div><div class="metric-value tier-fringe">70.4%</div><div class="metric-pct">78th pct</div></div>
+        </div>
+        <div class="player-row">
+          <div class="rank-badge">43</div>
+          <div class="tier-bar bar-fringe"></div>
+          <div class="player-info">
+            <div class="player-name">Stefon Diggs</div>
+            <div class="player-meta">BUF · WR · Declining</div>
+            <div class="player-meta">154 tgt · 70% catch · 9.3 YPT</div>
+          </div>
+          <div><div class="metric-value tier-fringe">70.1%</div><div class="metric-pct">78th pct</div></div>
+        </div>
+        <div class="player-row">
+          <div class="rank-badge">44</div>
+          <div class="tier-bar bar-fringe"></div>
+          <div class="player-info">
+            <div class="player-name">Tyreek Hill</div>
+            <div class="player-meta">MIA · WR · Declining</div>
+            <div class="player-meta">170 tgt · 70% catch · 10.1 YPT</div>
+          </div>
+          <div><div class="metric-value tier-fringe">70.0%</div><div class="metric-pct">77th pct</div></div>
+        </div>
+        <div class="player-row">
+          <div class="rank-badge">45</div>
+          <div class="tier-bar bar-fringe"></div>
+          <div class="player-info">
+            <div class="player-name">Ian Thomas</div>
+            <div class="player-meta">CAR · TE · Peak</div>
+            <div class="player-meta">30 tgt · 70% catch · 6.6 YPT</div>
+          </div>
+          <div><div class="metric-value tier-fringe">70.0%</div><div class="metric-pct">56th pct</div></div>
+        </div>
+        <div class="player-row">
+          <div class="rank-badge">46</div>
+          <div class="tier-bar bar-fringe"></div>
+          <div class="player-info">
+            <div class="player-name">George Kittle</div>
+            <div class="player-meta">SF · TE · Peak</div>
+            <div class="player-meta">86 tgt · 70% catch · 8.9 YPT</div>
+          </div>
+          <div><div class="metric-value tier-fringe">69.8%</div><div class="metric-pct">55th pct</div></div>
+        </div>
+        <div class="player-row">
+          <div class="rank-badge">47</div>
+          <div class="tier-bar bar-fringe"></div>
+          <div class="player-info">
+            <div class="player-name">Michael Pittman</div>
+            <div class="player-meta">IND · WR · Peak</div>
+            <div class="player-meta">142 tgt · 70% catch · 6.5 YPT</div>
+          </div>
+          <div><div class="metric-value tier-fringe">69.7%</div><div class="metric-pct">76th pct</div></div>
+        </div>
+        <div class="player-row">
+          <div class="rank-badge">48</div>
+          <div class="tier-bar bar-fringe"></div>
+          <div class="player-info">
+            <div class="player-name">Hunter Henry</div>
+            <div class="player-meta">NE · TE · Peak</div>
+            <div class="player-meta">59 tgt · 69% catch · 8.6 YPT</div>
+          </div>
+          <div><div class="metric-value tier-fringe">69.5%</div><div class="metric-pct">54th pct</div></div>
+        </div>
+        <div class="player-row">
+          <div class="rank-badge">49</div>
+          <div class="tier-bar bar-fringe"></div>
+          <div class="player-info">
+            <div class="player-name">Irv Smith</div>
+            <div class="player-meta">MIN · TE · Breakout</div>
+            <div class="player-meta">36 tgt · 69% catch · 5.1 YPT</div>
+          </div>
+          <div><div class="metric-value tier-fringe">69.4%</div><div class="metric-pct">53th pct</div></div>
+        </div>
+        <div class="player-row">
+          <div class="rank-badge">50</div>
+          <div class="tier-bar bar-fringe"></div>
+          <div class="player-info">
+            <div class="player-name">DeVonta Smith</div>
+            <div class="player-meta">PHI · WR · Breakout</div>
+            <div class="player-meta">137 tgt · 69% catch · 8.8 YPT</div>
+          </div>
+          <div><div class="metric-value tier-fringe">69.3%</div><div class="metric-pct">76th pct</div></div>
+        </div></div>
+<div class="report-footer">
+  DTFFL Analytics · nflverse data · 2022 regular season<br>
+  Top 50 of 169 qualifying players
+</div>
+<script>function toggleTooltip(){document.getElementById('tooltip').classList.toggle('open');}</script>
+
+<nav class="bottom-nav" id="bottom-nav">
+  <a class="nav-tab" id="nav-reports" href="../../index.html">
+    <span class="nav-icon">📊</span>Reports
+  </a>
+  <a class="nav-tab" id="nav-trends" href="../../trends_index.html">
+    <span class="nav-icon">📈</span>Trends
+  </a>
+  <a class="nav-tab" id="nav-draft" href="../../draft_prep/rb_draft_prep_2026.html">
+    <span class="nav-icon">🏈</span>Draft
+  </a>
+</nav>
+<script>
+(function(){
+  var p = window.location.pathname;
+  if (p.includes('trends') || p.includes('candidate'))  {
+    document.getElementById('nav-trends').classList.add('active');
+  } else if (p.includes('draft_prep')) {
+    document.getElementById('nav-draft').classList.add('active');
+  } else {
+    document.getElementById('nav-reports').classList.add('active');
+  }
+})();
+</script>
+</body></html>
