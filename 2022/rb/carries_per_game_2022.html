@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<title>Carries Per Game — RB — 2022</title>
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { font-size: 16px; }
+body {
+  background: #0f172a; color: #e2e8f0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  max-width: 480px; margin: 0 auto; padding-bottom: 40px;
+  -webkit-text-size-adjust: 100%;
+}
+.report-header {
+  position: sticky; top: 0; z-index: 10;
+  background: #0f172a; border-bottom: 1px solid #1e293b;
+  padding: 14px 16px 10px;
+}
+.report-title  { font-size: 18px; font-weight: 700; color: #f8fafc; line-height: 1.2; }
+.report-season { font-size: 12px; color: #64748b; margin-top: 2px; }
+.metric-pill {
+  display: inline-block; margin-top: 6px; background: #1e293b;
+  border: 1px solid #334155; border-radius: 99px; padding: 3px 10px;
+  font-size: 11px; color: #94a3b8; cursor: pointer; user-select: none;
+}
+.metric-pill:active { background: #334155; }
+.metric-tooltip {
+  display: none; margin-top: 8px; background: #1e293b;
+  border: 1px solid #334155; border-radius: 8px; padding: 10px 12px;
+  font-size: 12px; color: #cbd5e1; line-height: 1.5;
+}
+.metric-tooltip.open { display: block; }
+.metric-tooltip .formula { margin-top: 5px; font-size: 11px; color: #7dd3fc; font-family: monospace; }
+.legend { display: flex; gap: 8px; padding: 8px 16px; flex-wrap: wrap; }
+.legend-item { display: flex; align-items: center; gap: 4px; font-size: 11px; color: #94a3b8; }
+.legend-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+.player-list { padding: 0 12px; }
+.player-row {
+  display: flex; align-items: center; gap: 10px;
+  padding: 10px 6px; border-bottom: 1px solid #1e293b; min-height: 52px;
+}
+.player-row:last-child { border-bottom: none; }
+.rank-badge { font-size: 13px; font-weight: 700; color: #64748b; min-width: 28px; text-align: right; flex-shrink: 0; }
+.tier-bar { width: 4px; height: 36px; border-radius: 2px; flex-shrink: 0; }
+.player-info { flex: 1; min-width: 0; }
+.player-name { font-size: 15px; font-weight: 600; color: #f1f5f9; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.player-meta { font-size: 11px; color: #64748b; margin-top: 1px; }
+.metric-value { font-size: 17px; font-weight: 700; min-width: 56px; text-align: right; flex-shrink: 0; }
+.metric-pct { font-size: 10px; color: #475569; text-align: right; line-height: 1.1; }
+.tier-elite  { color: #4ade80; } .tier-solid  { color: #60a5fa; }
+.tier-fringe { color: #f59e0b; } .tier-below  { color: #f87171; }
+.bar-elite   { background: #4ade80; } .bar-solid  { background: #60a5fa; }
+.bar-fringe  { background: #f59e0b; } .bar-below  { background: #f87171; }
+.tier-divider {
+  padding: 6px 16px 4px; font-size: 10px; font-weight: 700;
+  letter-spacing: .08em; text-transform: uppercase; color: #475569;
+  border-top: 1px solid #1e293b; margin-top: 4px;
+}
+.report-footer { padding: 20px 16px 0; font-size: 11px; color: #334155; text-align: center; }
+
+.bottom-nav {
+  position: fixed; bottom: 0; left: 50%; transform: translateX(-50%);
+  width: 100%; max-width: 480px;
+  background: #0f172a; border-top: 1px solid #1e293b;
+  display: flex; z-index: 100;
+  padding-bottom: env(safe-area-inset-bottom);
+}
+.nav-tab {
+  flex: 1; display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  padding: 8px 0 6px; text-decoration: none;
+  color: #475569; font-size: 10px; font-weight: 600;
+  letter-spacing: .03em; gap: 3px;
+  -webkit-tap-highlight-color: transparent;
+}
+.nav-tab:active { background: #1e293b; }
+.nav-tab.active { color: #4ade80; }
+.nav-icon { font-size: 18px; line-height: 1; }
+/* Push page content above nav bar */
+body { padding-bottom: calc(56px + env(safe-area-inset-bottom)) !important; }
+</style></head><body>
+<div class="report-header">
+  <div class="report-title">🏈 Carries Per Game</div>
+  <div class="report-season">2022 Season · RB · DTFFL Half-PPR · ↑ higher is better</div>
+  <div class="metric-pill" onclick="toggleTooltip()">carries_per_game ℹ︎</div>
+  <div class="metric-tooltip" id="tooltip">Average rush attempts per game. Combines volume with availability — rewards backs who stay healthy.<div class="formula">carries / team_games</div></div>
+</div>
+<div class="legend"><div class="legend-item"><div class="legend-dot" style="background:#4ade80"></div>Elite</div><div class="legend-item"><div class="legend-dot" style="background:#60a5fa"></div>Solid</div><div class="legend-item"><div class="legend-dot" style="background:#f59e0b"></div>Fringe</div><div class="legend-item"><div class="legend-dot" style="background:#f87171"></div>Below Repl.</div></div>
+<div class="player-list"><div class="tier-divider tier-elite">Elite  (Top 10)</div>
+        <div class="player-row">
+          <div class="rank-badge">1</div>
+          <div class="tier-bar bar-elite"></div>
+          <div class="player-info">
+            <div class="player-name">Derrick Henry</div>
+            <div class="player-meta">TEN · RB · Declining</div>
+            <div class="player-meta">349 car · 4.4 YPC · 13 TD</div>
+          </div>
+          <div><div class="metric-value tier-elite">20.5</div><div class="metric-pct">100th pct</div></div>
+        </div>
+        <div class="player-row">
+          <div class="rank-badge">2</div>
+          <div class="tier-bar bar-elite"></div>
+          <div class="player-info">
+            <div class="player-name">Josh Jacobs</div>
+            <div class="player-meta">LV · RB · Peak</div>
+            <div class="player-meta">341 car · 4.8 YPC · 12 TD</div>
+          </div>
+          <div><div class="metric-value tier-elite">20.1</div><div class="metric-pct">99th pct</div></div>
+        </div>
+        <div class="player-row">
+          <div class="rank-badge">3</div>
+          <div class="tier-bar bar-elite"></div>
+          <div class="player-info">
+            <div class="player-name">Nick Chubb</div>
+            <div class="player-meta">CLE · RB · Peak</div>
+            <div class="player-meta">303 car · 5.0 YPC · 12 TD</div>
+          </div>
+          <div><div class="metric-value tier-elite">17.8</div><div class="metric-pct">99th pct</div></div>
+        </div>
+        <div class="player-row">
+          <div class="rank-badge">4</div>
+          <div class="tier-bar bar-elite"></div>
+          <div class="player-info">
+            <div class="player-name">Saquon Barkley</div>
+            <div class="player-meta">NYG · RB · Peak</div>
+            <div class="player-meta">295 car · 4.4 YPC · 10 TD</div>
+          </div>
+          <div><div class="metric-value tier-elite">17.4</div><div class="metric-pct">98th pct</div></div>
+        </div>
+        <div class="player-row">
+          <div class="rank-badge">5</div>
+          <div class="tier-bar bar-elite"></div>
+          <div class="player-info">
+            <div class="player-name">Najee Harris</div>
+            <div class="player-meta">PIT · RB · Peak</div>
+            <div class="player-meta">272 car · 3.8 YPC · 7 TD</div>
+          </div>
+          <div><div class="metric-value tier-elite">16.0</div><div class="metric-pct">98th pct</div></div>
+        </div>
+        <div class="player-row">
+          <div class="rank-badge">6</div>
+          <div class="tier-bar bar-elite"></div>
+          <div class="player-info">
+            <div class="player-name">Dalvin Cook</div>
+            <div class="player-meta">MIN · RB · Declining</div>
+            <div class="player-meta">264 car · 4.4 YPC · 8 TD</div>
+          </div>
+          <div><div class="metric-value tier-elite">15.5</div><div class="metric-pct">97th pct</div></div>
+        </div>
+        <div class="player-row">
+          <div class="rank-badge">7</div>
+          <div class="tier-bar bar-elite"></div>
+          <div class="player-info">
+            <div class="player-name">Jamaal Williams</div>
+            <div class="player-meta">DET · RB · Declining</div>
+            <div class="player-meta">263 car · 4.1 YPC · 17 TD</div>
+          </div>
+          <div><div class="metric-value tier-elite">15.5</div><div class="metric-pct">96th pct</div></div>
+        </div>
+        <div class="player-row">
+          <div class="rank-badge">8</div>
+          <div class="tier-bar bar-elite"></div>
+          <div class="player-info">
+            <div class="player-name">Miles Sanders</div>
+            <div class="player-meta">PHI · RB · Peak</div>
+            <div class="player-meta">260 car · 4.9 YPC · 11 TD</div>
+          </div>
+          <div><div class="metric-value tier-elite">15.3</div><div class="metric-pct">96th pct</div></div>
+        </div>
+        <div class="player-row">
+          <div class="rank-badge">9</div>
+          <div class="tier-bar bar-elite"></div>
+          <div class="player-info">
+            <div class="player-name">Ezekiel Elliott</div>
+            <div class="player-meta">DAL · RB · Declining</div>
+            <div class="player-meta">231 car · 3.8 YPC · 12 TD</div>
+          </div>
+          <div><div class="metric-value tier-elite">13.6</div><div class="metric-pct">95th pct</div></div>
+        </div>
+        <div class="player-row">
+          <div class="rank-badge">10</div>
+          <div class="tier-bar bar-elite"></div>
+          <div class="player-info">
+            <div class="player-name">Kenneth Walker</div>
+            <div class="player-meta">SEA · RB · Breakout</div>
+            <div class="player-meta">228 car · 4.6 YPC · 9 TD</div>
+          </div>
+          <div><div class="metric-value tier-elite">13.4</div><div class="metric-pct">95th pct</div></div>
+        </div><div class="tier-divider tier-solid">Solid  (#11–25)</div>
+        <div class="player-row">
+          <div class="rank-badge">11</div>
+          <div class="tier-bar bar-solid"></div>
+          <div class="player-info">
+            <div class="player-name">Alvin Kamara</div>
+            <div class="player-meta">NO · RB · Declining</div>
+            <div class="player-meta">223 car · 4.0 YPC · 2 TD</div>
+          </div>
+          <div><div class="metric-value tier-solid">13.1</div><div class="metric-pct">94th pct</div></div>
+        </div>
+        <div class="player-row">
+          <div class="rank-badge">12</div>
+          <div class="tier-bar bar-solid"></div>
+          <div class="player-info">
+            <div class="player-name">Travis Etienne</div>
+            <div class="player-meta">JAX · RB · Peak</div>
+            <div class="player-meta">221 car · 5.1 YPC · 5 TD</div>
+          </div>
+          <div><div class="metric-value tier-solid">13.0</div><div class="metric-pct">94th pct</div></div>
+        </div>
+        <div class="player-row">
+          <div class="rank-badge">13</div>
+          <div class="tier-bar bar-solid"></div>
+          <div class="player-info">
+            <div class="player-name">Dameon Pierce</div>
+            <div class="player-meta">HOU · RB · Breakout</div>
+            <div class="player-meta">220 car · 4.3 YPC · 4 TD</div>
+          </div>
+          <div><div class="metric-value tier-solid">12.9</div><div class="metric-pct">93th pct</div></div>
+        </div>
+        <div class="player-row">
+          <div class="rank-badge">14</div>
+          <div class="tier-bar bar-solid"></div>
+          <div class="player-info">
+            <div class="player-name">Aaron Jones</div>
+            <div class="player-meta">GB · RB · Declining</div>
+            <div class="player-meta">213 car · 5.3 YPC · 2 TD</div>
+          </div>
+          <div><div class="metric-value tier-solid">12.5</div><div class="metric-pct">92th pct</div></div>
+        </div>
+        <div class="player-row">
+          <div class="rank-badge">15</div>
+          <div class="tier-bar bar-solid"></div>
+          <div class="player-info">
+            <div class="player-name">Tyler Allgeier</div>
+            <div class="player-meta">ATL · RB · Breakout</div>
+            <div class="player-meta">211 car · 4.9 YPC · 3 TD</div>
+          </div>
+          <div><div class="metric-value tier-solid">12.4</div><div class="metric-pct">92th pct</div></div>
+        </div>
+        <div class="player-row">
+          <div class="rank-badge">16</div>
+          <div class="tier-bar bar-solid"></div>
+          <div class="player-info">
+            <div class="player-name">Rhamondre Stevenson</div>
+            <div class="player-meta">NE · RB · Peak</div>
+            <div class="player-meta">210 car · 4.9 YPC · 5 TD</div>
+          </div>
+          <div><div class="metric-value tier-solid">12.4</div><div class="metric-pct">91th pct</div></div>
+        </div>
+        <div class="player-row">
+          <div class="rank-badge">17</div>
+          <div class="tier-bar bar-solid"></div>
+          <div class="player-info">
+            <div class="player-name">Joe Mixon</div>
+            <div class="player-meta">CIN · RB · Peak</div>
+            <div class="player-meta">210 car · 3.9 YPC · 7 TD</div>
+          </div>
+          <div><div class="metric-value tier-solid">12.4</div><div class="metric-pct">91th pct</div></div>
+        </div>
+        <div class="player-row">
+          <div class="rank-badge">18</div>
+          <div class="tier-bar bar-solid"></div>
+          <div class="player-info">
+            <div class="player-name">Brian Robinson</div>
+            <div class="player-meta">WAS · RB · Peak</div>
+            <div class="player-meta">205 car · 3.9 YPC · 2 TD</div>
+          </div>
+          <div><div class="metric-value tier-solid">12.1</div><div class="metric-pct">90th pct</div></div>
+        </div>
+        <div class="player-row">
+          <div class="rank-badge">19</div>
+          <div class="tier-bar bar-solid"></div>
+          <div class="player-info">
+            <div class="player-name">D'Onta Foreman</div>
+            <div class="player-meta">CAR · RB · Peak</div>
+            <div class="player-meta">204 car · 4.5 YPC · 5 TD</div>
+          </div>
+          <div><div class="metric-value tier-solid">12.0</div><div class="metric-pct">89th pct</div></div>
+        </div>
+        <div class="player-row">
+          <div class="rank-badge">20</div>
+          <div class="tier-bar bar-solid"></div>
+          <div class="player-info">
+            <div class="player-name">Austin Ekeler</div>
+            <div class="player-meta">LAC · RB · Declining</div>
+            <div class="player-meta">204 car · 4.5 YPC · 13 TD</div>
+          </div>
+          <div><div class="metric-value tier-solid">12.0</div><div class="metric-pct">89th pct</div></div>
+        </div>
+        <div class="player-row">
+          <div class="rank-badge">21</div>
+          <div class="tier-bar bar-solid"></div>
+          <div class="player-info">
+            <div class="player-name">David Montgomery</div>
+            <div class="player-meta">CHI · RB · Peak</div>
+            <div class="player-meta">201 car · 4.0 YPC · 5 TD</div>
+          </div>
+          <div><div class="metric-value tier-solid">11.8</div><div class="metric-pct">88th pct</div></div>
+        </div>
+        <div class="player-row">
+          <div class="rank-badge">22</div>
+          <div class="tier-bar bar-solid"></div>
+          <div class="player-info">
+            <div class="player-name">Tony Pollard</div>
+            <div class="player-meta">DAL · RB · Peak</div>
+            <div class="player-meta">193 car · 5.2 YPC · 9 TD</div>
+          </div>
+          <div><div class="metric-value tier-solid">11.4</div><div class="metric-pct">88th pct</div></div>
+        </div>
+        <div class="player-row">
+          <div class="rank-badge">23</div>
+          <div class="tier-bar bar-solid"></div>
+          <div class="player-info">
+            <div class="player-name">Jonathan Taylor</div>
+            <div class="player-meta">IND · RB · Peak</div>
+            <div class="player-meta">192 car · 4.5 YPC · 4 TD</div>
+          </div>
+          <div><div class="metric-value tier-solid">11.3</div><div class="metric-pct">87th pct</div></div>
+        </div>
+        <div class="player-row">
+          <div class="rank-badge">24</div>
+          <div class="tier-bar bar-solid"></div>
+          <div class="player-info">
+            <div class="player-name">Leonard Fournette</div>
+            <div class="player-meta">TB · RB · Declining</div>
+            <div class="player-meta">189 car · 3.5 YPC · 3 TD</div>
+          </div>
+          <div><div class="metric-value tier-solid">11.1</div><div class="metric-pct">86th pct</div></div>
+        </div>
+        <div class="player-row">
+          <div class="rank-badge">25</div>
+          <div class="tier-bar bar-solid"></div>
+          <div class="player-info">
+            <div class="player-name">Cam Akers</div>
+            <div class="player-meta">LA · RB · Peak</div>
+            <div class="player-meta">188 car · 4.2 YPC · 7 TD</div>
+          </div>
+          <div><div class="metric-value tier-solid">11.1</div><div class="metric-pct">86th pct</div></div>
+        </div><div class="tier-divider tier-fringe">Fringe  (#26–50)</div>
+        <div class="player-row">
+          <div class="rank-badge">26</div>
+          <div class="tier-bar bar-fringe"></div>
+          <div class="player-info">
+            <div class="player-name">A.J. Dillon</div>
+            <div class="player-meta">GB · RB · Peak</div>
+            <div class="player-meta">186 car · 4.1 YPC · 7 TD</div>
+          </div>
+          <div><div class="metric-value tier-fringe">10.9</div><div class="metric-pct">85th pct</div></div>
+        </div>
+        <div class="player-row">
+          <div class="rank-badge">27</div>
+          <div class="tier-bar bar-fringe"></div>
+          <div class="player-info">
+            <div class="player-name">James Conner</div>
+            <div class="player-meta">ARI · RB · Declining</div>
+            <div class="player-meta">183 car · 4.3 YPC · 7 TD</div>
+          </div>
+          <div><div class="metric-value tier-fringe">10.8</div><div class="metric-pct">85th pct</div></div>
+        </div>
+        <div class="player-row">
+          <div class="rank-badge">28</div>
+          <div class="tier-bar bar-fringe"></div>
+          <div class="player-info">
+            <div class="player-name">Raheem Mostert</div>
+            <div class="player-meta">MIA · RB · Veteran</div>
+            <div class="player-meta">181 car · 4.9 YPC · 3 TD</div>
+          </div>
+          <div><div class="metric-value tier-fringe">10.6</div><div class="metric-pct">84th pct</div></div>
+        </div>
+        <div class="player-row">
+          <div class="rank-badge">29</div>
+          <div class="tier-bar bar-fringe"></div>
+          <div class="player-info">
+            <div class="player-name">Devin Singletary</div>
+            <div class="player-meta">BUF · RB · Peak</div>
+            <div class="player-meta">177 car · 4.6 YPC · 5 TD</div>
+          </div>
+          <div><div class="metric-value tier-fringe">10.4</div><div class="metric-pct">84th pct</div></div>
+        </div>
+        <div class="player-row">
+          <div class="rank-badge">30</div>
+          <div class="tier-bar bar-fringe"></div>
+          <div class="player-info">
+            <div class="player-name">Isiah Pacheco</div>
+            <div class="player-meta">KC · RB · Peak</div>
+            <div class="player-meta">170 car · 4.9 YPC · 5 TD</div>
+          </div>
+          <div><div class="metric-value tier-fringe">10.0</div><div class="metric-pct">83th pct</div></div>
+        </div>
+        <div class="player-row">
+          <div class="rank-badge">31</div>
+          <div class="tier-bar bar-fringe"></div>
+          <div class="player-info">
+            <div class="player-name">Latavius Murray</div>
+            <div class="player-meta">DEN · RB · Veteran</div>
+            <div class="player-meta">161 car · 4.4 YPC · 5 TD</div>
+          </div>
+          <div><div class="metric-value tier-fringe">9.5</div><div class="metric-pct">82th pct</div></div>
+        </div>
+        <div class="player-row">
+          <div class="rank-badge">32</div>
+          <div class="tier-bar bar-fringe"></div>
+          <div class="player-info">
+            <div class="player-name">Christian McCaffrey</div>
+            <div class="player-meta">SF · RB · Peak</div>
+            <div class="player-meta">159 car · 4.7 YPC · 6 TD</div>
+          </div>
+          <div><div class="metric-value tier-fringe">9.4</div><div class="metric-pct">82th pct</div></div>
+        </div>
+        <div class="player-row">
+          <div class="rank-badge">33</div>
+          <div class="tier-bar bar-fringe"></div>
+          <div class="player-info">
+            <div class="player-name">Antonio Gibson</div>
+            <div class="player-meta">WAS · RB · Peak</div>
+            <div class="player-meta">149 car · 3.7 YPC · 3 TD</div>
+          </div>
+          <div><div class="metric-value tier-fringe">8.8</div><div class="metric-pct">81th pct</div></div>
+        </div>
+        <div class="player-row">
+          <div class="rank-badge">34</div>
+          <div class="tier-bar bar-fringe"></div>
+          <div class="player-info">
+            <div class="player-name">Cordarrelle Patterson</div>
+            <div class="player-meta">ATL · RB · Veteran</div>
+            <div class="player-meta">144 car · 4.8 YPC · 8 TD</div>
+          </div>
+          <div><div class="metric-value tier-fringe">8.5</div><div class="metric-pct">81th pct</div></div>
+        </div>
+        <div class="player-row">
+          <div class="rank-badge">35</div>
+          <div class="tier-bar bar-fringe"></div>
+          <div class="player-info">
+            <div class="player-name">Rachaad White</div>
+            <div class="player-meta">TB · RB · Peak</div>
+            <div class="player-meta">130 car · 3.7 YPC · 1 TD</div>
+          </div>
+          <div><div class="metric-value tier-fringe">7.6</div><div class="metric-pct">80th pct</div></div>
+        </div>
+        <div class="player-row">
+          <div class="rank-badge">36</div>
+          <div class="tier-bar bar-fringe"></div>
+          <div class="player-info">
+            <div class="player-name">Khalil Herbert</div>
+            <div class="player-meta">CHI · RB · Peak</div>
+            <div class="player-meta">129 car · 5.7 YPC · 4 TD</div>
+          </div>
+          <div><div class="metric-value tier-fringe">7.6</div><div class="metric-pct">79th pct</div></div>
+        </div>
+        <div class="player-row">
+          <div class="rank-badge">37</div>
+          <div class="tier-bar bar-fringe"></div>
+          <div class="player-info">
+            <div class="player-name">Kareem Hunt</div>
+            <div class="player-meta">CLE · RB · Declining</div>
+            <div class="player-meta">123 car · 3.8 YPC · 3 TD</div>
+          </div>
+          <div><div class="metric-value tier-fringe">7.2</div><div class="metric-pct">79th pct</div></div>
+        </div>
+        <div class="player-row">
+          <div class="rank-badge">38</div>
+          <div class="tier-bar bar-fringe"></div>
+          <div class="player-info">
+            <div class="player-name">Michael Carter</div>
+            <div class="player-meta">NYJ · RB · Peak</div>
+            <div class="player-meta">114 car · 3.5 YPC · 3 TD</div>
+          </div>
+          <div><div class="metric-value tier-fringe">6.7</div><div class="metric-pct">78th pct</div></div>
+        </div>
+        <div class="player-row">
+          <div class="rank-badge">39</div>
+          <div class="tier-bar bar-fringe"></div>
+          <div class="player-info">
+            <div class="player-name">Kenyan Drake</div>
+            <div class="player-meta">BAL · RB · Declining</div>
+            <div class="player-meta">109 car · 4.4 YPC · 4 TD</div>
+          </div>
+          <div><div class="metric-value tier-fringe">6.4</div><div class="metric-pct">78th pct</div></div>
+        </div>
+        <div class="player-row">
+          <div class="rank-badge">40</div>
+          <div class="tier-bar bar-fringe"></div>
+          <div class="player-info">
+            <div class="player-name">Damien Harris</div>
+            <div class="player-meta">NE · RB · Peak</div>
+            <div class="player-meta">106 car · 4.4 YPC · 3 TD</div>
+          </div>
+          <div><div class="metric-value tier-fringe">6.2</div><div class="metric-pct">77th pct</div></div>
+        </div>
+        <div class="player-row">
+          <div class="rank-badge">41</div>
+          <div class="tier-bar bar-fringe"></div>
+          <div class="player-info">
+            <div class="player-name">D'Andre Swift</div>
+            <div class="player-meta">DET · RB · Peak</div>
+            <div class="player-meta">100 car · 5.4 YPC · 5 TD</div>
+          </div>
+          <div><div class="metric-value tier-fringe">5.9</div><div class="metric-pct">76th pct</div></div>
+        </div>
+        <div class="player-row">
+          <div class="rank-badge">42</div>
+          <div class="tier-bar bar-fringe"></div>
+          <div class="player-info">
+            <div class="player-name">Samaje Perine</div>
+            <div class="player-meta">CIN · RB · Peak</div>
+            <div class="player-meta">96 car · 4.1 YPC · 2 TD</div>
+          </div>
+          <div><div class="metric-value tier-fringe">5.6</div><div class="metric-pct">76th pct</div></div>
+        </div>
+        <div class="player-row">
+          <div class="rank-badge">43</div>
+          <div class="tier-bar bar-fringe"></div>
+          <div class="player-info">
+            <div class="player-name">Chuba Hubbard</div>
+            <div class="player-meta">CAR · RB · Peak</div>
+            <div class="player-meta">95 car · 4.9 YPC · 2 TD</div>
+          </div>
+          <div><div class="metric-value tier-fringe">5.6</div><div class="metric-pct">75th pct</div></div>
+        </div>
+        <div class="player-row">
+          <div class="rank-badge">44</div>
+          <div class="tier-bar bar-fringe"></div>
+          <div class="player-info">
+            <div class="player-name">Jeffery Wilson</div>
+            <div class="player-meta">SF · RB · Peak</div>
+            <div class="player-meta">92 car · 5.1 YPC · 2 TD</div>
+          </div>
+          <div><div class="metric-value tier-fringe">5.4</div><div class="metric-pct">74th pct</div></div>
+        </div>
+        <div class="player-row">
+          <div class="rank-badge">45</div>
+          <div class="tier-bar bar-fringe"></div>
+          <div class="player-info">
+            <div class="player-name">J.K. Dobbins</div>
+            <div class="player-meta">BAL · RB · Peak</div>
+            <div class="player-meta">92 car · 5.7 YPC · 2 TD</div>
+          </div>
+          <div><div class="metric-value tier-fringe">5.4</div><div class="metric-pct">74th pct</div></div>
+        </div>
+        <div class="player-row">
+          <div class="rank-badge">46</div>
+          <div class="tier-bar bar-fringe"></div>
+          <div class="player-info">
+            <div class="player-name">Melvin Gordon</div>
+            <div class="player-meta">DEN · RB · Veteran</div>
+            <div class="player-meta">90 car · 3.5 YPC · 2 TD</div>
+          </div>
+          <div><div class="metric-value tier-fringe">5.3</div><div class="metric-pct">74th pct</div></div>
+        </div>
+        <div class="player-row">
+          <div class="rank-badge">47</div>
+          <div class="tier-bar bar-fringe"></div>
+          <div class="player-info">
+            <div class="player-name">James Cook</div>
+            <div class="player-meta">BUF · RB · Breakout</div>
+            <div class="player-meta">89 car · 5.7 YPC · 2 TD</div>
+          </div>
+          <div><div class="metric-value tier-fringe">5.2</div><div class="metric-pct">73th pct</div></div>
+        </div>
+        <div class="player-row">
+          <div class="rank-badge">48</div>
+          <div class="tier-bar bar-fringe"></div>
+          <div class="player-info">
+            <div class="player-name">Gus Edwards</div>
+            <div class="player-meta">BAL · RB · Declining</div>
+            <div class="player-meta">87 car · 5.0 YPC · 3 TD</div>
+          </div>
+          <div><div class="metric-value tier-fringe">5.1</div><div class="metric-pct">72th pct</div></div>
+        </div>
+        <div class="player-row">
+          <div class="rank-badge">49</div>
+          <div class="tier-bar bar-fringe"></div>
+          <div class="player-info">
+            <div class="player-name">Christian McCaffrey</div>
+            <div class="player-meta">CAR · RB · Peak</div>
+            <div class="player-meta">87 car · 4.5 YPC · 2 TD</div>
+          </div>
+          <div><div class="metric-value tier-fringe">5.1</div><div class="metric-pct">72th pct</div></div>
+        </div>
+        <div class="player-row">
+          <div class="rank-badge">50</div>
+          <div class="tier-bar bar-fringe"></div>
+          <div class="player-info">
+            <div class="player-name">Zonovan Knight</div>
+            <div class="player-meta">NYJ · RB · Breakout</div>
+            <div class="player-meta">85 car · 3.5 YPC · 1 TD</div>
+          </div>
+          <div><div class="metric-value tier-fringe">5.0</div><div class="metric-pct">71th pct</div></div>
+        </div></div>
+<div class="report-footer">
+  DTFFL Analytics · nflverse data · 2022 regular season<br>
+  Top 50 of 77 qualifying players
+</div>
+<script>function toggleTooltip(){document.getElementById('tooltip').classList.toggle('open');}</script>
+
+<nav class="bottom-nav" id="bottom-nav">
+  <a class="nav-tab" id="nav-reports" href="../../index.html">
+    <span class="nav-icon">📊</span>Reports
+  </a>
+  <a class="nav-tab" id="nav-trends" href="../../trends_index.html">
+    <span class="nav-icon">📈</span>Trends
+  </a>
+  <a class="nav-tab" id="nav-draft" href="../../draft_prep/rb_draft_prep_2026.html">
+    <span class="nav-icon">🏈</span>Draft
+  </a>
+</nav>
+<script>
+(function(){
+  var p = window.location.pathname;
+  if (p.includes('trends') || p.includes('candidate'))  {
+    document.getElementById('nav-trends').classList.add('active');
+  } else if (p.includes('draft_prep')) {
+    document.getElementById('nav-draft').classList.add('active');
+  } else {
+    document.getElementById('nav-reports').classList.add('active');
+  }
+})();
+</script>
+</body></html>
