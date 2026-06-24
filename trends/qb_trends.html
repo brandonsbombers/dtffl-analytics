@@ -1,0 +1,3529 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<title>QB Multi-Season Trends</title>
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { font-size: 16px; }
+body {
+  background: #0f172a; color: #e2e8f0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  max-width: 480px; margin: 0 auto; padding-bottom: 48px;
+  -webkit-text-size-adjust: 100%;
+}
+.pg-header {
+  position: sticky; top: 0; z-index: 10;
+  background: #0f172a; border-bottom: 1px solid #1e293b;
+  padding: 14px 16px 10px;
+}
+.pg-title  { font-size: 18px; font-weight: 700; color: #f8fafc; line-height: 1.2; }
+.pg-sub    { font-size: 12px; color: #64748b; margin-top: 3px; }
+.section-hd {
+  padding: 12px 16px 4px; font-size: 11px; font-weight: 700;
+  letter-spacing: .07em; text-transform: uppercase; color: #475569;
+  border-top: 1px solid #1e293b; margin-top: 6px;
+}
+.section-hd:first-of-type { border-top: none; margin-top: 0; }
+.pg-footer {
+  padding: 20px 16px 0; font-size: 11px;
+  color: #334155; text-align: center;
+}
+/* ── Trend player card ─────────────────────────────────── */
+.trend-card {
+  background: #1e293b; border: 1px solid #2d3f55;
+  border-radius: 12px; margin: 6px 12px; padding: 12px 14px;
+}
+.trend-card-header {
+  display: flex; justify-content: space-between;
+  align-items: flex-start; margin-bottom: 8px;
+}
+.trend-name  { font-size: 15px; font-weight: 700; color: #f1f5f9; }
+.trend-meta  { font-size: 11px; color: #64748b; margin-top: 2px; }
+.trend-badge {
+  font-size: 11px; font-weight: 700; padding: 3px 9px;
+  border-radius: 99px; flex-shrink: 0; margin-left: 8px;
+}
+/* ── Sparkline row ─────────────────────────────────────── */
+.spark-row  {
+  display: flex; gap: 4px; align-items: flex-end;
+  height: 32px; margin-bottom: 6px;
+}
+.spark-bar  {
+  flex: 1; border-radius: 3px 3px 0 0;
+  min-height: 4px; position: relative;
+}
+.spark-lbl  {
+  font-size: 9px; color: #475569; text-align: center;
+  margin-top: 2px;
+}
+.spark-wrap { flex: 1; }
+/* ── Stat grid ─────────────────────────────────────────── */
+.stat-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 6px; margin-top: 8px;
+}
+.stat-cell  {
+  background: #0f172a; border-radius: 8px;
+  padding: 7px 6px; text-align: center;
+}
+.stat-val   { font-size: 14px; font-weight: 700; color: #f1f5f9; }
+.stat-lbl   { font-size: 9px; color: #475569; margin-top: 1px; }
+.stat-arrow { font-size: 10px; margin-left: 2px; }
+.up   { color: #4ade80; } .down { color: #f87171; } .flat { color: #94a3b8; }
+/* ── Draft prep card ───────────────────────────────────── */
+.draft-card {
+  margin: 6px 12px; border-radius: 12px;
+  border: 1px solid #2d3f55; overflow: hidden;
+}
+.draft-card-top {
+  background: #1e293b; padding: 12px 14px;
+  display: flex; justify-content: space-between; align-items: center;
+}
+.draft-rank  {
+  font-size: 22px; font-weight: 700; color: #475569;
+  min-width: 36px; flex-shrink: 0;
+}
+.draft-name  { font-size: 15px; font-weight: 700; color: #f1f5f9; }
+.draft-meta  { font-size: 11px; color: #64748b; margin-top: 2px; }
+.draft-score {
+  font-size: 24px; font-weight: 800;
+  min-width: 52px; text-align: right; flex-shrink: 0;
+}
+.draft-card-body {
+  background: #162032; padding: 10px 14px;
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px;
+}
+.dc-stat { text-align: center; }
+.dc-val  { font-size: 13px; font-weight: 700; color: #f1f5f9; }
+.dc-lbl  { font-size: 9px; color: #475569; margin-top: 1px; }
+.draft-signal {
+  background: #0f172a; padding: 6px 14px 10px;
+  font-size: 11px; color: #94a3b8; line-height: 1.5;
+}
+.signal-tag {
+  display: inline-block; font-size: 10px; font-weight: 700;
+  padding: 1px 8px; border-radius: 99px; margin-right: 4px;
+}
+
+.bottom-nav {
+  position: fixed; bottom: 0; left: 50%; transform: translateX(-50%);
+  width: 100%; max-width: 480px;
+  background: #0f172a; border-top: 1px solid #1e293b;
+  display: flex; z-index: 100;
+  padding-bottom: env(safe-area-inset-bottom);
+}
+.nav-tab {
+  flex: 1; display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  padding: 8px 0 6px; text-decoration: none;
+  color: #475569; font-size: 10px; font-weight: 600;
+  letter-spacing: .03em; gap: 3px;
+  -webkit-tap-highlight-color: transparent;
+}
+.nav-tab:active { background: #1e293b; }
+.nav-tab.active { color: #4ade80; }
+.nav-icon { font-size: 18px; line-height: 1; }
+/* Push page content above nav bar */
+body { padding-bottom: calc(56px + env(safe-area-inset-bottom)) !important; }
+</style></head><body>
+<div class="pg-header">
+  <div class="pg-title">📈 QB Multi-Season Trends</div>
+  <div class="pg-sub">DTFFL Half-PPR · Ranked by 2025 composite · 60 players · 2021–2025</div>
+</div>
+
+    <div class="trend-card">
+      <div class="trend-card-header">
+        <div>
+          <div class="trend-name">Drake Maye</div>
+          <div class="trend-meta">NE · QB · Age 23 · '24 · '25</div>
+        </div>
+        <div class="trend-badge" style="color:#4ade80;background:#1e293b;border:1px solid #4ade80">
+          89
+        </div>
+      </div>
+      <div class="spark-row">
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:14px;background:#4ade80"></div>
+          <div class="spark-lbl">24</div>
+        </div>
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:28px;background:#4ade80"></div>
+          <div class="spark-lbl">25</div>
+        </div></div>
+      <div class="stat-grid">
+        <div class="stat-cell">
+          <div class="stat-val">353<span class="stat-arrow up">▲</span></div>
+          <div class="stat-lbl">Fpts</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">+0.298<span class="stat-arrow flat">●</span></div>
+          <div class="stat-lbl">EPA/att</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">66%<span class="stat-arrow up">▲</span></div>
+          <div class="stat-lbl">Cmp%</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">69</div>
+          <div class="stat-lbl">Rush Fpts</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">8.25</div>
+          <div class="stat-lbl">AYA</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">+94</div>
+          <div class="stat-lbl">WAR</div>
+        </div></div>
+      <div style="margin-top:8px;"><span class="signal-tag" style="color:#4ade80;background:#052e16">Breakout</span><span class="signal-tag" style="color:#4ade80;background:#052e16">Rising</span><span class="signal-tag" style="color:#a78bfa;background:#1a0a3a">Elite WAR</span><span class="signal-tag" style="color:#34d399;background:#052e20">Mobile QB</span></div>
+    </div>
+    <div class="trend-card">
+      <div class="trend-card-header">
+        <div>
+          <div class="trend-name">Dak Prescott</div>
+          <div class="trend-meta">DAL · QB · Age 32 · '21 · '22 · '23 · '24 · '25</div>
+        </div>
+        <div class="trend-badge" style="color:#4ade80;background:#1e293b;border:1px solid #4ade80">
+          83
+        </div>
+      </div>
+      <div class="spark-row">
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:26px;background:#4ade80"></div>
+          <div class="spark-lbl">21</div>
+        </div>
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:17px;background:#4ade80"></div>
+          <div class="spark-lbl">22</div>
+        </div>
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:28px;background:#4ade80"></div>
+          <div class="spark-lbl">23</div>
+        </div>
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:10px;background:#4ade80"></div>
+          <div class="spark-lbl">24</div>
+        </div>
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:25px;background:#4ade80"></div>
+          <div class="spark-lbl">25</div>
+        </div></div>
+      <div class="stat-grid">
+        <div class="stat-cell">
+          <div class="stat-val">312<span class="stat-arrow up">▲</span></div>
+          <div class="stat-lbl">Fpts</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">+0.168<span class="stat-arrow flat">●</span></div>
+          <div class="stat-lbl">EPA/att</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">64%<span class="stat-arrow up">▲</span></div>
+          <div class="stat-lbl">Cmp%</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">28</div>
+          <div class="stat-lbl">Rush Fpts</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">7.10</div>
+          <div class="stat-lbl">AYA</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">+52</div>
+          <div class="stat-lbl">WAR</div>
+        </div></div>
+      <div style="margin-top:8px;"><span class="signal-tag" style="color:#60a5fa;background:#0c1a2e">Peak</span><span class="signal-tag" style="color:#4ade80;background:#052e16">Rising</span></div>
+    </div>
+    <div class="trend-card">
+      <div class="trend-card-header">
+        <div>
+          <div class="trend-name">Matthew Stafford</div>
+          <div class="trend-meta">LA · QB · Age 38 · '21 · '22 · '23 · '24 · '25</div>
+        </div>
+        <div class="trend-badge" style="color:#4ade80;background:#1e293b;border:1px solid #4ade80">
+          82
+        </div>
+      </div>
+      <div class="spark-row">
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:26px;background:#4ade80"></div>
+          <div class="spark-lbl">21</div>
+        </div>
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:8px;background:#4ade80"></div>
+          <div class="spark-lbl">22</div>
+        </div>
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:19px;background:#4ade80"></div>
+          <div class="spark-lbl">23</div>
+        </div>
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:17px;background:#4ade80"></div>
+          <div class="spark-lbl">24</div>
+        </div>
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:28px;background:#4ade80"></div>
+          <div class="spark-lbl">25</div>
+        </div></div>
+      <div class="stat-grid">
+        <div class="stat-cell">
+          <div class="stat-val">356<span class="stat-arrow up">▲</span></div>
+          <div class="stat-lbl">Fpts</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">+0.227<span class="stat-arrow flat">●</span></div>
+          <div class="stat-lbl">EPA/att</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">63%<span class="stat-arrow flat">●</span></div>
+          <div class="stat-lbl">Cmp%</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">-2</div>
+          <div class="stat-lbl">Rush Fpts</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">8.25</div>
+          <div class="stat-lbl">AYA</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">+97</div>
+          <div class="stat-lbl">WAR</div>
+        </div></div>
+      <div style="margin-top:8px;"><span class="signal-tag" style="color:#f87171;background:#2d0a0a">Veteran</span><span class="signal-tag" style="color:#4ade80;background:#052e16">Rising</span><span class="signal-tag" style="color:#a78bfa;background:#1a0a3a">Elite WAR</span></div>
+    </div>
+    <div class="trend-card">
+      <div class="trend-card-header">
+        <div>
+          <div class="trend-name">Josh Allen</div>
+          <div class="trend-meta">BUF · QB · Age 29 · '21 · '21 · '21 · '21 · '22 · '23 · '24 · '25</div>
+        </div>
+        <div class="trend-badge" style="color:#4ade80;background:#1e293b;border:1px solid #4ade80">
+          81
+        </div>
+      </div>
+      <div class="spark-row">
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:25px;background:#4ade80"></div>
+          <div class="spark-lbl">21</div>
+        </div>
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:19px;background:#4ade80"></div>
+          <div class="spark-lbl">21</div>
+        </div>
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:9px;background:#4ade80"></div>
+          <div class="spark-lbl">21</div>
+        </div>
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:4px;background:#4ade80"></div>
+          <div class="spark-lbl">21</div>
+        </div>
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:28px;background:#4ade80"></div>
+          <div class="spark-lbl">22</div>
+        </div>
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:27px;background:#4ade80"></div>
+          <div class="spark-lbl">23</div>
+        </div>
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:26px;background:#4ade80"></div>
+          <div class="spark-lbl">24</div>
+        </div>
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:25px;background:#4ade80"></div>
+          <div class="spark-lbl">25</div>
+        </div></div>
+      <div class="stat-grid">
+        <div class="stat-cell">
+          <div class="stat-val">363<span class="stat-arrow down">▼</span></div>
+          <div class="stat-lbl">Fpts</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">+0.120<span class="stat-arrow flat">●</span></div>
+          <div class="stat-lbl">EPA/att</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">63%<span class="stat-arrow flat">●</span></div>
+          <div class="stat-lbl">Cmp%</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">138</div>
+          <div class="stat-lbl">Rush Fpts</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">6.75</div>
+          <div class="stat-lbl">AYA</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">+103</div>
+          <div class="stat-lbl">WAR</div>
+        </div></div>
+      <div style="margin-top:8px;"><span class="signal-tag" style="color:#60a5fa;background:#0c1a2e">Peak</span><span class="signal-tag" style="color:#a78bfa;background:#1a0a3a">Elite WAR</span><span class="signal-tag" style="color:#34d399;background:#052e20">Mobile QB</span></div>
+    </div>
+    <div class="trend-card">
+      <div class="trend-card-header">
+        <div>
+          <div class="trend-name">Jalen Hurts</div>
+          <div class="trend-meta">PHI · QB · Age 27 · '21 · '22 · '23 · '24 · '25</div>
+        </div>
+        <div class="trend-badge" style="color:#4ade80;background:#1e293b;border:1px solid #4ade80">
+          79
+        </div>
+      </div>
+      <div class="spark-row">
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:23px;background:#4ade80"></div>
+          <div class="spark-lbl">21</div>
+        </div>
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:28px;background:#4ade80"></div>
+          <div class="spark-lbl">22</div>
+        </div>
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:27px;background:#4ade80"></div>
+          <div class="spark-lbl">23</div>
+        </div>
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:23px;background:#4ade80"></div>
+          <div class="spark-lbl">24</div>
+        </div>
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:22px;background:#4ade80"></div>
+          <div class="spark-lbl">25</div>
+        </div></div>
+      <div class="stat-grid">
+        <div class="stat-cell">
+          <div class="stat-val">302<span class="stat-arrow down">▼</span></div>
+          <div class="stat-lbl">Fpts</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">+0.052<span class="stat-arrow flat">●</span></div>
+          <div class="stat-lbl">EPA/att</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">60%<span class="stat-arrow flat">●</span></div>
+          <div class="stat-lbl">Cmp%</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">86</div>
+          <div class="stat-lbl">Rush Fpts</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">6.71</div>
+          <div class="stat-lbl">AYA</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">+42</div>
+          <div class="stat-lbl">WAR</div>
+        </div></div>
+      <div style="margin-top:8px;"><span class="signal-tag" style="color:#60a5fa;background:#0c1a2e">Peak</span><span class="signal-tag" style="color:#34d399;background:#052e20">Mobile QB</span></div>
+    </div>
+    <div class="trend-card">
+      <div class="trend-card-header">
+        <div>
+          <div class="trend-name">Jordan Love</div>
+          <div class="trend-meta">GB · QB · Age 27 · '21 · '22 · '23 · '24 · '25</div>
+        </div>
+        <div class="trend-badge" style="color:#4ade80;background:#1e293b;border:1px solid #4ade80">
+          79
+        </div>
+      </div>
+      <div class="spark-row">
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:4px;background:#4ade80"></div>
+          <div class="spark-lbl">21</div>
+        </div>
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:4px;background:#4ade80"></div>
+          <div class="spark-lbl">22</div>
+        </div>
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:28px;background:#4ade80"></div>
+          <div class="spark-lbl">23</div>
+        </div>
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:20px;background:#4ade80"></div>
+          <div class="spark-lbl">24</div>
+        </div>
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:20px;background:#4ade80"></div>
+          <div class="spark-lbl">25</div>
+        </div></div>
+      <div class="stat-grid">
+        <div class="stat-cell">
+          <div class="stat-val">235<span class="stat-arrow flat">●</span></div>
+          <div class="stat-lbl">Fpts</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">+0.239<span class="stat-arrow flat">●</span></div>
+          <div class="stat-lbl">EPA/att</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">63%<span class="stat-arrow up">▲</span></div>
+          <div class="stat-lbl">Cmp%</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">20</div>
+          <div class="stat-lbl">Rush Fpts</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">7.37</div>
+          <div class="stat-lbl">AYA</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">-25</div>
+          <div class="stat-lbl">WAR</div>
+        </div></div>
+      <div style="margin-top:8px;"><span class="signal-tag" style="color:#60a5fa;background:#0c1a2e">Peak</span><span class="signal-tag" style="color:#94a3b8;background:#1e293b">–WAR</span></div>
+    </div>
+    <div class="trend-card">
+      <div class="trend-card-header">
+        <div>
+          <div class="trend-name">Caleb Williams</div>
+          <div class="trend-meta">CHI · QB · Age 24 · '24 · '25</div>
+        </div>
+        <div class="trend-badge" style="color:#4ade80;background:#1e293b;border:1px solid #4ade80">
+          79
+        </div>
+      </div>
+      <div class="spark-row">
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:21px;background:#4ade80"></div>
+          <div class="spark-lbl">24</div>
+        </div>
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:28px;background:#4ade80"></div>
+          <div class="spark-lbl">25</div>
+        </div></div>
+      <div class="stat-grid">
+        <div class="stat-cell">
+          <div class="stat-val">308<span class="stat-arrow up">▲</span></div>
+          <div class="stat-lbl">Fpts</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">+0.071<span class="stat-arrow flat">●</span></div>
+          <div class="stat-lbl">EPA/att</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">55%<span class="stat-arrow flat">●</span></div>
+          <div class="stat-lbl">Cmp%</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">56</div>
+          <div class="stat-lbl">Rush Fpts</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">6.72</div>
+          <div class="stat-lbl">AYA</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">+49</div>
+          <div class="stat-lbl">WAR</div>
+        </div></div>
+      <div style="margin-top:8px;"><span class="signal-tag" style="color:#4ade80;background:#052e16">Breakout</span><span class="signal-tag" style="color:#4ade80;background:#052e16">Rising</span></div>
+    </div>
+    <div class="trend-card">
+      <div class="trend-card-header">
+        <div>
+          <div class="trend-name">Brock Purdy</div>
+          <div class="trend-meta">SF · QB · Age 26 · '22 · '23 · '24 · '25</div>
+        </div>
+        <div class="trend-badge" style="color:#4ade80;background:#1e293b;border:1px solid #4ade80">
+          79
+        </div>
+      </div>
+      <div class="spark-row">
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:9px;background:#4ade80"></div>
+          <div class="spark-lbl">22</div>
+        </div>
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:28px;background:#4ade80"></div>
+          <div class="spark-lbl">23</div>
+        </div>
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:25px;background:#4ade80"></div>
+          <div class="spark-lbl">24</div>
+        </div>
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:17px;background:#4ade80"></div>
+          <div class="spark-lbl">25</div>
+        </div></div>
+      <div class="stat-grid">
+        <div class="stat-cell">
+          <div class="stat-val">187<span class="stat-arrow down">▼</span></div>
+          <div class="stat-lbl">Fpts</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">+0.194<span class="stat-arrow flat">●</span></div>
+          <div class="stat-lbl">EPA/att</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">66%<span class="stat-arrow up">▲</span></div>
+          <div class="stat-lbl">Cmp%</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">33</div>
+          <div class="stat-lbl">Rush Fpts</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">6.93</div>
+          <div class="stat-lbl">AYA</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">-72</div>
+          <div class="stat-lbl">WAR</div>
+        </div></div>
+      <div style="margin-top:8px;"><span class="signal-tag" style="color:#4ade80;background:#052e16">Breakout</span><span class="signal-tag" style="color:#f87171;background:#2d0a0a">Declining</span><span class="signal-tag" style="color:#94a3b8;background:#1e293b">–WAR</span></div>
+    </div>
+    <div class="trend-card">
+      <div class="trend-card-header">
+        <div>
+          <div class="trend-name">Bo Nix</div>
+          <div class="trend-meta">DEN · QB · Age 26 · '24 · '25</div>
+        </div>
+        <div class="trend-badge" style="color:#4ade80;background:#1e293b;border:1px solid #4ade80">
+          78
+        </div>
+      </div>
+      <div class="spark-row">
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:28px;background:#4ade80"></div>
+          <div class="spark-lbl">24</div>
+        </div>
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:27px;background:#4ade80"></div>
+          <div class="spark-lbl">25</div>
+        </div></div>
+      <div class="stat-grid">
+        <div class="stat-cell">
+          <div class="stat-val">305<span class="stat-arrow down">▼</span></div>
+          <div class="stat-lbl">Fpts</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">+0.092<span class="stat-arrow flat">●</span></div>
+          <div class="stat-lbl">EPA/att</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">61%<span class="stat-arrow down">▼</span></div>
+          <div class="stat-lbl">Cmp%</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">64</div>
+          <div class="stat-lbl">Rush Fpts</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">5.99</div>
+          <div class="stat-lbl">AYA</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">+46</div>
+          <div class="stat-lbl">WAR</div>
+        </div></div>
+      <div style="margin-top:8px;"><span class="signal-tag" style="color:#4ade80;background:#052e16">Breakout</span></div>
+    </div>
+    <div class="trend-card">
+      <div class="trend-card-header">
+        <div>
+          <div class="trend-name">Trevor Lawrence</div>
+          <div class="trend-meta">JAX · QB · Age 26 · '21 · '22 · '23 · '24 · '25</div>
+        </div>
+        <div class="trend-badge" style="color:#4ade80;background:#1e293b;border:1px solid #4ade80">
+          78
+        </div>
+      </div>
+      <div class="spark-row">
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:17px;background:#4ade80"></div>
+          <div class="spark-lbl">21</div>
+        </div>
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:24px;background:#4ade80"></div>
+          <div class="spark-lbl">22</div>
+        </div>
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:22px;background:#4ade80"></div>
+          <div class="spark-lbl">23</div>
+        </div>
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:11px;background:#4ade80"></div>
+          <div class="spark-lbl">24</div>
+        </div>
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:28px;background:#4ade80"></div>
+          <div class="spark-lbl">25</div>
+        </div></div>
+      <div class="stat-grid">
+        <div class="stat-cell">
+          <div class="stat-val">342<span class="stat-arrow up">▲</span></div>
+          <div class="stat-lbl">Fpts</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">+0.055<span class="stat-arrow flat">●</span></div>
+          <div class="stat-lbl">EPA/att</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">57%<span class="stat-arrow flat">●</span></div>
+          <div class="stat-lbl">Cmp%</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">88</div>
+          <div class="stat-lbl">Rush Fpts</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">6.30</div>
+          <div class="stat-lbl">AYA</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">+83</div>
+          <div class="stat-lbl">WAR</div>
+        </div></div>
+      <div style="margin-top:8px;"><span class="signal-tag" style="color:#4ade80;background:#052e16">Breakout</span><span class="signal-tag" style="color:#4ade80;background:#052e16">Rising</span><span class="signal-tag" style="color:#a78bfa;background:#1a0a3a">Elite WAR</span></div>
+    </div>
+    <div class="trend-card">
+      <div class="trend-card-header">
+        <div>
+          <div class="trend-name">Patrick Mahomes</div>
+          <div class="trend-meta">KC · QB · Age 30 · '21 · '22 · '23 · '24 · '25</div>
+        </div>
+        <div class="trend-badge" style="color:#4ade80;background:#1e293b;border:1px solid #4ade80">
+          77
+        </div>
+      </div>
+      <div class="spark-row">
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:24px;background:#4ade80"></div>
+          <div class="spark-lbl">21</div>
+        </div>
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:28px;background:#4ade80"></div>
+          <div class="spark-lbl">22</div>
+        </div>
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:19px;background:#4ade80"></div>
+          <div class="spark-lbl">23</div>
+        </div>
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:19px;background:#4ade80"></div>
+          <div class="spark-lbl">24</div>
+        </div>
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:19px;background:#4ade80"></div>
+          <div class="spark-lbl">25</div>
+        </div></div>
+      <div class="stat-grid">
+        <div class="stat-cell">
+          <div class="stat-val">285<span class="stat-arrow flat">●</span></div>
+          <div class="stat-lbl">Fpts</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">+0.127<span class="stat-arrow flat">●</span></div>
+          <div class="stat-lbl">EPA/att</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">58%<span class="stat-arrow down">▼</span></div>
+          <div class="stat-lbl">Cmp%</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">72</div>
+          <div class="stat-lbl">Rush Fpts</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">6.20</div>
+          <div class="stat-lbl">AYA</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">+26</div>
+          <div class="stat-lbl">WAR</div>
+        </div></div>
+      <div style="margin-top:8px;"><span class="signal-tag" style="color:#60a5fa;background:#0c1a2e">Peak</span></div>
+    </div>
+    <div class="trend-card">
+      <div class="trend-card-header">
+        <div>
+          <div class="trend-name">Daniel Jones</div>
+          <div class="trend-meta">IND · QB · Age 28 · '21 · '22 · '23 · '24 · '25</div>
+        </div>
+        <div class="trend-badge" style="color:#4ade80;background:#1e293b;border:1px solid #4ade80">
+          76
+        </div>
+      </div>
+      <div class="spark-row">
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:16px;background:#4ade80"></div>
+          <div class="spark-lbl">21</div>
+        </div>
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:28px;background:#4ade80"></div>
+          <div class="spark-lbl">22</div>
+        </div>
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:5px;background:#4ade80"></div>
+          <div class="spark-lbl">23</div>
+        </div>
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:13px;background:#4ade80"></div>
+          <div class="spark-lbl">24</div>
+        </div>
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:22px;background:#4ade80"></div>
+          <div class="spark-lbl">25</div>
+        </div></div>
+      <div class="stat-grid">
+        <div class="stat-cell">
+          <div class="stat-val">232<span class="stat-arrow up">▲</span></div>
+          <div class="stat-lbl">Fpts</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">+0.140<span class="stat-arrow flat">●</span></div>
+          <div class="stat-lbl">EPA/att</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">64%<span class="stat-arrow up">▲</span></div>
+          <div class="stat-lbl">Cmp%</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">46</div>
+          <div class="stat-lbl">Rush Fpts</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">7.21</div>
+          <div class="stat-lbl">AYA</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">-27</div>
+          <div class="stat-lbl">WAR</div>
+        </div></div>
+      <div style="margin-top:8px;"><span class="signal-tag" style="color:#60a5fa;background:#0c1a2e">Peak</span><span class="signal-tag" style="color:#4ade80;background:#052e16">Rising</span><span class="signal-tag" style="color:#94a3b8;background:#1e293b">–WAR</span></div>
+    </div>
+    <div class="trend-card">
+      <div class="trend-card-header">
+        <div>
+          <div class="trend-name">Jared Goff</div>
+          <div class="trend-meta">DET · QB · Age 31 · '21 · '22 · '23 · '24 · '25</div>
+        </div>
+        <div class="trend-badge" style="color:#4ade80;background:#1e293b;border:1px solid #4ade80">
+          76
+        </div>
+      </div>
+      <div class="spark-row">
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:16px;background:#4ade80"></div>
+          <div class="spark-lbl">21</div>
+        </div>
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:25px;background:#4ade80"></div>
+          <div class="spark-lbl">22</div>
+        </div>
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:25px;background:#4ade80"></div>
+          <div class="spark-lbl">23</div>
+        </div>
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:28px;background:#4ade80"></div>
+          <div class="spark-lbl">24</div>
+        </div>
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:26px;background:#4ade80"></div>
+          <div class="spark-lbl">25</div>
+        </div></div>
+      <div class="stat-grid">
+        <div class="stat-cell">
+          <div class="stat-val">301<span class="stat-arrow down">▼</span></div>
+          <div class="stat-lbl">Fpts</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">+0.173<span class="stat-arrow flat">●</span></div>
+          <div class="stat-lbl">EPA/att</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">64%<span class="stat-arrow down">▼</span></div>
+          <div class="stat-lbl">Cmp%</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">0</div>
+          <div class="stat-lbl">Rush Fpts</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">7.51</div>
+          <div class="stat-lbl">AYA</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">+41</div>
+          <div class="stat-lbl">WAR</div>
+        </div></div>
+      <div style="margin-top:8px;"><span class="signal-tag" style="color:#60a5fa;background:#0c1a2e">Peak</span></div>
+    </div>
+    <div class="trend-card">
+      <div class="trend-card-header">
+        <div>
+          <div class="trend-name">Sam Darnold</div>
+          <div class="trend-meta">SEA · QB · Age 28 · '21 · '22 · '23 · '24 · '25</div>
+        </div>
+        <div class="trend-badge" style="color:#60a5fa;background:#1e293b;border:1px solid #60a5fa">
+          74
+        </div>
+      </div>
+      <div class="spark-row">
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:14px;background:#60a5fa"></div>
+          <div class="spark-lbl">21</div>
+        </div>
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:7px;background:#60a5fa"></div>
+          <div class="spark-lbl">22</div>
+        </div>
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:4px;background:#60a5fa"></div>
+          <div class="spark-lbl">23</div>
+        </div>
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:28px;background:#60a5fa"></div>
+          <div class="spark-lbl">24</div>
+        </div>
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:22px;background:#60a5fa"></div>
+          <div class="spark-lbl">25</div>
+        </div></div>
+      <div class="stat-grid">
+        <div class="stat-cell">
+          <div class="stat-val">248<span class="stat-arrow down">▼</span></div>
+          <div class="stat-lbl">Fpts</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">+0.124<span class="stat-arrow flat">●</span></div>
+          <div class="stat-lbl">EPA/att</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">64%<span class="stat-arrow up">▲</span></div>
+          <div class="stat-lbl">Cmp%</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">8</div>
+          <div class="stat-lbl">Rush Fpts</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">7.38</div>
+          <div class="stat-lbl">AYA</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">-11</div>
+          <div class="stat-lbl">WAR</div>
+        </div></div>
+      <div style="margin-top:8px;"><span class="signal-tag" style="color:#60a5fa;background:#0c1a2e">Peak</span><span class="signal-tag" style="color:#f87171;background:#2d0a0a">Declining</span><span class="signal-tag" style="color:#94a3b8;background:#1e293b">–WAR</span></div>
+    </div>
+    <div class="trend-card">
+      <div class="trend-card-header">
+        <div>
+          <div class="trend-name">Justin Herbert</div>
+          <div class="trend-meta">LAC · QB · Age 28 · '21 · '22 · '23 · '24 · '25</div>
+        </div>
+        <div class="trend-badge" style="color:#60a5fa;background:#1e293b;border:1px solid #60a5fa">
+          74
+        </div>
+      </div>
+      <div class="spark-row">
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:28px;background:#60a5fa"></div>
+          <div class="spark-lbl">21</div>
+        </div>
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:21px;background:#60a5fa"></div>
+          <div class="spark-lbl">22</div>
+        </div>
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:17px;background:#60a5fa"></div>
+          <div class="spark-lbl">23</div>
+        </div>
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:20px;background:#60a5fa"></div>
+          <div class="spark-lbl">24</div>
+        </div>
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:21px;background:#60a5fa"></div>
+          <div class="spark-lbl">25</div>
+        </div></div>
+      <div class="stat-grid">
+        <div class="stat-cell">
+          <div class="stat-val">288<span class="stat-arrow up">▲</span></div>
+          <div class="stat-lbl">Fpts</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">+0.008<span class="stat-arrow flat">●</span></div>
+          <div class="stat-lbl">EPA/att</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">60%<span class="stat-arrow flat">●</span></div>
+          <div class="stat-lbl">Cmp%</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">60</div>
+          <div class="stat-lbl">Rush Fpts</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">5.94</div>
+          <div class="stat-lbl">AYA</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">+29</div>
+          <div class="stat-lbl">WAR</div>
+        </div></div>
+      <div style="margin-top:8px;"><span class="signal-tag" style="color:#60a5fa;background:#0c1a2e">Peak</span></div>
+    </div>
+    <div class="trend-card">
+      <div class="trend-card-header">
+        <div>
+          <div class="trend-name">Lamar Jackson</div>
+          <div class="trend-meta">BAL · QB · Age 29 · '21 · '22 · '23 · '24 · '25</div>
+        </div>
+        <div class="trend-badge" style="color:#60a5fa;background:#1e293b;border:1px solid #60a5fa">
+          72
+        </div>
+      </div>
+      <div class="spark-row">
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:15px;background:#60a5fa"></div>
+          <div class="spark-lbl">21</div>
+        </div>
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:15px;background:#60a5fa"></div>
+          <div class="spark-lbl">22</div>
+        </div>
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:22px;background:#60a5fa"></div>
+          <div class="spark-lbl">23</div>
+        </div>
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:28px;background:#60a5fa"></div>
+          <div class="spark-lbl">24</div>
+        </div>
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:14px;background:#60a5fa"></div>
+          <div class="spark-lbl">25</div>
+        </div></div>
+      <div class="stat-grid">
+        <div class="stat-cell">
+          <div class="stat-val">216<span class="stat-arrow down">▼</span></div>
+          <div class="stat-lbl">Fpts</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">+0.019<span class="stat-arrow flat">●</span></div>
+          <div class="stat-lbl">EPA/att</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">56%<span class="stat-arrow down">▼</span></div>
+          <div class="stat-lbl">Cmp%</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">47</div>
+          <div class="stat-lbl">Rush Fpts</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">7.11</div>
+          <div class="stat-lbl">AYA</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">-43</div>
+          <div class="stat-lbl">WAR</div>
+        </div></div>
+      <div style="margin-top:8px;"><span class="signal-tag" style="color:#60a5fa;background:#0c1a2e">Peak</span><span class="signal-tag" style="color:#f87171;background:#2d0a0a">Declining</span><span class="signal-tag" style="color:#94a3b8;background:#1e293b">–WAR</span></div>
+    </div>
+    <div class="trend-card">
+      <div class="trend-card-header">
+        <div>
+          <div class="trend-name">C.J. Stroud</div>
+          <div class="trend-meta">HOU · QB · Age 24 · '23 · '24 · '25</div>
+        </div>
+        <div class="trend-badge" style="color:#60a5fa;background:#1e293b;border:1px solid #60a5fa">
+          70
+        </div>
+      </div>
+      <div class="spark-row">
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:28px;background:#60a5fa"></div>
+          <div class="spark-lbl">23</div>
+        </div>
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:22px;background:#60a5fa"></div>
+          <div class="spark-lbl">24</div>
+        </div>
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:21px;background:#60a5fa"></div>
+          <div class="spark-lbl">25</div>
+        </div></div>
+      <div class="stat-grid">
+        <div class="stat-cell">
+          <div class="stat-val">209<span class="stat-arrow down">▼</span></div>
+          <div class="stat-lbl">Fpts</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">+0.086<span class="stat-arrow flat">●</span></div>
+          <div class="stat-lbl">EPA/att</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">61%<span class="stat-arrow up">▲</span></div>
+          <div class="stat-lbl">Cmp%</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">27</div>
+          <div class="stat-lbl">Rush Fpts</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">6.40</div>
+          <div class="stat-lbl">AYA</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">-50</div>
+          <div class="stat-lbl">WAR</div>
+        </div></div>
+      <div style="margin-top:8px;"><span class="signal-tag" style="color:#4ade80;background:#052e16">Breakout</span><span class="signal-tag" style="color:#94a3b8;background:#1e293b">–WAR</span></div>
+    </div>
+    <div class="trend-card">
+      <div class="trend-card-header">
+        <div>
+          <div class="trend-name">Baker Mayfield</div>
+          <div class="trend-meta">TB · QB · Age 30 · '21 · '22 · '22 · '23 · '24 · '25</div>
+        </div>
+        <div class="trend-badge" style="color:#60a5fa;background:#1e293b;border:1px solid #60a5fa">
+          69
+        </div>
+      </div>
+      <div class="spark-row">
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:13px;background:#60a5fa"></div>
+          <div class="spark-lbl">21</div>
+        </div>
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:5px;background:#60a5fa"></div>
+          <div class="spark-lbl">22</div>
+        </div>
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:4px;background:#60a5fa"></div>
+          <div class="spark-lbl">22</div>
+        </div>
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:20px;background:#60a5fa"></div>
+          <div class="spark-lbl">23</div>
+        </div>
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:28px;background:#60a5fa"></div>
+          <div class="spark-lbl">24</div>
+        </div>
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:20px;background:#60a5fa"></div>
+          <div class="spark-lbl">25</div>
+        </div></div>
+      <div class="stat-grid">
+        <div class="stat-cell">
+          <div class="stat-val">276<span class="stat-arrow down">▼</span></div>
+          <div class="stat-lbl">Fpts</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">-0.006<span class="stat-arrow flat">●</span></div>
+          <div class="stat-lbl">EPA/att</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">59%<span class="stat-arrow down">▼</span></div>
+          <div class="stat-lbl">Cmp%</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">44</div>
+          <div class="stat-lbl">Rush Fpts</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">5.96</div>
+          <div class="stat-lbl">AYA</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">+16</div>
+          <div class="stat-lbl">WAR</div>
+        </div></div>
+      <div style="margin-top:8px;"><span class="signal-tag" style="color:#60a5fa;background:#0c1a2e">Peak</span><span class="signal-tag" style="color:#f87171;background:#2d0a0a">Declining</span></div>
+    </div>
+    <div class="trend-card">
+      <div class="trend-card-header">
+        <div>
+          <div class="trend-name">Joe Burrow</div>
+          <div class="trend-meta">CIN · QB · Age 29 · '21 · '22 · '23 · '24 · '25</div>
+        </div>
+        <div class="trend-badge" style="color:#60a5fa;background:#1e293b;border:1px solid #60a5fa">
+          66
+        </div>
+      </div>
+      <div class="spark-row">
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:23px;background:#60a5fa"></div>
+          <div class="spark-lbl">21</div>
+        </div>
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:25px;background:#60a5fa"></div>
+          <div class="spark-lbl">22</div>
+        </div>
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:10px;background:#60a5fa"></div>
+          <div class="spark-lbl">23</div>
+        </div>
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:28px;background:#60a5fa"></div>
+          <div class="spark-lbl">24</div>
+        </div>
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:9px;background:#60a5fa"></div>
+          <div class="spark-lbl">25</div>
+        </div></div>
+      <div class="stat-grid">
+        <div class="stat-cell">
+          <div class="stat-val">135<span class="stat-arrow down">▼</span></div>
+          <div class="stat-lbl">Fpts</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">+0.099<span class="stat-arrow flat">●</span></div>
+          <div class="stat-lbl">EPA/att</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">62%<span class="stat-arrow down">▼</span></div>
+          <div class="stat-lbl">Cmp%</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">4</div>
+          <div class="stat-lbl">Rush Fpts</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">6.51</div>
+          <div class="stat-lbl">AYA</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">-125</div>
+          <div class="stat-lbl">WAR</div>
+        </div></div>
+      <div style="margin-top:8px;"><span class="signal-tag" style="color:#60a5fa;background:#0c1a2e">Peak</span><span class="signal-tag" style="color:#f87171;background:#2d0a0a">Declining</span><span class="signal-tag" style="color:#94a3b8;background:#1e293b">–WAR</span></div>
+    </div>
+    <div class="trend-card">
+      <div class="trend-card-header">
+        <div>
+          <div class="trend-name">Bryce Young</div>
+          <div class="trend-meta">CAR · QB · Age 24 · '23 · '24 · '25</div>
+        </div>
+        <div class="trend-badge" style="color:#60a5fa;background:#1e293b;border:1px solid #60a5fa">
+          65
+        </div>
+      </div>
+      <div class="spark-row">
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:19px;background:#60a5fa"></div>
+          <div class="spark-lbl">23</div>
+        </div>
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:24px;background:#60a5fa"></div>
+          <div class="spark-lbl">24</div>
+        </div>
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:28px;background:#60a5fa"></div>
+          <div class="spark-lbl">25</div>
+        </div></div>
+      <div class="stat-grid">
+        <div class="stat-cell">
+          <div class="stat-val">223<span class="stat-arrow up">▲</span></div>
+          <div class="stat-lbl">Fpts</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">-0.043<span class="stat-arrow flat">●</span></div>
+          <div class="stat-lbl">EPA/att</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">60%<span class="stat-arrow up">▲</span></div>
+          <div class="stat-lbl">Cmp%</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">30</div>
+          <div class="stat-lbl">Rush Fpts</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">5.46</div>
+          <div class="stat-lbl">AYA</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">-36</div>
+          <div class="stat-lbl">WAR</div>
+        </div></div>
+      <div style="margin-top:8px;"><span class="signal-tag" style="color:#4ade80;background:#052e16">Breakout</span><span class="signal-tag" style="color:#94a3b8;background:#1e293b">–WAR</span></div>
+    </div>
+    <div class="trend-card">
+      <div class="trend-card-header">
+        <div>
+          <div class="trend-name">Jacoby Brissett</div>
+          <div class="trend-meta">ARI · QB · Age 33 · '21 · '22 · '23 · '24 · '25</div>
+        </div>
+        <div class="trend-badge" style="color:#60a5fa;background:#1e293b;border:1px solid #60a5fa">
+          65
+        </div>
+      </div>
+      <div class="spark-row">
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:9px;background:#60a5fa"></div>
+          <div class="spark-lbl">21</div>
+        </div>
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:21px;background:#60a5fa"></div>
+          <div class="spark-lbl">22</div>
+        </div>
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:4px;background:#60a5fa"></div>
+          <div class="spark-lbl">23</div>
+        </div>
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:5px;background:#60a5fa"></div>
+          <div class="spark-lbl">24</div>
+        </div>
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:28px;background:#60a5fa"></div>
+          <div class="spark-lbl">25</div>
+        </div></div>
+      <div class="stat-grid">
+        <div class="stat-cell">
+          <div class="stat-val">230<span class="stat-arrow up">▲</span></div>
+          <div class="stat-lbl">Fpts</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">-0.011<span class="stat-arrow flat">●</span></div>
+          <div class="stat-lbl">EPA/att</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">59%<span class="stat-arrow up">▲</span></div>
+          <div class="stat-lbl">Cmp%</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">23</div>
+          <div class="stat-lbl">Rush Fpts</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">5.99</div>
+          <div class="stat-lbl">AYA</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">-29</div>
+          <div class="stat-lbl">WAR</div>
+        </div></div>
+      <div style="margin-top:8px;"><span class="signal-tag" style="color:#60a5fa;background:#0c1a2e">Peak</span><span class="signal-tag" style="color:#4ade80;background:#052e16">Rising</span><span class="signal-tag" style="color:#94a3b8;background:#1e293b">–WAR</span></div>
+    </div>
+    <div class="trend-card">
+      <div class="trend-card-header">
+        <div>
+          <div class="trend-name">Aaron Rodgers</div>
+          <div class="trend-meta">PIT · QB · Age 42 · '21 · '21 · '21 · '21 · '22 · '23 · '24 · '25</div>
+        </div>
+        <div class="trend-badge" style="color:#60a5fa;background:#1e293b;border:1px solid #60a5fa">
+          64
+        </div>
+      </div>
+      <div class="spark-row">
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:19px;background:#60a5fa"></div>
+          <div class="spark-lbl">21</div>
+        </div>
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:19px;background:#60a5fa"></div>
+          <div class="spark-lbl">21</div>
+        </div>
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:16px;background:#60a5fa"></div>
+          <div class="spark-lbl">21</div>
+        </div>
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:16px;background:#60a5fa"></div>
+          <div class="spark-lbl">21</div>
+        </div>
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:26px;background:#60a5fa"></div>
+          <div class="spark-lbl">22</div>
+        </div>
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:4px;background:#60a5fa"></div>
+          <div class="spark-lbl">23</div>
+        </div>
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:28px;background:#60a5fa"></div>
+          <div class="spark-lbl">24</div>
+        </div>
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:24px;background:#60a5fa"></div>
+          <div class="spark-lbl">25</div>
+        </div></div>
+      <div class="stat-grid">
+        <div class="stat-cell">
+          <div class="stat-val">227<span class="stat-arrow down">▼</span></div>
+          <div class="stat-lbl">Fpts</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">+0.027<span class="stat-arrow flat">●</span></div>
+          <div class="stat-lbl">EPA/att</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">62%<span class="stat-arrow up">▲</span></div>
+          <div class="stat-lbl">Cmp%</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">12</div>
+          <div class="stat-lbl">Rush Fpts</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">6.26</div>
+          <div class="stat-lbl">AYA</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">-33</div>
+          <div class="stat-lbl">WAR</div>
+        </div></div>
+      <div style="margin-top:8px;"><span class="signal-tag" style="color:#f87171;background:#2d0a0a">Veteran</span><span class="signal-tag" style="color:#94a3b8;background:#1e293b">–WAR</span></div>
+    </div>
+    <div class="trend-card">
+      <div class="trend-card-header">
+        <div>
+          <div class="trend-name">Marcus Mariota</div>
+          <div class="trend-meta">WAS · QB · Age 32 · '21 · '22 · '23 · '24 · '25</div>
+        </div>
+        <div class="trend-badge" style="color:#60a5fa;background:#1e293b;border:1px solid #60a5fa">
+          62
+        </div>
+      </div>
+      <div class="spark-row">
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:4px;background:#60a5fa"></div>
+          <div class="spark-lbl">21</div>
+        </div>
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:28px;background:#60a5fa"></div>
+          <div class="spark-lbl">22</div>
+        </div>
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:4px;background:#60a5fa"></div>
+          <div class="spark-lbl">23</div>
+        </div>
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:6px;background:#60a5fa"></div>
+          <div class="spark-lbl">24</div>
+        </div>
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:18px;background:#60a5fa"></div>
+          <div class="spark-lbl">25</div>
+        </div></div>
+      <div class="stat-grid">
+        <div class="stat-cell">
+          <div class="stat-val">128<span class="stat-arrow up">▲</span></div>
+          <div class="stat-lbl">Fpts</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">-0.016<span class="stat-arrow flat">●</span></div>
+          <div class="stat-lbl">EPA/att</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">57%<span class="stat-arrow down">▼</span></div>
+          <div class="stat-lbl">Cmp%</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">32</div>
+          <div class="stat-lbl">Rush Fpts</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">6.00</div>
+          <div class="stat-lbl">AYA</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">-131</div>
+          <div class="stat-lbl">WAR</div>
+        </div></div>
+      <div style="margin-top:8px;"><span class="signal-tag" style="color:#60a5fa;background:#0c1a2e">Peak</span><span class="signal-tag" style="color:#4ade80;background:#052e16">Rising</span><span class="signal-tag" style="color:#94a3b8;background:#1e293b">–WAR</span></div>
+    </div>
+    <div class="trend-card">
+      <div class="trend-card-header">
+        <div>
+          <div class="trend-name">Mac Jones</div>
+          <div class="trend-meta">SF · QB · Age 27 · '21 · '22 · '23 · '24 · '25</div>
+        </div>
+        <div class="trend-badge" style="color:#60a5fa;background:#1e293b;border:1px solid #60a5fa">
+          61
+        </div>
+      </div>
+      <div class="spark-row">
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:28px;background:#60a5fa"></div>
+          <div class="spark-lbl">21</div>
+        </div>
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:21px;background:#60a5fa"></div>
+          <div class="spark-lbl">22</div>
+        </div>
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:14px;background:#60a5fa"></div>
+          <div class="spark-lbl">23</div>
+        </div>
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:12px;background:#60a5fa"></div>
+          <div class="spark-lbl">24</div>
+        </div>
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:16px;background:#60a5fa"></div>
+          <div class="spark-lbl">25</div>
+        </div></div>
+      <div class="stat-grid">
+        <div class="stat-cell">
+          <div class="stat-val">134<span class="stat-arrow up">▲</span></div>
+          <div class="stat-lbl">Fpts</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">+0.125<span class="stat-arrow flat">●</span></div>
+          <div class="stat-lbl">EPA/att</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">65%<span class="stat-arrow up">▲</span></div>
+          <div class="stat-lbl">Cmp%</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">6</div>
+          <div class="stat-lbl">Rush Fpts</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">6.63</div>
+          <div class="stat-lbl">AYA</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">-126</div>
+          <div class="stat-lbl">WAR</div>
+        </div></div>
+      <div style="margin-top:8px;"><span class="signal-tag" style="color:#60a5fa;background:#0c1a2e">Peak</span><span class="signal-tag" style="color:#4ade80;background:#052e16">Rising</span><span class="signal-tag" style="color:#94a3b8;background:#1e293b">–WAR</span></div>
+    </div>
+    <div class="trend-card">
+      <div class="trend-card-header">
+        <div>
+          <div class="trend-name">Mitchell Trubisky</div>
+          <div class="trend-meta">BUF · QB · Age 31 · '21 · '22 · '23 · '24 · '25</div>
+        </div>
+        <div class="trend-badge" style="color:#60a5fa;background:#1e293b;border:1px solid #60a5fa">
+          61
+        </div>
+      </div>
+      <div class="spark-row">
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:4px;background:#60a5fa"></div>
+          <div class="spark-lbl">21</div>
+        </div>
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:28px;background:#60a5fa"></div>
+          <div class="spark-lbl">22</div>
+        </div>
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:18px;background:#60a5fa"></div>
+          <div class="spark-lbl">23</div>
+        </div>
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:5px;background:#60a5fa"></div>
+          <div class="spark-lbl">24</div>
+        </div>
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:11px;background:#60a5fa"></div>
+          <div class="spark-lbl">25</div>
+        </div></div>
+      <div class="stat-grid">
+        <div class="stat-cell">
+          <div class="stat-val">29<span class="stat-arrow up">▲</span></div>
+          <div class="stat-lbl">Fpts</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">+0.696<span class="stat-arrow flat">●</span></div>
+          <div class="stat-lbl">EPA/att</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">68%<span class="stat-arrow down">▼</span></div>
+          <div class="stat-lbl">Cmp%</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">1</div>
+          <div class="stat-lbl">Rush Fpts</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">10.68</div>
+          <div class="stat-lbl">AYA</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">-230</div>
+          <div class="stat-lbl">WAR</div>
+        </div></div>
+      <div style="margin-top:8px;"><span class="signal-tag" style="color:#60a5fa;background:#0c1a2e">Peak</span><span class="signal-tag" style="color:#94a3b8;background:#1e293b">–WAR</span></div>
+    </div>
+    <div class="trend-card">
+      <div class="trend-card-header">
+        <div>
+          <div class="trend-name">Joe Flacco</div>
+          <div class="trend-meta">CIN · QB · Age 41 · '21 · '22 · '23 · '24 · '25 · '25</div>
+        </div>
+        <div class="trend-badge" style="color:#60a5fa;background:#1e293b;border:1px solid #60a5fa">
+          60
+        </div>
+      </div>
+      <div class="spark-row">
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:5px;background:#60a5fa"></div>
+          <div class="spark-lbl">21</div>
+        </div>
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:13px;background:#60a5fa"></div>
+          <div class="spark-lbl">22</div>
+        </div>
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:24px;background:#60a5fa"></div>
+          <div class="spark-lbl">23</div>
+        </div>
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:24px;background:#60a5fa"></div>
+          <div class="spark-lbl">24</div>
+        </div>
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:28px;background:#60a5fa"></div>
+          <div class="spark-lbl">25</div>
+        </div>
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:7px;background:#60a5fa"></div>
+          <div class="spark-lbl">25</div>
+        </div></div>
+      <div class="stat-grid">
+        <div class="stat-cell">
+          <div class="stat-val">120<span class="stat-arrow up">▲</span></div>
+          <div class="stat-lbl">Fpts</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">+0.031<span class="stat-arrow flat">●</span></div>
+          <div class="stat-lbl">EPA/att</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">59%<span class="stat-arrow flat">●</span></div>
+          <div class="stat-lbl">Cmp%</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">8</div>
+          <div class="stat-lbl">Rush Fpts</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">6.31</div>
+          <div class="stat-lbl">AYA</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">-139</div>
+          <div class="stat-lbl">WAR</div>
+        </div></div>
+      <div style="margin-top:8px;"><span class="signal-tag" style="color:#f87171;background:#2d0a0a">Veteran</span><span class="signal-tag" style="color:#94a3b8;background:#1e293b">–WAR</span></div>
+    </div>
+    <div class="trend-card">
+      <div class="trend-card-header">
+        <div>
+          <div class="trend-name">Michael Penix Jr.</div>
+          <div class="trend-meta">ATL · QB · Age 25 · '24 · '25</div>
+        </div>
+        <div class="trend-badge" style="color:#60a5fa;background:#1e293b;border:1px solid #60a5fa">
+          60
+        </div>
+      </div>
+      <div class="spark-row">
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:10px;background:#60a5fa"></div>
+          <div class="spark-lbl">24</div>
+        </div>
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:28px;background:#60a5fa"></div>
+          <div class="spark-lbl">25</div>
+        </div></div>
+      <div class="stat-grid">
+        <div class="stat-cell">
+          <div class="stat-val">121<span class="stat-arrow up">▲</span></div>
+          <div class="stat-lbl">Fpts</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">-0.004<span class="stat-arrow flat">●</span></div>
+          <div class="stat-lbl">EPA/att</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">57%<span class="stat-arrow flat">●</span></div>
+          <div class="stat-lbl">Cmp%</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">13</div>
+          <div class="stat-lbl">Rush Fpts</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">6.65</div>
+          <div class="stat-lbl">AYA</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">-138</div>
+          <div class="stat-lbl">WAR</div>
+        </div></div>
+      <div style="margin-top:8px;"><span class="signal-tag" style="color:#4ade80;background:#052e16">Breakout</span><span class="signal-tag" style="color:#4ade80;background:#052e16">Rising</span><span class="signal-tag" style="color:#94a3b8;background:#1e293b">–WAR</span></div>
+    </div>
+    <div class="trend-card">
+      <div class="trend-card-header">
+        <div>
+          <div class="trend-name">Jayden Daniels</div>
+          <div class="trend-meta">WAS · QB · Age 25 · '24 · '25</div>
+        </div>
+        <div class="trend-badge" style="color:#60a5fa;background:#1e293b;border:1px solid #60a5fa">
+          60
+        </div>
+      </div>
+      <div class="spark-row">
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:28px;background:#60a5fa"></div>
+          <div class="spark-lbl">24</div>
+        </div>
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:9px;background:#60a5fa"></div>
+          <div class="spark-lbl">25</div>
+        </div></div>
+      <div class="stat-grid">
+        <div class="stat-cell">
+          <div class="stat-val">114<span class="stat-arrow down">▼</span></div>
+          <div class="stat-lbl">Fpts</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">-0.023<span class="stat-arrow flat">●</span></div>
+          <div class="stat-lbl">EPA/att</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">55%<span class="stat-arrow down">▼</span></div>
+          <div class="stat-lbl">Cmp%</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">38</div>
+          <div class="stat-lbl">Rush Fpts</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">5.85</div>
+          <div class="stat-lbl">AYA</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">-145</div>
+          <div class="stat-lbl">WAR</div>
+        </div></div>
+      <div style="margin-top:8px;"><span class="signal-tag" style="color:#4ade80;background:#052e16">Breakout</span><span class="signal-tag" style="color:#f87171;background:#2d0a0a">Declining</span><span class="signal-tag" style="color:#94a3b8;background:#1e293b">–WAR</span></div>
+    </div>
+    <div class="trend-card">
+      <div class="trend-card-header">
+        <div>
+          <div class="trend-name">Justin Fields</div>
+          <div class="trend-meta">NYJ · QB · Age 26 · '21 · '22 · '23 · '24 · '25</div>
+        </div>
+        <div class="trend-badge" style="color:#60a5fa;background:#1e293b;border:1px solid #60a5fa">
+          56
+        </div>
+      </div>
+      <div class="spark-row">
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:12px;background:#60a5fa"></div>
+          <div class="spark-lbl">21</div>
+        </div>
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:28px;background:#60a5fa"></div>
+          <div class="spark-lbl">22</div>
+        </div>
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:22px;background:#60a5fa"></div>
+          <div class="spark-lbl">23</div>
+        </div>
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:11px;background:#60a5fa"></div>
+          <div class="spark-lbl">24</div>
+        </div>
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:12px;background:#60a5fa"></div>
+          <div class="spark-lbl">25</div>
+        </div></div>
+      <div class="stat-grid">
+        <div class="stat-cell">
+          <div class="stat-val">128<span class="stat-arrow up">▲</span></div>
+          <div class="stat-lbl">Fpts</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">-0.096<span class="stat-arrow flat">●</span></div>
+          <div class="stat-lbl">EPA/att</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">54%<span class="stat-arrow down">▼</span></div>
+          <div class="stat-lbl">Cmp%</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">59</div>
+          <div class="stat-lbl">Rush Fpts</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">4.90</div>
+          <div class="stat-lbl">AYA</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">-132</div>
+          <div class="stat-lbl">WAR</div>
+        </div></div>
+      <div style="margin-top:8px;"><span class="signal-tag" style="color:#60a5fa;background:#0c1a2e">Peak</span><span class="signal-tag" style="color:#94a3b8;background:#1e293b">–WAR</span></div>
+    </div>
+    <div class="trend-card">
+      <div class="trend-card-header">
+        <div>
+          <div class="trend-name">Jameis Winston</div>
+          <div class="trend-meta">NYG · QB · Age 32 · '21 · '22 · '23 · '24 · '25</div>
+        </div>
+        <div class="trend-badge" style="color:#60a5fa;background:#1e293b;border:1px solid #60a5fa">
+          56
+        </div>
+      </div>
+      <div class="spark-row">
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:24px;background:#60a5fa"></div>
+          <div class="spark-lbl">21</div>
+        </div>
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:9px;background:#60a5fa"></div>
+          <div class="spark-lbl">22</div>
+        </div>
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:4px;background:#60a5fa"></div>
+          <div class="spark-lbl">23</div>
+        </div>
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:28px;background:#60a5fa"></div>
+          <div class="spark-lbl">24</div>
+        </div>
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:7px;background:#60a5fa"></div>
+          <div class="spark-lbl">25</div>
+        </div></div>
+      <div class="stat-grid">
+        <div class="stat-cell">
+          <div class="stat-val">37<span class="stat-arrow down">▼</span></div>
+          <div class="stat-lbl">Fpts</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">+0.223<span class="stat-arrow flat">●</span></div>
+          <div class="stat-lbl">EPA/att</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">54%<span class="stat-arrow flat">●</span></div>
+          <div class="stat-lbl">Cmp%</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">8</div>
+          <div class="stat-lbl">Rush Fpts</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">7.33</div>
+          <div class="stat-lbl">AYA</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">-223</div>
+          <div class="stat-lbl">WAR</div>
+        </div></div>
+      <div style="margin-top:8px;"><span class="signal-tag" style="color:#60a5fa;background:#0c1a2e">Peak</span><span class="signal-tag" style="color:#f87171;background:#2d0a0a">Declining</span><span class="signal-tag" style="color:#94a3b8;background:#1e293b">–WAR</span></div>
+    </div>
+    <div class="trend-card">
+      <div class="trend-card-header">
+        <div>
+          <div class="trend-name">Spencer Rattler</div>
+          <div class="trend-meta">NO · QB · Age 25 · '24 · '25</div>
+        </div>
+        <div class="trend-badge" style="color:#60a5fa;background:#1e293b;border:1px solid #60a5fa">
+          55
+        </div>
+      </div>
+      <div class="spark-row">
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:20px;background:#60a5fa"></div>
+          <div class="spark-lbl">24</div>
+        </div>
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:28px;background:#60a5fa"></div>
+          <div class="spark-lbl">25</div>
+        </div></div>
+      <div class="stat-grid">
+        <div class="stat-cell">
+          <div class="stat-val">101<span class="stat-arrow up">▲</span></div>
+          <div class="stat-lbl">Fpts</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">-0.132<span class="stat-arrow flat">●</span></div>
+          <div class="stat-lbl">EPA/att</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">63%<span class="stat-arrow up">▲</span></div>
+          <div class="stat-lbl">Cmp%</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">15</div>
+          <div class="stat-lbl">Rush Fpts</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">5.15</div>
+          <div class="stat-lbl">AYA</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">-158</div>
+          <div class="stat-lbl">WAR</div>
+        </div></div>
+      <div style="margin-top:8px;"><span class="signal-tag" style="color:#4ade80;background:#052e16">Breakout</span><span class="signal-tag" style="color:#94a3b8;background:#1e293b">–WAR</span></div>
+    </div>
+    <div class="trend-card">
+      <div class="trend-card-header">
+        <div>
+          <div class="trend-name">Tua Tagovailoa</div>
+          <div class="trend-meta">MIA · QB · Age 28 · '21 · '22 · '23 · '24 · '25</div>
+        </div>
+        <div class="trend-badge" style="color:#60a5fa;background:#1e293b;border:1px solid #60a5fa">
+          55
+        </div>
+      </div>
+      <div class="spark-row">
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:18px;background:#60a5fa"></div>
+          <div class="spark-lbl">21</div>
+        </div>
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:23px;background:#60a5fa"></div>
+          <div class="spark-lbl">22</div>
+        </div>
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:28px;background:#60a5fa"></div>
+          <div class="spark-lbl">23</div>
+        </div>
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:18px;background:#60a5fa"></div>
+          <div class="spark-lbl">24</div>
+        </div>
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:16px;background:#60a5fa"></div>
+          <div class="spark-lbl">25</div>
+        </div></div>
+      <div class="stat-grid">
+        <div class="stat-cell">
+          <div class="stat-val">168<span class="stat-arrow down">▼</span></div>
+          <div class="stat-lbl">Fpts</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">+0.020<span class="stat-arrow flat">●</span></div>
+          <div class="stat-lbl">EPA/att</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">62%<span class="stat-arrow down">▼</span></div>
+          <div class="stat-lbl">Cmp%</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">4</div>
+          <div class="stat-lbl">Rush Fpts</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">5.26</div>
+          <div class="stat-lbl">AYA</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">-91</div>
+          <div class="stat-lbl">WAR</div>
+        </div></div>
+      <div style="margin-top:8px;"><span class="signal-tag" style="color:#60a5fa;background:#0c1a2e">Peak</span><span class="signal-tag" style="color:#94a3b8;background:#1e293b">–WAR</span></div>
+    </div>
+    <div class="trend-card">
+      <div class="trend-card-header">
+        <div>
+          <div class="trend-name">Geno Smith</div>
+          <div class="trend-meta">LV · QB · Age 35 · '21 · '22 · '23 · '24 · '25</div>
+        </div>
+        <div class="trend-badge" style="color:#f59e0b;background:#1e293b;border:1px solid #f59e0b">
+          54
+        </div>
+      </div>
+      <div class="spark-row">
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:4px;background:#f59e0b"></div>
+          <div class="spark-lbl">21</div>
+        </div>
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:28px;background:#f59e0b"></div>
+          <div class="spark-lbl">22</div>
+        </div>
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:20px;background:#f59e0b"></div>
+          <div class="spark-lbl">23</div>
+        </div>
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:24px;background:#f59e0b"></div>
+          <div class="spark-lbl">24</div>
+        </div>
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:16px;background:#f59e0b"></div>
+          <div class="spark-lbl">25</div>
+        </div></div>
+      <div class="stat-grid">
+        <div class="stat-cell">
+          <div class="stat-val">175<span class="stat-arrow down">▼</span></div>
+          <div class="stat-lbl">Fpts</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">-0.144<span class="stat-arrow flat">●</span></div>
+          <div class="stat-lbl">EPA/att</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">60%<span class="stat-arrow down">▼</span></div>
+          <div class="stat-lbl">Cmp%</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">11</div>
+          <div class="stat-lbl">Rush Fpts</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">4.43</div>
+          <div class="stat-lbl">AYA</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">-85</div>
+          <div class="stat-lbl">WAR</div>
+        </div></div>
+      <div style="margin-top:8px;"><span class="signal-tag" style="color:#f59e0b;background:#2d1a00">Declining</span><span class="signal-tag" style="color:#f87171;background:#2d0a0a">Declining</span><span class="signal-tag" style="color:#94a3b8;background:#1e293b">–WAR</span></div>
+    </div>
+    <div class="trend-card">
+      <div class="trend-card-header">
+        <div>
+          <div class="trend-name">Kyler Murray</div>
+          <div class="trend-meta">ARI · QB · Age 28 · '21 · '22 · '23 · '24 · '25</div>
+        </div>
+        <div class="trend-badge" style="color:#f59e0b;background:#1e293b;border:1px solid #f59e0b">
+          53
+        </div>
+      </div>
+      <div class="spark-row">
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:27px;background:#f59e0b"></div>
+          <div class="spark-lbl">21</div>
+        </div>
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:17px;background:#f59e0b"></div>
+          <div class="spark-lbl">22</div>
+        </div>
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:13px;background:#f59e0b"></div>
+          <div class="spark-lbl">23</div>
+        </div>
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:28px;background:#f59e0b"></div>
+          <div class="spark-lbl">24</div>
+        </div>
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:7px;background:#f59e0b"></div>
+          <div class="spark-lbl">25</div>
+        </div></div>
+      <div class="stat-grid">
+        <div class="stat-cell">
+          <div class="stat-val">76<span class="stat-arrow down">▼</span></div>
+          <div class="stat-lbl">Fpts</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">+0.032<span class="stat-arrow flat">●</span></div>
+          <div class="stat-lbl">EPA/att</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">62%<span class="stat-arrow down">▼</span></div>
+          <div class="stat-lbl">Cmp%</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">21</div>
+          <div class="stat-lbl">Rush Fpts</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">4.72</div>
+          <div class="stat-lbl">AYA</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">-183</div>
+          <div class="stat-lbl">WAR</div>
+        </div></div>
+      <div style="margin-top:8px;"><span class="signal-tag" style="color:#60a5fa;background:#0c1a2e">Peak</span><span class="signal-tag" style="color:#f87171;background:#2d0a0a">Declining</span><span class="signal-tag" style="color:#94a3b8;background:#1e293b">–WAR</span></div>
+    </div>
+    <div class="trend-card">
+      <div class="trend-card-header">
+        <div>
+          <div class="trend-name">Carson Wentz</div>
+          <div class="trend-meta">MIN · QB · Age 33 · '21 · '22 · '23 · '24 · '25</div>
+        </div>
+        <div class="trend-badge" style="color:#f59e0b;background:#1e293b;border:1px solid #f59e0b">
+          53
+        </div>
+      </div>
+      <div class="spark-row">
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:28px;background:#f59e0b"></div>
+          <div class="spark-lbl">21</div>
+        </div>
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:12px;background:#f59e0b"></div>
+          <div class="spark-lbl">22</div>
+        </div>
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:4px;background:#f59e0b"></div>
+          <div class="spark-lbl">23</div>
+        </div>
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:4px;background:#f59e0b"></div>
+          <div class="spark-lbl">24</div>
+        </div>
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:7px;background:#f59e0b"></div>
+          <div class="spark-lbl">25</div>
+        </div></div>
+      <div class="stat-grid">
+        <div class="stat-cell">
+          <div class="stat-val">68<span class="stat-arrow up">▲</span></div>
+          <div class="stat-lbl">Fpts</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">+0.033<span class="stat-arrow flat">●</span></div>
+          <div class="stat-lbl">EPA/att</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">58%<span class="stat-arrow up">▲</span></div>
+          <div class="stat-lbl">Cmp%</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">6</div>
+          <div class="stat-lbl">Rush Fpts</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">5.23</div>
+          <div class="stat-lbl">AYA</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">-191</div>
+          <div class="stat-lbl">WAR</div>
+        </div></div>
+      <div style="margin-top:8px;"><span class="signal-tag" style="color:#60a5fa;background:#0c1a2e">Peak</span><span class="signal-tag" style="color:#4ade80;background:#052e16">Rising</span><span class="signal-tag" style="color:#94a3b8;background:#1e293b">–WAR</span></div>
+    </div>
+    <div class="trend-card">
+      <div class="trend-card-header">
+        <div>
+          <div class="trend-name">Kirk Cousins</div>
+          <div class="trend-meta">ATL · QB · Age 37 · '21 · '22 · '23 · '24 · '25</div>
+        </div>
+        <div class="trend-badge" style="color:#f59e0b;background:#1e293b;border:1px solid #f59e0b">
+          51
+        </div>
+      </div>
+      <div class="spark-row">
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:28px;background:#f59e0b"></div>
+          <div class="spark-lbl">21</div>
+        </div>
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:27px;background:#f59e0b"></div>
+          <div class="spark-lbl">22</div>
+        </div>
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:14px;background:#f59e0b"></div>
+          <div class="spark-lbl">23</div>
+        </div>
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:17px;background:#f59e0b"></div>
+          <div class="spark-lbl">24</div>
+        </div>
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:9px;background:#f59e0b"></div>
+          <div class="spark-lbl">25</div>
+        </div></div>
+      <div class="stat-grid">
+        <div class="stat-cell">
+          <div class="stat-val">105<span class="stat-arrow down">▼</span></div>
+          <div class="stat-lbl">Fpts</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">-0.019<span class="stat-arrow flat">●</span></div>
+          <div class="stat-lbl">EPA/att</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">58%<span class="stat-arrow down">▼</span></div>
+          <div class="stat-lbl">Cmp%</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">5</div>
+          <div class="stat-lbl">Rush Fpts</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">5.69</div>
+          <div class="stat-lbl">AYA</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">-154</div>
+          <div class="stat-lbl">WAR</div>
+        </div></div>
+      <div style="margin-top:8px;"><span class="signal-tag" style="color:#f87171;background:#2d0a0a">Veteran</span><span class="signal-tag" style="color:#f87171;background:#2d0a0a">Declining</span><span class="signal-tag" style="color:#94a3b8;background:#1e293b">–WAR</span></div>
+    </div>
+    <div class="trend-card">
+      <div class="trend-card-header">
+        <div>
+          <div class="trend-name">Russell Wilson</div>
+          <div class="trend-meta">NYG · QB · Age 37 · '21 · '22 · '23 · '24 · '25</div>
+        </div>
+        <div class="trend-badge" style="color:#f59e0b;background:#1e293b;border:1px solid #f59e0b">
+          51
+        </div>
+      </div>
+      <div class="spark-row">
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:25px;background:#f59e0b"></div>
+          <div class="spark-lbl">21</div>
+        </div>
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:24px;background:#f59e0b"></div>
+          <div class="spark-lbl">22</div>
+        </div>
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:28px;background:#f59e0b"></div>
+          <div class="spark-lbl">23</div>
+        </div>
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:18px;background:#f59e0b"></div>
+          <div class="spark-lbl">24</div>
+        </div>
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:5px;background:#f59e0b"></div>
+          <div class="spark-lbl">25</div>
+        </div></div>
+      <div class="stat-grid">
+        <div class="stat-cell">
+          <div class="stat-val">50<span class="stat-arrow down">▼</span></div>
+          <div class="stat-lbl">Fpts</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">-0.122<span class="stat-arrow flat">●</span></div>
+          <div class="stat-lbl">EPA/att</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">53%<span class="stat-arrow down">▼</span></div>
+          <div class="stat-lbl">Cmp%</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">11</div>
+          <div class="stat-lbl">Rush Fpts</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">5.35</div>
+          <div class="stat-lbl">AYA</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">-209</div>
+          <div class="stat-lbl">WAR</div>
+        </div></div>
+      <div style="margin-top:8px;"><span class="signal-tag" style="color:#f87171;background:#2d0a0a">Veteran</span><span class="signal-tag" style="color:#f87171;background:#2d0a0a">Declining</span><span class="signal-tag" style="color:#94a3b8;background:#1e293b">–WAR</span></div>
+    </div>
+    <div class="trend-card">
+      <div class="trend-card-header">
+        <div>
+          <div class="trend-name">Davis Mills</div>
+          <div class="trend-meta">HOU · QB · Age 27 · '21 · '22 · '23 · '24 · '25</div>
+        </div>
+        <div class="trend-badge" style="color:#f59e0b;background:#1e293b;border:1px solid #f59e0b">
+          50
+        </div>
+      </div>
+      <div class="spark-row">
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:23px;background:#f59e0b"></div>
+          <div class="spark-lbl">21</div>
+        </div>
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:28px;background:#f59e0b"></div>
+          <div class="spark-lbl">22</div>
+        </div>
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:4px;background:#f59e0b"></div>
+          <div class="spark-lbl">23</div>
+        </div>
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:4px;background:#f59e0b"></div>
+          <div class="spark-lbl">24</div>
+        </div>
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:9px;background:#f59e0b"></div>
+          <div class="spark-lbl">25</div>
+        </div></div>
+      <div class="stat-grid">
+        <div class="stat-cell">
+          <div class="stat-val">65<span class="stat-arrow up">▲</span></div>
+          <div class="stat-lbl">Fpts</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">-0.099<span class="stat-arrow flat">●</span></div>
+          <div class="stat-lbl">EPA/att</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">54%<span class="stat-arrow flat">●</span></div>
+          <div class="stat-lbl">Cmp%</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">12</div>
+          <div class="stat-lbl">Rush Fpts</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">5.40</div>
+          <div class="stat-lbl">AYA</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">-194</div>
+          <div class="stat-lbl">WAR</div>
+        </div></div>
+      <div style="margin-top:8px;"><span class="signal-tag" style="color:#60a5fa;background:#0c1a2e">Peak</span><span class="signal-tag" style="color:#4ade80;background:#052e16">Rising</span><span class="signal-tag" style="color:#94a3b8;background:#1e293b">–WAR</span></div>
+    </div>
+    <div class="trend-card">
+      <div class="trend-card-header">
+        <div>
+          <div class="trend-name">Tyler Huntley</div>
+          <div class="trend-meta">BAL · QB · Age 28 · '21 · '22 · '23 · '24 · '25</div>
+        </div>
+        <div class="trend-badge" style="color:#f59e0b;background:#1e293b;border:1px solid #f59e0b">
+          50
+        </div>
+      </div>
+      <div class="spark-row">
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:28px;background:#f59e0b"></div>
+          <div class="spark-lbl">21</div>
+        </div>
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:16px;background:#f59e0b"></div>
+          <div class="spark-lbl">22</div>
+        </div>
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:7px;background:#f59e0b"></div>
+          <div class="spark-lbl">23</div>
+        </div>
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:20px;background:#f59e0b"></div>
+          <div class="spark-lbl">24</div>
+        </div>
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:12px;background:#f59e0b"></div>
+          <div class="spark-lbl">25</div>
+        </div></div>
+      <div class="stat-grid">
+        <div class="stat-cell">
+          <div class="stat-val">39<span class="stat-arrow down">▼</span></div>
+          <div class="stat-lbl">Fpts</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">+0.030<span class="stat-arrow flat">●</span></div>
+          <div class="stat-lbl">EPA/att</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">69%<span class="stat-arrow up">▲</span></div>
+          <div class="stat-lbl">Cmp%</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">15</div>
+          <div class="stat-lbl">Rush Fpts</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">5.71</div>
+          <div class="stat-lbl">AYA</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">-221</div>
+          <div class="stat-lbl">WAR</div>
+        </div></div>
+      <div style="margin-top:8px;"><span class="signal-tag" style="color:#60a5fa;background:#0c1a2e">Peak</span><span class="signal-tag" style="color:#94a3b8;background:#1e293b">–WAR</span></div>
+    </div>
+    <div class="trend-card">
+      <div class="trend-card-header">
+        <div>
+          <div class="trend-name">Tyson Bagent</div>
+          <div class="trend-meta">CHI · QB · Age 25 · '23 · '24 · '25</div>
+        </div>
+        <div class="trend-badge" style="color:#f59e0b;background:#1e293b;border:1px solid #f59e0b">
+          50
+        </div>
+      </div>
+      <div class="spark-row">
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:28px;background:#f59e0b"></div>
+          <div class="spark-lbl">23</div>
+        </div>
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:4px;background:#f59e0b"></div>
+          <div class="spark-lbl">24</div>
+        </div>
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:4px;background:#f59e0b"></div>
+          <div class="spark-lbl">25</div>
+        </div></div>
+      <div class="stat-grid">
+        <div class="stat-cell">
+          <div class="stat-val">3<span class="stat-arrow flat">●</span></div>
+          <div class="stat-lbl">Fpts</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">+0.576<span class="stat-arrow flat">●</span></div>
+          <div class="stat-lbl">EPA/att</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">75%<span class="stat-arrow down">▼</span></div>
+          <div class="stat-lbl">Cmp%</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">1</div>
+          <div class="stat-lbl">Rush Fpts</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">11.75</div>
+          <div class="stat-lbl">AYA</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">-257</div>
+          <div class="stat-lbl">WAR</div>
+        </div></div>
+      <div style="margin-top:8px;"><span class="signal-tag" style="color:#4ade80;background:#052e16">Breakout</span><span class="signal-tag" style="color:#94a3b8;background:#1e293b">–WAR</span></div>
+    </div>
+    <div class="trend-card">
+      <div class="trend-card-header">
+        <div>
+          <div class="trend-name">Taysom Hill</div>
+          <div class="trend-meta">NO · QB · Age 35 · '21 · '23 · '25</div>
+        </div>
+        <div class="trend-badge" style="color:#f59e0b;background:#1e293b;border:1px solid #f59e0b">
+          49
+        </div>
+      </div>
+      <div class="spark-row">
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:28px;background:#f59e0b"></div>
+          <div class="spark-lbl">21</div>
+        </div>
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:16px;background:#f59e0b"></div>
+          <div class="spark-lbl">23</div>
+        </div>
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:5px;background:#f59e0b"></div>
+          <div class="spark-lbl">25</div>
+        </div></div>
+      <div class="stat-grid">
+        <div class="stat-cell">
+          <div class="stat-val">22<span class="stat-arrow down">▼</span></div>
+          <div class="stat-lbl">Fpts</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">-0.167<span class="stat-arrow flat">●</span></div>
+          <div class="stat-lbl">EPA/att</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">33%<span class="stat-arrow down">▼</span></div>
+          <div class="stat-lbl">Cmp%</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">15</div>
+          <div class="stat-lbl">Rush Fpts</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">12.83</div>
+          <div class="stat-lbl">AYA</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">-238</div>
+          <div class="stat-lbl">WAR</div>
+        </div></div>
+      <div style="margin-top:8px;"><span class="signal-tag" style="color:#f59e0b;background:#2d1a00">Declining</span><span class="signal-tag" style="color:#f87171;background:#2d0a0a">Declining</span><span class="signal-tag" style="color:#94a3b8;background:#1e293b">–WAR</span></div>
+    </div>
+    <div class="trend-card">
+      <div class="trend-card-header">
+        <div>
+          <div class="trend-name">Tyrod Taylor</div>
+          <div class="trend-meta">NYJ · QB · Age 36 · '21 · '21 · '21 · '21 · '22 · '23 · '24 · '25</div>
+        </div>
+        <div class="trend-badge" style="color:#f59e0b;background:#1e293b;border:1px solid #f59e0b">
+          45
+        </div>
+      </div>
+      <div class="spark-row">
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:13px;background:#f59e0b"></div>
+          <div class="spark-lbl">21</div>
+        </div>
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:10px;background:#f59e0b"></div>
+          <div class="spark-lbl">21</div>
+        </div>
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:16px;background:#f59e0b"></div>
+          <div class="spark-lbl">21</div>
+        </div>
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:12px;background:#f59e0b"></div>
+          <div class="spark-lbl">21</div>
+        </div>
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:4px;background:#f59e0b"></div>
+          <div class="spark-lbl">22</div>
+        </div>
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:28px;background:#f59e0b"></div>
+          <div class="spark-lbl">23</div>
+        </div>
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:5px;background:#f59e0b"></div>
+          <div class="spark-lbl">24</div>
+        </div>
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:20px;background:#f59e0b"></div>
+          <div class="spark-lbl">25</div>
+        </div></div>
+      <div class="stat-grid">
+        <div class="stat-cell">
+          <div class="stat-val">63<span class="stat-arrow up">▲</span></div>
+          <div class="stat-lbl">Fpts</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">-0.090<span class="stat-arrow flat">●</span></div>
+          <div class="stat-lbl">EPA/att</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">54%<span class="stat-arrow down">▼</span></div>
+          <div class="stat-lbl">Cmp%</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">20</div>
+          <div class="stat-lbl">Rush Fpts</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">3.86</div>
+          <div class="stat-lbl">AYA</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">-196</div>
+          <div class="stat-lbl">WAR</div>
+        </div></div>
+      <div style="margin-top:8px;"><span class="signal-tag" style="color:#f87171;background:#2d0a0a">Veteran</span><span class="signal-tag" style="color:#4ade80;background:#052e16">Rising</span><span class="signal-tag" style="color:#94a3b8;background:#1e293b">–WAR</span></div>
+    </div>
+    <div class="trend-card">
+      <div class="trend-card-header">
+        <div>
+          <div class="trend-name">Joshua Dobbs</div>
+          <div class="trend-meta">NE · QB · Age 31 · '22 · '23 · '23 · '24 · '25</div>
+        </div>
+        <div class="trend-badge" style="color:#f59e0b;background:#1e293b;border:1px solid #f59e0b">
+          44
+        </div>
+      </div>
+      <div class="spark-row">
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:5px;background:#f59e0b"></div>
+          <div class="spark-lbl">22</div>
+        </div>
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:28px;background:#f59e0b"></div>
+          <div class="spark-lbl">23</div>
+        </div>
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:17px;background:#f59e0b"></div>
+          <div class="spark-lbl">23</div>
+        </div>
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:6px;background:#f59e0b"></div>
+          <div class="spark-lbl">24</div>
+        </div>
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:4px;background:#f59e0b"></div>
+          <div class="spark-lbl">25</div>
+        </div></div>
+      <div class="stat-grid">
+        <div class="stat-cell">
+          <div class="stat-val">2<span class="stat-arrow down">▼</span></div>
+          <div class="stat-lbl">Fpts</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">-0.007<span class="stat-arrow flat">●</span></div>
+          <div class="stat-lbl">EPA/att</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">70%<span class="stat-arrow up">▲</span></div>
+          <div class="stat-lbl">Cmp%</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">-0</div>
+          <div class="stat-lbl">Rush Fpts</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">6.50</div>
+          <div class="stat-lbl">AYA</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">-257</div>
+          <div class="stat-lbl">WAR</div>
+        </div></div>
+      <div style="margin-top:8px;"><span class="signal-tag" style="color:#60a5fa;background:#0c1a2e">Peak</span><span class="signal-tag" style="color:#94a3b8;background:#1e293b">–WAR</span></div>
+    </div>
+    <div class="trend-card">
+      <div class="trend-card-header">
+        <div>
+          <div class="trend-name">Jake Browning</div>
+          <div class="trend-meta">CIN · QB · Age 29 · '23 · '24 · '25</div>
+        </div>
+        <div class="trend-badge" style="color:#f59e0b;background:#1e293b;border:1px solid #f59e0b">
+          43
+        </div>
+      </div>
+      <div class="spark-row">
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:28px;background:#f59e0b"></div>
+          <div class="spark-lbl">23</div>
+        </div>
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:4px;background:#f59e0b"></div>
+          <div class="spark-lbl">24</div>
+        </div>
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:10px;background:#f59e0b"></div>
+          <div class="spark-lbl">25</div>
+        </div></div>
+      <div class="stat-grid">
+        <div class="stat-cell">
+          <div class="stat-val">54<span class="stat-arrow up">▲</span></div>
+          <div class="stat-lbl">Fpts</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">-0.395</div>
+          <div class="stat-lbl">EPA/att</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">60%</div>
+          <div class="stat-lbl">Cmp%</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">10</div>
+          <div class="stat-lbl">Rush Fpts</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">3.51</div>
+          <div class="stat-lbl">AYA</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">-205</div>
+          <div class="stat-lbl">WAR</div>
+        </div></div>
+      <div style="margin-top:8px;"><span class="signal-tag" style="color:#60a5fa;background:#0c1a2e">Peak</span><span class="signal-tag" style="color:#4ade80;background:#052e16">Rising</span><span class="signal-tag" style="color:#94a3b8;background:#1e293b">–WAR</span></div>
+    </div>
+    <div class="trend-card">
+      <div class="trend-card-header">
+        <div>
+          <div class="trend-name">Nick Mullens</div>
+          <div class="trend-meta">JAX · QB · Age 30 · '21 · '22 · '23 · '24 · '25</div>
+        </div>
+        <div class="trend-badge" style="color:#f59e0b;background:#1e293b;border:1px solid #f59e0b">
+          41
+        </div>
+      </div>
+      <div class="spark-row">
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:4px;background:#f59e0b"></div>
+          <div class="spark-lbl">21</div>
+        </div>
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:5px;background:#f59e0b"></div>
+          <div class="spark-lbl">22</div>
+        </div>
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:28px;background:#f59e0b"></div>
+          <div class="spark-lbl">23</div>
+        </div>
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:4px;background:#f59e0b"></div>
+          <div class="spark-lbl">24</div>
+        </div>
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:4px;background:#f59e0b"></div>
+          <div class="spark-lbl">25</div>
+        </div></div>
+      <div class="stat-grid">
+        <div class="stat-cell">
+          <div class="stat-val">-0<span class="stat-arrow flat">●</span></div>
+          <div class="stat-lbl">Fpts</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">+0.967<span class="stat-arrow flat">●</span></div>
+          <div class="stat-lbl">EPA/att</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">100%<span class="stat-arrow flat">●</span></div>
+          <div class="stat-lbl">Cmp%</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">-1</div>
+          <div class="stat-lbl">Rush Fpts</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">6.33</div>
+          <div class="stat-lbl">AYA</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">-259</div>
+          <div class="stat-lbl">WAR</div>
+        </div></div>
+      <div style="margin-top:8px;"><span class="signal-tag" style="color:#60a5fa;background:#0c1a2e">Peak</span><span class="signal-tag" style="color:#94a3b8;background:#1e293b">–WAR</span></div>
+    </div>
+    <div class="trend-card">
+      <div class="trend-card-header">
+        <div>
+          <div class="trend-name">Mason Rudolph</div>
+          <div class="trend-meta">PIT · QB · Age 30 · '21 · '23 · '24 · '25</div>
+        </div>
+        <div class="trend-badge" style="color:#f59e0b;background:#1e293b;border:1px solid #f59e0b">
+          41
+        </div>
+      </div>
+      <div class="spark-row">
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:5px;background:#f59e0b"></div>
+          <div class="spark-lbl">21</div>
+        </div>
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:11px;background:#f59e0b"></div>
+          <div class="spark-lbl">23</div>
+        </div>
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:28px;background:#f59e0b"></div>
+          <div class="spark-lbl">24</div>
+        </div>
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:5px;background:#f59e0b"></div>
+          <div class="spark-lbl">25</div>
+        </div></div>
+      <div class="stat-grid">
+        <div class="stat-cell">
+          <div class="stat-val">19<span class="stat-arrow down">▼</span></div>
+          <div class="stat-lbl">Fpts</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">+0.046<span class="stat-arrow flat">●</span></div>
+          <div class="stat-lbl">EPA/att</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">70%<span class="stat-arrow up">▲</span></div>
+          <div class="stat-lbl">Cmp%</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">1</div>
+          <div class="stat-lbl">Rush Fpts</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">4.59</div>
+          <div class="stat-lbl">AYA</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">-241</div>
+          <div class="stat-lbl">WAR</div>
+        </div></div>
+      <div style="margin-top:8px;"><span class="signal-tag" style="color:#60a5fa;background:#0c1a2e">Peak</span><span class="signal-tag" style="color:#f87171;background:#2d0a0a">Declining</span><span class="signal-tag" style="color:#94a3b8;background:#1e293b">–WAR</span></div>
+    </div>
+    <div class="trend-card">
+      <div class="trend-card-header">
+        <div>
+          <div class="trend-name">Joe Flacco</div>
+          <div class="trend-meta">CIN · QB · Age 41 · '21 · '22 · '23 · '24 · '25 · '25</div>
+        </div>
+        <div class="trend-badge" style="color:#60a5fa;background:#1e293b;border:1px solid #60a5fa">
+          60
+        </div>
+      </div>
+      <div class="spark-row">
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:5px;background:#60a5fa"></div>
+          <div class="spark-lbl">21</div>
+        </div>
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:13px;background:#60a5fa"></div>
+          <div class="spark-lbl">22</div>
+        </div>
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:24px;background:#60a5fa"></div>
+          <div class="spark-lbl">23</div>
+        </div>
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:24px;background:#60a5fa"></div>
+          <div class="spark-lbl">24</div>
+        </div>
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:28px;background:#60a5fa"></div>
+          <div class="spark-lbl">25</div>
+        </div>
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:7px;background:#60a5fa"></div>
+          <div class="spark-lbl">25</div>
+        </div></div>
+      <div class="stat-grid">
+        <div class="stat-cell">
+          <div class="stat-val">120<span class="stat-arrow up">▲</span></div>
+          <div class="stat-lbl">Fpts</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">+0.031<span class="stat-arrow flat">●</span></div>
+          <div class="stat-lbl">EPA/att</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">59%<span class="stat-arrow flat">●</span></div>
+          <div class="stat-lbl">Cmp%</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">8</div>
+          <div class="stat-lbl">Rush Fpts</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">6.31</div>
+          <div class="stat-lbl">AYA</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">-139</div>
+          <div class="stat-lbl">WAR</div>
+        </div></div>
+      <div style="margin-top:8px;"><span class="signal-tag" style="color:#f87171;background:#2d0a0a">Veteran</span><span class="signal-tag" style="color:#94a3b8;background:#1e293b">–WAR</span></div>
+    </div>
+    <div class="trend-card">
+      <div class="trend-card-header">
+        <div>
+          <div class="trend-name">Andy Dalton</div>
+          <div class="trend-meta">CAR · QB · Age 38 · '21 · '22 · '23 · '24 · '25</div>
+        </div>
+        <div class="trend-badge" style="color:#f87171;background:#1e293b;border:1px solid #f87171">
+          31
+        </div>
+      </div>
+      <div class="spark-row">
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:13px;background:#f87171"></div>
+          <div class="spark-lbl">21</div>
+        </div>
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:28px;background:#f87171"></div>
+          <div class="spark-lbl">22</div>
+        </div>
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:4px;background:#f87171"></div>
+          <div class="spark-lbl">23</div>
+        </div>
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:10px;background:#f87171"></div>
+          <div class="spark-lbl">24</div>
+        </div>
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:4px;background:#f87171"></div>
+          <div class="spark-lbl">25</div>
+        </div></div>
+      <div class="stat-grid">
+        <div class="stat-cell">
+          <div class="stat-val">10<span class="stat-arrow down">▼</span></div>
+          <div class="stat-lbl">Fpts</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">-0.126<span class="stat-arrow flat">●</span></div>
+          <div class="stat-lbl">EPA/att</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">56%<span class="stat-arrow down">▼</span></div>
+          <div class="stat-lbl">Cmp%</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">-2</div>
+          <div class="stat-lbl">Rush Fpts</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">4.76</div>
+          <div class="stat-lbl">AYA</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">-249</div>
+          <div class="stat-lbl">WAR</div>
+        </div></div>
+      <div style="margin-top:8px;"><span class="signal-tag" style="color:#f87171;background:#2d0a0a">Veteran</span><span class="signal-tag" style="color:#f87171;background:#2d0a0a">Declining</span><span class="signal-tag" style="color:#94a3b8;background:#1e293b">–WAR</span></div>
+    </div>
+    <div class="trend-card">
+      <div class="trend-card-header">
+        <div>
+          <div class="trend-name">Cooper Rush</div>
+          <div class="trend-meta">BAL · QB · Age 32 · '21 · '22 · '23 · '24 · '25</div>
+        </div>
+        <div class="trend-badge" style="color:#f87171;background:#1e293b;border:1px solid #f87171">
+          28
+        </div>
+      </div>
+      <div class="spark-row">
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:6px;background:#f87171"></div>
+          <div class="spark-lbl">21</div>
+        </div>
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:14px;background:#f87171"></div>
+          <div class="spark-lbl">22</div>
+        </div>
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:4px;background:#f87171"></div>
+          <div class="spark-lbl">23</div>
+        </div>
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:28px;background:#f87171"></div>
+          <div class="spark-lbl">24</div>
+        </div>
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:4px;background:#f87171"></div>
+          <div class="spark-lbl">25</div>
+        </div></div>
+      <div class="stat-grid">
+        <div class="stat-cell">
+          <div class="stat-val">5<span class="stat-arrow down">▼</span></div>
+          <div class="stat-lbl">Fpts</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">-0.473<span class="stat-arrow flat">●</span></div>
+          <div class="stat-lbl">EPA/att</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">64%<span class="stat-arrow up">▲</span></div>
+          <div class="stat-lbl">Cmp%</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">-2</div>
+          <div class="stat-lbl">Rush Fpts</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">2.02</div>
+          <div class="stat-lbl">AYA</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">-254</div>
+          <div class="stat-lbl">WAR</div>
+        </div></div>
+      <div style="margin-top:8px;"><span class="signal-tag" style="color:#60a5fa;background:#0c1a2e">Peak</span><span class="signal-tag" style="color:#f87171;background:#2d0a0a">Declining</span><span class="signal-tag" style="color:#94a3b8;background:#1e293b">–WAR</span></div>
+    </div>
+    <div class="trend-card">
+      <div class="trend-card-header">
+        <div>
+          <div class="trend-name">Aidan O'Connell</div>
+          <div class="trend-meta">LV · QB · Age 27 · '23 · '24 · '25</div>
+        </div>
+        <div class="trend-badge" style="color:#f87171;background:#1e293b;border:1px solid #f87171">
+          28
+        </div>
+      </div>
+      <div class="spark-row">
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:28px;background:#f87171"></div>
+          <div class="spark-lbl">23</div>
+        </div>
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:20px;background:#f87171"></div>
+          <div class="spark-lbl">24</div>
+        </div>
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:4px;background:#f87171"></div>
+          <div class="spark-lbl">25</div>
+        </div></div>
+      <div class="stat-grid">
+        <div class="stat-cell">
+          <div class="stat-val">5<span class="stat-arrow down">▼</span></div>
+          <div class="stat-lbl">Fpts</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">-0.255<span class="stat-arrow flat">●</span></div>
+          <div class="stat-lbl">EPA/att</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">43%<span class="stat-arrow down">▼</span></div>
+          <div class="stat-lbl">Cmp%</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">1</div>
+          <div class="stat-lbl">Rush Fpts</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">4.22</div>
+          <div class="stat-lbl">AYA</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">-255</div>
+          <div class="stat-lbl">WAR</div>
+        </div></div>
+      <div style="margin-top:8px;"><span class="signal-tag" style="color:#60a5fa;background:#0c1a2e">Peak</span><span class="signal-tag" style="color:#f87171;background:#2d0a0a">Declining</span><span class="signal-tag" style="color:#94a3b8;background:#1e293b">–WAR</span></div>
+    </div>
+    <div class="trend-card">
+      <div class="trend-card-header">
+        <div>
+          <div class="trend-name">Zach Wilson</div>
+          <div class="trend-meta">MIA · QB · Age 26 · '21 · '22 · '23 · '25</div>
+        </div>
+        <div class="trend-badge" style="color:#f87171;background:#1e293b;border:1px solid #f87171">
+          27
+        </div>
+      </div>
+      <div class="spark-row">
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:28px;background:#f87171"></div>
+          <div class="spark-lbl">21</div>
+        </div>
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:17px;background:#f87171"></div>
+          <div class="spark-lbl">22</div>
+        </div>
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:22px;background:#f87171"></div>
+          <div class="spark-lbl">23</div>
+        </div>
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:4px;background:#f87171"></div>
+          <div class="spark-lbl">25</div>
+        </div></div>
+      <div class="stat-grid">
+        <div class="stat-cell">
+          <div class="stat-val">1<span class="stat-arrow down">▼</span></div>
+          <div class="stat-lbl">Fpts</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">-0.602<span class="stat-arrow flat">●</span></div>
+          <div class="stat-lbl">EPA/att</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">55%<span class="stat-arrow flat">●</span></div>
+          <div class="stat-lbl">Cmp%</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">0</div>
+          <div class="stat-lbl">Rush Fpts</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">2.91</div>
+          <div class="stat-lbl">AYA</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">-258</div>
+          <div class="stat-lbl">WAR</div>
+        </div></div>
+      <div style="margin-top:8px;"><span class="signal-tag" style="color:#60a5fa;background:#0c1a2e">Peak</span><span class="signal-tag" style="color:#f87171;background:#2d0a0a">Declining</span><span class="signal-tag" style="color:#94a3b8;background:#1e293b">–WAR</span></div>
+    </div>
+    <div class="trend-card">
+      <div class="trend-card-header">
+        <div>
+          <div class="trend-name">Anthony Richardson</div>
+          <div class="trend-meta">IND · QB · Age 23 · '23 · '24 · '25</div>
+        </div>
+        <div class="trend-badge" style="color:#f87171;background:#1e293b;border:1px solid #f87171">
+          26
+        </div>
+      </div>
+      <div class="spark-row">
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:11px;background:#f87171"></div>
+          <div class="spark-lbl">23</div>
+        </div>
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:28px;background:#f87171"></div>
+          <div class="spark-lbl">24</div>
+        </div>
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:4px;background:#f87171"></div>
+          <div class="spark-lbl">25</div>
+        </div></div>
+      <div class="stat-grid">
+        <div class="stat-cell">
+          <div class="stat-val">0<span class="stat-arrow down">▼</span></div>
+          <div class="stat-lbl">Fpts</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">-0.606<span class="stat-arrow flat">●</span></div>
+          <div class="stat-lbl">EPA/att</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">50%<span class="stat-arrow up">▲</span></div>
+          <div class="stat-lbl">Cmp%</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">-0</div>
+          <div class="stat-lbl">Rush Fpts</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">4.50</div>
+          <div class="stat-lbl">AYA</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">-259</div>
+          <div class="stat-lbl">WAR</div>
+        </div></div>
+      <div style="margin-top:8px;"><span class="signal-tag" style="color:#4ade80;background:#052e16">Breakout</span><span class="signal-tag" style="color:#f87171;background:#2d0a0a">Declining</span><span class="signal-tag" style="color:#94a3b8;background:#1e293b">–WAR</span></div>
+    </div>
+    <div class="trend-card">
+      <div class="trend-card-header">
+        <div>
+          <div class="trend-name">Drew Lock</div>
+          <div class="trend-meta">SEA · QB · Age 29 · '21 · '23 · '24 · '25</div>
+        </div>
+        <div class="trend-badge" style="color:#f87171;background:#1e293b;border:1px solid #f87171">
+          25
+        </div>
+      </div>
+      <div class="spark-row">
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:16px;background:#f87171"></div>
+          <div class="spark-lbl">21</div>
+        </div>
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:10px;background:#f87171"></div>
+          <div class="spark-lbl">23</div>
+        </div>
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:28px;background:#f87171"></div>
+          <div class="spark-lbl">24</div>
+        </div>
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:4px;background:#f87171"></div>
+          <div class="spark-lbl">25</div>
+        </div></div>
+      <div class="stat-grid">
+        <div class="stat-cell">
+          <div class="stat-val">0<span class="stat-arrow down">▼</span></div>
+          <div class="stat-lbl">Fpts</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">-0.298<span class="stat-arrow flat">●</span></div>
+          <div class="stat-lbl">EPA/att</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">67%<span class="stat-arrow up">▲</span></div>
+          <div class="stat-lbl">Cmp%</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">-0</div>
+          <div class="stat-lbl">Rush Fpts</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">5.00</div>
+          <div class="stat-lbl">AYA</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">-259</div>
+          <div class="stat-lbl">WAR</div>
+        </div></div>
+      <div style="margin-top:8px;"><span class="signal-tag" style="color:#60a5fa;background:#0c1a2e">Peak</span><span class="signal-tag" style="color:#f87171;background:#2d0a0a">Declining</span><span class="signal-tag" style="color:#94a3b8;background:#1e293b">–WAR</span></div>
+    </div>
+    <div class="trend-card">
+      <div class="trend-card-header">
+        <div>
+          <div class="trend-name">Kenny Pickett</div>
+          <div class="trend-meta">LV · QB · Age 27 · '22 · '23 · '24 · '25</div>
+        </div>
+        <div class="trend-badge" style="color:#f87171;background:#1e293b;border:1px solid #f87171">
+          25
+        </div>
+      </div>
+      <div class="spark-row">
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:28px;background:#f87171"></div>
+          <div class="spark-lbl">22</div>
+        </div>
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:20px;background:#f87171"></div>
+          <div class="spark-lbl">23</div>
+        </div>
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:4px;background:#f87171"></div>
+          <div class="spark-lbl">24</div>
+        </div>
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:4px;background:#f87171"></div>
+          <div class="spark-lbl">25</div>
+        </div></div>
+      <div class="stat-grid">
+        <div class="stat-cell">
+          <div class="stat-val">8<span class="stat-arrow down">▼</span></div>
+          <div class="stat-lbl">Fpts</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">-0.543<span class="stat-arrow flat">●</span></div>
+          <div class="stat-lbl">EPA/att</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">53%<span class="stat-arrow flat">●</span></div>
+          <div class="stat-lbl">Cmp%</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">0</div>
+          <div class="stat-lbl">Rush Fpts</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">1.21</div>
+          <div class="stat-lbl">AYA</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">-252</div>
+          <div class="stat-lbl">WAR</div>
+        </div></div>
+      <div style="margin-top:8px;"><span class="signal-tag" style="color:#60a5fa;background:#0c1a2e">Peak</span><span class="signal-tag" style="color:#94a3b8;background:#1e293b">–WAR</span></div>
+    </div>
+    <div class="trend-card">
+      <div class="trend-card-header">
+        <div>
+          <div class="trend-name">Gardner Minshew</div>
+          <div class="trend-meta">KC · QB · Age 29 · '21 · '22 · '23 · '24 · '25</div>
+        </div>
+        <div class="trend-badge" style="color:#f87171;background:#1e293b;border:1px solid #f87171">
+          22
+        </div>
+      </div>
+      <div class="spark-row">
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:4px;background:#f87171"></div>
+          <div class="spark-lbl">21</div>
+        </div>
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:5px;background:#f87171"></div>
+          <div class="spark-lbl">22</div>
+        </div>
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:28px;background:#f87171"></div>
+          <div class="spark-lbl">23</div>
+        </div>
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:14px;background:#f87171"></div>
+          <div class="spark-lbl">24</div>
+        </div>
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:4px;background:#f87171"></div>
+          <div class="spark-lbl">25</div>
+        </div></div>
+      <div class="stat-grid">
+        <div class="stat-cell">
+          <div class="stat-val">1<span class="stat-arrow down">▼</span></div>
+          <div class="stat-lbl">Fpts</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">-0.493<span class="stat-arrow flat">●</span></div>
+          <div class="stat-lbl">EPA/att</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">46%<span class="stat-arrow down">▼</span></div>
+          <div class="stat-lbl">Cmp%</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">0</div>
+          <div class="stat-lbl">Rush Fpts</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">-0.62</div>
+          <div class="stat-lbl">AYA</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">-259</div>
+          <div class="stat-lbl">WAR</div>
+        </div></div>
+      <div style="margin-top:8px;"><span class="signal-tag" style="color:#60a5fa;background:#0c1a2e">Peak</span><span class="signal-tag" style="color:#f87171;background:#2d0a0a">Declining</span><span class="signal-tag" style="color:#94a3b8;background:#1e293b">–WAR</span></div>
+    </div>
+    <div class="trend-card">
+      <div class="trend-card-header">
+        <div>
+          <div class="trend-name">Teddy Bridgewater</div>
+          <div class="trend-meta">TB · QB · Age 33 · '21 · '22 · '23 · '25</div>
+        </div>
+        <div class="trend-badge" style="color:#f87171;background:#1e293b;border:1px solid #f87171">
+          17
+        </div>
+      </div>
+      <div class="spark-row">
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:28px;background:#f87171"></div>
+          <div class="spark-lbl">21</div>
+        </div>
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:5px;background:#f87171"></div>
+          <div class="spark-lbl">22</div>
+        </div>
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:4px;background:#f87171"></div>
+          <div class="spark-lbl">23</div>
+        </div>
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:4px;background:#f87171"></div>
+          <div class="spark-lbl">25</div>
+        </div></div>
+      <div class="stat-grid">
+        <div class="stat-cell">
+          <div class="stat-val">2<span class="stat-arrow flat">●</span></div>
+          <div class="stat-lbl">Fpts</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">-0.735</div>
+          <div class="stat-lbl">EPA/att</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">47%</div>
+          <div class="stat-lbl">Cmp%</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">0</div>
+          <div class="stat-lbl">Rush Fpts</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">2.41</div>
+          <div class="stat-lbl">AYA</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">-257</div>
+          <div class="stat-lbl">WAR</div>
+        </div></div>
+      <div style="margin-top:8px;"><span class="signal-tag" style="color:#60a5fa;background:#0c1a2e">Peak</span><span class="signal-tag" style="color:#94a3b8;background:#1e293b">–WAR</span></div>
+    </div>
+    <div class="trend-card">
+      <div class="trend-card-header">
+        <div>
+          <div class="trend-name">Kyle Allen</div>
+          <div class="trend-meta">DET · QB · Age 30 · '21 · '22 · '23 · '24 · '25</div>
+        </div>
+        <div class="trend-badge" style="color:#f87171;background:#1e293b;border:1px solid #f87171">
+          16
+        </div>
+      </div>
+      <div class="spark-row">
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:14px;background:#f87171"></div>
+          <div class="spark-lbl">21</div>
+        </div>
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:28px;background:#f87171"></div>
+          <div class="spark-lbl">22</div>
+        </div>
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:4px;background:#f87171"></div>
+          <div class="spark-lbl">23</div>
+        </div>
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:4px;background:#f87171"></div>
+          <div class="spark-lbl">24</div>
+        </div>
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:4px;background:#f87171"></div>
+          <div class="spark-lbl">25</div>
+        </div></div>
+      <div class="stat-grid">
+        <div class="stat-cell">
+          <div class="stat-val">-0<span class="stat-arrow flat">●</span></div>
+          <div class="stat-lbl">Fpts</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">-0.678<span class="stat-arrow flat">●</span></div>
+          <div class="stat-lbl">EPA/att</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">0%<span class="stat-arrow down">▼</span></div>
+          <div class="stat-lbl">Cmp%</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">-0</div>
+          <div class="stat-lbl">Rush Fpts</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">0.00</div>
+          <div class="stat-lbl">AYA</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">-260</div>
+          <div class="stat-lbl">WAR</div>
+        </div></div>
+      <div style="margin-top:8px;"><span class="signal-tag" style="color:#60a5fa;background:#0c1a2e">Peak</span><span class="signal-tag" style="color:#94a3b8;background:#1e293b">–WAR</span></div>
+    </div>
+    <div class="trend-card">
+      <div class="trend-card-header">
+        <div>
+          <div class="trend-name">Brett Rypien</div>
+          <div class="trend-meta">CIN · QB · Age 29 · '21 · '22 · '23 · '25</div>
+        </div>
+        <div class="trend-badge" style="color:#f87171;background:#1e293b;border:1px solid #f87171">
+          14
+        </div>
+      </div>
+      <div class="spark-row">
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:4px;background:#f87171"></div>
+          <div class="spark-lbl">21</div>
+        </div>
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:28px;background:#f87171"></div>
+          <div class="spark-lbl">22</div>
+        </div>
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:8px;background:#f87171"></div>
+          <div class="spark-lbl">23</div>
+        </div>
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:4px;background:#f87171"></div>
+          <div class="spark-lbl">25</div>
+        </div></div>
+      <div class="stat-grid">
+        <div class="stat-cell">
+          <div class="stat-val">-0<span class="stat-arrow down">▼</span></div>
+          <div class="stat-lbl">Fpts</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">-1.238<span class="stat-arrow flat">●</span></div>
+          <div class="stat-lbl">EPA/att</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">0%<span class="stat-arrow down">▼</span></div>
+          <div class="stat-lbl">Cmp%</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">0</div>
+          <div class="stat-lbl">Rush Fpts</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">-2.00</div>
+          <div class="stat-lbl">AYA</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">-260</div>
+          <div class="stat-lbl">WAR</div>
+        </div></div>
+      <div style="margin-top:8px;"><span class="signal-tag" style="color:#60a5fa;background:#0c1a2e">Peak</span><span class="signal-tag" style="color:#94a3b8;background:#1e293b">–WAR</span></div>
+    </div>
+    <div class="trend-card">
+      <div class="trend-card-header">
+        <div>
+          <div class="trend-name">Jimmy Garoppolo</div>
+          <div class="trend-meta">LA · QB · Age 34 · '21 · '22 · '23 · '24 · '25</div>
+        </div>
+        <div class="trend-badge" style="color:#f87171;background:#1e293b;border:1px solid #f87171">
+          13
+        </div>
+      </div>
+      <div class="spark-row">
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:28px;background:#f87171"></div>
+          <div class="spark-lbl">21</div>
+        </div>
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:19px;background:#f87171"></div>
+          <div class="spark-lbl">22</div>
+        </div>
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:8px;background:#f87171"></div>
+          <div class="spark-lbl">23</div>
+        </div>
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:4px;background:#f87171"></div>
+          <div class="spark-lbl">24</div>
+        </div>
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:4px;background:#f87171"></div>
+          <div class="spark-lbl">25</div>
+        </div></div>
+      <div class="stat-grid">
+        <div class="stat-cell">
+          <div class="stat-val">-1<span class="stat-arrow down">▼</span></div>
+          <div class="stat-lbl">Fpts</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">—</div>
+          <div class="stat-lbl">EPA/att</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">—</div>
+          <div class="stat-lbl">Cmp%</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">-1</div>
+          <div class="stat-lbl">Rush Fpts</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">—</div>
+          <div class="stat-lbl">AYA</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">-260</div>
+          <div class="stat-lbl">WAR</div>
+        </div></div>
+      <div style="margin-top:8px;"><span class="signal-tag" style="color:#60a5fa;background:#0c1a2e">Peak</span><span class="signal-tag" style="color:#94a3b8;background:#1e293b">–WAR</span></div>
+    </div>
+    <div class="trend-card">
+      <div class="trend-card-header">
+        <div>
+          <div class="trend-name">Jarrett Stidham</div>
+          <div class="trend-meta">DEN · QB · Age 29 · '22 · '23 · '24 · '25</div>
+        </div>
+        <div class="trend-badge" style="color:#f87171;background:#1e293b;border:1px solid #f87171">
+          11
+        </div>
+      </div>
+      <div class="spark-row">
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:28px;background:#f87171"></div>
+          <div class="spark-lbl">22</div>
+        </div>
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:15px;background:#f87171"></div>
+          <div class="spark-lbl">23</div>
+        </div>
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:4px;background:#f87171"></div>
+          <div class="spark-lbl">24</div>
+        </div>
+        <div class="spark-wrap">
+          <div class="spark-bar" style="height:4px;background:#f87171"></div>
+          <div class="spark-lbl">25</div>
+        </div></div>
+      <div class="stat-grid">
+        <div class="stat-cell">
+          <div class="stat-val">-0<span class="stat-arrow flat">●</span></div>
+          <div class="stat-lbl">Fpts</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">—</div>
+          <div class="stat-lbl">EPA/att</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">—</div>
+          <div class="stat-lbl">Cmp%</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">-0</div>
+          <div class="stat-lbl">Rush Fpts</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">—</div>
+          <div class="stat-lbl">AYA</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-val">-260</div>
+          <div class="stat-lbl">WAR</div>
+        </div></div>
+      <div style="margin-top:8px;"><span class="signal-tag" style="color:#60a5fa;background:#0c1a2e">Peak</span><span class="signal-tag" style="color:#94a3b8;background:#1e293b">–WAR</span></div>
+    </div>
+<div class="pg-footer">DTFFL Analytics · nflverse · 2021–2025 regular seasons</div>
+
+<nav class="bottom-nav" id="bottom-nav">
+  <a class="nav-tab" id="nav-reports" href="../index.html">
+    <span class="nav-icon">📊</span>Reports
+  </a>
+  <a class="nav-tab" id="nav-trends" href="../trends_index.html">
+    <span class="nav-icon">📈</span>Trends
+  </a>
+  <a class="nav-tab" id="nav-draft" href="../draft_prep/rb_draft_prep_2026.html">
+    <span class="nav-icon">🏈</span>Draft
+  </a>
+</nav>
+<script>
+(function(){
+  var p = window.location.pathname;
+  if (p.includes('trends') || p.includes('candidate'))  {
+    document.getElementById('nav-trends').classList.add('active');
+  } else if (p.includes('draft_prep')) {
+    document.getElementById('nav-draft').classList.add('active');
+  } else {
+    document.getElementById('nav-reports').classList.add('active');
+  }
+})();
+</script>
+</body></html>
