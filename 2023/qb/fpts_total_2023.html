@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<title>Fantasy Points Total — QB — 2023</title>
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { font-size: 16px; }
+body {
+  background: #0f172a; color: #e2e8f0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  max-width: 480px; margin: 0 auto; padding-bottom: 40px;
+  -webkit-text-size-adjust: 100%;
+}
+.report-header {
+  position: sticky; top: 0; z-index: 10;
+  background: #0f172a; border-bottom: 1px solid #1e293b;
+  padding: 14px 16px 10px;
+}
+.report-title  { font-size: 18px; font-weight: 700; color: #f8fafc; line-height: 1.2; }
+.report-season { font-size: 12px; color: #64748b; margin-top: 2px; }
+.metric-pill {
+  display: inline-block; margin-top: 6px; background: #1e293b;
+  border: 1px solid #334155; border-radius: 99px; padding: 3px 10px;
+  font-size: 11px; color: #94a3b8; cursor: pointer; user-select: none;
+}
+.metric-pill:active { background: #334155; }
+.metric-tooltip {
+  display: none; margin-top: 8px; background: #1e293b;
+  border: 1px solid #334155; border-radius: 8px; padding: 10px 12px;
+  font-size: 12px; color: #cbd5e1; line-height: 1.5;
+}
+.metric-tooltip.open { display: block; }
+.metric-tooltip .formula { margin-top: 5px; font-size: 11px; color: #7dd3fc; font-family: monospace; }
+.legend { display: flex; gap: 8px; padding: 8px 16px; flex-wrap: wrap; }
+.legend-item { display: flex; align-items: center; gap: 4px; font-size: 11px; color: #94a3b8; }
+.legend-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+.player-list { padding: 0 12px; }
+.player-row {
+  display: flex; align-items: center; gap: 10px;
+  padding: 10px 6px; border-bottom: 1px solid #1e293b; min-height: 52px;
+}
+.player-row:last-child { border-bottom: none; }
+.rank-badge { font-size: 13px; font-weight: 700; color: #64748b; min-width: 28px; text-align: right; flex-shrink: 0; }
+.tier-bar { width: 4px; height: 36px; border-radius: 2px; flex-shrink: 0; }
+.player-info { flex: 1; min-width: 0; }
+.player-name { font-size: 15px; font-weight: 600; color: #f1f5f9; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.player-meta { font-size: 11px; color: #64748b; margin-top: 1px; }
+.metric-value { font-size: 17px; font-weight: 700; min-width: 56px; text-align: right; flex-shrink: 0; }
+.metric-pct { font-size: 10px; color: #475569; text-align: right; line-height: 1.1; }
+.tier-elite  { color: #4ade80; } .tier-solid  { color: #60a5fa; }
+.tier-fringe { color: #f59e0b; } .tier-below  { color: #f87171; }
+.bar-elite   { background: #4ade80; } .bar-solid  { background: #60a5fa; }
+.bar-fringe  { background: #f59e0b; } .bar-below  { background: #f87171; }
+.tier-divider {
+  padding: 6px 16px 4px; font-size: 10px; font-weight: 700;
+  letter-spacing: .08em; text-transform: uppercase; color: #475569;
+  border-top: 1px solid #1e293b; margin-top: 4px;
+}
+.report-footer { padding: 20px 16px 0; font-size: 11px; color: #334155; text-align: center; }
+
+.bottom-nav {
+  position: fixed; bottom: 0; left: 50%; transform: translateX(-50%);
+  width: 100%; max-width: 480px;
+  background: #0f172a; border-top: 1px solid #1e293b;
+  display: flex; z-index: 100;
+  padding-bottom: env(safe-area-inset-bottom);
+}
+.nav-tab {
+  flex: 1; display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  padding: 8px 0 6px; text-decoration: none;
+  color: #475569; font-size: 10px; font-weight: 600;
+  letter-spacing: .03em; gap: 3px;
+  -webkit-tap-highlight-color: transparent;
+}
+.nav-tab:active { background: #1e293b; }
+.nav-tab.active { color: #4ade80; }
+.nav-icon { font-size: 18px; line-height: 1; }
+/* Push page content above nav bar */
+body { padding-bottom: calc(56px + env(safe-area-inset-bottom)) !important; }
+</style></head><body>
+<div class="report-header">
+  <div class="report-title">🏈 Fantasy Points Total</div>
+  <div class="report-season">2023 Season · QB · DTFFL Half-PPR · ↑ higher is better</div>
+  <div class="metric-pill" onclick="toggleTooltip()">fpts_total ℹ︎</div>
+  <div class="metric-tooltip" id="tooltip">Total DTFFL fantasy points. Combines passing and rushing into the only number that matters on Sunday.<div class="formula">Sum of all scoring components</div></div>
+</div>
+<div class="legend"><div class="legend-item"><div class="legend-dot" style="background:#4ade80"></div>Elite</div><div class="legend-item"><div class="legend-dot" style="background:#60a5fa"></div>Solid</div><div class="legend-item"><div class="legend-dot" style="background:#f59e0b"></div>Fringe</div><div class="legend-item"><div class="legend-dot" style="background:#f87171"></div>Below Repl.</div></div>
+<div class="player-list"><div class="tier-divider tier-elite">Elite  (Top 10)</div>
+        <div class="player-row">
+          <div class="rank-badge">1</div>
+          <div class="tier-bar bar-elite"></div>
+          <div class="player-info">
+            <div class="player-name">Josh Allen</div>
+            <div class="player-meta">BUF · QB · Peak</div>
+            <div class="player-meta">264 pass + 136 rush pts · WAR +141</div>
+          </div>
+          <div><div class="metric-value tier-elite">401</div><div class="metric-pct">100th pct</div></div>
+        </div>
+        <div class="player-row">
+          <div class="rank-badge">2</div>
+          <div class="tier-bar bar-elite"></div>
+          <div class="player-info">
+            <div class="player-name">Jalen Hurts</div>
+            <div class="player-meta">PHI · QB · Breakout</div>
+            <div class="player-meta">222 pass + 142 rush pts · WAR +106</div>
+          </div>
+          <div><div class="metric-value tier-elite">365</div><div class="metric-pct">99th pct</div></div>
+        </div>
+        <div class="player-row">
+          <div class="rank-badge">3</div>
+          <div class="tier-bar bar-elite"></div>
+          <div class="player-info">
+            <div class="player-name">Dak Prescott</div>
+            <div class="player-meta">DAL · QB · Peak</div>
+            <div class="player-meta">306 pass + 34 rush pts · WAR +80</div>
+          </div>
+          <div><div class="metric-value tier-elite">340</div><div class="metric-pct">98th pct</div></div>
+        </div>
+        <div class="player-row">
+          <div class="rank-badge">4</div>
+          <div class="tier-bar bar-elite"></div>
+          <div class="player-info">
+            <div class="player-name">Lamar Jackson</div>
+            <div class="player-meta">BAL · QB · Peak</div>
+            <div class="player-meta">227 pass + 108 rush pts · WAR +76</div>
+          </div>
+          <div><div class="metric-value tier-elite">336</div><div class="metric-pct">96th pct</div></div>
+        </div>
+        <div class="player-row">
+          <div class="rank-badge">5</div>
+          <div class="tier-bar bar-elite"></div>
+          <div class="player-info">
+            <div class="player-name">Jordan Love</div>
+            <div class="player-meta">GB · QB · Breakout</div>
+            <div class="player-meta">274 pass + 45 rush pts · WAR +59</div>
+          </div>
+          <div><div class="metric-value tier-elite">319</div><div class="metric-pct">95th pct</div></div>
+        </div>
+        <div class="player-row">
+          <div class="rank-badge">6</div>
+          <div class="tier-bar bar-elite"></div>
+          <div class="player-info">
+            <div class="player-name">Brock Purdy</div>
+            <div class="player-meta">SF · QB · Breakout</div>
+            <div class="player-meta">278 pass + 26 rush pts · WAR +45</div>
+          </div>
+          <div><div class="metric-value tier-elite">304</div><div class="metric-pct">94th pct</div></div>
+        </div>
+        <div class="player-row">
+          <div class="rank-badge">7</div>
+          <div class="tier-bar bar-elite"></div>
+          <div class="player-info">
+            <div class="player-name">Jared Goff</div>
+            <div class="player-meta">DET · QB · Peak</div>
+            <div class="player-meta">283 pass + 10 rush pts · WAR +34</div>
+          </div>
+          <div><div class="metric-value tier-elite">293</div><div class="metric-pct">93th pct</div></div>
+        </div>
+        <div class="player-row">
+          <div class="rank-badge">8</div>
+          <div class="tier-bar bar-elite"></div>
+          <div class="player-info">
+            <div class="player-name">Patrick Mahomes</div>
+            <div class="player-meta">KC · QB · Peak</div>
+            <div class="player-meta">254 pass + 39 rush pts · WAR +33</div>
+          </div>
+          <div><div class="metric-value tier-elite">293</div><div class="metric-pct">92th pct</div></div>
+        </div>
+        <div class="player-row">
+          <div class="rank-badge">9</div>
+          <div class="tier-bar bar-elite"></div>
+          <div class="player-info">
+            <div class="player-name">Tua Tagovailoa</div>
+            <div class="player-meta">MIA · QB · Breakout</div>
+            <div class="player-meta">280 pass + -1 rush pts · WAR +20</div>
+          </div>
+          <div><div class="metric-value tier-elite">280</div><div class="metric-pct">90th pct</div></div>
+        </div>
+        <div class="player-row">
+          <div class="rank-badge">10</div>
+          <div class="tier-bar bar-elite"></div>
+          <div class="player-info">
+            <div class="player-name">Baker Mayfield</div>
+            <div class="player-meta">TB · QB · Peak</div>
+            <div class="player-meta">255 pass + 22 rush pts · WAR +18</div>
+          </div>
+          <div><div class="metric-value tier-elite">277</div><div class="metric-pct">89th pct</div></div>
+        </div><div class="tier-divider tier-solid">Solid  (#11–25)</div>
+        <div class="player-row">
+          <div class="rank-badge">11</div>
+          <div class="tier-bar bar-solid"></div>
+          <div class="player-info">
+            <div class="player-name">Trevor Lawrence</div>
+            <div class="player-meta">JAX · QB · Breakout</div>
+            <div class="player-meta">222 pass + 54 rush pts · WAR +16</div>
+          </div>
+          <div><div class="metric-value tier-solid">276</div><div class="metric-pct">88th pct</div></div>
+        </div>
+        <div class="player-row">
+          <div class="rank-badge">12</div>
+          <div class="tier-bar bar-solid"></div>
+          <div class="player-info">
+            <div class="player-name">C.J. Stroud</div>
+            <div class="player-meta">HOU · QB · Breakout</div>
+            <div class="player-meta">238 pass + 32 rush pts · WAR +11</div>
+          </div>
+          <div><div class="metric-value tier-solid">270</div><div class="metric-pct">87th pct</div></div>
+        </div>
+        <div class="player-row">
+          <div class="rank-badge">13</div>
+          <div class="tier-bar bar-solid"></div>
+          <div class="player-info">
+            <div class="player-name">Russell Wilson</div>
+            <div class="player-meta">DEN · QB · Declining</div>
+            <div class="player-meta">209 pass + 50 rush pts · WAR -1</div>
+          </div>
+          <div><div class="metric-value tier-solid">259</div><div class="metric-pct">86th pct</div></div>
+        </div>
+        <div class="player-row">
+          <div class="rank-badge">14</div>
+          <div class="tier-bar bar-solid"></div>
+          <div class="player-info">
+            <div class="player-name">Sam Howell</div>
+            <div class="player-meta">WAS · QB · Breakout</div>
+            <div class="player-meta">203 pass + 54 rush pts · WAR -2</div>
+          </div>
+          <div><div class="metric-value tier-solid">257</div><div class="metric-pct">84th pct</div></div>
+        </div>
+        <div class="player-row">
+          <div class="rank-badge">15</div>
+          <div class="tier-bar bar-solid"></div>
+          <div class="player-info">
+            <div class="player-name">Matthew Stafford</div>
+            <div class="player-meta">LA · QB · Declining</div>
+            <div class="player-meta">235 pass + 6 rush pts · WAR -17</div>
+          </div>
+          <div><div class="metric-value tier-solid">242</div><div class="metric-pct">83th pct</div></div>
+        </div>
+        <div class="player-row">
+          <div class="rank-badge">16</div>
+          <div class="tier-bar bar-solid"></div>
+          <div class="player-info">
+            <div class="player-name">Derek Carr</div>
+            <div class="player-meta">NO · QB · Peak</div>
+            <div class="player-meta">239 pass + 2 rush pts · WAR -19</div>
+          </div>
+          <div><div class="metric-value tier-solid">241</div><div class="metric-pct">82th pct</div></div>
+        </div>
+        <div class="player-row">
+          <div class="rank-badge">17</div>
+          <div class="tier-bar bar-solid"></div>
+          <div class="player-info">
+            <div class="player-name">Justin Fields</div>
+            <div class="player-meta">CHI · QB · Breakout</div>
+            <div class="player-meta">146 pass + 88 rush pts · WAR -26</div>
+          </div>
+          <div><div class="metric-value tier-solid">234</div><div class="metric-pct">81th pct</div></div>
+        </div>
+        <div class="player-row">
+          <div class="rank-badge">18</div>
+          <div class="tier-bar bar-solid"></div>
+          <div class="player-info">
+            <div class="player-name">Justin Herbert</div>
+            <div class="player-meta">LAC · QB · Breakout</div>
+            <div class="player-meta">189 pass + 41 rush pts · WAR -29</div>
+          </div>
+          <div><div class="metric-value tier-solid">230</div><div class="metric-pct">80th pct</div></div>
+        </div>
+        <div class="player-row">
+          <div class="rank-badge">19</div>
+          <div class="tier-bar bar-solid"></div>
+          <div class="player-info">
+            <div class="player-name">Geno Smith</div>
+            <div class="player-meta">SEA · QB · Peak</div>
+            <div class="player-meta">207 pass + 20 rush pts · WAR -33</div>
+          </div>
+          <div><div class="metric-value tier-solid">226</div><div class="metric-pct">79th pct</div></div>
+        </div>
+        <div class="player-row">
+          <div class="rank-badge">20</div>
+          <div class="tier-bar bar-solid"></div>
+          <div class="player-info">
+            <div class="player-name">Gardner Minshew</div>
+            <div class="player-meta">IND · QB · Peak</div>
+            <div class="player-meta">176 pass + 28 rush pts · WAR -56</div>
+          </div>
+          <div><div class="metric-value tier-solid">204</div><div class="metric-pct">77th pct</div></div>
+        </div>
+        <div class="player-row">
+          <div class="rank-badge">21</div>
+          <div class="tier-bar bar-solid"></div>
+          <div class="player-info">
+            <div class="player-name">Desmond Ridder</div>
+            <div class="player-meta">ATL · QB · Breakout</div>
+            <div class="player-meta">142 pass + 43 rush pts · WAR -74</div>
+          </div>
+          <div><div class="metric-value tier-solid">185</div><div class="metric-pct">76th pct</div></div>
+        </div>
+        <div class="player-row">
+          <div class="rank-badge">22</div>
+          <div class="tier-bar bar-solid"></div>
+          <div class="player-info">
+            <div class="player-name">Kirk Cousins</div>
+            <div class="player-meta">MIN · QB · Declining</div>
+            <div class="player-meta">156 pass + 0 rush pts · WAR -103</div>
+          </div>
+          <div><div class="metric-value tier-solid">156</div><div class="metric-pct">75th pct</div></div>
+        </div>
+        <div class="player-row">
+          <div class="rank-badge">23</div>
+          <div class="tier-bar bar-solid"></div>
+          <div class="player-info">
+            <div class="player-name">Bryce Young</div>
+            <div class="player-meta">CAR · QB · Breakout</div>
+            <div class="player-meta">130 pass + 26 rush pts · WAR -104</div>
+          </div>
+          <div><div class="metric-value tier-solid">156</div><div class="metric-pct">74th pct</div></div>
+        </div>
+        <div class="player-row">
+          <div class="rank-badge">24</div>
+          <div class="tier-bar bar-solid"></div>
+          <div class="player-info">
+            <div class="player-name">Joe Burrow</div>
+            <div class="player-meta">CIN · QB · Peak</div>
+            <div class="player-meta">139 pass + 9 rush pts · WAR -111</div>
+          </div>
+          <div><div class="metric-value tier-solid">148</div><div class="metric-pct">73th pct</div></div>
+        </div>
+        <div class="player-row">
+          <div class="rank-badge">25</div>
+          <div class="tier-bar bar-solid"></div>
+          <div class="player-info">
+            <div class="player-name">Kyler Murray</div>
+            <div class="player-meta">ARI · QB · Peak</div>
+            <div class="player-meta">102 pass + 42 rush pts · WAR -115</div>
+          </div>
+          <div><div class="metric-value tier-solid">145</div><div class="metric-pct">71th pct</div></div>
+        </div><div class="tier-divider tier-fringe">Fringe  (#26–50)</div>
+        <div class="player-row">
+          <div class="rank-badge">26</div>
+          <div class="tier-bar bar-fringe"></div>
+          <div class="player-info">
+            <div class="player-name">Jake Browning</div>
+            <div class="player-meta">CIN · QB · Peak</div>
+            <div class="player-meta">112 pass + 31 rush pts · WAR -117</div>
+          </div>
+          <div><div class="metric-value tier-fringe">142</div><div class="metric-pct">70th pct</div></div>
+        </div>
+        <div class="player-row">
+          <div class="rank-badge">27</div>
+          <div class="tier-bar bar-fringe"></div>
+          <div class="player-info">
+            <div class="player-name">Aidan O'Connell</div>
+            <div class="player-meta">LV · QB · Breakout</div>
+            <div class="player-meta">123 pass + 7 rush pts · WAR -130</div>
+          </div>
+          <div><div class="metric-value tier-fringe">130</div><div class="metric-pct">69th pct</div></div>
+        </div>
+        <div class="player-row">
+          <div class="rank-badge">28</div>
+          <div class="tier-bar bar-fringe"></div>
+          <div class="player-info">
+            <div class="player-name">Joshua Dobbs</div>
+            <div class="player-meta">ARI · QB · Peak</div>
+            <div class="player-meta">85 pass + 42 rush pts · WAR -132</div>
+          </div>
+          <div><div class="metric-value tier-fringe">127</div><div class="metric-pct">68th pct</div></div>
+        </div>
+        <div class="player-row">
+          <div class="rank-badge">29</div>
+          <div class="tier-bar bar-fringe"></div>
+          <div class="player-info">
+            <div class="player-name">Zach Wilson</div>
+            <div class="player-meta">NYJ · QB · Breakout</div>
+            <div class="player-meta">102 pass + 15 rush pts · WAR -142</div>
+          </div>
+          <div><div class="metric-value tier-fringe">118</div><div class="metric-pct">67th pct</div></div>
+        </div>
+        <div class="player-row">
+          <div class="rank-badge">30</div>
+          <div class="tier-bar bar-fringe"></div>
+          <div class="player-info">
+            <div class="player-name">Mac Jones</div>
+            <div class="player-meta">NE · QB · Breakout</div>
+            <div class="player-meta">108 pass + 8 rush pts · WAR -144</div>
+          </div>
+          <div><div class="metric-value tier-fringe">115</div><div class="metric-pct">66th pct</div></div>
+        </div>
+        <div class="player-row">
+          <div class="rank-badge">31</div>
+          <div class="tier-bar bar-fringe"></div>
+          <div class="player-info">
+            <div class="player-name">Kenny Pickett</div>
+            <div class="player-meta">PIT · QB · Breakout</div>
+            <div class="player-meta">96 pass + 11 rush pts · WAR -152</div>
+          </div>
+          <div><div class="metric-value tier-fringe">107</div><div class="metric-pct">64th pct</div></div>
+        </div>
+        <div class="player-row">
+          <div class="rank-badge">32</div>
+          <div class="tier-bar bar-fringe"></div>
+          <div class="player-info">
+            <div class="player-name">Joe Flacco</div>
+            <div class="player-meta">CLE · QB · Veteran</div>
+            <div class="player-meta">106 pass + 0 rush pts · WAR -153</div>
+          </div>
+          <div><div class="metric-value tier-fringe">107</div><div class="metric-pct">63th pct</div></div>
+        </div></div>
+<div class="report-footer">
+  DTFFL Analytics · nflverse data · 2023 regular season<br>
+  Top 32 of 53 qualifying players
+</div>
+<script>function toggleTooltip(){document.getElementById('tooltip').classList.toggle('open');}</script>
+
+<nav class="bottom-nav" id="bottom-nav">
+  <a class="nav-tab" id="nav-reports" href="../../index.html">
+    <span class="nav-icon">📊</span>Reports
+  </a>
+  <a class="nav-tab" id="nav-trends" href="../../trends_index.html">
+    <span class="nav-icon">📈</span>Trends
+  </a>
+  <a class="nav-tab" id="nav-draft" href="../../draft_prep/rb_draft_prep_2026.html">
+    <span class="nav-icon">🏈</span>Draft
+  </a>
+</nav>
+<script>
+(function(){
+  var p = window.location.pathname;
+  if (p.includes('trends') || p.includes('candidate'))  {
+    document.getElementById('nav-trends').classList.add('active');
+  } else if (p.includes('draft_prep')) {
+    document.getElementById('nav-draft').classList.add('active');
+  } else {
+    document.getElementById('nav-reports').classList.add('active');
+  }
+})();
+</script>
+</body></html>
