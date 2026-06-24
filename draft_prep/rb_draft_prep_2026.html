@@ -1,0 +1,2024 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<title>2026 DTFFL Draft Prep — Running Backs</title>
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { font-size: 16px; }
+body {
+  background: #0f172a; color: #e2e8f0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  max-width: 480px; margin: 0 auto; padding-bottom: 48px;
+  -webkit-text-size-adjust: 100%;
+}
+.pg-header {
+  position: sticky; top: 0; z-index: 10;
+  background: #0f172a; border-bottom: 1px solid #1e293b;
+  padding: 14px 16px 10px;
+}
+.pg-title  { font-size: 18px; font-weight: 700; color: #f8fafc; line-height: 1.2; }
+.pg-sub    { font-size: 12px; color: #64748b; margin-top: 3px; }
+.section-hd {
+  padding: 12px 16px 4px; font-size: 11px; font-weight: 700;
+  letter-spacing: .07em; text-transform: uppercase; color: #475569;
+  border-top: 1px solid #1e293b; margin-top: 6px;
+}
+.section-hd:first-of-type { border-top: none; margin-top: 0; }
+.pg-footer {
+  padding: 20px 16px 0; font-size: 11px;
+  color: #334155; text-align: center;
+}
+/* ── Trend player card ─────────────────────────────────── */
+.trend-card {
+  background: #1e293b; border: 1px solid #2d3f55;
+  border-radius: 12px; margin: 6px 12px; padding: 12px 14px;
+}
+.trend-card-header {
+  display: flex; justify-content: space-between;
+  align-items: flex-start; margin-bottom: 8px;
+}
+.trend-name  { font-size: 15px; font-weight: 700; color: #f1f5f9; }
+.trend-meta  { font-size: 11px; color: #64748b; margin-top: 2px; }
+.trend-badge {
+  font-size: 11px; font-weight: 700; padding: 3px 9px;
+  border-radius: 99px; flex-shrink: 0; margin-left: 8px;
+}
+/* ── Sparkline row ─────────────────────────────────────── */
+.spark-row  {
+  display: flex; gap: 4px; align-items: flex-end;
+  height: 32px; margin-bottom: 6px;
+}
+.spark-bar  {
+  flex: 1; border-radius: 3px 3px 0 0;
+  min-height: 4px; position: relative;
+}
+.spark-lbl  {
+  font-size: 9px; color: #475569; text-align: center;
+  margin-top: 2px;
+}
+.spark-wrap { flex: 1; }
+/* ── Stat grid ─────────────────────────────────────────── */
+.stat-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 6px; margin-top: 8px;
+}
+.stat-cell  {
+  background: #0f172a; border-radius: 8px;
+  padding: 7px 6px; text-align: center;
+}
+.stat-val   { font-size: 14px; font-weight: 700; color: #f1f5f9; }
+.stat-lbl   { font-size: 9px; color: #475569; margin-top: 1px; }
+.stat-arrow { font-size: 10px; margin-left: 2px; }
+.up   { color: #4ade80; } .down { color: #f87171; } .flat { color: #94a3b8; }
+/* ── Draft prep card ───────────────────────────────────── */
+.draft-card {
+  margin: 6px 12px; border-radius: 12px;
+  border: 1px solid #2d3f55; overflow: hidden;
+}
+.draft-card-top {
+  background: #1e293b; padding: 12px 14px;
+  display: flex; justify-content: space-between; align-items: center;
+}
+.draft-rank  {
+  font-size: 22px; font-weight: 700; color: #475569;
+  min-width: 36px; flex-shrink: 0;
+}
+.draft-name  { font-size: 15px; font-weight: 700; color: #f1f5f9; }
+.draft-meta  { font-size: 11px; color: #64748b; margin-top: 2px; }
+.draft-score {
+  font-size: 24px; font-weight: 800;
+  min-width: 52px; text-align: right; flex-shrink: 0;
+}
+.draft-card-body {
+  background: #162032; padding: 10px 14px;
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px;
+}
+.dc-stat { text-align: center; }
+.dc-val  { font-size: 13px; font-weight: 700; color: #f1f5f9; }
+.dc-lbl  { font-size: 9px; color: #475569; margin-top: 1px; }
+.draft-signal {
+  background: #0f172a; padding: 6px 14px 10px;
+  font-size: 11px; color: #94a3b8; line-height: 1.5;
+}
+.signal-tag {
+  display: inline-block; font-size: 10px; font-weight: 700;
+  padding: 1px 8px; border-radius: 99px; margin-right: 4px;
+}
+
+.bottom-nav {
+  position: fixed; bottom: 0; left: 50%; transform: translateX(-50%);
+  width: 100%; max-width: 480px;
+  background: #0f172a; border-top: 1px solid #1e293b;
+  display: flex; z-index: 100;
+  padding-bottom: env(safe-area-inset-bottom);
+}
+.nav-tab {
+  flex: 1; display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  padding: 8px 0 6px; text-decoration: none;
+  color: #475569; font-size: 10px; font-weight: 600;
+  letter-spacing: .03em; gap: 3px;
+  -webkit-tap-highlight-color: transparent;
+}
+.nav-tab:active { background: #1e293b; }
+.nav-tab.active { color: #4ade80; }
+.nav-icon { font-size: 18px; line-height: 1; }
+/* Push page content above nav bar */
+body { padding-bottom: calc(56px + env(safe-area-inset-bottom)) !important; }
+</style></head><body>
+<div class="pg-header">
+  <div class="pg-title">🏈 2026 DTFFL Draft Prep — Running Backs</div>
+  <div class="pg-sub">Half-PPR · Ranked by 2025 RB composite score · Based on 2025 production + trend + age</div>
+</div>
+
+    <div class="draft-card">
+      <div class="draft-card-top">
+        <div class="draft-rank" style="color:#4ade80">1</div>
+        <div style="flex:1;padding:0 8px">
+          <div class="draft-name">Jonathan Taylor</div>
+          <div class="draft-meta">IND · RB · Age 27 · Peak</div>
+        </div>
+        <div class="draft-score" style="color:#4ade80">91</div>
+      </div>
+      <div class="draft-card-body">
+        <div class="dc-stat">
+          <div class="dc-val">340</div>
+          <div class="dc-lbl">Fpts</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">87%</div>
+          <div class="dc-lbl">Rush Sh</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">20.0</div>
+          <div class="dc-lbl">PPG</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">+222</div>
+          <div class="dc-lbl">WAR</div>
+        </div></div>
+      <div class="draft-signal">
+        <span class="signal-tag" style="color:#60a5fa;background:#0c1a2e">Peak</span><span class="signal-tag" style="color:#4ade80;background:#052e16">Rising</span><span class="signal-tag" style="color:#a78bfa;background:#1a0a3a">Elite WAR</span><span class="signal-tag" style="color:#fbbf24;background:#2d1a00">Workhorse</span>
+        <div style="margin-top:5px">True workhorse at 87% rush share. Pass-catching value with 72% target share. Efficient rusher (+0.06 EPA/att).</div>
+      </div>
+    </div>
+    <div class="draft-card">
+      <div class="draft-card-top">
+        <div class="draft-rank" style="color:#4ade80">2</div>
+        <div style="flex:1;padding:0 8px">
+          <div class="draft-name">James Cook</div>
+          <div class="draft-meta">BUF · RB · Age 26 · Peak</div>
+        </div>
+        <div class="draft-score" style="color:#4ade80">90</div>
+      </div>
+      <div class="draft-card-body">
+        <div class="dc-stat">
+          <div class="dc-val">286</div>
+          <div class="dc-lbl">Fpts</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">74%</div>
+          <div class="dc-lbl">Rush Sh</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">16.8</div>
+          <div class="dc-lbl">PPG</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">+168</div>
+          <div class="dc-lbl">WAR</div>
+        </div></div>
+      <div class="draft-signal">
+        <span class="signal-tag" style="color:#60a5fa;background:#0c1a2e">Peak</span><span class="signal-tag" style="color:#4ade80;background:#052e16">Rising</span><span class="signal-tag" style="color:#a78bfa;background:#1a0a3a">Elite WAR</span><span class="signal-tag" style="color:#fbbf24;background:#2d1a00">Workhorse</span>
+        <div style="margin-top:5px">True workhorse at 74% rush share. Pass-catching value with 44% target share.</div>
+      </div>
+    </div>
+    <div class="draft-card">
+      <div class="draft-card-top">
+        <div class="draft-rank" style="color:#4ade80">3</div>
+        <div style="flex:1;padding:0 8px">
+          <div class="draft-name">Jahmyr Gibbs</div>
+          <div class="draft-meta">DET · RB · Age 24 · Peak</div>
+        </div>
+        <div class="draft-score" style="color:#4ade80">88</div>
+      </div>
+      <div class="draft-card-body">
+        <div class="dc-stat">
+          <div class="dc-val">328</div>
+          <div class="dc-lbl">Fpts</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">60%</div>
+          <div class="dc-lbl">Rush Sh</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">19.3</div>
+          <div class="dc-lbl">PPG</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">+210</div>
+          <div class="dc-lbl">WAR</div>
+        </div></div>
+      <div class="draft-signal">
+        <span class="signal-tag" style="color:#60a5fa;background:#0c1a2e">Peak</span><span class="signal-tag" style="color:#a78bfa;background:#1a0a3a">Elite WAR</span><span class="signal-tag" style="color:#fbbf24;background:#2d1a00">Workhorse</span>
+        <div style="margin-top:5px">True workhorse at 60% rush share. Pass-catching value with 76% target share.</div>
+      </div>
+    </div>
+    <div class="draft-card">
+      <div class="draft-card-top">
+        <div class="draft-rank" style="color:#4ade80">4</div>
+        <div style="flex:1;padding:0 8px">
+          <div class="draft-name">Bijan Robinson</div>
+          <div class="draft-meta">ATL · RB · Age 24 · Peak</div>
+        </div>
+        <div class="draft-score" style="color:#4ade80">88</div>
+      </div>
+      <div class="draft-card-body">
+        <div class="dc-stat">
+          <div class="dc-val">332</div>
+          <div class="dc-lbl">Fpts</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">65%</div>
+          <div class="dc-lbl">Rush Sh</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">19.5</div>
+          <div class="dc-lbl">PPG</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">+214</div>
+          <div class="dc-lbl">WAR</div>
+        </div></div>
+      <div class="draft-signal">
+        <span class="signal-tag" style="color:#60a5fa;background:#0c1a2e">Peak</span><span class="signal-tag" style="color:#a78bfa;background:#1a0a3a">Elite WAR</span><span class="signal-tag" style="color:#fbbf24;background:#2d1a00">Workhorse</span>
+        <div style="margin-top:5px">True workhorse at 65% rush share. Pass-catching value with 87% target share. High ceiling — 35% boom rate.</div>
+      </div>
+    </div>
+    <div class="draft-card">
+      <div class="draft-card-top">
+        <div class="draft-rank" style="color:#4ade80">5</div>
+        <div style="flex:1;padding:0 8px">
+          <div class="draft-name">De'Von Achane</div>
+          <div class="draft-meta">MIA · RB · Age 24 · Peak</div>
+        </div>
+        <div class="draft-score" style="color:#4ade80">87</div>
+      </div>
+      <div class="draft-card-body">
+        <div class="dc-stat">
+          <div class="dc-val">289</div>
+          <div class="dc-lbl">Fpts</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">63%</div>
+          <div class="dc-lbl">Rush Sh</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">17.0</div>
+          <div class="dc-lbl">PPG</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">+171</div>
+          <div class="dc-lbl">WAR</div>
+        </div></div>
+      <div class="draft-signal">
+        <span class="signal-tag" style="color:#60a5fa;background:#0c1a2e">Peak</span><span class="signal-tag" style="color:#4ade80;background:#052e16">Rising</span><span class="signal-tag" style="color:#a78bfa;background:#1a0a3a">Elite WAR</span><span class="signal-tag" style="color:#fbbf24;background:#2d1a00">Workhorse</span>
+        <div style="margin-top:5px">True workhorse at 63% rush share. Pass-catching value with 75% target share. Efficient rusher (+0.06 EPA/att).</div>
+      </div>
+    </div>
+    <div class="draft-card">
+      <div class="draft-card-top">
+        <div class="draft-rank" style="color:#4ade80">6</div>
+        <div style="flex:1;padding:0 8px">
+          <div class="draft-name">Kyren Williams</div>
+          <div class="draft-meta">LA · RB · Age 25 · Peak</div>
+        </div>
+        <div class="draft-score" style="color:#4ade80">86</div>
+      </div>
+      <div class="draft-card-body">
+        <div class="dc-stat">
+          <div class="dc-val">245</div>
+          <div class="dc-lbl">Fpts</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">63%</div>
+          <div class="dc-lbl">Rush Sh</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">14.4</div>
+          <div class="dc-lbl">PPG</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">+128</div>
+          <div class="dc-lbl">WAR</div>
+        </div></div>
+      <div class="draft-signal">
+        <span class="signal-tag" style="color:#60a5fa;background:#0c1a2e">Peak</span><span class="signal-tag" style="color:#a78bfa;background:#1a0a3a">Elite WAR</span><span class="signal-tag" style="color:#fbbf24;background:#2d1a00">Workhorse</span>
+        <div style="margin-top:5px">True workhorse at 63% rush share. Pass-catching value with 78% target share.</div>
+      </div>
+    </div>
+    <div class="draft-card">
+      <div class="draft-card-top">
+        <div class="draft-rank" style="color:#4ade80">7</div>
+        <div style="flex:1;padding:0 8px">
+          <div class="draft-name">Derrick Henry</div>
+          <div class="draft-meta">BAL · RB · Age 32 · Veteran</div>
+        </div>
+        <div class="draft-score" style="color:#4ade80">86</div>
+      </div>
+      <div class="draft-card-body">
+        <div class="dc-stat">
+          <div class="dc-val">272</div>
+          <div class="dc-lbl">Fpts</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">78%</div>
+          <div class="dc-lbl">Rush Sh</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">16.0</div>
+          <div class="dc-lbl">PPG</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">+154</div>
+          <div class="dc-lbl">WAR</div>
+        </div></div>
+      <div class="draft-signal">
+        <span class="signal-tag" style="color:#f87171;background:#2d0a0a">Veteran</span><span class="signal-tag" style="color:#f87171;background:#2d0a0a">Declining</span><span class="signal-tag" style="color:#a78bfa;background:#1a0a3a">Elite WAR</span><span class="signal-tag" style="color:#fbbf24;background:#2d1a00">Workhorse</span>
+        <div style="margin-top:5px">True workhorse at 78% rush share. Pass-catching value with 29% target share. Sharp decline from prior season (-55 fpts).</div>
+      </div>
+    </div>
+    <div class="draft-card">
+      <div class="draft-card-top">
+        <div class="draft-rank" style="color:#4ade80">8</div>
+        <div style="flex:1;padding:0 8px">
+          <div class="draft-name">Christian McCaffrey</div>
+          <div class="draft-meta">SF · RB · Age 29 · Veteran</div>
+        </div>
+        <div class="draft-score" style="color:#4ade80">86</div>
+      </div>
+      <div class="draft-card-body">
+        <div class="dc-stat">
+          <div class="dc-val">364</div>
+          <div class="dc-lbl">Fpts</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">77%</div>
+          <div class="dc-lbl">Rush Sh</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">21.4</div>
+          <div class="dc-lbl">PPG</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">+246</div>
+          <div class="dc-lbl">WAR</div>
+        </div></div>
+      <div class="draft-signal">
+        <span class="signal-tag" style="color:#f87171;background:#2d0a0a">Veteran</span><span class="signal-tag" style="color:#4ade80;background:#052e16">Rising</span><span class="signal-tag" style="color:#a78bfa;background:#1a0a3a">Elite WAR</span><span class="signal-tag" style="color:#fbbf24;background:#2d1a00">Workhorse</span>
+        <div style="margin-top:5px">True workhorse at 77% rush share. Pass-catching value with 76% target share. Below-average rush efficiency (-0.07 EPA/att).</div>
+      </div>
+    </div>
+    <div class="draft-card">
+      <div class="draft-card-top">
+        <div class="draft-rank" style="color:#4ade80">9</div>
+        <div style="flex:1;padding:0 8px">
+          <div class="draft-name">D'Andre Swift</div>
+          <div class="draft-meta">CHI · RB · Age 27 · Peak</div>
+        </div>
+        <div class="draft-score" style="color:#4ade80">84</div>
+      </div>
+      <div class="draft-card-body">
+        <div class="dc-stat">
+          <div class="dc-val">211</div>
+          <div class="dc-lbl">Fpts</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">55%</div>
+          <div class="dc-lbl">Rush Sh</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">12.4</div>
+          <div class="dc-lbl">PPG</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">+93</div>
+          <div class="dc-lbl">WAR</div>
+        </div></div>
+      <div class="draft-signal">
+        <span class="signal-tag" style="color:#60a5fa;background:#0c1a2e">Peak</span><span class="signal-tag" style="color:#a78bfa;background:#1a0a3a">Elite WAR</span><span class="signal-tag" style="color:#fbbf24;background:#2d1a00">Workhorse</span>
+        <div style="margin-top:5px">True workhorse at 55% rush share. Pass-catching value with 61% target share. Efficient rusher (+0.07 EPA/att).</div>
+      </div>
+    </div>
+    <div class="draft-card">
+      <div class="draft-card-top">
+        <div class="draft-rank" style="color:#4ade80">10</div>
+        <div style="flex:1;padding:0 8px">
+          <div class="draft-name">Javonte Williams</div>
+          <div class="draft-meta">DAL · RB · Age 25 · Peak</div>
+        </div>
+        <div class="draft-score" style="color:#4ade80">83</div>
+      </div>
+      <div class="draft-card-body">
+        <div class="dc-stat">
+          <div class="dc-val">225</div>
+          <div class="dc-lbl">Fpts</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">66%</div>
+          <div class="dc-lbl">Rush Sh</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">13.3</div>
+          <div class="dc-lbl">PPG</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">+108</div>
+          <div class="dc-lbl">WAR</div>
+        </div></div>
+      <div class="draft-signal">
+        <span class="signal-tag" style="color:#60a5fa;background:#0c1a2e">Peak</span><span class="signal-tag" style="color:#4ade80;background:#052e16">Rising</span><span class="signal-tag" style="color:#a78bfa;background:#1a0a3a">Elite WAR</span><span class="signal-tag" style="color:#fbbf24;background:#2d1a00">Workhorse</span>
+        <div style="margin-top:5px">True workhorse at 66% rush share. Pass-catching value with 62% target share. Strong YoY improvement (+93 fpts).</div>
+      </div>
+    </div>
+    <div class="draft-card">
+      <div class="draft-card-top">
+        <div class="draft-rank" style="color:#4ade80">11</div>
+        <div style="flex:1;padding:0 8px">
+          <div class="draft-name">Jaylen Warren</div>
+          <div class="draft-meta">PIT · RB · Age 27 · Peak</div>
+        </div>
+        <div class="draft-score" style="color:#4ade80">83</div>
+      </div>
+      <div class="draft-card-body">
+        <div class="dc-stat">
+          <div class="dc-val">197</div>
+          <div class="dc-lbl">Fpts</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">60%</div>
+          <div class="dc-lbl">Rush Sh</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">11.6</div>
+          <div class="dc-lbl">PPG</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">+79</div>
+          <div class="dc-lbl">WAR</div>
+        </div></div>
+      <div class="draft-signal">
+        <span class="signal-tag" style="color:#60a5fa;background:#0c1a2e">Peak</span><span class="signal-tag" style="color:#4ade80;background:#052e16">Rising</span><span class="signal-tag" style="color:#fbbf24;background:#2d1a00">Workhorse</span>
+        <div style="margin-top:5px">True workhorse at 60% rush share. Pass-catching value with 34% target share. Strong YoY improvement (+92 fpts).</div>
+      </div>
+    </div>
+    <div class="draft-card">
+      <div class="draft-card-top">
+        <div class="draft-rank" style="color:#4ade80">12</div>
+        <div style="flex:1;padding:0 8px">
+          <div class="draft-name">Chase Brown</div>
+          <div class="draft-meta">CIN · RB · Age 25 · Peak</div>
+        </div>
+        <div class="draft-score" style="color:#4ade80">82</div>
+      </div>
+      <div class="draft-card-body">
+        <div class="dc-stat">
+          <div class="dc-val">246</div>
+          <div class="dc-lbl">Fpts</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">70%</div>
+          <div class="dc-lbl">Rush Sh</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">14.5</div>
+          <div class="dc-lbl">PPG</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">+128</div>
+          <div class="dc-lbl">WAR</div>
+        </div></div>
+      <div class="draft-signal">
+        <span class="signal-tag" style="color:#60a5fa;background:#0c1a2e">Peak</span><span class="signal-tag" style="color:#a78bfa;background:#1a0a3a">Elite WAR</span><span class="signal-tag" style="color:#fbbf24;background:#2d1a00">Workhorse</span>
+        <div style="margin-top:5px">True workhorse at 70% rush share. Pass-catching value with 79% target share.</div>
+      </div>
+    </div>
+    <div class="draft-card">
+      <div class="draft-card-top">
+        <div class="draft-rank" style="color:#4ade80">13</div>
+        <div style="flex:1;padding:0 8px">
+          <div class="draft-name">Josh Jacobs</div>
+          <div class="draft-meta">GB · RB · Age 28 · Declining</div>
+        </div>
+        <div class="draft-score" style="color:#4ade80">82</div>
+      </div>
+      <div class="draft-card-body">
+        <div class="dc-stat">
+          <div class="dc-val">219</div>
+          <div class="dc-lbl">Fpts</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">61%</div>
+          <div class="dc-lbl">Rush Sh</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">12.9</div>
+          <div class="dc-lbl">PPG</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">+101</div>
+          <div class="dc-lbl">WAR</div>
+        </div></div>
+      <div class="draft-signal">
+        <span class="signal-tag" style="color:#f59e0b;background:#2d1a00">Declining</span><span class="signal-tag" style="color:#f87171;background:#2d0a0a">Declining</span><span class="signal-tag" style="color:#a78bfa;background:#1a0a3a">Elite WAR</span><span class="signal-tag" style="color:#fbbf24;background:#2d1a00">Workhorse</span>
+        <div style="margin-top:5px">True workhorse at 61% rush share. Pass-catching value with 56% target share. Below-average rush efficiency (-0.06 EPA/att).</div>
+      </div>
+    </div>
+    <div class="draft-card">
+      <div class="draft-card-top">
+        <div class="draft-rank" style="color:#4ade80">14</div>
+        <div style="flex:1;padding:0 8px">
+          <div class="draft-name">Travis Etienne</div>
+          <div class="draft-meta">JAX · RB · Age 27 · Peak</div>
+        </div>
+        <div class="draft-score" style="color:#4ade80">81</div>
+      </div>
+      <div class="draft-card-body">
+        <div class="dc-stat">
+          <div class="dc-val">236</div>
+          <div class="dc-lbl">Fpts</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">70%</div>
+          <div class="dc-lbl">Rush Sh</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">13.9</div>
+          <div class="dc-lbl">PPG</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">+118</div>
+          <div class="dc-lbl">WAR</div>
+        </div></div>
+      <div class="draft-signal">
+        <span class="signal-tag" style="color:#60a5fa;background:#0c1a2e">Peak</span><span class="signal-tag" style="color:#4ade80;background:#052e16">Rising</span><span class="signal-tag" style="color:#a78bfa;background:#1a0a3a">Elite WAR</span><span class="signal-tag" style="color:#fbbf24;background:#2d1a00">Workhorse</span>
+        <div style="margin-top:5px">True workhorse at 70% rush share. Pass-catching value with 67% target share. Below-average rush efficiency (-0.07 EPA/att).</div>
+      </div>
+    </div>
+    <div class="draft-card">
+      <div class="draft-card-top">
+        <div class="draft-rank" style="color:#4ade80">15</div>
+        <div style="flex:1;padding:0 8px">
+          <div class="draft-name">TreVeyon Henderson</div>
+          <div class="draft-meta">NE · RB · Age 23 · Breakout</div>
+        </div>
+        <div class="draft-score" style="color:#4ade80">81</div>
+      </div>
+      <div class="draft-card-body">
+        <div class="dc-stat">
+          <div class="dc-val">189</div>
+          <div class="dc-lbl">Fpts</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">48%</div>
+          <div class="dc-lbl">Rush Sh</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">11.1</div>
+          <div class="dc-lbl">PPG</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">+71</div>
+          <div class="dc-lbl">WAR</div>
+        </div></div>
+      <div class="draft-signal">
+        <span class="signal-tag" style="color:#4ade80;background:#052e16">Breakout</span><span class="signal-tag" style="color:#fbbf24;background:#2d1a00">Workhorse</span>
+        <div style="margin-top:5px">True workhorse at 48% rush share. Pass-catching value with 49% target share. Young back with runway ahead.</div>
+      </div>
+    </div>
+    <div class="draft-card">
+      <div class="draft-card-top">
+        <div class="draft-rank" style="color:#4ade80">16</div>
+        <div style="flex:1;padding:0 8px">
+          <div class="draft-name">Saquon Barkley</div>
+          <div class="draft-meta">PHI · RB · Age 29 · Declining</div>
+        </div>
+        <div class="draft-score" style="color:#4ade80">79</div>
+      </div>
+      <div class="draft-card-body">
+        <div class="dc-stat">
+          <div class="dc-val">214</div>
+          <div class="dc-lbl">Fpts</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">77%</div>
+          <div class="dc-lbl">Rush Sh</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">12.6</div>
+          <div class="dc-lbl">PPG</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">+96</div>
+          <div class="dc-lbl">WAR</div>
+        </div></div>
+      <div class="draft-signal">
+        <span class="signal-tag" style="color:#f59e0b;background:#2d1a00">Declining</span><span class="signal-tag" style="color:#f87171;background:#2d0a0a">Declining</span><span class="signal-tag" style="color:#a78bfa;background:#1a0a3a">Elite WAR</span><span class="signal-tag" style="color:#fbbf24;background:#2d1a00">Workhorse</span>
+        <div style="margin-top:5px">True workhorse at 77% rush share. Pass-catching value with 73% target share. Below-average rush efficiency (-0.09 EPA/att).</div>
+      </div>
+    </div>
+    <div class="draft-card">
+      <div class="draft-card-top">
+        <div class="draft-rank" style="color:#4ade80">17</div>
+        <div style="flex:1;padding:0 8px">
+          <div class="draft-name">Rico Dowdle</div>
+          <div class="draft-meta">CAR · RB · Age 27 · Declining</div>
+        </div>
+        <div class="draft-score" style="color:#4ade80">79</div>
+      </div>
+      <div class="draft-card-body">
+        <div class="dc-stat">
+          <div class="dc-val">197</div>
+          <div class="dc-lbl">Fpts</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">60%</div>
+          <div class="dc-lbl">Rush Sh</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">11.6</div>
+          <div class="dc-lbl">PPG</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">+79</div>
+          <div class="dc-lbl">WAR</div>
+        </div></div>
+      <div class="draft-signal">
+        <span class="signal-tag" style="color:#f59e0b;background:#2d1a00">Declining</span><span class="signal-tag" style="color:#fbbf24;background:#2d1a00">Workhorse</span>
+        <div style="margin-top:5px">True workhorse at 60% rush share. Pass-catching value with 54% target share.</div>
+      </div>
+    </div>
+    <div class="draft-card">
+      <div class="draft-card-top">
+        <div class="draft-rank" style="color:#4ade80">18</div>
+        <div style="flex:1;padding:0 8px">
+          <div class="draft-name">Kenneth Gainwell</div>
+          <div class="draft-meta">PIT · RB · Age 26 · Peak</div>
+        </div>
+        <div class="draft-score" style="color:#4ade80">78</div>
+      </div>
+      <div class="draft-card-body">
+        <div class="dc-stat">
+          <div class="dc-val">185</div>
+          <div class="dc-lbl">Fpts</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">32%</div>
+          <div class="dc-lbl">Rush Sh</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">10.9</div>
+          <div class="dc-lbl">PPG</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">+67</div>
+          <div class="dc-lbl">WAR</div>
+        </div></div>
+      <div class="draft-signal">
+        <span class="signal-tag" style="color:#60a5fa;background:#0c1a2e">Peak</span><span class="signal-tag" style="color:#4ade80;background:#052e16">Rising</span><span class="signal-tag" style="color:#fbbf24;background:#2d1a00">Workhorse</span>
+        <div style="margin-top:5px">Solid volume at 32% rush share. Pass-catching value with 64% target share. Strong YoY improvement (+130 fpts).</div>
+      </div>
+    </div>
+    <div class="draft-card">
+      <div class="draft-card-top">
+        <div class="draft-rank" style="color:#4ade80">19</div>
+        <div style="flex:1;padding:0 8px">
+          <div class="draft-name">Rhamondre Stevenson</div>
+          <div class="draft-meta">NE · RB · Age 28 · Declining</div>
+        </div>
+        <div class="draft-score" style="color:#4ade80">78</div>
+      </div>
+      <div class="draft-card-body">
+        <div class="dc-stat">
+          <div class="dc-val">163</div>
+          <div class="dc-lbl">Fpts</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">35%</div>
+          <div class="dc-lbl">Rush Sh</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">9.6</div>
+          <div class="dc-lbl">PPG</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">+46</div>
+          <div class="dc-lbl">WAR</div>
+        </div></div>
+      <div class="draft-signal">
+        <span class="signal-tag" style="color:#f59e0b;background:#2d1a00">Declining</span><span class="signal-tag" style="color:#fbbf24;background:#2d1a00">Workhorse</span>
+        <div style="margin-top:5px">True workhorse at 35% rush share. Pass-catching value with 44% target share. Below-average rush efficiency (-0.14 EPA/att).</div>
+      </div>
+    </div>
+    <div class="draft-card">
+      <div class="draft-card-top">
+        <div class="draft-rank" style="color:#4ade80">20</div>
+        <div style="flex:1;padding:0 8px">
+          <div class="draft-name">Kenneth Walker III</div>
+          <div class="draft-meta">SEA · RB · Age 25 · Peak</div>
+        </div>
+        <div class="draft-score" style="color:#4ade80">77</div>
+      </div>
+      <div class="draft-card-body">
+        <div class="dc-stat">
+          <div class="dc-val">176</div>
+          <div class="dc-lbl">Fpts</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">50%</div>
+          <div class="dc-lbl">Rush Sh</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">10.4</div>
+          <div class="dc-lbl">PPG</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">+59</div>
+          <div class="dc-lbl">WAR</div>
+        </div></div>
+      <div class="draft-signal">
+        <span class="signal-tag" style="color:#60a5fa;background:#0c1a2e">Peak</span><span class="signal-tag" style="color:#fbbf24;background:#2d1a00">Workhorse</span>
+        <div style="margin-top:5px">True workhorse at 50% rush share. Pass-catching value with 57% target share. Below-average rush efficiency (-0.06 EPA/att).</div>
+      </div>
+    </div>
+    <div class="draft-card">
+      <div class="draft-card-top">
+        <div class="draft-rank" style="color:#4ade80">21</div>
+        <div style="flex:1;padding:0 8px">
+          <div class="draft-name">Zach Charbonnet</div>
+          <div class="draft-meta">SEA · RB · Age 25 · Peak</div>
+        </div>
+        <div class="draft-score" style="color:#4ade80">76</div>
+      </div>
+      <div class="draft-card-body">
+        <div class="dc-stat">
+          <div class="dc-val">172</div>
+          <div class="dc-lbl">Fpts</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">42%</div>
+          <div class="dc-lbl">Rush Sh</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">10.1</div>
+          <div class="dc-lbl">PPG</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">+54</div>
+          <div class="dc-lbl">WAR</div>
+        </div></div>
+      <div class="draft-signal">
+        <span class="signal-tag" style="color:#60a5fa;background:#0c1a2e">Peak</span><span class="signal-tag" style="color:#fbbf24;background:#2d1a00">Workhorse</span>
+        <div style="margin-top:5px">True workhorse at 42% rush share. Pass-catching value with 38% target share.</div>
+      </div>
+    </div>
+    <div class="draft-card">
+      <div class="draft-card-top">
+        <div class="draft-rank" style="color:#4ade80">22</div>
+        <div style="flex:1;padding:0 8px">
+          <div class="draft-name">Breece Hall</div>
+          <div class="draft-meta">NYJ · RB · Age 24 · Peak</div>
+        </div>
+        <div class="draft-score" style="color:#4ade80">76</div>
+      </div>
+      <div class="draft-card-body">
+        <div class="dc-stat">
+          <div class="dc-val">186</div>
+          <div class="dc-lbl">Fpts</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">73%</div>
+          <div class="dc-lbl">Rush Sh</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">10.9</div>
+          <div class="dc-lbl">PPG</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">+68</div>
+          <div class="dc-lbl">WAR</div>
+        </div></div>
+      <div class="draft-signal">
+        <span class="signal-tag" style="color:#60a5fa;background:#0c1a2e">Peak</span><span class="signal-tag" style="color:#fbbf24;background:#2d1a00">Workhorse</span>
+        <div style="margin-top:5px">True workhorse at 73% rush share. Pass-catching value with 51% target share. Below-average rush efficiency (-0.09 EPA/att).</div>
+      </div>
+    </div>
+    <div class="draft-card">
+      <div class="draft-card-top">
+        <div class="draft-rank" style="color:#4ade80">23</div>
+        <div style="flex:1;padding:0 8px">
+          <div class="draft-name">Omarion Hampton</div>
+          <div class="draft-meta">LAC · RB · Age 22 · Breakout</div>
+        </div>
+        <div class="draft-score" style="color:#4ade80">75</div>
+      </div>
+      <div class="draft-card-body">
+        <div class="dc-stat">
+          <div class="dc-val">120</div>
+          <div class="dc-lbl">Fpts</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">35%</div>
+          <div class="dc-lbl">Rush Sh</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">7.0</div>
+          <div class="dc-lbl">PPG</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">+2</div>
+          <div class="dc-lbl">WAR</div>
+        </div></div>
+      <div class="draft-signal">
+        <span class="signal-tag" style="color:#4ade80;background:#052e16">Breakout</span><span class="signal-tag" style="color:#fbbf24;background:#2d1a00">Workhorse</span>
+        <div style="margin-top:5px">True workhorse at 35% rush share. Pass-catching value with 47% target share. Young back with runway ahead.</div>
+      </div>
+    </div>
+    <div class="draft-card">
+      <div class="draft-card-top">
+        <div class="draft-rank" style="color:#4ade80">24</div>
+        <div style="flex:1;padding:0 8px">
+          <div class="draft-name">David Montgomery</div>
+          <div class="draft-meta">DET · RB · Age 28 · Declining</div>
+        </div>
+        <div class="draft-score" style="color:#4ade80">75</div>
+      </div>
+      <div class="draft-card-body">
+        <div class="dc-stat">
+          <div class="dc-val">151</div>
+          <div class="dc-lbl">Fpts</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">39%</div>
+          <div class="dc-lbl">Rush Sh</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">8.9</div>
+          <div class="dc-lbl">PPG</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">+33</div>
+          <div class="dc-lbl">WAR</div>
+        </div></div>
+      <div class="draft-signal">
+        <span class="signal-tag" style="color:#f59e0b;background:#2d1a00">Declining</span><span class="signal-tag" style="color:#f87171;background:#2d0a0a">Declining</span><span class="signal-tag" style="color:#fbbf24;background:#2d1a00">Workhorse</span>
+        <div style="margin-top:5px">True workhorse at 39% rush share. Pass-catching value with 24% target share. Sharp decline from prior season (-49 fpts).</div>
+      </div>
+    </div>
+    <div class="draft-card">
+      <div class="draft-card-top">
+        <div class="draft-rank" style="color:#60a5fa">25</div>
+        <div style="flex:1;padding:0 8px">
+          <div class="draft-name">Ashton Jeanty</div>
+          <div class="draft-meta">LV · RB · Age 22 · Breakout</div>
+        </div>
+        <div class="draft-score" style="color:#60a5fa">75</div>
+      </div>
+      <div class="draft-card-body">
+        <div class="dc-stat">
+          <div class="dc-val">218</div>
+          <div class="dc-lbl">Fpts</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">87%</div>
+          <div class="dc-lbl">Rush Sh</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">12.8</div>
+          <div class="dc-lbl">PPG</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">+100</div>
+          <div class="dc-lbl">WAR</div>
+        </div></div>
+      <div class="draft-signal">
+        <span class="signal-tag" style="color:#4ade80;background:#052e16">Breakout</span><span class="signal-tag" style="color:#a78bfa;background:#1a0a3a">Elite WAR</span><span class="signal-tag" style="color:#fbbf24;background:#2d1a00">Workhorse</span>
+        <div style="margin-top:5px">True workhorse at 87% rush share. Pass-catching value with 77% target share. Below-average rush efficiency (-0.24 EPA/att).</div>
+      </div>
+    </div>
+    <div class="draft-card">
+      <div class="draft-card-top">
+        <div class="draft-rank" style="color:#60a5fa">26</div>
+        <div style="flex:1;padding:0 8px">
+          <div class="draft-name">RJ Harvey</div>
+          <div class="draft-meta">DEN · RB · Age 25 · Peak</div>
+        </div>
+        <div class="draft-score" style="color:#60a5fa">73</div>
+      </div>
+      <div class="draft-card-body">
+        <div class="dc-stat">
+          <div class="dc-val">183</div>
+          <div class="dc-lbl">Fpts</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">41%</div>
+          <div class="dc-lbl">Rush Sh</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">10.8</div>
+          <div class="dc-lbl">PPG</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">+65</div>
+          <div class="dc-lbl">WAR</div>
+        </div></div>
+      <div class="draft-signal">
+        <span class="signal-tag" style="color:#60a5fa;background:#0c1a2e">Peak</span><span class="signal-tag" style="color:#fbbf24;background:#2d1a00">Workhorse</span>
+        <div style="margin-top:5px">True workhorse at 41% rush share. Pass-catching value with 50% target share. Below-average rush efficiency (-0.16 EPA/att).</div>
+      </div>
+    </div>
+    <div class="draft-card">
+      <div class="draft-card-top">
+        <div class="draft-rank" style="color:#60a5fa">27</div>
+        <div style="flex:1;padding:0 8px">
+          <div class="draft-name">Cam Skattebo</div>
+          <div class="draft-meta">NYG · RB · Age 24 · Peak</div>
+        </div>
+        <div class="draft-score" style="color:#60a5fa">72</div>
+      </div>
+      <div class="draft-card-body">
+        <div class="dc-stat">
+          <div class="dc-val">116</div>
+          <div class="dc-lbl">Fpts</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">26%</div>
+          <div class="dc-lbl">Rush Sh</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">6.8</div>
+          <div class="dc-lbl">PPG</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">-2</div>
+          <div class="dc-lbl">WAR</div>
+        </div></div>
+      <div class="draft-signal">
+        <span class="signal-tag" style="color:#60a5fa;background:#0c1a2e">Peak</span><span class="signal-tag" style="color:#94a3b8;background:#1e293b">–WAR</span>
+        <div style="margin-top:5px">Solid volume at 26% rush share. Pass-catching value with 32% target share. Below-average rush efficiency (-0.12 EPA/att).</div>
+      </div>
+    </div>
+    <div class="draft-card">
+      <div class="draft-card-top">
+        <div class="draft-rank" style="color:#60a5fa">28</div>
+        <div style="flex:1;padding:0 8px">
+          <div class="draft-name">Kyle Monangai</div>
+          <div class="draft-meta">CHI · RB · Age 23 · Peak</div>
+        </div>
+        <div class="draft-score" style="color:#60a5fa">72</div>
+      </div>
+      <div class="draft-card-body">
+        <div class="dc-stat">
+          <div class="dc-val">138</div>
+          <div class="dc-lbl">Fpts</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">43%</div>
+          <div class="dc-lbl">Rush Sh</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">8.1</div>
+          <div class="dc-lbl">PPG</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">+20</div>
+          <div class="dc-lbl">WAR</div>
+        </div></div>
+      <div class="draft-signal">
+        <span class="signal-tag" style="color:#60a5fa;background:#0c1a2e">Peak</span><span class="signal-tag" style="color:#fbbf24;background:#2d1a00">Workhorse</span>
+        <div style="margin-top:5px">True workhorse at 43% rush share. Pass-catching value with 38% target share.</div>
+      </div>
+    </div>
+    <div class="draft-card">
+      <div class="draft-card-top">
+        <div class="draft-rank" style="color:#60a5fa">29</div>
+        <div style="flex:1;padding:0 8px">
+          <div class="draft-name">Jacory Croskey-Merritt</div>
+          <div class="draft-meta">WAS · RB · Age 24 · Peak</div>
+        </div>
+        <div class="draft-score" style="color:#60a5fa">72</div>
+      </div>
+      <div class="draft-card-body">
+        <div class="dc-stat">
+          <div class="dc-val">136</div>
+          <div class="dc-lbl">Fpts</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">51%</div>
+          <div class="dc-lbl">Rush Sh</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">8.0</div>
+          <div class="dc-lbl">PPG</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">+18</div>
+          <div class="dc-lbl">WAR</div>
+        </div></div>
+      <div class="draft-signal">
+        <span class="signal-tag" style="color:#60a5fa;background:#0c1a2e">Peak</span><span class="signal-tag" style="color:#fbbf24;background:#2d1a00">Workhorse</span>
+        <div style="margin-top:5px">True workhorse at 51% rush share. Pass-catching value with 23% target share.</div>
+      </div>
+    </div>
+    <div class="draft-card">
+      <div class="draft-card-top">
+        <div class="draft-rank" style="color:#60a5fa">30</div>
+        <div style="flex:1;padding:0 8px">
+          <div class="draft-name">Jordan Mason</div>
+          <div class="draft-meta">MIN · RB · Age 26 · Peak</div>
+        </div>
+        <div class="draft-score" style="color:#60a5fa">72</div>
+      </div>
+      <div class="draft-card-body">
+        <div class="dc-stat">
+          <div class="dc-val">122</div>
+          <div class="dc-lbl">Fpts</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">46%</div>
+          <div class="dc-lbl">Rush Sh</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">7.2</div>
+          <div class="dc-lbl">PPG</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">+4</div>
+          <div class="dc-lbl">WAR</div>
+        </div></div>
+      <div class="draft-signal">
+        <span class="signal-tag" style="color:#60a5fa;background:#0c1a2e">Peak</span><span class="signal-tag" style="color:#fbbf24;background:#2d1a00">Workhorse</span>
+        <div style="margin-top:5px">True workhorse at 46% rush share. Pass-catching value with 20% target share.</div>
+      </div>
+    </div>
+    <div class="draft-card">
+      <div class="draft-card-top">
+        <div class="draft-rank" style="color:#60a5fa">31</div>
+        <div style="flex:1;padding:0 8px">
+          <div class="draft-name">Kareem Hunt</div>
+          <div class="draft-meta">KC · RB · Age 30 · Veteran</div>
+        </div>
+        <div class="draft-score" style="color:#60a5fa">71</div>
+      </div>
+      <div class="draft-card-body">
+        <div class="dc-stat">
+          <div class="dc-val">136</div>
+          <div class="dc-lbl">Fpts</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">49%</div>
+          <div class="dc-lbl">Rush Sh</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">8.0</div>
+          <div class="dc-lbl">PPG</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">+19</div>
+          <div class="dc-lbl">WAR</div>
+        </div></div>
+      <div class="draft-signal">
+        <span class="signal-tag" style="color:#f87171;background:#2d0a0a">Veteran</span><span class="signal-tag" style="color:#fbbf24;background:#2d1a00">Workhorse</span>
+        <div style="margin-top:5px">True workhorse at 49% rush share. Pass-catching value with 28% target share. Efficient rusher (+0.06 EPA/att).</div>
+      </div>
+    </div>
+    <div class="draft-card">
+      <div class="draft-card-top">
+        <div class="draft-rank" style="color:#60a5fa">32</div>
+        <div style="flex:1;padding:0 8px">
+          <div class="draft-name">Tony Pollard</div>
+          <div class="draft-meta">TEN · RB · Age 28 · Declining</div>
+        </div>
+        <div class="draft-score" style="color:#60a5fa">71</div>
+      </div>
+      <div class="draft-card-body">
+        <div class="dc-stat">
+          <div class="dc-val">169</div>
+          <div class="dc-lbl">Fpts</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">74%</div>
+          <div class="dc-lbl">Rush Sh</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">10.0</div>
+          <div class="dc-lbl">PPG</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">+52</div>
+          <div class="dc-lbl">WAR</div>
+        </div></div>
+      <div class="draft-signal">
+        <span class="signal-tag" style="color:#f59e0b;background:#2d1a00">Declining</span><span class="signal-tag" style="color:#fbbf24;background:#2d1a00">Workhorse</span>
+        <div style="margin-top:5px">True workhorse at 74% rush share. Pass-catching value with 44% target share. Below-average rush efficiency (-0.09 EPA/att).</div>
+      </div>
+    </div>
+    <div class="draft-card">
+      <div class="draft-card-top">
+        <div class="draft-rank" style="color:#60a5fa">33</div>
+        <div style="flex:1;padding:0 8px">
+          <div class="draft-name">Blake Corum</div>
+          <div class="draft-meta">LA · RB · Age 25 · Peak</div>
+        </div>
+        <div class="draft-score" style="color:#60a5fa">71</div>
+      </div>
+      <div class="draft-card-body">
+        <div class="dc-stat">
+          <div class="dc-val">118</div>
+          <div class="dc-lbl">Fpts</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">35%</div>
+          <div class="dc-lbl">Rush Sh</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">7.0</div>
+          <div class="dc-lbl">PPG</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">+1</div>
+          <div class="dc-lbl">WAR</div>
+        </div></div>
+      <div class="draft-signal">
+        <span class="signal-tag" style="color:#60a5fa;background:#0c1a2e">Peak</span><span class="signal-tag" style="color:#4ade80;background:#052e16">Rising</span><span class="signal-tag" style="color:#fbbf24;background:#2d1a00">Workhorse</span>
+        <div style="margin-top:5px">True workhorse at 35% rush share. Pass-catching value with 22% target share. Efficient rusher (+0.11 EPA/att).</div>
+      </div>
+    </div>
+    <div class="draft-card">
+      <div class="draft-card-top">
+        <div class="draft-rank" style="color:#60a5fa">34</div>
+        <div style="flex:1;padding:0 8px">
+          <div class="draft-name">Tyrone Tracy Jr.</div>
+          <div class="draft-meta">NYG · RB · Age 26 · Peak</div>
+        </div>
+        <div class="draft-score" style="color:#60a5fa">71</div>
+      </div>
+      <div class="draft-card-body">
+        <div class="dc-stat">
+          <div class="dc-val">143</div>
+          <div class="dc-lbl">Fpts</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">44%</div>
+          <div class="dc-lbl">Rush Sh</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">8.4</div>
+          <div class="dc-lbl">PPG</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">+25</div>
+          <div class="dc-lbl">WAR</div>
+        </div></div>
+      <div class="draft-signal">
+        <span class="signal-tag" style="color:#60a5fa;background:#0c1a2e">Peak</span><span class="signal-tag" style="color:#fbbf24;background:#2d1a00">Workhorse</span>
+        <div style="margin-top:5px">True workhorse at 44% rush share. Pass-catching value with 48% target share. Below-average rush efficiency (-0.06 EPA/att).</div>
+      </div>
+    </div>
+    <div class="draft-card">
+      <div class="draft-card-top">
+        <div class="draft-rank" style="color:#60a5fa">35</div>
+        <div style="flex:1;padding:0 8px">
+          <div class="draft-name">Chris Rodriguez Jr.</div>
+          <div class="draft-meta">WAS · RB · Age 26 · Peak</div>
+        </div>
+        <div class="draft-score" style="color:#60a5fa">70</div>
+      </div>
+      <div class="draft-card-body">
+        <div class="dc-stat">
+          <div class="dc-val">90</div>
+          <div class="dc-lbl">Fpts</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">32%</div>
+          <div class="dc-lbl">Rush Sh</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">5.3</div>
+          <div class="dc-lbl">PPG</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">-27</div>
+          <div class="dc-lbl">WAR</div>
+        </div></div>
+      <div class="draft-signal">
+        <span class="signal-tag" style="color:#60a5fa;background:#0c1a2e">Peak</span><span class="signal-tag" style="color:#4ade80;background:#052e16">Rising</span><span class="signal-tag" style="color:#94a3b8;background:#1e293b">–WAR</span><span class="signal-tag" style="color:#fbbf24;background:#2d1a00">Workhorse</span>
+        <div style="margin-top:5px">Solid volume at 32% rush share. Efficient rusher (+0.06 EPA/att). Strong YoY improvement (+60 fpts).</div>
+      </div>
+    </div>
+    <div class="draft-card">
+      <div class="draft-card-top">
+        <div class="draft-rank" style="color:#60a5fa">36</div>
+        <div style="flex:1;padding:0 8px">
+          <div class="draft-name">Rachaad White</div>
+          <div class="draft-meta">TB · RB · Age 27 · Peak</div>
+        </div>
+        <div class="draft-score" style="color:#60a5fa">69</div>
+      </div>
+      <div class="draft-card-body">
+        <div class="dc-stat">
+          <div class="dc-val">123</div>
+          <div class="dc-lbl">Fpts</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">33%</div>
+          <div class="dc-lbl">Rush Sh</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">7.2</div>
+          <div class="dc-lbl">PPG</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">+5</div>
+          <div class="dc-lbl">WAR</div>
+        </div></div>
+      <div class="draft-signal">
+        <span class="signal-tag" style="color:#60a5fa;background:#0c1a2e">Peak</span><span class="signal-tag" style="color:#f87171;background:#2d0a0a">Declining</span><span class="signal-tag" style="color:#fbbf24;background:#2d1a00">Workhorse</span>
+        <div style="margin-top:5px">True workhorse at 33% rush share. Pass-catching value with 49% target share. Efficient rusher (+0.08 EPA/att).</div>
+      </div>
+    </div>
+    <div class="draft-card">
+      <div class="draft-card-top">
+        <div class="draft-rank" style="color:#60a5fa">37</div>
+        <div style="flex:1;padding:0 8px">
+          <div class="draft-name">Kimani Vidal</div>
+          <div class="draft-meta">LAC · RB · Age 24 · Peak</div>
+        </div>
+        <div class="draft-score" style="color:#60a5fa">68</div>
+      </div>
+      <div class="draft-card-body">
+        <div class="dc-stat">
+          <div class="dc-val">110</div>
+          <div class="dc-lbl">Fpts</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">43%</div>
+          <div class="dc-lbl">Rush Sh</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">6.5</div>
+          <div class="dc-lbl">PPG</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">-8</div>
+          <div class="dc-lbl">WAR</div>
+        </div></div>
+      <div class="draft-signal">
+        <span class="signal-tag" style="color:#60a5fa;background:#0c1a2e">Peak</span><span class="signal-tag" style="color:#4ade80;background:#052e16">Rising</span><span class="signal-tag" style="color:#94a3b8;background:#1e293b">–WAR</span><span class="signal-tag" style="color:#fbbf24;background:#2d1a00">Workhorse</span>
+        <div style="margin-top:5px">True workhorse at 43% rush share. Pass-catching value with 30% target share. Below-average rush efficiency (-0.09 EPA/att).</div>
+      </div>
+    </div>
+    <div class="draft-card">
+      <div class="draft-card-top">
+        <div class="draft-rank" style="color:#60a5fa">38</div>
+        <div style="flex:1;padding:0 8px">
+          <div class="draft-name">Quinshon Judkins</div>
+          <div class="draft-meta">CLE · RB · Age 22 · Breakout</div>
+        </div>
+        <div class="draft-score" style="color:#60a5fa">68</div>
+      </div>
+      <div class="draft-card-body">
+        <div class="dc-stat">
+          <div class="dc-val">157</div>
+          <div class="dc-lbl">Fpts</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">65%</div>
+          <div class="dc-lbl">Rush Sh</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">9.2</div>
+          <div class="dc-lbl">PPG</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">+39</div>
+          <div class="dc-lbl">WAR</div>
+        </div></div>
+      <div class="draft-signal">
+        <span class="signal-tag" style="color:#4ade80;background:#052e16">Breakout</span><span class="signal-tag" style="color:#fbbf24;background:#2d1a00">Workhorse</span>
+        <div style="margin-top:5px">True workhorse at 65% rush share. Pass-catching value with 30% target share. Below-average rush efficiency (-0.11 EPA/att).</div>
+      </div>
+    </div>
+    <div class="draft-card">
+      <div class="draft-card-top">
+        <div class="draft-rank" style="color:#60a5fa">39</div>
+        <div style="flex:1;padding:0 8px">
+          <div class="draft-name">J.K. Dobbins</div>
+          <div class="draft-meta">DEN · RB · Age 27 · Peak</div>
+        </div>
+        <div class="draft-score" style="color:#60a5fa">68</div>
+      </div>
+      <div class="draft-card-body">
+        <div class="dc-stat">
+          <div class="dc-val">110</div>
+          <div class="dc-lbl">Fpts</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">43%</div>
+          <div class="dc-lbl">Rush Sh</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">6.5</div>
+          <div class="dc-lbl">PPG</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">-7</div>
+          <div class="dc-lbl">WAR</div>
+        </div></div>
+      <div class="draft-signal">
+        <span class="signal-tag" style="color:#60a5fa;background:#0c1a2e">Peak</span><span class="signal-tag" style="color:#f87171;background:#2d0a0a">Declining</span><span class="signal-tag" style="color:#94a3b8;background:#1e293b">–WAR</span><span class="signal-tag" style="color:#fbbf24;background:#2d1a00">Workhorse</span>
+        <div style="margin-top:5px">True workhorse at 43% rush share. Pass-catching value with 12% target share. Sharp decline from prior season (-64 fpts).</div>
+      </div>
+    </div>
+    <div class="draft-card">
+      <div class="draft-card-top">
+        <div class="draft-rank" style="color:#60a5fa">40</div>
+        <div style="flex:1;padding:0 8px">
+          <div class="draft-name">Woody Marks</div>
+          <div class="draft-meta">HOU · RB · Age 25 · Peak</div>
+        </div>
+        <div class="draft-score" style="color:#60a5fa">68</div>
+      </div>
+      <div class="draft-card-body">
+        <div class="dc-stat">
+          <div class="dc-val">133</div>
+          <div class="dc-lbl">Fpts</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">49%</div>
+          <div class="dc-lbl">Rush Sh</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">7.8</div>
+          <div class="dc-lbl">PPG</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">+15</div>
+          <div class="dc-lbl">WAR</div>
+        </div></div>
+      <div class="draft-signal">
+        <span class="signal-tag" style="color:#60a5fa;background:#0c1a2e">Peak</span><span class="signal-tag" style="color:#fbbf24;background:#2d1a00">Workhorse</span>
+        <div style="margin-top:5px">True workhorse at 49% rush share. Pass-catching value with 47% target share. Below-average rush efficiency (-0.15 EPA/att).</div>
+      </div>
+    </div>
+    <div class="draft-card">
+      <div class="draft-card-top">
+        <div class="draft-rank" style="color:#60a5fa">41</div>
+        <div style="flex:1;padding:0 8px">
+          <div class="draft-name">Tank Bigsby</div>
+          <div class="draft-meta">PHI · RB · Age 23 · Peak</div>
+        </div>
+        <div class="draft-score" style="color:#60a5fa">66</div>
+      </div>
+      <div class="draft-card-body">
+        <div class="dc-stat">
+          <div class="dc-val">51</div>
+          <div class="dc-lbl">Fpts</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">16%</div>
+          <div class="dc-lbl">Rush Sh</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">3.0</div>
+          <div class="dc-lbl">PPG</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">-67</div>
+          <div class="dc-lbl">WAR</div>
+        </div></div>
+      <div class="draft-signal">
+        <span class="signal-tag" style="color:#60a5fa;background:#0c1a2e">Peak</span><span class="signal-tag" style="color:#4ade80;background:#052e16">Rising</span><span class="signal-tag" style="color:#94a3b8;background:#1e293b">–WAR</span>
+        <div style="margin-top:5px">Limited role at 16% rush share — committee risk. Efficient rusher (+0.13 EPA/att). Strong YoY improvement (+50 fpts).</div>
+      </div>
+    </div>
+    <div class="draft-card">
+      <div class="draft-card-top">
+        <div class="draft-rank" style="color:#60a5fa">42</div>
+        <div style="flex:1;padding:0 8px">
+          <div class="draft-name">Bucky Irving</div>
+          <div class="draft-meta">TB · RB · Age 23 · Peak</div>
+        </div>
+        <div class="draft-score" style="color:#60a5fa">65</div>
+      </div>
+      <div class="draft-card-body">
+        <div class="dc-stat">
+          <div class="dc-val">124</div>
+          <div class="dc-lbl">Fpts</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">43%</div>
+          <div class="dc-lbl">Rush Sh</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">7.3</div>
+          <div class="dc-lbl">PPG</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">+6</div>
+          <div class="dc-lbl">WAR</div>
+        </div></div>
+      <div class="draft-signal">
+        <span class="signal-tag" style="color:#60a5fa;background:#0c1a2e">Peak</span><span class="signal-tag" style="color:#f87171;background:#2d0a0a">Declining</span><span class="signal-tag" style="color:#fbbf24;background:#2d1a00">Workhorse</span>
+        <div style="margin-top:5px">True workhorse at 43% rush share. Pass-catching value with 38% target share. Below-average rush efficiency (-0.21 EPA/att).</div>
+      </div>
+    </div>
+    <div class="draft-card">
+      <div class="draft-card-top">
+        <div class="draft-rank" style="color:#60a5fa">43</div>
+        <div style="flex:1;padding:0 8px">
+          <div class="draft-name">Tyler Allgeier</div>
+          <div class="draft-meta">ATL · RB · Age 25 · Peak</div>
+        </div>
+        <div class="draft-score" style="color:#60a5fa">65</div>
+      </div>
+      <div class="draft-card-body">
+        <div class="dc-stat">
+          <div class="dc-val">116</div>
+          <div class="dc-lbl">Fpts</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">32%</div>
+          <div class="dc-lbl">Rush Sh</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">6.8</div>
+          <div class="dc-lbl">PPG</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">-2</div>
+          <div class="dc-lbl">WAR</div>
+        </div></div>
+      <div class="draft-signal">
+        <span class="signal-tag" style="color:#60a5fa;background:#0c1a2e">Peak</span><span class="signal-tag" style="color:#94a3b8;background:#1e293b">–WAR</span><span class="signal-tag" style="color:#fbbf24;background:#2d1a00">Workhorse</span>
+        <div style="margin-top:5px">Solid volume at 32% rush share. Pass-catching value with 13% target share. Below-average rush efficiency (-0.08 EPA/att).</div>
+      </div>
+    </div>
+    <div class="draft-card">
+      <div class="draft-card-top">
+        <div class="draft-rank" style="color:#60a5fa">44</div>
+        <div style="flex:1;padding:0 8px">
+          <div class="draft-name">Sean Tucker</div>
+          <div class="draft-meta">TB · RB · Age 24 · Peak</div>
+        </div>
+        <div class="draft-score" style="color:#60a5fa">65</div>
+      </div>
+      <div class="draft-card-body">
+        <div class="dc-stat">
+          <div class="dc-val">87</div>
+          <div class="dc-lbl">Fpts</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">22%</div>
+          <div class="dc-lbl">Rush Sh</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">5.1</div>
+          <div class="dc-lbl">PPG</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">-30</div>
+          <div class="dc-lbl">WAR</div>
+        </div></div>
+      <div class="draft-signal">
+        <span class="signal-tag" style="color:#60a5fa;background:#0c1a2e">Peak</span><span class="signal-tag" style="color:#94a3b8;background:#1e293b">–WAR</span>
+        <div style="margin-top:5px">Limited role at 22% rush share — committee risk. Pass-catching value with 12% target share.</div>
+      </div>
+    </div>
+    <div class="draft-card">
+      <div class="draft-card-top">
+        <div class="draft-rank" style="color:#60a5fa">45</div>
+        <div style="flex:1;padding:0 8px">
+          <div class="draft-name">Ty Johnson</div>
+          <div class="draft-meta">BUF · RB · Age 28 · Declining</div>
+        </div>
+        <div class="draft-score" style="color:#60a5fa">64</div>
+      </div>
+      <div class="draft-card-body">
+        <div class="dc-stat">
+          <div class="dc-val">85</div>
+          <div class="dc-lbl">Fpts</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">12%</div>
+          <div class="dc-lbl">Rush Sh</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">5.0</div>
+          <div class="dc-lbl">PPG</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">-33</div>
+          <div class="dc-lbl">WAR</div>
+        </div></div>
+      <div class="draft-signal">
+        <span class="signal-tag" style="color:#f59e0b;background:#2d1a00">Declining</span><span class="signal-tag" style="color:#94a3b8;background:#1e293b">–WAR</span>
+        <div style="margin-top:5px">Limited role at 12% rush share — committee risk. Pass-catching value with 37% target share. Efficient rusher (+0.06 EPA/att).</div>
+      </div>
+    </div>
+    <div class="draft-card">
+      <div class="draft-card-top">
+        <div class="draft-rank" style="color:#60a5fa">46</div>
+        <div style="flex:1;padding:0 8px">
+          <div class="draft-name">Aaron Jones</div>
+          <div class="draft-meta">MIN · RB · Age 31 · Veteran</div>
+        </div>
+        <div class="draft-score" style="color:#60a5fa">63</div>
+      </div>
+      <div class="draft-card-body">
+        <div class="dc-stat">
+          <div class="dc-val">105</div>
+          <div class="dc-lbl">Fpts</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">38%</div>
+          <div class="dc-lbl">Rush Sh</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">6.2</div>
+          <div class="dc-lbl">PPG</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">-13</div>
+          <div class="dc-lbl">WAR</div>
+        </div></div>
+      <div class="draft-signal">
+        <span class="signal-tag" style="color:#f87171;background:#2d0a0a">Veteran</span><span class="signal-tag" style="color:#f87171;background:#2d0a0a">Declining</span><span class="signal-tag" style="color:#94a3b8;background:#1e293b">–WAR</span><span class="signal-tag" style="color:#fbbf24;background:#2d1a00">Workhorse</span>
+        <div style="margin-top:5px">True workhorse at 38% rush share. Pass-catching value with 51% target share. Sharp decline from prior season (-111 fpts).</div>
+      </div>
+    </div>
+    <div class="draft-card">
+      <div class="draft-card-top">
+        <div class="draft-rank" style="color:#60a5fa">47</div>
+        <div style="flex:1;padding:0 8px">
+          <div class="draft-name">Chuba Hubbard</div>
+          <div class="draft-meta">CAR · RB · Age 26 · Peak</div>
+        </div>
+        <div class="draft-score" style="color:#60a5fa">62</div>
+      </div>
+      <div class="draft-card-body">
+        <div class="dc-stat">
+          <div class="dc-val">110</div>
+          <div class="dc-lbl">Fpts</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">34%</div>
+          <div class="dc-lbl">Rush Sh</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">6.5</div>
+          <div class="dc-lbl">PPG</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">-7</div>
+          <div class="dc-lbl">WAR</div>
+        </div></div>
+      <div class="draft-signal">
+        <span class="signal-tag" style="color:#60a5fa;background:#0c1a2e">Peak</span><span class="signal-tag" style="color:#f87171;background:#2d0a0a">Declining</span><span class="signal-tag" style="color:#94a3b8;background:#1e293b">–WAR</span><span class="signal-tag" style="color:#fbbf24;background:#2d1a00">Workhorse</span>
+        <div style="margin-top:5px">True workhorse at 34% rush share. Pass-catching value with 42% target share. Below-average rush efficiency (-0.12 EPA/att).</div>
+      </div>
+    </div>
+    <div class="draft-card">
+      <div class="draft-card-top">
+        <div class="draft-rank" style="color:#60a5fa">48</div>
+        <div style="flex:1;padding:0 8px">
+          <div class="draft-name">Devin Singletary</div>
+          <div class="draft-meta">NYG · RB · Age 28 · Declining</div>
+        </div>
+        <div class="draft-score" style="color:#60a5fa">62</div>
+      </div>
+      <div class="draft-card-body">
+        <div class="dc-stat">
+          <div class="dc-val">98</div>
+          <div class="dc-lbl">Fpts</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">30%</div>
+          <div class="dc-lbl">Rush Sh</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">5.8</div>
+          <div class="dc-lbl">PPG</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">-20</div>
+          <div class="dc-lbl">WAR</div>
+        </div></div>
+      <div class="draft-signal">
+        <span class="signal-tag" style="color:#f59e0b;background:#2d1a00">Declining</span><span class="signal-tag" style="color:#94a3b8;background:#1e293b">–WAR</span>
+        <div style="margin-top:5px">Solid volume at 30% rush share. Pass-catching value with 19% target share.</div>
+      </div>
+    </div>
+    <div class="draft-card">
+      <div class="draft-card-top">
+        <div class="draft-rank" style="color:#60a5fa">49</div>
+        <div style="flex:1;padding:0 8px">
+          <div class="draft-name">Emanuel Wilson</div>
+          <div class="draft-meta">GB · RB · Age 26 · Peak</div>
+        </div>
+        <div class="draft-score" style="color:#60a5fa">62</div>
+      </div>
+      <div class="draft-card-body">
+        <div class="dc-stat">
+          <div class="dc-val">87</div>
+          <div class="dc-lbl">Fpts</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">32%</div>
+          <div class="dc-lbl">Rush Sh</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">5.1</div>
+          <div class="dc-lbl">PPG</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">-30</div>
+          <div class="dc-lbl">WAR</div>
+        </div></div>
+      <div class="draft-signal">
+        <span class="signal-tag" style="color:#60a5fa;background:#0c1a2e">Peak</span><span class="signal-tag" style="color:#94a3b8;background:#1e293b">–WAR</span><span class="signal-tag" style="color:#fbbf24;background:#2d1a00">Workhorse</span>
+        <div style="margin-top:5px">Solid volume at 32% rush share. Pass-catching value with 23% target share. Below-average rush efficiency (-0.06 EPA/att).</div>
+      </div>
+    </div>
+    <div class="draft-card">
+      <div class="draft-card-top">
+        <div class="draft-rank" style="color:#60a5fa">50</div>
+        <div style="flex:1;padding:0 8px">
+          <div class="draft-name">Ray Davis</div>
+          <div class="draft-meta">BUF · RB · Age 26 · Peak</div>
+        </div>
+        <div class="draft-score" style="color:#60a5fa">61</div>
+      </div>
+      <div class="draft-card-body">
+        <div class="dc-stat">
+          <div class="dc-val">53</div>
+          <div class="dc-lbl">Fpts</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">14%</div>
+          <div class="dc-lbl">Rush Sh</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">3.1</div>
+          <div class="dc-lbl">PPG</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">-65</div>
+          <div class="dc-lbl">WAR</div>
+        </div></div>
+      <div class="draft-signal">
+        <span class="signal-tag" style="color:#60a5fa;background:#0c1a2e">Peak</span><span class="signal-tag" style="color:#f87171;background:#2d0a0a">Declining</span><span class="signal-tag" style="color:#94a3b8;background:#1e293b">–WAR</span>
+        <div style="margin-top:5px">Limited role at 14% rush share — committee risk. Pass-catching value with 16% target share. Sharp decline from prior season (-54 fpts).</div>
+      </div>
+    </div>
+    <div class="draft-card">
+      <div class="draft-card-top">
+        <div class="draft-rank" style="color:#60a5fa">51</div>
+        <div style="flex:1;padding:0 8px">
+          <div class="draft-name">Bhayshul Tuten</div>
+          <div class="draft-meta">JAX · RB · Age 24 · Peak</div>
+        </div>
+        <div class="draft-score" style="color:#60a5fa">61</div>
+      </div>
+      <div class="draft-card-body">
+        <div class="dc-stat">
+          <div class="dc-val">84</div>
+          <div class="dc-lbl">Fpts</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">22%</div>
+          <div class="dc-lbl">Rush Sh</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">4.9</div>
+          <div class="dc-lbl">PPG</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">-34</div>
+          <div class="dc-lbl">WAR</div>
+        </div></div>
+      <div class="draft-signal">
+        <span class="signal-tag" style="color:#60a5fa;background:#0c1a2e">Peak</span><span class="signal-tag" style="color:#94a3b8;background:#1e293b">–WAR</span>
+        <div style="margin-top:5px">Limited role at 22% rush share — committee risk. Pass-catching value with 18% target share. Below-average rush efficiency (-0.12 EPA/att).</div>
+      </div>
+    </div>
+    <div class="draft-card">
+      <div class="draft-card-top">
+        <div class="draft-rank" style="color:#60a5fa">52</div>
+        <div style="flex:1;padding:0 8px">
+          <div class="draft-name">Samaje Perine</div>
+          <div class="draft-meta">CIN · RB · Age 30 · Veteran</div>
+        </div>
+        <div class="draft-score" style="color:#60a5fa">60</div>
+      </div>
+      <div class="draft-card-body">
+        <div class="dc-stat">
+          <div class="dc-val">69</div>
+          <div class="dc-lbl">Fpts</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">25%</div>
+          <div class="dc-lbl">Rush Sh</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">4.1</div>
+          <div class="dc-lbl">PPG</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">-48</div>
+          <div class="dc-lbl">WAR</div>
+        </div></div>
+      <div class="draft-signal">
+        <span class="signal-tag" style="color:#f87171;background:#2d0a0a">Veteran</span><span class="signal-tag" style="color:#94a3b8;background:#1e293b">–WAR</span>
+        <div style="margin-top:5px">Solid volume at 25% rush share. Pass-catching value with 19% target share. Age concern — decline risk entering 2026.</div>
+      </div>
+    </div>
+    <div class="draft-card">
+      <div class="draft-card-top">
+        <div class="draft-rank" style="color:#60a5fa">53</div>
+        <div style="flex:1;padding:0 8px">
+          <div class="draft-name">Tyjae Spears</div>
+          <div class="draft-meta">TEN · RB · Age 24 · Peak</div>
+        </div>
+        <div class="draft-score" style="color:#60a5fa">60</div>
+      </div>
+      <div class="draft-card-body">
+        <div class="dc-stat">
+          <div class="dc-val">89</div>
+          <div class="dc-lbl">Fpts</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">22%</div>
+          <div class="dc-lbl">Rush Sh</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">5.2</div>
+          <div class="dc-lbl">PPG</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">-28</div>
+          <div class="dc-lbl">WAR</div>
+        </div></div>
+      <div class="draft-signal">
+        <span class="signal-tag" style="color:#60a5fa;background:#0c1a2e">Peak</span><span class="signal-tag" style="color:#94a3b8;background:#1e293b">–WAR</span>
+        <div style="margin-top:5px">Limited role at 22% rush share — committee risk. Pass-catching value with 54% target share. Below-average rush efficiency (-0.05 EPA/att).</div>
+      </div>
+    </div>
+    <div class="draft-card">
+      <div class="draft-card-top">
+        <div class="draft-rank" style="color:#60a5fa">54</div>
+        <div style="flex:1;padding:0 8px">
+          <div class="draft-name">Audric Estimé</div>
+          <div class="draft-meta">NO · RB · Age 22 · Breakout</div>
+        </div>
+        <div class="draft-score" style="color:#60a5fa">60</div>
+      </div>
+      <div class="draft-card-body">
+        <div class="dc-stat">
+          <div class="dc-val">42</div>
+          <div class="dc-lbl">Fpts</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">15%</div>
+          <div class="dc-lbl">Rush Sh</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">2.5</div>
+          <div class="dc-lbl">PPG</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">-76</div>
+          <div class="dc-lbl">WAR</div>
+        </div></div>
+      <div class="draft-signal">
+        <span class="signal-tag" style="color:#4ade80;background:#052e16">Breakout</span><span class="signal-tag" style="color:#94a3b8;background:#1e293b">–WAR</span>
+        <div style="margin-top:5px">Limited role at 15% rush share — committee risk. Pass-catching value with 17% target share. Efficient rusher (+0.10 EPA/att).</div>
+      </div>
+    </div>
+    <div class="draft-card">
+      <div class="draft-card-top">
+        <div class="draft-rank" style="color:#60a5fa">55</div>
+        <div style="flex:1;padding:0 8px">
+          <div class="draft-name">Jeremy McNichols</div>
+          <div class="draft-meta">WAS · RB · Age 30 · Veteran</div>
+        </div>
+        <div class="draft-score" style="color:#60a5fa">59</div>
+      </div>
+      <div class="draft-card-body">
+        <div class="dc-stat">
+          <div class="dc-val">60</div>
+          <div class="dc-lbl">Fpts</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">13%</div>
+          <div class="dc-lbl">Rush Sh</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">3.6</div>
+          <div class="dc-lbl">PPG</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">-57</div>
+          <div class="dc-lbl">WAR</div>
+        </div></div>
+      <div class="draft-signal">
+        <span class="signal-tag" style="color:#f87171;background:#2d0a0a">Veteran</span><span class="signal-tag" style="color:#94a3b8;background:#1e293b">–WAR</span>
+        <div style="margin-top:5px">Limited role at 13% rush share — committee risk. Pass-catching value with 57% target share. Age concern — decline risk entering 2026.</div>
+      </div>
+    </div>
+    <div class="draft-card">
+      <div class="draft-card-top">
+        <div class="draft-rank" style="color:#60a5fa">56</div>
+        <div style="flex:1;padding:0 8px">
+          <div class="draft-name">Keaton Mitchell</div>
+          <div class="draft-meta">BAL · RB · Age 24 · Peak</div>
+        </div>
+        <div class="draft-score" style="color:#60a5fa">59</div>
+      </div>
+      <div class="draft-card-body">
+        <div class="dc-stat">
+          <div class="dc-val">51</div>
+          <div class="dc-lbl">Fpts</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">15%</div>
+          <div class="dc-lbl">Rush Sh</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">3.0</div>
+          <div class="dc-lbl">PPG</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">-67</div>
+          <div class="dc-lbl">WAR</div>
+        </div></div>
+      <div class="draft-signal">
+        <span class="signal-tag" style="color:#60a5fa;background:#0c1a2e">Peak</span><span class="signal-tag" style="color:#4ade80;background:#052e16">Rising</span><span class="signal-tag" style="color:#94a3b8;background:#1e293b">–WAR</span>
+        <div style="margin-top:5px">Limited role at 15% rush share — committee risk. Pass-catching value with 16% target share. Strong YoY improvement (+45 fpts).</div>
+      </div>
+    </div>
+    <div class="draft-card">
+      <div class="draft-card-top">
+        <div class="draft-rank" style="color:#60a5fa">57</div>
+        <div style="flex:1;padding:0 8px">
+          <div class="draft-name">Isaiah Davis</div>
+          <div class="draft-meta">NYJ · RB · Age 24 · Peak</div>
+        </div>
+        <div class="draft-score" style="color:#60a5fa">58</div>
+      </div>
+      <div class="draft-card-body">
+        <div class="dc-stat">
+          <div class="dc-val">61</div>
+          <div class="dc-lbl">Fpts</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">13%</div>
+          <div class="dc-lbl">Rush Sh</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">3.6</div>
+          <div class="dc-lbl">PPG</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">-57</div>
+          <div class="dc-lbl">WAR</div>
+        </div></div>
+      <div class="draft-signal">
+        <span class="signal-tag" style="color:#60a5fa;background:#0c1a2e">Peak</span><span class="signal-tag" style="color:#94a3b8;background:#1e293b">–WAR</span>
+        <div style="margin-top:5px">Limited role at 13% rush share — committee risk. Pass-catching value with 31% target share. Below-average rush efficiency (-0.08 EPA/att).</div>
+      </div>
+    </div>
+    <div class="draft-card">
+      <div class="draft-card-top">
+        <div class="draft-rank" style="color:#60a5fa">58</div>
+        <div style="flex:1;padding:0 8px">
+          <div class="draft-name">Bam Knight</div>
+          <div class="draft-meta">ARI · RB · Age 24 · Peak</div>
+        </div>
+        <div class="draft-score" style="color:#60a5fa">58</div>
+      </div>
+      <div class="draft-card-body">
+        <div class="dc-stat">
+          <div class="dc-val">82</div>
+          <div class="dc-lbl">Fpts</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">28%</div>
+          <div class="dc-lbl">Rush Sh</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">4.8</div>
+          <div class="dc-lbl">PPG</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">-36</div>
+          <div class="dc-lbl">WAR</div>
+        </div></div>
+      <div class="draft-signal">
+        <span class="signal-tag" style="color:#60a5fa;background:#0c1a2e">Peak</span><span class="signal-tag" style="color:#4ade80;background:#052e16">Rising</span><span class="signal-tag" style="color:#94a3b8;background:#1e293b">–WAR</span>
+        <div style="margin-top:5px">Solid volume at 28% rush share. Pass-catching value with 25% target share. Below-average rush efficiency (-0.20 EPA/att).</div>
+      </div>
+    </div>
+    <div class="draft-card">
+      <div class="draft-card-top">
+        <div class="draft-rank" style="color:#60a5fa">59</div>
+        <div style="flex:1;padding:0 8px">
+          <div class="draft-name">Michael Carter</div>
+          <div class="draft-meta">ARI · RB · Age 26 · Peak</div>
+        </div>
+        <div class="draft-score" style="color:#60a5fa">56</div>
+      </div>
+      <div class="draft-card-body">
+        <div class="dc-stat">
+          <div class="dc-val">82</div>
+          <div class="dc-lbl">Fpts</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">31%</div>
+          <div class="dc-lbl">Rush Sh</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">4.9</div>
+          <div class="dc-lbl">PPG</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">-35</div>
+          <div class="dc-lbl">WAR</div>
+        </div></div>
+      <div class="draft-signal">
+        <span class="signal-tag" style="color:#60a5fa;background:#0c1a2e">Peak</span><span class="signal-tag" style="color:#4ade80;background:#052e16">Rising</span><span class="signal-tag" style="color:#94a3b8;background:#1e293b">–WAR</span><span class="signal-tag" style="color:#fbbf24;background:#2d1a00">Workhorse</span>
+        <div style="margin-top:5px">Solid volume at 31% rush share. Pass-catching value with 36% target share. Below-average rush efficiency (-0.07 EPA/att).</div>
+      </div>
+    </div>
+    <div class="draft-card">
+      <div class="draft-card-top">
+        <div class="draft-rank" style="color:#60a5fa">60</div>
+        <div style="flex:1;padding:0 8px">
+          <div class="draft-name">Emari Demercado</div>
+          <div class="draft-meta">ARI · RB · Age 27 · Peak</div>
+        </div>
+        <div class="draft-score" style="color:#60a5fa">56</div>
+      </div>
+      <div class="draft-card-body">
+        <div class="dc-stat">
+          <div class="dc-val">52</div>
+          <div class="dc-lbl">Fpts</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">15%</div>
+          <div class="dc-lbl">Rush Sh</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">3.0</div>
+          <div class="dc-lbl">PPG</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">-66</div>
+          <div class="dc-lbl">WAR</div>
+        </div></div>
+      <div class="draft-signal">
+        <span class="signal-tag" style="color:#60a5fa;background:#0c1a2e">Peak</span><span class="signal-tag" style="color:#94a3b8;background:#1e293b">–WAR</span>
+        <div style="margin-top:5px">Limited role at 15% rush share — committee risk. Pass-catching value with 16% target share. Below-average rush efficiency (-0.16 EPA/att).</div>
+      </div>
+    </div>
+<div class="pg-footer">
+  DTFFL Analytics · 2026 Draft Prep · nflverse 2025 data<br>
+  Score = 2025 composite percentile vs peers · Signals = age curve + WAR + trend
+</div>
+
+<nav class="bottom-nav" id="bottom-nav">
+  <a class="nav-tab" id="nav-reports" href="../index.html">
+    <span class="nav-icon">📊</span>Reports
+  </a>
+  <a class="nav-tab" id="nav-trends" href="../trends_index.html">
+    <span class="nav-icon">📈</span>Trends
+  </a>
+  <a class="nav-tab" id="nav-draft" href="../draft_prep/rb_draft_prep_2026.html">
+    <span class="nav-icon">🏈</span>Draft
+  </a>
+</nav>
+<script>
+(function(){
+  var p = window.location.pathname;
+  if (p.includes('trends') || p.includes('candidate'))  {
+    document.getElementById('nav-trends').classList.add('active');
+  } else if (p.includes('draft_prep')) {
+    document.getElementById('nav-draft').classList.add('active');
+  } else {
+    document.getElementById('nav-reports').classList.add('active');
+  }
+})();
+</script>
+</body></html>
