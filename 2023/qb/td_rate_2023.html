@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<title>TD Rate — QB — 2023</title>
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { font-size: 16px; }
+body {
+  background: #0f172a; color: #e2e8f0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  max-width: 480px; margin: 0 auto; padding-bottom: 40px;
+  -webkit-text-size-adjust: 100%;
+}
+.report-header {
+  position: sticky; top: 0; z-index: 10;
+  background: #0f172a; border-bottom: 1px solid #1e293b;
+  padding: 14px 16px 10px;
+}
+.report-title  { font-size: 18px; font-weight: 700; color: #f8fafc; line-height: 1.2; }
+.report-season { font-size: 12px; color: #64748b; margin-top: 2px; }
+.metric-pill {
+  display: inline-block; margin-top: 6px; background: #1e293b;
+  border: 1px solid #334155; border-radius: 99px; padding: 3px 10px;
+  font-size: 11px; color: #94a3b8; cursor: pointer; user-select: none;
+}
+.metric-pill:active { background: #334155; }
+.metric-tooltip {
+  display: none; margin-top: 8px; background: #1e293b;
+  border: 1px solid #334155; border-radius: 8px; padding: 10px 12px;
+  font-size: 12px; color: #cbd5e1; line-height: 1.5;
+}
+.metric-tooltip.open { display: block; }
+.metric-tooltip .formula { margin-top: 5px; font-size: 11px; color: #7dd3fc; font-family: monospace; }
+.legend { display: flex; gap: 8px; padding: 8px 16px; flex-wrap: wrap; }
+.legend-item { display: flex; align-items: center; gap: 4px; font-size: 11px; color: #94a3b8; }
+.legend-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+.player-list { padding: 0 12px; }
+.player-row {
+  display: flex; align-items: center; gap: 10px;
+  padding: 10px 6px; border-bottom: 1px solid #1e293b; min-height: 52px;
+}
+.player-row:last-child { border-bottom: none; }
+.rank-badge { font-size: 13px; font-weight: 700; color: #64748b; min-width: 28px; text-align: right; flex-shrink: 0; }
+.tier-bar { width: 4px; height: 36px; border-radius: 2px; flex-shrink: 0; }
+.player-info { flex: 1; min-width: 0; }
+.player-name { font-size: 15px; font-weight: 600; color: #f1f5f9; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.player-meta { font-size: 11px; color: #64748b; margin-top: 1px; }
+.metric-value { font-size: 17px; font-weight: 700; min-width: 56px; text-align: right; flex-shrink: 0; }
+.metric-pct { font-size: 10px; color: #475569; text-align: right; line-height: 1.1; }
+.tier-elite  { color: #4ade80; } .tier-solid  { color: #60a5fa; }
+.tier-fringe { color: #f59e0b; } .tier-below  { color: #f87171; }
+.bar-elite   { background: #4ade80; } .bar-solid  { background: #60a5fa; }
+.bar-fringe  { background: #f59e0b; } .bar-below  { background: #f87171; }
+.tier-divider {
+  padding: 6px 16px 4px; font-size: 10px; font-weight: 700;
+  letter-spacing: .08em; text-transform: uppercase; color: #475569;
+  border-top: 1px solid #1e293b; margin-top: 4px;
+}
+.report-footer { padding: 20px 16px 0; font-size: 11px; color: #334155; text-align: center; }
+
+.bottom-nav {
+  position: fixed; bottom: 0; left: 50%; transform: translateX(-50%);
+  width: 100%; max-width: 480px;
+  background: #0f172a; border-top: 1px solid #1e293b;
+  display: flex; z-index: 100;
+  padding-bottom: env(safe-area-inset-bottom);
+}
+.nav-tab {
+  flex: 1; display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  padding: 8px 0 6px; text-decoration: none;
+  color: #475569; font-size: 10px; font-weight: 600;
+  letter-spacing: .03em; gap: 3px;
+  -webkit-tap-highlight-color: transparent;
+}
+.nav-tab:active { background: #1e293b; }
+.nav-tab.active { color: #4ade80; }
+.nav-icon { font-size: 18px; line-height: 1; }
+/* Push page content above nav bar */
+body { padding-bottom: calc(56px + env(safe-area-inset-bottom)) !important; }
+</style></head><body>
+<div class="report-header">
+  <div class="report-title">🏈 TD Rate</div>
+  <div class="report-season">2023 Season · QB · DTFFL Half-PPR · ↑ higher is better</div>
+  <div class="metric-pill" onclick="toggleTooltip()">td_rate ℹ︎</div>
+  <div class="metric-tooltip" id="tooltip">Passing touchdowns per attempt. High TD rate QBs punch in scores efficiently — separates volume TDs from genuine red zone dominance.<div class="formula">pass_tds / attempts</div></div>
+</div>
+<div class="legend"><div class="legend-item"><div class="legend-dot" style="background:#4ade80"></div>Elite</div><div class="legend-item"><div class="legend-dot" style="background:#60a5fa"></div>Solid</div><div class="legend-item"><div class="legend-dot" style="background:#f59e0b"></div>Fringe</div><div class="legend-item"><div class="legend-dot" style="background:#f87171"></div>Below Repl.</div></div>
+<div class="player-list"><div class="tier-divider tier-elite">Elite  (Top 10)</div>
+        <div class="player-row">
+          <div class="rank-badge">1</div>
+          <div class="tier-bar bar-elite"></div>
+          <div class="player-info">
+            <div class="player-name">Brock Purdy</div>
+            <div class="player-meta">SF · QB · Breakout</div>
+            <div class="player-meta">65% cmp · 8.7 YPA · 31 TD / 11 INT</div>
+          </div>
+          <div><div class="metric-value tier-elite">6.57%</div><div class="metric-pct">93th pct</div></div>
+        </div>
+        <div class="player-row">
+          <div class="rank-badge">2</div>
+          <div class="tier-bar bar-elite"></div>
+          <div class="player-info">
+            <div class="player-name">Joe Flacco</div>
+            <div class="player-meta">CLE · QB · Veteran</div>
+            <div class="player-meta">58% cmp · 7.3 YPA · 13 TD / 8 INT</div>
+          </div>
+          <div><div class="metric-value tier-elite">6.10%</div><div class="metric-pct">91th pct</div></div>
+        </div>
+        <div class="player-row">
+          <div class="rank-badge">3</div>
+          <div class="tier-bar bar-elite"></div>
+          <div class="player-info">
+            <div class="player-name">Dak Prescott</div>
+            <div class="player-meta">DAL · QB · Peak</div>
+            <div class="player-meta">65% cmp · 6.8 YPA · 36 TD / 9 INT</div>
+          </div>
+          <div><div class="metric-value tier-elite">5.71%</div><div class="metric-pct">90th pct</div></div>
+        </div>
+        <div class="player-row">
+          <div class="rank-badge">4</div>
+          <div class="tier-bar bar-elite"></div>
+          <div class="player-info">
+            <div class="player-name">Kirk Cousins</div>
+            <div class="player-meta">MIN · QB · Declining</div>
+            <div class="player-meta">66% cmp · 6.8 YPA · 18 TD / 5 INT</div>
+          </div>
+          <div><div class="metric-value tier-elite">5.49%</div><div class="metric-pct">89th pct</div></div>
+        </div>
+        <div class="player-row">
+          <div class="rank-badge">5</div>
+          <div class="tier-bar bar-elite"></div>
+          <div class="player-info">
+            <div class="player-name">Russell Wilson</div>
+            <div class="player-meta">DEN · QB · Declining</div>
+            <div class="player-meta">60% cmp · 5.7 YPA · 26 TD / 8 INT</div>
+          </div>
+          <div><div class="metric-value tier-elite">5.25%</div><div class="metric-pct">88th pct</div></div>
+        </div>
+        <div class="player-row">
+          <div class="rank-badge">6</div>
+          <div class="tier-bar bar-elite"></div>
+          <div class="player-info">
+            <div class="player-name">Jordan Love</div>
+            <div class="player-meta">GB · QB · Breakout</div>
+            <div class="player-meta">61% cmp · 6.4 YPA · 32 TD / 11 INT</div>
+          </div>
+          <div><div class="metric-value tier-elite">5.24%</div><div class="metric-pct">86th pct</div></div>
+        </div>
+        <div class="player-row">
+          <div class="rank-badge">7</div>
+          <div class="tier-bar bar-elite"></div>
+          <div class="player-info">
+            <div class="player-name">Tua Tagovailoa</div>
+            <div class="player-meta">MIA · QB · Breakout</div>
+            <div class="player-meta">66% cmp · 7.5 YPA · 29 TD / 14 INT</div>
+          </div>
+          <div><div class="metric-value tier-elite">4.91%</div><div class="metric-pct">85th pct</div></div>
+        </div>
+        <div class="player-row">
+          <div class="rank-badge">8</div>
+          <div class="tier-bar bar-elite"></div>
+          <div class="player-info">
+            <div class="player-name">Lamar Jackson</div>
+            <div class="player-meta">BAL · QB · Peak</div>
+            <div class="player-meta">62% cmp · 7.0 YPA · 24 TD / 7 INT</div>
+          </div>
+          <div><div class="metric-value tier-elite">4.85%</div><div class="metric-pct">84th pct</div></div>
+        </div>
+        <div class="player-row">
+          <div class="rank-badge">9</div>
+          <div class="tier-bar bar-elite"></div>
+          <div class="player-info">
+            <div class="player-name">Josh Allen</div>
+            <div class="player-meta">BUF · QB · Peak</div>
+            <div class="player-meta">63% cmp · 6.9 YPA · 29 TD / 18 INT</div>
+          </div>
+          <div><div class="metric-value tier-elite">4.78%</div><div class="metric-pct">83th pct</div></div>
+        </div>
+        <div class="player-row">
+          <div class="rank-badge">10</div>
+          <div class="tier-bar bar-elite"></div>
+          <div class="player-info">
+            <div class="player-name">Jared Goff</div>
+            <div class="player-meta">DET · QB · Peak</div>
+            <div class="player-meta">64% cmp · 6.8 YPA · 30 TD / 12 INT</div>
+          </div>
+          <div><div class="metric-value tier-elite">4.69%</div><div class="metric-pct">80th pct</div></div>
+        </div><div class="tier-divider tier-solid">Solid  (#11–25)</div>
+        <div class="player-row">
+          <div class="rank-badge">11</div>
+          <div class="tier-bar bar-solid"></div>
+          <div class="player-info">
+            <div class="player-name">Baker Mayfield</div>
+            <div class="player-meta">TB · QB · Peak</div>
+            <div class="player-meta">60% cmp · 6.3 YPA · 28 TD / 10 INT</div>
+          </div>
+          <div><div class="metric-value tier-solid">4.59%</div><div class="metric-pct">79th pct</div></div>
+        </div>
+        <div class="player-row">
+          <div class="rank-badge">12</div>
+          <div class="tier-bar bar-solid"></div>
+          <div class="player-info">
+            <div class="player-name">Jake Browning</div>
+            <div class="player-meta">CIN · QB · Peak</div>
+            <div class="player-meta">64% cmp · 6.6 YPA · 12 TD / 7 INT</div>
+          </div>
+          <div><div class="metric-value tier-solid">4.48%</div><div class="metric-pct">78th pct</div></div>
+        </div>
+        <div class="player-row">
+          <div class="rank-badge">13</div>
+          <div class="tier-bar bar-solid"></div>
+          <div class="player-info">
+            <div class="player-name">Nick Mullens</div>
+            <div class="player-meta">MIN · QB · Peak</div>
+            <div class="player-meta">62% cmp · 7.5 YPA · 7 TD / 8 INT</div>
+          </div>
+          <div><div class="metric-value tier-solid">4.38%</div><div class="metric-pct">76th pct</div></div>
+        </div>
+        <div class="player-row">
+          <div class="rank-badge">14</div>
+          <div class="tier-bar bar-solid"></div>
+          <div class="player-info">
+            <div class="player-name">Matthew Stafford</div>
+            <div class="player-meta">LA · QB · Declining</div>
+            <div class="player-meta">59% cmp · 6.8 YPA · 24 TD / 11 INT</div>
+          </div>
+          <div><div class="metric-value tier-solid">4.33%</div><div class="metric-pct">75th pct</div></div>
+        </div>
+        <div class="player-row">
+          <div class="rank-badge">15</div>
+          <div class="tier-bar bar-solid"></div>
+          <div class="player-info">
+            <div class="player-name">Patrick Mahomes</div>
+            <div class="player-meta">KC · QB · Peak</div>
+            <div class="player-meta">64% cmp · 6.4 YPA · 27 TD / 14 INT</div>
+          </div>
+          <div><div class="metric-value tier-solid">4.33%</div><div class="metric-pct">74th pct</div></div>
+        </div>
+        <div class="player-row">
+          <div class="rank-badge">16</div>
+          <div class="tier-bar bar-solid"></div>
+          <div class="player-info">
+            <div class="player-name">Derek Carr</div>
+            <div class="player-meta">NO · QB · Peak</div>
+            <div class="player-meta">65% cmp · 6.3 YPA · 25 TD / 8 INT</div>
+          </div>
+          <div><div class="metric-value tier-solid">4.30%</div><div class="metric-pct">73th pct</div></div>
+        </div>
+        <div class="player-row">
+          <div class="rank-badge">17</div>
+          <div class="tier-bar bar-solid"></div>
+          <div class="player-info">
+            <div class="player-name">C.J. Stroud</div>
+            <div class="player-meta">HOU · QB · Breakout</div>
+            <div class="player-meta">59% cmp · 7.0 YPA · 23 TD / 5 INT</div>
+          </div>
+          <div><div class="metric-value tier-solid">4.25%</div><div class="metric-pct">72th pct</div></div>
+        </div>
+        <div class="player-row">
+          <div class="rank-badge">18</div>
+          <div class="tier-bar bar-solid"></div>
+          <div class="player-info">
+            <div class="player-name">Justin Herbert</div>
+            <div class="player-meta">LAC · QB · Breakout</div>
+            <div class="player-meta">61% cmp · 6.0 YPA · 20 TD / 7 INT</div>
+          </div>
+          <div><div class="metric-value tier-solid">4.12%</div><div class="metric-pct">70th pct</div></div>
+        </div>
+        <div class="player-row">
+          <div class="rank-badge">19</div>
+          <div class="tier-bar bar-solid"></div>
+          <div class="player-info">
+            <div class="player-name">Jalen Hurts</div>
+            <div class="player-meta">PHI · QB · Breakout</div>
+            <div class="player-meta">61% cmp · 6.3 YPA · 23 TD / 15 INT</div>
+          </div>
+          <div><div class="metric-value tier-solid">4.00%</div><div class="metric-pct">68th pct</div></div>
+        </div>
+        <div class="player-row">
+          <div class="rank-badge">20</div>
+          <div class="tier-bar bar-solid"></div>
+          <div class="player-info">
+            <div class="player-name">Joe Burrow</div>
+            <div class="player-meta">CIN · QB · Peak</div>
+            <div class="player-meta">63% cmp · 5.5 YPA · 15 TD / 6 INT</div>
+          </div>
+          <div><div class="metric-value tier-solid">3.86%</div><div class="metric-pct">67th pct</div></div>
+        </div>
+        <div class="player-row">
+          <div class="rank-badge">21</div>
+          <div class="tier-bar bar-solid"></div>
+          <div class="player-info">
+            <div class="player-name">Justin Fields</div>
+            <div class="player-meta">CHI · QB · Breakout</div>
+            <div class="player-meta">55% cmp · 5.5 YPA · 16 TD / 9 INT</div>
+          </div>
+          <div><div class="metric-value tier-solid">3.85%</div><div class="metric-pct">64th pct</div></div>
+        </div>
+        <div class="player-row">
+          <div class="rank-badge">22</div>
+          <div class="tier-bar bar-solid"></div>
+          <div class="player-info">
+            <div class="player-name">Jimmy Garoppolo</div>
+            <div class="player-meta">LV · QB · Peak</div>
+            <div class="player-meta">60% cmp · 6.0 YPA · 7 TD / 9 INT</div>
+          </div>
+          <div><div class="metric-value tier-solid">3.80%</div><div class="metric-pct">62th pct</div></div>
+        </div>
+        <div class="player-row">
+          <div class="rank-badge">23</div>
+          <div class="tier-bar bar-solid"></div>
+          <div class="player-info">
+            <div class="player-name">Geno Smith</div>
+            <div class="player-meta">SEA · QB · Peak</div>
+            <div class="player-meta">61% cmp · 6.4 YPA · 20 TD / 9 INT</div>
+          </div>
+          <div><div class="metric-value tier-solid">3.76%</div><div class="metric-pct">60th pct</div></div>
+        </div>
+        <div class="player-row">
+          <div class="rank-badge">24</div>
+          <div class="tier-bar bar-solid"></div>
+          <div class="player-info">
+            <div class="player-name">Mason Rudolph</div>
+            <div class="player-meta">PIT · QB · Peak</div>
+            <div class="player-meta">69% cmp · 8.4 YPA · 3 TD / 0 INT</div>
+          </div>
+          <div><div class="metric-value tier-solid">3.75%</div><div class="metric-pct">59th pct</div></div>
+        </div>
+        <div class="player-row">
+          <div class="rank-badge">25</div>
+          <div class="tier-bar bar-solid"></div>
+          <div class="player-info">
+            <div class="player-name">Deshaun Watson</div>
+            <div class="player-meta">CLE · QB · Peak</div>
+            <div class="player-meta">56% cmp · 5.5 YPA · 7 TD / 4 INT</div>
+          </div>
+          <div><div class="metric-value tier-solid">3.72%</div><div class="metric-pct">58th pct</div></div>
+        </div><div class="tier-divider tier-fringe">Fringe  (#26–50)</div>
+        <div class="player-row">
+          <div class="rank-badge">26</div>
+          <div class="tier-bar bar-fringe"></div>
+          <div class="player-info">
+            <div class="player-name">Tommy DeVito</div>
+            <div class="player-meta">NYG · QB · Breakout</div>
+            <div class="player-meta">53% cmp · 4.2 YPA · 8 TD / 3 INT</div>
+          </div>
+          <div><div class="metric-value tier-fringe">3.72%</div><div class="metric-pct">57th pct</div></div>
+        </div>
+        <div class="player-row">
+          <div class="rank-badge">27</div>
+          <div class="tier-bar bar-fringe"></div>
+          <div class="player-info">
+            <div class="player-name">Drew Lock</div>
+            <div class="player-meta">SEA · QB · Peak</div>
+            <div class="player-meta">58% cmp · 6.2 YPA · 3 TD / 3 INT</div>
+          </div>
+          <div><div class="metric-value tier-fringe">3.61%</div><div class="metric-pct">56th pct</div></div>
+        </div>
+        <div class="player-row">
+          <div class="rank-badge">28</div>
+          <div class="tier-bar bar-fringe"></div>
+          <div class="player-info">
+            <div class="player-name">Trevor Lawrence</div>
+            <div class="player-meta">JAX · QB · Breakout</div>
+            <div class="player-meta">61% cmp · 6.3 YPA · 21 TD / 14 INT</div>
+          </div>
+          <div><div class="metric-value tier-fringe">3.49%</div><div class="metric-pct">54th pct</div></div>
+        </div>
+        <div class="player-row">
+          <div class="rank-badge">29</div>
+          <div class="tier-bar bar-fringe"></div>
+          <div class="player-info">
+            <div class="player-name">Mitchell Trubisky</div>
+            <div class="player-meta">PIT · QB · Peak</div>
+            <div class="player-meta">58% cmp · 5.1 YPA · 4 TD / 5 INT</div>
+          </div>
+          <div><div class="metric-value tier-fringe">3.48%</div><div class="metric-pct">53th pct</div></div>
+        </div>
+        <div class="player-row">
+          <div class="rank-badge">30</div>
+          <div class="tier-bar bar-fringe"></div>
+          <div class="player-info">
+            <div class="player-name">Taylor Heinicke</div>
+            <div class="player-meta">ATL · QB · Peak</div>
+            <div class="player-meta">51% cmp · 5.9 YPA · 5 TD / 4 INT</div>
+          </div>
+          <div><div class="metric-value tier-fringe">3.47%</div><div class="metric-pct">52th pct</div></div>
+        </div>
+        <div class="player-row">
+          <div class="rank-badge">31</div>
+          <div class="tier-bar bar-fringe"></div>
+          <div class="player-info">
+            <div class="player-name">Kyler Murray</div>
+            <div class="player-meta">ARI · QB · Peak</div>
+            <div class="player-meta">60% cmp · 5.8 YPA · 10 TD / 5 INT</div>
+          </div>
+          <div><div class="metric-value tier-fringe">3.44%</div><div class="metric-pct">51th pct</div></div>
+        </div>
+        <div class="player-row">
+          <div class="rank-badge">32</div>
+          <div class="tier-bar bar-fringe"></div>
+          <div class="player-info">
+            <div class="player-name">Aidan O'Connell</div>
+            <div class="player-meta">LV · QB · Breakout</div>
+            <div class="player-meta">58% cmp · 5.6 YPA · 12 TD / 7 INT</div>
+          </div>
+          <div><div class="metric-value tier-fringe">3.26%</div><div class="metric-pct">48th pct</div></div>
+        </div></div>
+<div class="report-footer">
+  DTFFL Analytics · nflverse data · 2023 regular season<br>
+  Top 32 of 53 qualifying players
+</div>
+<script>function toggleTooltip(){document.getElementById('tooltip').classList.toggle('open');}</script>
+
+<nav class="bottom-nav" id="bottom-nav">
+  <a class="nav-tab" id="nav-reports" href="../../index.html">
+    <span class="nav-icon">📊</span>Reports
+  </a>
+  <a class="nav-tab" id="nav-trends" href="../../trends_index.html">
+    <span class="nav-icon">📈</span>Trends
+  </a>
+  <a class="nav-tab" id="nav-draft" href="../../draft_prep/rb_draft_prep_2026.html">
+    <span class="nav-icon">🏈</span>Draft
+  </a>
+</nav>
+<script>
+(function(){
+  var p = window.location.pathname;
+  if (p.includes('trends') || p.includes('candidate'))  {
+    document.getElementById('nav-trends').classList.add('active');
+  } else if (p.includes('draft_prep')) {
+    document.getElementById('nav-draft').classList.add('active');
+  } else {
+    document.getElementById('nav-reports').classList.add('active');
+  }
+})();
+</script>
+</body></html>
