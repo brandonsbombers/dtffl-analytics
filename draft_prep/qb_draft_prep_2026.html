@@ -1,0 +1,1156 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<title>2026 DTFFL Draft Prep — Quarterbacks</title>
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { font-size: 16px; }
+body {
+  background: #0f172a; color: #e2e8f0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  max-width: 480px; margin: 0 auto; padding-bottom: 48px;
+  -webkit-text-size-adjust: 100%;
+}
+.pg-header {
+  position: sticky; top: 0; z-index: 10;
+  background: #0f172a; border-bottom: 1px solid #1e293b;
+  padding: 14px 16px 10px;
+}
+.pg-title  { font-size: 18px; font-weight: 700; color: #f8fafc; line-height: 1.2; }
+.pg-sub    { font-size: 12px; color: #64748b; margin-top: 3px; }
+.section-hd {
+  padding: 12px 16px 4px; font-size: 11px; font-weight: 700;
+  letter-spacing: .07em; text-transform: uppercase; color: #475569;
+  border-top: 1px solid #1e293b; margin-top: 6px;
+}
+.section-hd:first-of-type { border-top: none; margin-top: 0; }
+.pg-footer {
+  padding: 20px 16px 0; font-size: 11px;
+  color: #334155; text-align: center;
+}
+/* ── Trend player card ─────────────────────────────────── */
+.trend-card {
+  background: #1e293b; border: 1px solid #2d3f55;
+  border-radius: 12px; margin: 6px 12px; padding: 12px 14px;
+}
+.trend-card-header {
+  display: flex; justify-content: space-between;
+  align-items: flex-start; margin-bottom: 8px;
+}
+.trend-name  { font-size: 15px; font-weight: 700; color: #f1f5f9; }
+.trend-meta  { font-size: 11px; color: #64748b; margin-top: 2px; }
+.trend-badge {
+  font-size: 11px; font-weight: 700; padding: 3px 9px;
+  border-radius: 99px; flex-shrink: 0; margin-left: 8px;
+}
+/* ── Sparkline row ─────────────────────────────────────── */
+.spark-row  {
+  display: flex; gap: 4px; align-items: flex-end;
+  height: 32px; margin-bottom: 6px;
+}
+.spark-bar  {
+  flex: 1; border-radius: 3px 3px 0 0;
+  min-height: 4px; position: relative;
+}
+.spark-lbl  {
+  font-size: 9px; color: #475569; text-align: center;
+  margin-top: 2px;
+}
+.spark-wrap { flex: 1; }
+/* ── Stat grid ─────────────────────────────────────────── */
+.stat-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 6px; margin-top: 8px;
+}
+.stat-cell  {
+  background: #0f172a; border-radius: 8px;
+  padding: 7px 6px; text-align: center;
+}
+.stat-val   { font-size: 14px; font-weight: 700; color: #f1f5f9; }
+.stat-lbl   { font-size: 9px; color: #475569; margin-top: 1px; }
+.stat-arrow { font-size: 10px; margin-left: 2px; }
+.up   { color: #4ade80; } .down { color: #f87171; } .flat { color: #94a3b8; }
+/* ── Draft prep card ───────────────────────────────────── */
+.draft-card {
+  margin: 6px 12px; border-radius: 12px;
+  border: 1px solid #2d3f55; overflow: hidden;
+}
+.draft-card-top {
+  background: #1e293b; padding: 12px 14px;
+  display: flex; justify-content: space-between; align-items: center;
+}
+.draft-rank  {
+  font-size: 22px; font-weight: 700; color: #475569;
+  min-width: 36px; flex-shrink: 0;
+}
+.draft-name  { font-size: 15px; font-weight: 700; color: #f1f5f9; }
+.draft-meta  { font-size: 11px; color: #64748b; margin-top: 2px; }
+.draft-score {
+  font-size: 24px; font-weight: 800;
+  min-width: 52px; text-align: right; flex-shrink: 0;
+}
+.draft-card-body {
+  background: #162032; padding: 10px 14px;
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px;
+}
+.dc-stat { text-align: center; }
+.dc-val  { font-size: 13px; font-weight: 700; color: #f1f5f9; }
+.dc-lbl  { font-size: 9px; color: #475569; margin-top: 1px; }
+.draft-signal {
+  background: #0f172a; padding: 6px 14px 10px;
+  font-size: 11px; color: #94a3b8; line-height: 1.5;
+}
+.signal-tag {
+  display: inline-block; font-size: 10px; font-weight: 700;
+  padding: 1px 8px; border-radius: 99px; margin-right: 4px;
+}
+
+.bottom-nav {
+  position: fixed; bottom: 0; left: 50%; transform: translateX(-50%);
+  width: 100%; max-width: 480px;
+  background: #0f172a; border-top: 1px solid #1e293b;
+  display: flex; z-index: 100;
+  padding-bottom: env(safe-area-inset-bottom);
+}
+.nav-tab {
+  flex: 1; display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  padding: 8px 0 6px; text-decoration: none;
+  color: #475569; font-size: 10px; font-weight: 600;
+  letter-spacing: .03em; gap: 3px;
+  -webkit-tap-highlight-color: transparent;
+}
+.nav-tab:active { background: #1e293b; }
+.nav-tab.active { color: #4ade80; }
+.nav-icon { font-size: 18px; line-height: 1; }
+/* Push page content above nav bar */
+body { padding-bottom: calc(56px + env(safe-area-inset-bottom)) !important; }
+</style></head><body>
+<div class="pg-header">
+  <div class="pg-title">🏈 2026 DTFFL Draft Prep — Quarterbacks</div>
+  <div class="pg-sub">Half-PPR · Ranked by 2025 QB composite score · Based on 2025 production + trend + age</div>
+</div>
+
+    <div class="draft-card">
+      <div class="draft-card-top">
+        <div class="draft-rank" style="color:#4ade80">1</div>
+        <div style="flex:1;padding:0 8px">
+          <div class="draft-name">Drake Maye</div>
+          <div class="draft-meta">NE · QB · Age 23 · Breakout</div>
+        </div>
+        <div class="draft-score" style="color:#4ade80">89</div>
+      </div>
+      <div class="draft-card-body">
+        <div class="dc-stat">
+          <div class="dc-val">353</div>
+          <div class="dc-lbl">Fpts</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">69</div>
+          <div class="dc-lbl">Rush Fpts</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">20.8</div>
+          <div class="dc-lbl">PPG</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">+94</div>
+          <div class="dc-lbl">WAR</div>
+        </div></div>
+      <div class="draft-signal">
+        <span class="signal-tag" style="color:#4ade80;background:#052e16">Breakout</span><span class="signal-tag" style="color:#4ade80;background:#052e16">Rising</span><span class="signal-tag" style="color:#a78bfa;background:#1a0a3a">Elite WAR</span><span class="signal-tag" style="color:#34d399;background:#052e20">Mobile QB</span>
+        <div style="margin-top:5px">Elite passer — +0.298 EPA/att. Mobile QB adds 69 rush pts (6.1 att/game). Strong YoY jump (+171 fpts).</div>
+      </div>
+    </div>
+    <div class="draft-card">
+      <div class="draft-card-top">
+        <div class="draft-rank" style="color:#4ade80">2</div>
+        <div style="flex:1;padding:0 8px">
+          <div class="draft-name">Dak Prescott</div>
+          <div class="draft-meta">DAL · QB · Age 32 · Peak</div>
+        </div>
+        <div class="draft-score" style="color:#4ade80">83</div>
+      </div>
+      <div class="draft-card-body">
+        <div class="dc-stat">
+          <div class="dc-val">312</div>
+          <div class="dc-lbl">Fpts</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">28</div>
+          <div class="dc-lbl">Rush Fpts</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">18.3</div>
+          <div class="dc-lbl">PPG</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">+52</div>
+          <div class="dc-lbl">WAR</div>
+        </div></div>
+      <div class="draft-signal">
+        <span class="signal-tag" style="color:#60a5fa;background:#0c1a2e">Peak</span><span class="signal-tag" style="color:#4ade80;background:#052e16">Rising</span>
+        <div style="margin-top:5px">Elite passer — +0.168 EPA/att. Strong YoY jump (+190 fpts).</div>
+      </div>
+    </div>
+    <div class="draft-card">
+      <div class="draft-card-top">
+        <div class="draft-rank" style="color:#4ade80">3</div>
+        <div style="flex:1;padding:0 8px">
+          <div class="draft-name">Matthew Stafford</div>
+          <div class="draft-meta">LA · QB · Age 38 · Veteran</div>
+        </div>
+        <div class="draft-score" style="color:#4ade80">82</div>
+      </div>
+      <div class="draft-card-body">
+        <div class="dc-stat">
+          <div class="dc-val">356</div>
+          <div class="dc-lbl">Fpts</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">-2</div>
+          <div class="dc-lbl">Rush Fpts</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">21.0</div>
+          <div class="dc-lbl">PPG</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">+97</div>
+          <div class="dc-lbl">WAR</div>
+        </div></div>
+      <div class="draft-signal">
+        <span class="signal-tag" style="color:#f87171;background:#2d0a0a">Veteran</span><span class="signal-tag" style="color:#4ade80;background:#052e16">Rising</span><span class="signal-tag" style="color:#a78bfa;background:#1a0a3a">Elite WAR</span>
+        <div style="margin-top:5px">Elite passer — +0.227 EPA/att. Strong YoY jump (+138 fpts). Reliable ceiling — 41% boom rate.</div>
+      </div>
+    </div>
+    <div class="draft-card">
+      <div class="draft-card-top">
+        <div class="draft-rank" style="color:#4ade80">4</div>
+        <div style="flex:1;padding:0 8px">
+          <div class="draft-name">Josh Allen</div>
+          <div class="draft-meta">BUF · QB · Age 29 · Peak</div>
+        </div>
+        <div class="draft-score" style="color:#4ade80">81</div>
+      </div>
+      <div class="draft-card-body">
+        <div class="dc-stat">
+          <div class="dc-val">363</div>
+          <div class="dc-lbl">Fpts</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">138</div>
+          <div class="dc-lbl">Rush Fpts</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">21.3</div>
+          <div class="dc-lbl">PPG</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">+103</div>
+          <div class="dc-lbl">WAR</div>
+        </div></div>
+      <div class="draft-signal">
+        <span class="signal-tag" style="color:#60a5fa;background:#0c1a2e">Peak</span><span class="signal-tag" style="color:#a78bfa;background:#1a0a3a">Elite WAR</span><span class="signal-tag" style="color:#34d399;background:#052e20">Mobile QB</span>
+        <div style="margin-top:5px">Elite passer — +0.120 EPA/att. Mobile QB adds 138 rush pts (6.6 att/game).</div>
+      </div>
+    </div>
+    <div class="draft-card">
+      <div class="draft-card-top">
+        <div class="draft-rank" style="color:#4ade80">5</div>
+        <div style="flex:1;padding:0 8px">
+          <div class="draft-name">Jalen Hurts</div>
+          <div class="draft-meta">PHI · QB · Age 27 · Peak</div>
+        </div>
+        <div class="draft-score" style="color:#4ade80">79</div>
+      </div>
+      <div class="draft-card-body">
+        <div class="dc-stat">
+          <div class="dc-val">302</div>
+          <div class="dc-lbl">Fpts</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">86</div>
+          <div class="dc-lbl">Rush Fpts</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">17.8</div>
+          <div class="dc-lbl">PPG</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">+42</div>
+          <div class="dc-lbl">WAR</div>
+        </div></div>
+      <div class="draft-signal">
+        <span class="signal-tag" style="color:#60a5fa;background:#0c1a2e">Peak</span><span class="signal-tag" style="color:#34d399;background:#052e20">Mobile QB</span>
+        <div style="margin-top:5px">Elite passer — +0.052 EPA/att. Mobile QB adds 86 rush pts (6.2 att/game).</div>
+      </div>
+    </div>
+    <div class="draft-card">
+      <div class="draft-card-top">
+        <div class="draft-rank" style="color:#4ade80">6</div>
+        <div style="flex:1;padding:0 8px">
+          <div class="draft-name">Jordan Love</div>
+          <div class="draft-meta">GB · QB · Age 27 · Peak</div>
+        </div>
+        <div class="draft-score" style="color:#4ade80">79</div>
+      </div>
+      <div class="draft-card-body">
+        <div class="dc-stat">
+          <div class="dc-val">235</div>
+          <div class="dc-lbl">Fpts</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">20</div>
+          <div class="dc-lbl">Rush Fpts</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">13.8</div>
+          <div class="dc-lbl">PPG</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">-25</div>
+          <div class="dc-lbl">WAR</div>
+        </div></div>
+      <div class="draft-signal">
+        <span class="signal-tag" style="color:#60a5fa;background:#0c1a2e">Peak</span><span class="signal-tag" style="color:#94a3b8;background:#1e293b">–WAR</span>
+        <div style="margin-top:5px">Elite passer — +0.239 EPA/att.</div>
+      </div>
+    </div>
+    <div class="draft-card">
+      <div class="draft-card-top">
+        <div class="draft-rank" style="color:#4ade80">7</div>
+        <div style="flex:1;padding:0 8px">
+          <div class="draft-name">Caleb Williams</div>
+          <div class="draft-meta">CHI · QB · Age 24 · Breakout</div>
+        </div>
+        <div class="draft-score" style="color:#4ade80">79</div>
+      </div>
+      <div class="draft-card-body">
+        <div class="dc-stat">
+          <div class="dc-val">308</div>
+          <div class="dc-lbl">Fpts</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">56</div>
+          <div class="dc-lbl">Rush Fpts</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">18.1</div>
+          <div class="dc-lbl">PPG</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">+49</div>
+          <div class="dc-lbl">WAR</div>
+        </div></div>
+      <div class="draft-signal">
+        <span class="signal-tag" style="color:#4ade80;background:#052e16">Breakout</span><span class="signal-tag" style="color:#4ade80;background:#052e16">Rising</span>
+        <div style="margin-top:5px">Elite passer — +0.071 EPA/att. Strong YoY jump (+66 fpts). Young QB still developing — upside in 2026.</div>
+      </div>
+    </div>
+    <div class="draft-card">
+      <div class="draft-card-top">
+        <div class="draft-rank" style="color:#4ade80">8</div>
+        <div style="flex:1;padding:0 8px">
+          <div class="draft-name">Brock Purdy</div>
+          <div class="draft-meta">SF · QB · Age 26 · Breakout</div>
+        </div>
+        <div class="draft-score" style="color:#4ade80">79</div>
+      </div>
+      <div class="draft-card-body">
+        <div class="dc-stat">
+          <div class="dc-val">187</div>
+          <div class="dc-lbl">Fpts</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">33</div>
+          <div class="dc-lbl">Rush Fpts</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">11.0</div>
+          <div class="dc-lbl">PPG</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">-72</div>
+          <div class="dc-lbl">WAR</div>
+        </div></div>
+      <div class="draft-signal">
+        <span class="signal-tag" style="color:#4ade80;background:#052e16">Breakout</span><span class="signal-tag" style="color:#f87171;background:#2d0a0a">Declining</span><span class="signal-tag" style="color:#94a3b8;background:#1e293b">–WAR</span>
+        <div style="margin-top:5px">Elite passer — +0.194 EPA/att. Meaningful regression (-91 fpts YoY). Young QB still developing — upside in 2026.</div>
+      </div>
+    </div>
+    <div class="draft-card">
+      <div class="draft-card-top">
+        <div class="draft-rank" style="color:#4ade80">9</div>
+        <div style="flex:1;padding:0 8px">
+          <div class="draft-name">Bo Nix</div>
+          <div class="draft-meta">DEN · QB · Age 26 · Breakout</div>
+        </div>
+        <div class="draft-score" style="color:#4ade80">78</div>
+      </div>
+      <div class="draft-card-body">
+        <div class="dc-stat">
+          <div class="dc-val">305</div>
+          <div class="dc-lbl">Fpts</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">64</div>
+          <div class="dc-lbl">Rush Fpts</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">18.0</div>
+          <div class="dc-lbl">PPG</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">+46</div>
+          <div class="dc-lbl">WAR</div>
+        </div></div>
+      <div class="draft-signal">
+        <span class="signal-tag" style="color:#4ade80;background:#052e16">Breakout</span>
+        <div style="margin-top:5px">Elite passer — +0.092 EPA/att. Young QB still developing — upside in 2026.</div>
+      </div>
+    </div>
+    <div class="draft-card">
+      <div class="draft-card-top">
+        <div class="draft-rank" style="color:#4ade80">10</div>
+        <div style="flex:1;padding:0 8px">
+          <div class="draft-name">Trevor Lawrence</div>
+          <div class="draft-meta">JAX · QB · Age 26 · Breakout</div>
+        </div>
+        <div class="draft-score" style="color:#4ade80">78</div>
+      </div>
+      <div class="draft-card-body">
+        <div class="dc-stat">
+          <div class="dc-val">342</div>
+          <div class="dc-lbl">Fpts</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">88</div>
+          <div class="dc-lbl">Rush Fpts</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">20.1</div>
+          <div class="dc-lbl">PPG</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">+83</div>
+          <div class="dc-lbl">WAR</div>
+        </div></div>
+      <div class="draft-signal">
+        <span class="signal-tag" style="color:#4ade80;background:#052e16">Breakout</span><span class="signal-tag" style="color:#4ade80;background:#052e16">Rising</span><span class="signal-tag" style="color:#a78bfa;background:#1a0a3a">Elite WAR</span>
+        <div style="margin-top:5px">Elite passer — +0.055 EPA/att. Strong YoY jump (+199 fpts). Young QB still developing — upside in 2026.</div>
+      </div>
+    </div>
+    <div class="draft-card">
+      <div class="draft-card-top">
+        <div class="draft-rank" style="color:#4ade80">11</div>
+        <div style="flex:1;padding:0 8px">
+          <div class="draft-name">Patrick Mahomes</div>
+          <div class="draft-meta">KC · QB · Age 30 · Peak</div>
+        </div>
+        <div class="draft-score" style="color:#4ade80">77</div>
+      </div>
+      <div class="draft-card-body">
+        <div class="dc-stat">
+          <div class="dc-val">285</div>
+          <div class="dc-lbl">Fpts</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">72</div>
+          <div class="dc-lbl">Rush Fpts</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">16.8</div>
+          <div class="dc-lbl">PPG</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">+26</div>
+          <div class="dc-lbl">WAR</div>
+        </div></div>
+      <div class="draft-signal">
+        <span class="signal-tag" style="color:#60a5fa;background:#0c1a2e">Peak</span>
+        <div style="margin-top:5px">Elite passer — +0.127 EPA/att. Reliable ceiling — 43% boom rate.</div>
+      </div>
+    </div>
+    <div class="draft-card">
+      <div class="draft-card-top">
+        <div class="draft-rank" style="color:#4ade80">12</div>
+        <div style="flex:1;padding:0 8px">
+          <div class="draft-name">Daniel Jones</div>
+          <div class="draft-meta">IND · QB · Age 28 · Peak</div>
+        </div>
+        <div class="draft-score" style="color:#4ade80">76</div>
+      </div>
+      <div class="draft-card-body">
+        <div class="dc-stat">
+          <div class="dc-val">232</div>
+          <div class="dc-lbl">Fpts</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">46</div>
+          <div class="dc-lbl">Rush Fpts</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">13.7</div>
+          <div class="dc-lbl">PPG</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">-27</div>
+          <div class="dc-lbl">WAR</div>
+        </div></div>
+      <div class="draft-signal">
+        <span class="signal-tag" style="color:#60a5fa;background:#0c1a2e">Peak</span><span class="signal-tag" style="color:#4ade80;background:#052e16">Rising</span><span class="signal-tag" style="color:#94a3b8;background:#1e293b">–WAR</span>
+        <div style="margin-top:5px">Elite passer — +0.140 EPA/att. Strong YoY jump (+93 fpts).</div>
+      </div>
+    </div>
+    <div class="draft-card">
+      <div class="draft-card-top">
+        <div class="draft-rank" style="color:#4ade80">13</div>
+        <div style="flex:1;padding:0 8px">
+          <div class="draft-name">Jared Goff</div>
+          <div class="draft-meta">DET · QB · Age 31 · Peak</div>
+        </div>
+        <div class="draft-score" style="color:#4ade80">76</div>
+      </div>
+      <div class="draft-card-body">
+        <div class="dc-stat">
+          <div class="dc-val">301</div>
+          <div class="dc-lbl">Fpts</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">0</div>
+          <div class="dc-lbl">Rush Fpts</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">17.7</div>
+          <div class="dc-lbl">PPG</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">+41</div>
+          <div class="dc-lbl">WAR</div>
+        </div></div>
+      <div class="draft-signal">
+        <span class="signal-tag" style="color:#60a5fa;background:#0c1a2e">Peak</span>
+        <div style="margin-top:5px">Elite passer — +0.173 EPA/att.</div>
+      </div>
+    </div>
+    <div class="draft-card">
+      <div class="draft-card-top">
+        <div class="draft-rank" style="color:#60a5fa">14</div>
+        <div style="flex:1;padding:0 8px">
+          <div class="draft-name">Sam Darnold</div>
+          <div class="draft-meta">SEA · QB · Age 28 · Peak</div>
+        </div>
+        <div class="draft-score" style="color:#60a5fa">74</div>
+      </div>
+      <div class="draft-card-body">
+        <div class="dc-stat">
+          <div class="dc-val">248</div>
+          <div class="dc-lbl">Fpts</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">8</div>
+          <div class="dc-lbl">Rush Fpts</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">14.6</div>
+          <div class="dc-lbl">PPG</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">-11</div>
+          <div class="dc-lbl">WAR</div>
+        </div></div>
+      <div class="draft-signal">
+        <span class="signal-tag" style="color:#60a5fa;background:#0c1a2e">Peak</span><span class="signal-tag" style="color:#f87171;background:#2d0a0a">Declining</span><span class="signal-tag" style="color:#94a3b8;background:#1e293b">–WAR</span>
+        <div style="margin-top:5px">Elite passer — +0.124 EPA/att. Meaningful regression (-62 fpts YoY).</div>
+      </div>
+    </div>
+    <div class="draft-card">
+      <div class="draft-card-top">
+        <div class="draft-rank" style="color:#60a5fa">15</div>
+        <div style="flex:1;padding:0 8px">
+          <div class="draft-name">Justin Herbert</div>
+          <div class="draft-meta">LAC · QB · Age 28 · Peak</div>
+        </div>
+        <div class="draft-score" style="color:#60a5fa">74</div>
+      </div>
+      <div class="draft-card-body">
+        <div class="dc-stat">
+          <div class="dc-val">288</div>
+          <div class="dc-lbl">Fpts</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">60</div>
+          <div class="dc-lbl">Rush Fpts</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">16.9</div>
+          <div class="dc-lbl">PPG</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">+29</div>
+          <div class="dc-lbl">WAR</div>
+        </div></div>
+      <div class="draft-signal">
+        <span class="signal-tag" style="color:#60a5fa;background:#0c1a2e">Peak</span>
+        <div style="margin-top:5px">Average passer efficiency (+0.008 EPA/att).</div>
+      </div>
+    </div>
+    <div class="draft-card">
+      <div class="draft-card-top">
+        <div class="draft-rank" style="color:#60a5fa">16</div>
+        <div style="flex:1;padding:0 8px">
+          <div class="draft-name">Lamar Jackson</div>
+          <div class="draft-meta">BAL · QB · Age 29 · Peak</div>
+        </div>
+        <div class="draft-score" style="color:#60a5fa">72</div>
+      </div>
+      <div class="draft-card-body">
+        <div class="dc-stat">
+          <div class="dc-val">216</div>
+          <div class="dc-lbl">Fpts</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">47</div>
+          <div class="dc-lbl">Rush Fpts</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">12.7</div>
+          <div class="dc-lbl">PPG</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">-43</div>
+          <div class="dc-lbl">WAR</div>
+        </div></div>
+      <div class="draft-signal">
+        <span class="signal-tag" style="color:#60a5fa;background:#0c1a2e">Peak</span><span class="signal-tag" style="color:#f87171;background:#2d0a0a">Declining</span><span class="signal-tag" style="color:#94a3b8;background:#1e293b">–WAR</span>
+        <div style="margin-top:5px">Average passer efficiency (+0.019 EPA/att). Meaningful regression (-210 fpts YoY).</div>
+      </div>
+    </div>
+    <div class="draft-card">
+      <div class="draft-card-top">
+        <div class="draft-rank" style="color:#60a5fa">17</div>
+        <div style="flex:1;padding:0 8px">
+          <div class="draft-name">C.J. Stroud</div>
+          <div class="draft-meta">HOU · QB · Age 24 · Breakout</div>
+        </div>
+        <div class="draft-score" style="color:#60a5fa">70</div>
+      </div>
+      <div class="draft-card-body">
+        <div class="dc-stat">
+          <div class="dc-val">209</div>
+          <div class="dc-lbl">Fpts</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">27</div>
+          <div class="dc-lbl">Rush Fpts</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">12.3</div>
+          <div class="dc-lbl">PPG</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">-50</div>
+          <div class="dc-lbl">WAR</div>
+        </div></div>
+      <div class="draft-signal">
+        <span class="signal-tag" style="color:#4ade80;background:#052e16">Breakout</span><span class="signal-tag" style="color:#94a3b8;background:#1e293b">–WAR</span>
+        <div style="margin-top:5px">Elite passer — +0.086 EPA/att. Young QB still developing — upside in 2026.</div>
+      </div>
+    </div>
+    <div class="draft-card">
+      <div class="draft-card-top">
+        <div class="draft-rank" style="color:#60a5fa">18</div>
+        <div style="flex:1;padding:0 8px">
+          <div class="draft-name">Baker Mayfield</div>
+          <div class="draft-meta">TB · QB · Age 30 · Peak</div>
+        </div>
+        <div class="draft-score" style="color:#60a5fa">69</div>
+      </div>
+      <div class="draft-card-body">
+        <div class="dc-stat">
+          <div class="dc-val">276</div>
+          <div class="dc-lbl">Fpts</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">44</div>
+          <div class="dc-lbl">Rush Fpts</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">16.2</div>
+          <div class="dc-lbl">PPG</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">+16</div>
+          <div class="dc-lbl">WAR</div>
+        </div></div>
+      <div class="draft-signal">
+        <span class="signal-tag" style="color:#60a5fa;background:#0c1a2e">Peak</span><span class="signal-tag" style="color:#f87171;background:#2d0a0a">Declining</span>
+        <div style="margin-top:5px">Below-average passer (-0.006 EPA/att). Meaningful regression (-96 fpts YoY).</div>
+      </div>
+    </div>
+    <div class="draft-card">
+      <div class="draft-card-top">
+        <div class="draft-rank" style="color:#60a5fa">19</div>
+        <div style="flex:1;padding:0 8px">
+          <div class="draft-name">Jaxson Dart</div>
+          <div class="draft-meta">NYG · QB · Age 22 · Breakout</div>
+        </div>
+        <div class="draft-score" style="color:#60a5fa">67</div>
+      </div>
+      <div class="draft-card-body">
+        <div class="dc-stat">
+          <div class="dc-val">241</div>
+          <div class="dc-lbl">Fpts</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">101</div>
+          <div class="dc-lbl">Rush Fpts</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">14.2</div>
+          <div class="dc-lbl">PPG</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">-19</div>
+          <div class="dc-lbl">WAR</div>
+        </div></div>
+      <div class="draft-signal">
+        <span class="signal-tag" style="color:#4ade80;background:#052e16">Breakout</span><span class="signal-tag" style="color:#94a3b8;background:#1e293b">–WAR</span>
+        <div style="margin-top:5px">Below-average passer (-0.022 EPA/att). Mobile QB adds 101 rush pts (5.1 att/game). Young QB still developing — upside in 2026.</div>
+      </div>
+    </div>
+    <div class="draft-card">
+      <div class="draft-card-top">
+        <div class="draft-rank" style="color:#60a5fa">20</div>
+        <div style="flex:1;padding:0 8px">
+          <div class="draft-name">Joe Burrow</div>
+          <div class="draft-meta">CIN · QB · Age 29 · Peak</div>
+        </div>
+        <div class="draft-score" style="color:#60a5fa">66</div>
+      </div>
+      <div class="draft-card-body">
+        <div class="dc-stat">
+          <div class="dc-val">135</div>
+          <div class="dc-lbl">Fpts</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">4</div>
+          <div class="dc-lbl">Rush Fpts</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">7.9</div>
+          <div class="dc-lbl">PPG</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">-125</div>
+          <div class="dc-lbl">WAR</div>
+        </div></div>
+      <div class="draft-signal">
+        <span class="signal-tag" style="color:#60a5fa;background:#0c1a2e">Peak</span><span class="signal-tag" style="color:#f87171;background:#2d0a0a">Declining</span><span class="signal-tag" style="color:#94a3b8;background:#1e293b">–WAR</span>
+        <div style="margin-top:5px">Elite passer — +0.099 EPA/att. Meaningful regression (-246 fpts YoY).</div>
+      </div>
+    </div>
+    <div class="draft-card">
+      <div class="draft-card-top">
+        <div class="draft-rank" style="color:#60a5fa">21</div>
+        <div style="flex:1;padding:0 8px">
+          <div class="draft-name">Jacoby Brissett</div>
+          <div class="draft-meta">ARI · QB · Age 33 · Peak</div>
+        </div>
+        <div class="draft-score" style="color:#60a5fa">65</div>
+      </div>
+      <div class="draft-card-body">
+        <div class="dc-stat">
+          <div class="dc-val">230</div>
+          <div class="dc-lbl">Fpts</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">23</div>
+          <div class="dc-lbl">Rush Fpts</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">13.5</div>
+          <div class="dc-lbl">PPG</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">-29</div>
+          <div class="dc-lbl">WAR</div>
+        </div></div>
+      <div class="draft-signal">
+        <span class="signal-tag" style="color:#60a5fa;background:#0c1a2e">Peak</span><span class="signal-tag" style="color:#4ade80;background:#052e16">Rising</span><span class="signal-tag" style="color:#94a3b8;background:#1e293b">–WAR</span>
+        <div style="margin-top:5px">Below-average passer (-0.011 EPA/att). Strong YoY jump (+189 fpts).</div>
+      </div>
+    </div>
+    <div class="draft-card">
+      <div class="draft-card-top">
+        <div class="draft-rank" style="color:#60a5fa">22</div>
+        <div style="flex:1;padding:0 8px">
+          <div class="draft-name">Bryce Young</div>
+          <div class="draft-meta">CAR · QB · Age 24 · Breakout</div>
+        </div>
+        <div class="draft-score" style="color:#60a5fa">65</div>
+      </div>
+      <div class="draft-card-body">
+        <div class="dc-stat">
+          <div class="dc-val">223</div>
+          <div class="dc-lbl">Fpts</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">30</div>
+          <div class="dc-lbl">Rush Fpts</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">13.1</div>
+          <div class="dc-lbl">PPG</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">-36</div>
+          <div class="dc-lbl">WAR</div>
+        </div></div>
+      <div class="draft-signal">
+        <span class="signal-tag" style="color:#4ade80;background:#052e16">Breakout</span><span class="signal-tag" style="color:#94a3b8;background:#1e293b">–WAR</span>
+        <div style="margin-top:5px">Below-average passer (-0.043 EPA/att). Young QB still developing — upside in 2026.</div>
+      </div>
+    </div>
+    <div class="draft-card">
+      <div class="draft-card-top">
+        <div class="draft-rank" style="color:#60a5fa">23</div>
+        <div style="flex:1;padding:0 8px">
+          <div class="draft-name">Aaron Rodgers</div>
+          <div class="draft-meta">PIT · QB · Age 42 · Veteran</div>
+        </div>
+        <div class="draft-score" style="color:#60a5fa">64</div>
+      </div>
+      <div class="draft-card-body">
+        <div class="dc-stat">
+          <div class="dc-val">227</div>
+          <div class="dc-lbl">Fpts</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">12</div>
+          <div class="dc-lbl">Rush Fpts</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">13.3</div>
+          <div class="dc-lbl">PPG</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">-33</div>
+          <div class="dc-lbl">WAR</div>
+        </div></div>
+      <div class="draft-signal">
+        <span class="signal-tag" style="color:#f87171;background:#2d0a0a">Veteran</span><span class="signal-tag" style="color:#94a3b8;background:#1e293b">–WAR</span>
+        <div style="margin-top:5px">Average passer efficiency (+0.027 EPA/att). Veteran — age/decline risk.</div>
+      </div>
+    </div>
+    <div class="draft-card">
+      <div class="draft-card-top">
+        <div class="draft-rank" style="color:#60a5fa">24</div>
+        <div style="flex:1;padding:0 8px">
+          <div class="draft-name">Marcus Mariota</div>
+          <div class="draft-meta">WAS · QB · Age 32 · Peak</div>
+        </div>
+        <div class="draft-score" style="color:#60a5fa">62</div>
+      </div>
+      <div class="draft-card-body">
+        <div class="dc-stat">
+          <div class="dc-val">128</div>
+          <div class="dc-lbl">Fpts</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">32</div>
+          <div class="dc-lbl">Rush Fpts</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">7.5</div>
+          <div class="dc-lbl">PPG</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">-131</div>
+          <div class="dc-lbl">WAR</div>
+        </div></div>
+      <div class="draft-signal">
+        <span class="signal-tag" style="color:#60a5fa;background:#0c1a2e">Peak</span><span class="signal-tag" style="color:#4ade80;background:#052e16">Rising</span><span class="signal-tag" style="color:#94a3b8;background:#1e293b">–WAR</span>
+        <div style="margin-top:5px">Below-average passer (-0.016 EPA/att). Strong YoY jump (+84 fpts).</div>
+      </div>
+    </div>
+    <div class="draft-card">
+      <div class="draft-card-top">
+        <div class="draft-rank" style="color:#60a5fa">25</div>
+        <div style="flex:1;padding:0 8px">
+          <div class="draft-name">Tyler Shough</div>
+          <div class="draft-meta">NO · QB · Age 26 · Breakout</div>
+        </div>
+        <div class="draft-score" style="color:#60a5fa">62</div>
+      </div>
+      <div class="draft-card-body">
+        <div class="dc-stat">
+          <div class="dc-val">156</div>
+          <div class="dc-lbl">Fpts</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">35</div>
+          <div class="dc-lbl">Rush Fpts</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">9.2</div>
+          <div class="dc-lbl">PPG</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">-103</div>
+          <div class="dc-lbl">WAR</div>
+        </div></div>
+      <div class="draft-signal">
+        <span class="signal-tag" style="color:#4ade80;background:#052e16">Breakout</span><span class="signal-tag" style="color:#94a3b8;background:#1e293b">–WAR</span>
+        <div style="margin-top:5px">Below-average passer (-0.029 EPA/att). Young QB still developing — upside in 2026.</div>
+      </div>
+    </div>
+    <div class="draft-card">
+      <div class="draft-card-top">
+        <div class="draft-rank" style="color:#60a5fa">26</div>
+        <div style="flex:1;padding:0 8px">
+          <div class="draft-name">Mac Jones</div>
+          <div class="draft-meta">SF · QB · Age 27 · Peak</div>
+        </div>
+        <div class="draft-score" style="color:#60a5fa">61</div>
+      </div>
+      <div class="draft-card-body">
+        <div class="dc-stat">
+          <div class="dc-val">134</div>
+          <div class="dc-lbl">Fpts</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">6</div>
+          <div class="dc-lbl">Rush Fpts</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">7.9</div>
+          <div class="dc-lbl">PPG</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">-126</div>
+          <div class="dc-lbl">WAR</div>
+        </div></div>
+      <div class="draft-signal">
+        <span class="signal-tag" style="color:#60a5fa;background:#0c1a2e">Peak</span><span class="signal-tag" style="color:#4ade80;background:#052e16">Rising</span><span class="signal-tag" style="color:#94a3b8;background:#1e293b">–WAR</span>
+        <div style="margin-top:5px">Elite passer — +0.125 EPA/att.</div>
+      </div>
+    </div>
+    <div class="draft-card">
+      <div class="draft-card-top">
+        <div class="draft-rank" style="color:#60a5fa">27</div>
+        <div style="flex:1;padding:0 8px">
+          <div class="draft-name">Joe Flacco</div>
+          <div class="draft-meta">CIN · QB · Age 41 · Veteran</div>
+        </div>
+        <div class="draft-score" style="color:#60a5fa">60</div>
+      </div>
+      <div class="draft-card-body">
+        <div class="dc-stat">
+          <div class="dc-val">120</div>
+          <div class="dc-lbl">Fpts</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">8</div>
+          <div class="dc-lbl">Rush Fpts</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">7.1</div>
+          <div class="dc-lbl">PPG</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">-139</div>
+          <div class="dc-lbl">WAR</div>
+        </div></div>
+      <div class="draft-signal">
+        <span class="signal-tag" style="color:#f87171;background:#2d0a0a">Veteran</span><span class="signal-tag" style="color:#94a3b8;background:#1e293b">–WAR</span>
+        <div style="margin-top:5px">Average passer efficiency (+0.031 EPA/att). Veteran — age/decline risk.</div>
+      </div>
+    </div>
+    <div class="draft-card">
+      <div class="draft-card-top">
+        <div class="draft-rank" style="color:#60a5fa">28</div>
+        <div style="flex:1;padding:0 8px">
+          <div class="draft-name">Michael Penix Jr.</div>
+          <div class="draft-meta">ATL · QB · Age 25 · Breakout</div>
+        </div>
+        <div class="draft-score" style="color:#60a5fa">60</div>
+      </div>
+      <div class="draft-card-body">
+        <div class="dc-stat">
+          <div class="dc-val">121</div>
+          <div class="dc-lbl">Fpts</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">13</div>
+          <div class="dc-lbl">Rush Fpts</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">7.1</div>
+          <div class="dc-lbl">PPG</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">-138</div>
+          <div class="dc-lbl">WAR</div>
+        </div></div>
+      <div class="draft-signal">
+        <span class="signal-tag" style="color:#4ade80;background:#052e16">Breakout</span><span class="signal-tag" style="color:#4ade80;background:#052e16">Rising</span><span class="signal-tag" style="color:#94a3b8;background:#1e293b">–WAR</span>
+        <div style="margin-top:5px">Below-average passer (-0.004 EPA/att). Strong YoY jump (+75 fpts). Young QB still developing — upside in 2026.</div>
+      </div>
+    </div>
+    <div class="draft-card">
+      <div class="draft-card-top">
+        <div class="draft-rank" style="color:#60a5fa">29</div>
+        <div style="flex:1;padding:0 8px">
+          <div class="draft-name">Jayden Daniels</div>
+          <div class="draft-meta">WAS · QB · Age 25 · Breakout</div>
+        </div>
+        <div class="draft-score" style="color:#60a5fa">60</div>
+      </div>
+      <div class="draft-card-body">
+        <div class="dc-stat">
+          <div class="dc-val">114</div>
+          <div class="dc-lbl">Fpts</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">38</div>
+          <div class="dc-lbl">Rush Fpts</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">6.7</div>
+          <div class="dc-lbl">PPG</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">-145</div>
+          <div class="dc-lbl">WAR</div>
+        </div></div>
+      <div class="draft-signal">
+        <span class="signal-tag" style="color:#4ade80;background:#052e16">Breakout</span><span class="signal-tag" style="color:#f87171;background:#2d0a0a">Declining</span><span class="signal-tag" style="color:#94a3b8;background:#1e293b">–WAR</span>
+        <div style="margin-top:5px">Below-average passer (-0.023 EPA/att). Meaningful regression (-235 fpts YoY). Young QB still developing — upside in 2026.</div>
+      </div>
+    </div>
+    <div class="draft-card">
+      <div class="draft-card-top">
+        <div class="draft-rank" style="color:#60a5fa">30</div>
+        <div style="flex:1;padding:0 8px">
+          <div class="draft-name">Cam Ward</div>
+          <div class="draft-meta">TEN · QB · Age 23 · Breakout</div>
+        </div>
+        <div class="draft-score" style="color:#60a5fa">56</div>
+      </div>
+      <div class="draft-card-body">
+        <div class="dc-stat">
+          <div class="dc-val">191</div>
+          <div class="dc-lbl">Fpts</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">28</div>
+          <div class="dc-lbl">Rush Fpts</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">11.3</div>
+          <div class="dc-lbl">PPG</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">-68</div>
+          <div class="dc-lbl">WAR</div>
+        </div></div>
+      <div class="draft-signal">
+        <span class="signal-tag" style="color:#4ade80;background:#052e16">Breakout</span><span class="signal-tag" style="color:#94a3b8;background:#1e293b">–WAR</span>
+        <div style="margin-top:5px">Below-average passer (-0.190 EPA/att). Young QB still developing — upside in 2026.</div>
+      </div>
+    </div>
+    <div class="draft-card">
+      <div class="draft-card-top">
+        <div class="draft-rank" style="color:#60a5fa">31</div>
+        <div style="flex:1;padding:0 8px">
+          <div class="draft-name">Justin Fields</div>
+          <div class="draft-meta">NYJ · QB · Age 26 · Peak</div>
+        </div>
+        <div class="draft-score" style="color:#60a5fa">56</div>
+      </div>
+      <div class="draft-card-body">
+        <div class="dc-stat">
+          <div class="dc-val">128</div>
+          <div class="dc-lbl">Fpts</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">59</div>
+          <div class="dc-lbl">Rush Fpts</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">7.5</div>
+          <div class="dc-lbl">PPG</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">-132</div>
+          <div class="dc-lbl">WAR</div>
+        </div></div>
+      <div class="draft-signal">
+        <span class="signal-tag" style="color:#60a5fa;background:#0c1a2e">Peak</span><span class="signal-tag" style="color:#94a3b8;background:#1e293b">–WAR</span>
+        <div style="margin-top:5px">Below-average passer (-0.096 EPA/att).</div>
+      </div>
+    </div>
+    <div class="draft-card">
+      <div class="draft-card-top">
+        <div class="draft-rank" style="color:#60a5fa">32</div>
+        <div style="flex:1;padding:0 8px">
+          <div class="draft-name">Spencer Rattler</div>
+          <div class="draft-meta">NO · QB · Age 25 · Breakout</div>
+        </div>
+        <div class="draft-score" style="color:#60a5fa">55</div>
+      </div>
+      <div class="draft-card-body">
+        <div class="dc-stat">
+          <div class="dc-val">101</div>
+          <div class="dc-lbl">Fpts</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">15</div>
+          <div class="dc-lbl">Rush Fpts</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">5.9</div>
+          <div class="dc-lbl">PPG</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">-158</div>
+          <div class="dc-lbl">WAR</div>
+        </div></div>
+      <div class="draft-signal">
+        <span class="signal-tag" style="color:#4ade80;background:#052e16">Breakout</span><span class="signal-tag" style="color:#94a3b8;background:#1e293b">–WAR</span>
+        <div style="margin-top:5px">Below-average passer (-0.132 EPA/att). Young QB still developing — upside in 2026.</div>
+      </div>
+    </div>
+<div class="pg-footer">
+  DTFFL Analytics · 2026 Draft Prep · nflverse 2025 data<br>
+  Score = 2025 composite percentile vs peers · Signals = age curve + WAR + trend
+</div>
+
+<nav class="bottom-nav" id="bottom-nav">
+  <a class="nav-tab" id="nav-reports" href="../index.html">
+    <span class="nav-icon">📊</span>Reports
+  </a>
+  <a class="nav-tab" id="nav-trends" href="../trends_index.html">
+    <span class="nav-icon">📈</span>Trends
+  </a>
+  <a class="nav-tab" id="nav-draft" href="../draft_prep/rb_draft_prep_2026.html">
+    <span class="nav-icon">🏈</span>Draft
+  </a>
+</nav>
+<script>
+(function(){
+  var p = window.location.pathname;
+  if (p.includes('trends') || p.includes('candidate'))  {
+    document.getElementById('nav-trends').classList.add('active');
+  } else if (p.includes('draft_prep')) {
+    document.getElementById('nav-draft').classList.add('active');
+  } else {
+    document.getElementById('nav-reports').classList.add('active');
+  }
+})();
+</script>
+</body></html>
