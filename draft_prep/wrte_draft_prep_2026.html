@@ -1,0 +1,2644 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<title>2026 DTFFL Draft Prep — Wide Receivers & Tight Ends</title>
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { font-size: 16px; }
+body {
+  background: #0f172a; color: #e2e8f0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  max-width: 480px; margin: 0 auto; padding-bottom: 48px;
+  -webkit-text-size-adjust: 100%;
+}
+.pg-header {
+  position: sticky; top: 0; z-index: 10;
+  background: #0f172a; border-bottom: 1px solid #1e293b;
+  padding: 14px 16px 10px;
+}
+.pg-title  { font-size: 18px; font-weight: 700; color: #f8fafc; line-height: 1.2; }
+.pg-sub    { font-size: 12px; color: #64748b; margin-top: 3px; }
+.section-hd {
+  padding: 12px 16px 4px; font-size: 11px; font-weight: 700;
+  letter-spacing: .07em; text-transform: uppercase; color: #475569;
+  border-top: 1px solid #1e293b; margin-top: 6px;
+}
+.section-hd:first-of-type { border-top: none; margin-top: 0; }
+.pg-footer {
+  padding: 20px 16px 0; font-size: 11px;
+  color: #334155; text-align: center;
+}
+/* ── Trend player card ─────────────────────────────────── */
+.trend-card {
+  background: #1e293b; border: 1px solid #2d3f55;
+  border-radius: 12px; margin: 6px 12px; padding: 12px 14px;
+}
+.trend-card-header {
+  display: flex; justify-content: space-between;
+  align-items: flex-start; margin-bottom: 8px;
+}
+.trend-name  { font-size: 15px; font-weight: 700; color: #f1f5f9; }
+.trend-meta  { font-size: 11px; color: #64748b; margin-top: 2px; }
+.trend-badge {
+  font-size: 11px; font-weight: 700; padding: 3px 9px;
+  border-radius: 99px; flex-shrink: 0; margin-left: 8px;
+}
+/* ── Sparkline row ─────────────────────────────────────── */
+.spark-row  {
+  display: flex; gap: 4px; align-items: flex-end;
+  height: 32px; margin-bottom: 6px;
+}
+.spark-bar  {
+  flex: 1; border-radius: 3px 3px 0 0;
+  min-height: 4px; position: relative;
+}
+.spark-lbl  {
+  font-size: 9px; color: #475569; text-align: center;
+  margin-top: 2px;
+}
+.spark-wrap { flex: 1; }
+/* ── Stat grid ─────────────────────────────────────────── */
+.stat-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 6px; margin-top: 8px;
+}
+.stat-cell  {
+  background: #0f172a; border-radius: 8px;
+  padding: 7px 6px; text-align: center;
+}
+.stat-val   { font-size: 14px; font-weight: 700; color: #f1f5f9; }
+.stat-lbl   { font-size: 9px; color: #475569; margin-top: 1px; }
+.stat-arrow { font-size: 10px; margin-left: 2px; }
+.up   { color: #4ade80; } .down { color: #f87171; } .flat { color: #94a3b8; }
+/* ── Draft prep card ───────────────────────────────────── */
+.draft-card {
+  margin: 6px 12px; border-radius: 12px;
+  border: 1px solid #2d3f55; overflow: hidden;
+}
+.draft-card-top {
+  background: #1e293b; padding: 12px 14px;
+  display: flex; justify-content: space-between; align-items: center;
+}
+.draft-rank  {
+  font-size: 22px; font-weight: 700; color: #475569;
+  min-width: 36px; flex-shrink: 0;
+}
+.draft-name  { font-size: 15px; font-weight: 700; color: #f1f5f9; }
+.draft-meta  { font-size: 11px; color: #64748b; margin-top: 2px; }
+.draft-score {
+  font-size: 24px; font-weight: 800;
+  min-width: 52px; text-align: right; flex-shrink: 0;
+}
+.draft-card-body {
+  background: #162032; padding: 10px 14px;
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px;
+}
+.dc-stat { text-align: center; }
+.dc-val  { font-size: 13px; font-weight: 700; color: #f1f5f9; }
+.dc-lbl  { font-size: 9px; color: #475569; margin-top: 1px; }
+.draft-signal {
+  background: #0f172a; padding: 6px 14px 10px;
+  font-size: 11px; color: #94a3b8; line-height: 1.5;
+}
+.signal-tag {
+  display: inline-block; font-size: 10px; font-weight: 700;
+  padding: 1px 8px; border-radius: 99px; margin-right: 4px;
+}
+
+.bottom-nav {
+  position: fixed; bottom: 0; left: 50%; transform: translateX(-50%);
+  width: 100%; max-width: 480px;
+  background: #0f172a; border-top: 1px solid #1e293b;
+  display: flex; z-index: 100;
+  padding-bottom: env(safe-area-inset-bottom);
+}
+.nav-tab {
+  flex: 1; display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  padding: 8px 0 6px; text-decoration: none;
+  color: #475569; font-size: 10px; font-weight: 600;
+  letter-spacing: .03em; gap: 3px;
+  -webkit-tap-highlight-color: transparent;
+}
+.nav-tab:active { background: #1e293b; }
+.nav-tab.active { color: #4ade80; }
+.nav-icon { font-size: 18px; line-height: 1; }
+/* Push page content above nav bar */
+body { padding-bottom: calc(56px + env(safe-area-inset-bottom)) !important; }
+</style></head><body>
+<div class="pg-header">
+  <div class="pg-title">🏈 2026 DTFFL Draft Prep — Wide Receivers & Tight Ends</div>
+  <div class="pg-sub">Half-PPR · Ranked by 2025 WR/TE composite score · Based on 2025 production + trend + age</div>
+</div>
+
+    <div class="draft-card">
+      <div class="draft-card-top">
+        <div class="draft-rank" style="color:#4ade80">1</div>
+        <div style="flex:1;padding:0 8px">
+          <div class="draft-name">Jaxon Smith-Njigba</div>
+          <div class="draft-meta">SEA · WR · Age 24 · Breakout</div>
+        </div>
+        <div class="draft-score" style="color:#4ade80">90</div>
+      </div>
+      <div class="draft-card-body">
+        <div class="dc-stat">
+          <div class="dc-val">300</div>
+          <div class="dc-lbl">Fpts</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">41%</div>
+          <div class="dc-lbl">Tgt Sh</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">17.7</div>
+          <div class="dc-lbl">PPG</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">+175</div>
+          <div class="dc-lbl">WAR</div>
+        </div></div>
+      <div class="draft-signal">
+        <span class="signal-tag" style="color:#4ade80;background:#052e16">Breakout</span><span class="signal-tag" style="color:#4ade80;background:#052e16">Rising</span><span class="signal-tag" style="color:#a78bfa;background:#1a0a3a">Elite WAR</span><span class="signal-tag" style="color:#f472b6;background:#2d0a1a">Alpha</span>
+        <div style="margin-top:5px">True alpha at 41% target share. Dominant air yard share (50%) signals true alpha usage. Highly efficient receiver (+0.56 EPA/tgt).</div>
+      </div>
+    </div>
+    <div class="draft-card">
+      <div class="draft-card-top">
+        <div class="draft-rank" style="color:#4ade80">2</div>
+        <div style="flex:1;padding:0 8px">
+          <div class="draft-name">George Pickens</div>
+          <div class="draft-meta">DAL · WR · Age 24 · Peak</div>
+        </div>
+        <div class="draft-score" style="color:#4ade80">90</div>
+      </div>
+      <div class="draft-card-body">
+        <div class="dc-stat">
+          <div class="dc-val">246</div>
+          <div class="dc-lbl">Fpts</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">26%</div>
+          <div class="dc-lbl">Tgt Sh</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">14.4</div>
+          <div class="dc-lbl">PPG</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">+120</div>
+          <div class="dc-lbl">WAR</div>
+        </div></div>
+      <div class="draft-signal">
+        <span class="signal-tag" style="color:#60a5fa;background:#0c1a2e">Peak</span><span class="signal-tag" style="color:#4ade80;background:#052e16">Rising</span><span class="signal-tag" style="color:#a78bfa;background:#1a0a3a">Elite WAR</span><span class="signal-tag" style="color:#f472b6;background:#2d0a1a">Alpha</span>
+        <div style="margin-top:5px">True alpha at 26% target share. Dominant air yard share (31%) signals true alpha usage. Highly efficient receiver (+0.64 EPA/tgt).</div>
+      </div>
+    </div>
+    <div class="draft-card">
+      <div class="draft-card-top">
+        <div class="draft-rank" style="color:#4ade80">3</div>
+        <div style="flex:1;padding:0 8px">
+          <div class="draft-name">Trey McBride</div>
+          <div class="draft-meta">ARI · TE · Age 26 · Peak</div>
+        </div>
+        <div class="draft-score" style="color:#4ade80">90</div>
+      </div>
+      <div class="draft-card-body">
+        <div class="dc-stat">
+          <div class="dc-val">253</div>
+          <div class="dc-lbl">Fpts</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">34%</div>
+          <div class="dc-lbl">Tgt Sh</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">14.9</div>
+          <div class="dc-lbl">PPG</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">+127</div>
+          <div class="dc-lbl">WAR</div>
+        </div></div>
+      <div class="draft-signal">
+        <span class="signal-tag" style="color:#60a5fa;background:#0c1a2e">Peak</span><span class="signal-tag" style="color:#4ade80;background:#052e16">Rising</span><span class="signal-tag" style="color:#a78bfa;background:#1a0a3a">Elite WAR</span><span class="signal-tag" style="color:#f472b6;background:#2d0a1a">Alpha</span>
+        <div style="margin-top:5px">True alpha at 34% target share. Dominant air yard share (26%) signals true alpha usage. Red zone TE — 40% team RZ targets.</div>
+      </div>
+    </div>
+    <div class="draft-card">
+      <div class="draft-card-top">
+        <div class="draft-rank" style="color:#4ade80">4</div>
+        <div style="flex:1;padding:0 8px">
+          <div class="draft-name">Hunter Henry</div>
+          <div class="draft-meta">NE · TE · Age 31 · Declining</div>
+        </div>
+        <div class="draft-score" style="color:#4ade80">88</div>
+      </div>
+      <div class="draft-card-body">
+        <div class="dc-stat">
+          <div class="dc-val">149</div>
+          <div class="dc-lbl">Fpts</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">22%</div>
+          <div class="dc-lbl">Tgt Sh</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">8.8</div>
+          <div class="dc-lbl">PPG</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">+23</div>
+          <div class="dc-lbl">WAR</div>
+        </div></div>
+      <div class="draft-signal">
+        <span class="signal-tag" style="color:#f59e0b;background:#2d1a00">Declining</span><span class="signal-tag" style="color:#4ade80;background:#052e16">Rising</span>
+        <div style="margin-top:5px">Solid WR2 role at 22% target share. Red zone TE — 39% team RZ targets. Highly efficient receiver (+0.43 EPA/tgt).</div>
+      </div>
+    </div>
+    <div class="draft-card">
+      <div class="draft-card-top">
+        <div class="draft-rank" style="color:#4ade80">5</div>
+        <div style="flex:1;padding:0 8px">
+          <div class="draft-name">Puka Nacua</div>
+          <div class="draft-meta">LA · WR · Age 24 · Peak</div>
+        </div>
+        <div class="draft-score" style="color:#4ade80">88</div>
+      </div>
+      <div class="draft-card-body">
+        <div class="dc-stat">
+          <div class="dc-val">310</div>
+          <div class="dc-lbl">Fpts</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">32%</div>
+          <div class="dc-lbl">Tgt Sh</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">18.3</div>
+          <div class="dc-lbl">PPG</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">+185</div>
+          <div class="dc-lbl">WAR</div>
+        </div></div>
+      <div class="draft-signal">
+        <span class="signal-tag" style="color:#60a5fa;background:#0c1a2e">Peak</span><span class="signal-tag" style="color:#4ade80;background:#052e16">Rising</span><span class="signal-tag" style="color:#a78bfa;background:#1a0a3a">Elite WAR</span><span class="signal-tag" style="color:#f472b6;background:#2d0a1a">Alpha</span>
+        <div style="margin-top:5px">True alpha at 32% target share. Dominant air yard share (30%) signals true alpha usage. Highly efficient receiver (+0.70 EPA/tgt).</div>
+      </div>
+    </div>
+    <div class="draft-card">
+      <div class="draft-card-top">
+        <div class="draft-rank" style="color:#4ade80">6</div>
+        <div style="flex:1;padding:0 8px">
+          <div class="draft-name">Dallas Goedert</div>
+          <div class="draft-meta">PHI · TE · Age 31 · Declining</div>
+        </div>
+        <div class="draft-score" style="color:#4ade80">87</div>
+      </div>
+      <div class="draft-card-body">
+        <div class="dc-stat">
+          <div class="dc-val">155</div>
+          <div class="dc-lbl">Fpts</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">21%</div>
+          <div class="dc-lbl">Tgt Sh</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">9.1</div>
+          <div class="dc-lbl">PPG</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">+29</div>
+          <div class="dc-lbl">WAR</div>
+        </div></div>
+      <div class="draft-signal">
+        <span class="signal-tag" style="color:#f59e0b;background:#2d1a00">Declining</span><span class="signal-tag" style="color:#4ade80;background:#052e16">Rising</span>
+        <div style="margin-top:5px">Solid WR2 role at 21% target share. Red zone TE — 30% team RZ targets. Highly efficient receiver (+0.44 EPA/tgt).</div>
+      </div>
+    </div>
+    <div class="draft-card">
+      <div class="draft-card-top">
+        <div class="draft-rank" style="color:#4ade80">7</div>
+        <div style="flex:1;padding:0 8px">
+          <div class="draft-name">George Kittle</div>
+          <div class="draft-meta">SF · TE · Age 32 · Veteran</div>
+        </div>
+        <div class="draft-score" style="color:#4ade80">87</div>
+      </div>
+      <div class="draft-card-body">
+        <div class="dc-stat">
+          <div class="dc-val">133</div>
+          <div class="dc-lbl">Fpts</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">18%</div>
+          <div class="dc-lbl">Tgt Sh</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">7.8</div>
+          <div class="dc-lbl">PPG</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">+7</div>
+          <div class="dc-lbl">WAR</div>
+        </div></div>
+      <div class="draft-signal">
+        <span class="signal-tag" style="color:#f87171;background:#2d0a0a">Veteran</span><span class="signal-tag" style="color:#f87171;background:#2d0a0a">Declining</span>
+        <div style="margin-top:5px">Solid WR2 role at 18% target share. Red zone TE — 23% team RZ targets. Highly efficient receiver (+0.67 EPA/tgt).</div>
+      </div>
+    </div>
+    <div class="draft-card">
+      <div class="draft-card-top">
+        <div class="draft-rank" style="color:#4ade80">8</div>
+        <div style="flex:1;padding:0 8px">
+          <div class="draft-name">Brock Bowers</div>
+          <div class="draft-meta">LV · TE · Age 23 · Breakout</div>
+        </div>
+        <div class="draft-score" style="color:#4ade80">86</div>
+      </div>
+      <div class="draft-card-body">
+        <div class="dc-stat">
+          <div class="dc-val">144</div>
+          <div class="dc-lbl">Fpts</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">22%</div>
+          <div class="dc-lbl">Tgt Sh</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">8.5</div>
+          <div class="dc-lbl">PPG</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">+18</div>
+          <div class="dc-lbl">WAR</div>
+        </div></div>
+      <div class="draft-signal">
+        <span class="signal-tag" style="color:#4ade80;background:#052e16">Breakout</span><span class="signal-tag" style="color:#f87171;background:#2d0a0a">Declining</span>
+        <div style="margin-top:5px">Solid WR2 role at 22% target share. Red zone TE — 36% team RZ targets. Highly efficient receiver (+0.27 EPA/tgt).</div>
+      </div>
+    </div>
+    <div class="draft-card">
+      <div class="draft-card-top">
+        <div class="draft-rank" style="color:#4ade80">9</div>
+        <div style="flex:1;padding:0 8px">
+          <div class="draft-name">Tee Higgins</div>
+          <div class="draft-meta">CIN · WR · Age 27 · Peak</div>
+        </div>
+        <div class="draft-score" style="color:#4ade80">86</div>
+      </div>
+      <div class="draft-card-body">
+        <div class="dc-stat">
+          <div class="dc-val">185</div>
+          <div class="dc-lbl">Fpts</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">20%</div>
+          <div class="dc-lbl">Tgt Sh</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">10.9</div>
+          <div class="dc-lbl">PPG</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">+59</div>
+          <div class="dc-lbl">WAR</div>
+        </div></div>
+      <div class="draft-signal">
+        <span class="signal-tag" style="color:#60a5fa;background:#0c1a2e">Peak</span>
+        <div style="margin-top:5px">Solid WR2 role at 20% target share. Dominant air yard share (29%) signals true alpha usage. Highly efficient receiver (+0.36 EPA/tgt).</div>
+      </div>
+    </div>
+    <div class="draft-card">
+      <div class="draft-card-top">
+        <div class="draft-rank" style="color:#4ade80">10</div>
+        <div style="flex:1;padding:0 8px">
+          <div class="draft-name">Nico Collins</div>
+          <div class="draft-meta">HOU · WR · Age 26 · Peak</div>
+        </div>
+        <div class="draft-score" style="color:#4ade80">85</div>
+      </div>
+      <div class="draft-card-body">
+        <div class="dc-stat">
+          <div class="dc-val">191</div>
+          <div class="dc-lbl">Fpts</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">25%</div>
+          <div class="dc-lbl">Tgt Sh</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">11.2</div>
+          <div class="dc-lbl">PPG</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">+65</div>
+          <div class="dc-lbl">WAR</div>
+        </div></div>
+      <div class="draft-signal">
+        <span class="signal-tag" style="color:#60a5fa;background:#0c1a2e">Peak</span><span class="signal-tag" style="color:#f472b6;background:#2d0a1a">Alpha</span>
+        <div style="margin-top:5px">True alpha at 25% target share. Dominant air yard share (34%) signals true alpha usage. Highly efficient receiver (+0.32 EPA/tgt).</div>
+      </div>
+    </div>
+    <div class="draft-card">
+      <div class="draft-card-top">
+        <div class="draft-rank" style="color:#4ade80">11</div>
+        <div style="flex:1;padding:0 8px">
+          <div class="draft-name">Amon-Ra St. Brown</div>
+          <div class="draft-meta">DET · WR · Age 26 · Peak</div>
+        </div>
+        <div class="draft-score" style="color:#4ade80">85</div>
+      </div>
+      <div class="draft-card-body">
+        <div class="dc-stat">
+          <div class="dc-val">267</div>
+          <div class="dc-lbl">Fpts</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">40%</div>
+          <div class="dc-lbl">Tgt Sh</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">15.7</div>
+          <div class="dc-lbl">PPG</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">+141</div>
+          <div class="dc-lbl">WAR</div>
+        </div></div>
+      <div class="draft-signal">
+        <span class="signal-tag" style="color:#60a5fa;background:#0c1a2e">Peak</span><span class="signal-tag" style="color:#a78bfa;background:#1a0a3a">Elite WAR</span><span class="signal-tag" style="color:#f472b6;background:#2d0a1a">Alpha</span>
+        <div style="margin-top:5px">True alpha at 40% target share. Dominant air yard share (39%) signals true alpha usage. Highly efficient receiver (+0.32 EPA/tgt).</div>
+      </div>
+    </div>
+    <div class="draft-card">
+      <div class="draft-card-top">
+        <div class="draft-rank" style="color:#4ade80">12</div>
+        <div style="flex:1;padding:0 8px">
+          <div class="draft-name">Colston Loveland</div>
+          <div class="draft-meta">CHI · TE · Age 21 · Breakout</div>
+        </div>
+        <div class="draft-score" style="color:#4ade80">85</div>
+      </div>
+      <div class="draft-card-body">
+        <div class="dc-stat">
+          <div class="dc-val">137</div>
+          <div class="dc-lbl">Fpts</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">18%</div>
+          <div class="dc-lbl">Tgt Sh</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">8.1</div>
+          <div class="dc-lbl">PPG</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">+11</div>
+          <div class="dc-lbl">WAR</div>
+        </div></div>
+      <div class="draft-signal">
+        <span class="signal-tag" style="color:#4ade80;background:#052e16">Breakout</span>
+        <div style="margin-top:5px">Solid WR2 role at 18% target share. Red zone TE — 23% team RZ targets. Highly efficient receiver (+0.57 EPA/tgt).</div>
+      </div>
+    </div>
+    <div class="draft-card">
+      <div class="draft-card-top">
+        <div class="draft-rank" style="color:#4ade80">13</div>
+        <div style="flex:1;padding:0 8px">
+          <div class="draft-name">Travis Kelce</div>
+          <div class="draft-meta">KC · TE · Age 36 · Veteran</div>
+        </div>
+        <div class="draft-score" style="color:#4ade80">85</div>
+      </div>
+      <div class="draft-card-body">
+        <div class="dc-stat">
+          <div class="dc-val">155</div>
+          <div class="dc-lbl">Fpts</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">24%</div>
+          <div class="dc-lbl">Tgt Sh</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">9.1</div>
+          <div class="dc-lbl">PPG</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">+29</div>
+          <div class="dc-lbl">WAR</div>
+        </div></div>
+      <div class="draft-signal">
+        <span class="signal-tag" style="color:#f87171;background:#2d0a0a">Veteran</span><span class="signal-tag" style="color:#f472b6;background:#2d0a1a">Alpha</span>
+        <div style="margin-top:5px">True alpha at 24% target share. Red zone TE — 20% team RZ targets. Highly efficient receiver (+0.37 EPA/tgt).</div>
+      </div>
+    </div>
+    <div class="draft-card">
+      <div class="draft-card-top">
+        <div class="draft-rank" style="color:#4ade80">14</div>
+        <div style="flex:1;padding:0 8px">
+          <div class="draft-name">Dalton Kincaid</div>
+          <div class="draft-meta">BUF · TE · Age 26 · Peak</div>
+        </div>
+        <div class="draft-score" style="color:#4ade80">85</div>
+      </div>
+      <div class="draft-card-body">
+        <div class="dc-stat">
+          <div class="dc-val">107</div>
+          <div class="dc-lbl">Fpts</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">13%</div>
+          <div class="dc-lbl">Tgt Sh</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">6.3</div>
+          <div class="dc-lbl">PPG</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">-20</div>
+          <div class="dc-lbl">WAR</div>
+        </div></div>
+      <div class="draft-signal">
+        <span class="signal-tag" style="color:#60a5fa;background:#0c1a2e">Peak</span><span class="signal-tag" style="color:#94a3b8;background:#1e293b">–WAR</span>
+        <div style="margin-top:5px">Volume concern at 13% target share. Highly efficient receiver (+0.79 EPA/tgt).</div>
+      </div>
+    </div>
+    <div class="draft-card">
+      <div class="draft-card-top">
+        <div class="draft-rank" style="color:#4ade80">15</div>
+        <div style="flex:1;padding:0 8px">
+          <div class="draft-name">Kyle Pitts</div>
+          <div class="draft-meta">ATL · TE · Age 25 · Breakout</div>
+        </div>
+        <div class="draft-score" style="color:#4ade80">84</div>
+      </div>
+      <div class="draft-card-body">
+        <div class="dc-stat">
+          <div class="dc-val">167</div>
+          <div class="dc-lbl">Fpts</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">30%</div>
+          <div class="dc-lbl">Tgt Sh</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">9.8</div>
+          <div class="dc-lbl">PPG</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">+41</div>
+          <div class="dc-lbl">WAR</div>
+        </div></div>
+      <div class="draft-signal">
+        <span class="signal-tag" style="color:#4ade80;background:#052e16">Breakout</span><span class="signal-tag" style="color:#4ade80;background:#052e16">Rising</span><span class="signal-tag" style="color:#f472b6;background:#2d0a1a">Alpha</span>
+        <div style="margin-top:5px">True alpha at 30% target share. Dominant air yard share (21%) signals true alpha usage. Red zone TE — 27% team RZ targets.</div>
+      </div>
+    </div>
+    <div class="draft-card">
+      <div class="draft-card-top">
+        <div class="draft-rank" style="color:#4ade80">16</div>
+        <div style="flex:1;padding:0 8px">
+          <div class="draft-name">Courtland Sutton</div>
+          <div class="draft-meta">DEN · WR · Age 30 · Declining</div>
+        </div>
+        <div class="draft-score" style="color:#4ade80">84</div>
+      </div>
+      <div class="draft-card-body">
+        <div class="dc-stat">
+          <div class="dc-val">183</div>
+          <div class="dc-lbl">Fpts</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">27%</div>
+          <div class="dc-lbl">Tgt Sh</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">10.8</div>
+          <div class="dc-lbl">PPG</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">+57</div>
+          <div class="dc-lbl">WAR</div>
+        </div></div>
+      <div class="draft-signal">
+        <span class="signal-tag" style="color:#f59e0b;background:#2d1a00">Declining</span><span class="signal-tag" style="color:#f472b6;background:#2d0a1a">Alpha</span>
+        <div style="margin-top:5px">True alpha at 27% target share. Dominant air yard share (35%) signals true alpha usage. Highly efficient receiver (+0.36 EPA/tgt).</div>
+      </div>
+    </div>
+    <div class="draft-card">
+      <div class="draft-card-top">
+        <div class="draft-rank" style="color:#4ade80">17</div>
+        <div style="flex:1;padding:0 8px">
+          <div class="draft-name">Davante Adams</div>
+          <div class="draft-meta">LA · WR · Age 33 · Veteran</div>
+        </div>
+        <div class="draft-score" style="color:#4ade80">84</div>
+      </div>
+      <div class="draft-card-body">
+        <div class="dc-stat">
+          <div class="dc-val">193</div>
+          <div class="dc-lbl">Fpts</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">22%</div>
+          <div class="dc-lbl">Tgt Sh</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">11.3</div>
+          <div class="dc-lbl">PPG</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">+67</div>
+          <div class="dc-lbl">WAR</div>
+        </div></div>
+      <div class="draft-signal">
+        <span class="signal-tag" style="color:#f87171;background:#2d0a0a">Veteran</span><span class="signal-tag" style="color:#f472b6;background:#2d0a1a">Alpha</span>
+        <div style="margin-top:5px">True alpha at 22% target share. Dominant air yard share (28%) signals true alpha usage. Highly efficient receiver (+0.24 EPA/tgt).</div>
+      </div>
+    </div>
+    <div class="draft-card">
+      <div class="draft-card-top">
+        <div class="draft-rank" style="color:#4ade80">18</div>
+        <div style="flex:1;padding:0 8px">
+          <div class="draft-name">Chris Olave</div>
+          <div class="draft-meta">NO · WR · Age 25 · Peak</div>
+        </div>
+        <div class="draft-score" style="color:#4ade80">84</div>
+      </div>
+      <div class="draft-card-body">
+        <div class="dc-stat">
+          <div class="dc-val">220</div>
+          <div class="dc-lbl">Fpts</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">33%</div>
+          <div class="dc-lbl">Tgt Sh</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">12.9</div>
+          <div class="dc-lbl">PPG</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">+94</div>
+          <div class="dc-lbl">WAR</div>
+        </div></div>
+      <div class="draft-signal">
+        <span class="signal-tag" style="color:#60a5fa;background:#0c1a2e">Peak</span><span class="signal-tag" style="color:#4ade80;background:#052e16">Rising</span><span class="signal-tag" style="color:#a78bfa;background:#1a0a3a">Elite WAR</span><span class="signal-tag" style="color:#f472b6;background:#2d0a1a">Alpha</span>
+        <div style="margin-top:5px">True alpha at 33% target share. Dominant air yard share (40%) signals true alpha usage. Highly efficient receiver (+0.23 EPA/tgt).</div>
+      </div>
+    </div>
+    <div class="draft-card">
+      <div class="draft-card-top">
+        <div class="draft-rank" style="color:#4ade80">19</div>
+        <div style="flex:1;padding:0 8px">
+          <div class="draft-name">Alec Pierce</div>
+          <div class="draft-meta">IND · WR · Age 25 · Peak</div>
+        </div>
+        <div class="draft-score" style="color:#4ade80">83</div>
+      </div>
+      <div class="draft-card-body">
+        <div class="dc-stat">
+          <div class="dc-val">160</div>
+          <div class="dc-lbl">Fpts</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">18%</div>
+          <div class="dc-lbl">Tgt Sh</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">9.4</div>
+          <div class="dc-lbl">PPG</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">+34</div>
+          <div class="dc-lbl">WAR</div>
+        </div></div>
+      <div class="draft-signal">
+        <span class="signal-tag" style="color:#60a5fa;background:#0c1a2e">Peak</span>
+        <div style="margin-top:5px">Solid WR2 role at 18% target share. Dominant air yard share (37%) signals true alpha usage. Highly efficient receiver (+0.66 EPA/tgt).</div>
+      </div>
+    </div>
+    <div class="draft-card">
+      <div class="draft-card-top">
+        <div class="draft-rank" style="color:#4ade80">20</div>
+        <div style="flex:1;padding:0 8px">
+          <div class="draft-name">Drake London</div>
+          <div class="draft-meta">ATL · WR · Age 24 · Peak</div>
+        </div>
+        <div class="draft-score" style="color:#4ade80">83</div>
+      </div>
+      <div class="draft-card-body">
+        <div class="dc-stat">
+          <div class="dc-val">168</div>
+          <div class="dc-lbl">Fpts</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">28%</div>
+          <div class="dc-lbl">Tgt Sh</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">9.9</div>
+          <div class="dc-lbl">PPG</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">+43</div>
+          <div class="dc-lbl">WAR</div>
+        </div></div>
+      <div class="draft-signal">
+        <span class="signal-tag" style="color:#60a5fa;background:#0c1a2e">Peak</span><span class="signal-tag" style="color:#f87171;background:#2d0a0a">Declining</span><span class="signal-tag" style="color:#f472b6;background:#2d0a1a">Alpha</span>
+        <div style="margin-top:5px">True alpha at 28% target share. Dominant air yard share (30%) signals true alpha usage. Highly efficient receiver (+0.22 EPA/tgt).</div>
+      </div>
+    </div>
+    <div class="draft-card">
+      <div class="draft-card-top">
+        <div class="draft-rank" style="color:#4ade80">21</div>
+        <div style="flex:1;padding:0 8px">
+          <div class="draft-name">A.J. Brown</div>
+          <div class="draft-meta">PHI · WR · Age 28 · Declining</div>
+        </div>
+        <div class="draft-score" style="color:#4ade80">83</div>
+      </div>
+      <div class="draft-card-body">
+        <div class="dc-stat">
+          <div class="dc-val">179</div>
+          <div class="dc-lbl">Fpts</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">31%</div>
+          <div class="dc-lbl">Tgt Sh</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">10.5</div>
+          <div class="dc-lbl">PPG</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">+54</div>
+          <div class="dc-lbl">WAR</div>
+        </div></div>
+      <div class="draft-signal">
+        <span class="signal-tag" style="color:#f59e0b;background:#2d1a00">Declining</span><span class="signal-tag" style="color:#f472b6;background:#2d0a1a">Alpha</span>
+        <div style="margin-top:5px">True alpha at 31% target share. Dominant air yard share (34%) signals true alpha usage. Highly efficient receiver (+0.28 EPA/tgt).</div>
+      </div>
+    </div>
+    <div class="draft-card">
+      <div class="draft-card-top">
+        <div class="draft-rank" style="color:#4ade80">22</div>
+        <div style="flex:1;padding:0 8px">
+          <div class="draft-name">Ja'Marr Chase</div>
+          <div class="draft-meta">CIN · WR · Age 26 · Peak</div>
+        </div>
+        <div class="draft-score" style="color:#4ade80">83</div>
+      </div>
+      <div class="draft-card-body">
+        <div class="dc-stat">
+          <div class="dc-val">251</div>
+          <div class="dc-lbl">Fpts</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">37%</div>
+          <div class="dc-lbl">Tgt Sh</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">14.8</div>
+          <div class="dc-lbl">PPG</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">+126</div>
+          <div class="dc-lbl">WAR</div>
+        </div></div>
+      <div class="draft-signal">
+        <span class="signal-tag" style="color:#60a5fa;background:#0c1a2e">Peak</span><span class="signal-tag" style="color:#f87171;background:#2d0a0a">Declining</span><span class="signal-tag" style="color:#a78bfa;background:#1a0a3a">Elite WAR</span><span class="signal-tag" style="color:#f472b6;background:#2d0a1a">Alpha</span>
+        <div style="margin-top:5px">True alpha at 37% target share. Dominant air yard share (34%) signals true alpha usage. Highly efficient receiver (+0.22 EPA/tgt).</div>
+      </div>
+    </div>
+    <div class="draft-card">
+      <div class="draft-card-top">
+        <div class="draft-rank" style="color:#4ade80">23</div>
+        <div style="flex:1;padding:0 8px">
+          <div class="draft-name">Zay Flowers</div>
+          <div class="draft-meta">BAL · WR · Age 25 · Peak</div>
+        </div>
+        <div class="draft-score" style="color:#4ade80">83</div>
+      </div>
+      <div class="draft-card-body">
+        <div class="dc-stat">
+          <div class="dc-val">200</div>
+          <div class="dc-lbl">Fpts</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">35%</div>
+          <div class="dc-lbl">Tgt Sh</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">11.8</div>
+          <div class="dc-lbl">PPG</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">+75</div>
+          <div class="dc-lbl">WAR</div>
+        </div></div>
+      <div class="draft-signal">
+        <span class="signal-tag" style="color:#60a5fa;background:#0c1a2e">Peak</span><span class="signal-tag" style="color:#f472b6;background:#2d0a1a">Alpha</span>
+        <div style="margin-top:5px">True alpha at 35% target share. Dominant air yard share (35%) signals true alpha usage. Highly efficient receiver (+0.39 EPA/tgt).</div>
+      </div>
+    </div>
+    <div class="draft-card">
+      <div class="draft-card-top">
+        <div class="draft-rank" style="color:#4ade80">24</div>
+        <div style="flex:1;padding:0 8px">
+          <div class="draft-name">Tetairoa McMillan</div>
+          <div class="draft-meta">CAR · WR · Age 22 · Breakout</div>
+        </div>
+        <div class="draft-score" style="color:#4ade80">82</div>
+      </div>
+      <div class="draft-card-body">
+        <div class="dc-stat">
+          <div class="dc-val">178</div>
+          <div class="dc-lbl">Fpts</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">31%</div>
+          <div class="dc-lbl">Tgt Sh</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">10.5</div>
+          <div class="dc-lbl">PPG</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">+53</div>
+          <div class="dc-lbl">WAR</div>
+        </div></div>
+      <div class="draft-signal">
+        <span class="signal-tag" style="color:#4ade80;background:#052e16">Breakout</span><span class="signal-tag" style="color:#f472b6;background:#2d0a1a">Alpha</span>
+        <div style="margin-top:5px">True alpha at 31% target share. Dominant air yard share (42%) signals true alpha usage. Highly efficient receiver (+0.21 EPA/tgt).</div>
+      </div>
+    </div>
+    <div class="draft-card">
+      <div class="draft-card-top">
+        <div class="draft-rank" style="color:#4ade80">25</div>
+        <div style="flex:1;padding:0 8px">
+          <div class="draft-name">DK Metcalf</div>
+          <div class="draft-meta">PIT · WR · Age 28 · Peak</div>
+        </div>
+        <div class="draft-score" style="color:#4ade80">82</div>
+      </div>
+      <div class="draft-card-body">
+        <div class="dc-stat">
+          <div class="dc-val">158</div>
+          <div class="dc-lbl">Fpts</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">25%</div>
+          <div class="dc-lbl">Tgt Sh</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">9.3</div>
+          <div class="dc-lbl">PPG</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">+32</div>
+          <div class="dc-lbl">WAR</div>
+        </div></div>
+      <div class="draft-signal">
+        <span class="signal-tag" style="color:#60a5fa;background:#0c1a2e">Peak</span><span class="signal-tag" style="color:#f472b6;background:#2d0a1a">Alpha</span>
+        <div style="margin-top:5px">True alpha at 25% target share. Dominant air yard share (32%) signals true alpha usage. Highly efficient receiver (+0.33 EPA/tgt).</div>
+      </div>
+    </div>
+    <div class="draft-card">
+      <div class="draft-card-top">
+        <div class="draft-rank" style="color:#4ade80">26</div>
+        <div style="flex:1;padding:0 8px">
+          <div class="draft-name">DeVonta Smith</div>
+          <div class="draft-meta">PHI · WR · Age 27 · Peak</div>
+        </div>
+        <div class="draft-score" style="color:#4ade80">82</div>
+      </div>
+      <div class="draft-card-body">
+        <div class="dc-stat">
+          <div class="dc-val">163</div>
+          <div class="dc-lbl">Fpts</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">29%</div>
+          <div class="dc-lbl">Tgt Sh</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">9.6</div>
+          <div class="dc-lbl">PPG</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">+38</div>
+          <div class="dc-lbl">WAR</div>
+        </div></div>
+      <div class="draft-signal">
+        <span class="signal-tag" style="color:#60a5fa;background:#0c1a2e">Peak</span><span class="signal-tag" style="color:#f472b6;background:#2d0a1a">Alpha</span>
+        <div style="margin-top:5px">True alpha at 29% target share. Dominant air yard share (32%) signals true alpha usage. Highly efficient receiver (+0.48 EPA/tgt).</div>
+      </div>
+    </div>
+    <div class="draft-card">
+      <div class="draft-card-top">
+        <div class="draft-rank" style="color:#4ade80">27</div>
+        <div style="flex:1;padding:0 8px">
+          <div class="draft-name">Romeo Doubs</div>
+          <div class="draft-meta">GB · WR · Age 25 · Peak</div>
+        </div>
+        <div class="draft-score" style="color:#4ade80">82</div>
+      </div>
+      <div class="draft-card-body">
+        <div class="dc-stat">
+          <div class="dc-val">138</div>
+          <div class="dc-lbl">Fpts</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">23%</div>
+          <div class="dc-lbl">Tgt Sh</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">8.1</div>
+          <div class="dc-lbl">PPG</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">+13</div>
+          <div class="dc-lbl">WAR</div>
+        </div></div>
+      <div class="draft-signal">
+        <span class="signal-tag" style="color:#60a5fa;background:#0c1a2e">Peak</span><span class="signal-tag" style="color:#f472b6;background:#2d0a1a">Alpha</span>
+        <div style="margin-top:5px">True alpha at 23% target share. Dominant air yard share (28%) signals true alpha usage. Highly efficient receiver (+0.40 EPA/tgt).</div>
+      </div>
+    </div>
+    <div class="draft-card">
+      <div class="draft-card-top">
+        <div class="draft-rank" style="color:#4ade80">28</div>
+        <div style="flex:1;padding:0 8px">
+          <div class="draft-name">CeeDee Lamb</div>
+          <div class="draft-meta">DAL · WR · Age 26 · Peak</div>
+        </div>
+        <div class="draft-score" style="color:#4ade80">82</div>
+      </div>
+      <div class="draft-card-body">
+        <div class="dc-stat">
+          <div class="dc-val">163</div>
+          <div class="dc-lbl">Fpts</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">22%</div>
+          <div class="dc-lbl">Tgt Sh</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">9.6</div>
+          <div class="dc-lbl">PPG</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">+38</div>
+          <div class="dc-lbl">WAR</div>
+        </div></div>
+      <div class="draft-signal">
+        <span class="signal-tag" style="color:#60a5fa;background:#0c1a2e">Peak</span><span class="signal-tag" style="color:#f87171;background:#2d0a0a">Declining</span><span class="signal-tag" style="color:#f472b6;background:#2d0a1a">Alpha</span>
+        <div style="margin-top:5px">True alpha at 22% target share. Dominant air yard share (28%) signals true alpha usage. Highly efficient receiver (+0.25 EPA/tgt).</div>
+      </div>
+    </div>
+    <div class="draft-card">
+      <div class="draft-card-top">
+        <div class="draft-rank" style="color:#4ade80">29</div>
+        <div style="flex:1;padding:0 8px">
+          <div class="draft-name">Jameson Williams</div>
+          <div class="draft-meta">DET · WR · Age 24 · Peak</div>
+        </div>
+        <div class="draft-score" style="color:#4ade80">82</div>
+      </div>
+      <div class="draft-card-body">
+        <div class="dc-stat">
+          <div class="dc-val">187</div>
+          <div class="dc-lbl">Fpts</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">24%</div>
+          <div class="dc-lbl">Tgt Sh</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">11.0</div>
+          <div class="dc-lbl">PPG</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">+61</div>
+          <div class="dc-lbl">WAR</div>
+        </div></div>
+      <div class="draft-signal">
+        <span class="signal-tag" style="color:#60a5fa;background:#0c1a2e">Peak</span><span class="signal-tag" style="color:#4ade80;background:#052e16">Rising</span><span class="signal-tag" style="color:#f472b6;background:#2d0a1a">Alpha</span>
+        <div style="margin-top:5px">True alpha at 24% target share. Dominant air yard share (36%) signals true alpha usage. Highly efficient receiver (+0.55 EPA/tgt).</div>
+      </div>
+    </div>
+    <div class="draft-card">
+      <div class="draft-card-top">
+        <div class="draft-rank" style="color:#4ade80">30</div>
+        <div style="flex:1;padding:0 8px">
+          <div class="draft-name">Oronde Gadsden II</div>
+          <div class="draft-meta">LAC · TE · Age 22 · Breakout</div>
+        </div>
+        <div class="draft-score" style="color:#4ade80">81</div>
+      </div>
+      <div class="draft-card-body">
+        <div class="dc-stat">
+          <div class="dc-val">107</div>
+          <div class="dc-lbl">Fpts</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">15%</div>
+          <div class="dc-lbl">Tgt Sh</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">6.3</div>
+          <div class="dc-lbl">PPG</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">-19</div>
+          <div class="dc-lbl">WAR</div>
+        </div></div>
+      <div class="draft-signal">
+        <span class="signal-tag" style="color:#4ade80;background:#052e16">Breakout</span><span class="signal-tag" style="color:#94a3b8;background:#1e293b">–WAR</span>
+        <div style="margin-top:5px">Volume concern at 15% target share. Red zone TE — 22% team RZ targets. Highly efficient receiver (+0.24 EPA/tgt).</div>
+      </div>
+    </div>
+    <div class="draft-card">
+      <div class="draft-card-top">
+        <div class="draft-rank" style="color:#4ade80">31</div>
+        <div style="flex:1;padding:0 8px">
+          <div class="draft-name">Tucker Kraft</div>
+          <div class="draft-meta">GB · TE · Age 25 · Breakout</div>
+        </div>
+        <div class="draft-score" style="color:#4ade80">81</div>
+      </div>
+      <div class="draft-card-body">
+        <div class="dc-stat">
+          <div class="dc-val">101</div>
+          <div class="dc-lbl">Fpts</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">12%</div>
+          <div class="dc-lbl">Tgt Sh</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">6.0</div>
+          <div class="dc-lbl">PPG</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">-25</div>
+          <div class="dc-lbl">WAR</div>
+        </div></div>
+      <div class="draft-signal">
+        <span class="signal-tag" style="color:#4ade80;background:#052e16">Breakout</span><span class="signal-tag" style="color:#f87171;background:#2d0a0a">Declining</span><span class="signal-tag" style="color:#94a3b8;background:#1e293b">–WAR</span>
+        <div style="margin-top:5px">Volume concern at 12% target share. Red zone TE — 21% team RZ targets. Highly efficient receiver (+0.89 EPA/tgt).</div>
+      </div>
+    </div>
+    <div class="draft-card">
+      <div class="draft-card-top">
+        <div class="draft-rank" style="color:#4ade80">32</div>
+        <div style="flex:1;padding:0 8px">
+          <div class="draft-name">Jaylen Waddle</div>
+          <div class="draft-meta">MIA · WR · Age 27 · Peak</div>
+        </div>
+        <div class="draft-score" style="color:#4ade80">81</div>
+      </div>
+      <div class="draft-card-body">
+        <div class="dc-stat">
+          <div class="dc-val">162</div>
+          <div class="dc-lbl">Fpts</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">29%</div>
+          <div class="dc-lbl">Tgt Sh</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">9.5</div>
+          <div class="dc-lbl">PPG</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">+36</div>
+          <div class="dc-lbl">WAR</div>
+        </div></div>
+      <div class="draft-signal">
+        <span class="signal-tag" style="color:#60a5fa;background:#0c1a2e">Peak</span><span class="signal-tag" style="color:#4ade80;background:#052e16">Rising</span><span class="signal-tag" style="color:#f472b6;background:#2d0a1a">Alpha</span>
+        <div style="margin-top:5px">True alpha at 29% target share. Dominant air yard share (40%) signals true alpha usage. Highly efficient receiver (+0.34 EPA/tgt).</div>
+      </div>
+    </div>
+    <div class="draft-card">
+      <div class="draft-card-top">
+        <div class="draft-rank" style="color:#4ade80">33</div>
+        <div style="flex:1;padding:0 8px">
+          <div class="draft-name">Jake Ferguson</div>
+          <div class="draft-meta">DAL · TE · Age 27 · Peak</div>
+        </div>
+        <div class="draft-score" style="color:#4ade80">81</div>
+      </div>
+      <div class="draft-card-body">
+        <div class="dc-stat">
+          <div class="dc-val">147</div>
+          <div class="dc-lbl">Fpts</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">20%</div>
+          <div class="dc-lbl">Tgt Sh</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">8.7</div>
+          <div class="dc-lbl">PPG</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">+21</div>
+          <div class="dc-lbl">WAR</div>
+        </div></div>
+      <div class="draft-signal">
+        <span class="signal-tag" style="color:#60a5fa;background:#0c1a2e">Peak</span><span class="signal-tag" style="color:#4ade80;background:#052e16">Rising</span>
+        <div style="margin-top:5px">Solid WR2 role at 20% target share. Red zone TE — 29% team RZ targets. Highly efficient receiver (+0.19 EPA/tgt).</div>
+      </div>
+    </div>
+    <div class="draft-card">
+      <div class="draft-card-top">
+        <div class="draft-rank" style="color:#4ade80">34</div>
+        <div style="flex:1;padding:0 8px">
+          <div class="draft-name">Quentin Johnston</div>
+          <div class="draft-meta">LAC · WR · Age 24 · Peak</div>
+        </div>
+        <div class="draft-score" style="color:#4ade80">81</div>
+      </div>
+      <div class="draft-card-body">
+        <div class="dc-stat">
+          <div class="dc-val">146</div>
+          <div class="dc-lbl">Fpts</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">18%</div>
+          <div class="dc-lbl">Tgt Sh</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">8.6</div>
+          <div class="dc-lbl">PPG</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">+20</div>
+          <div class="dc-lbl">WAR</div>
+        </div></div>
+      <div class="draft-signal">
+        <span class="signal-tag" style="color:#60a5fa;background:#0c1a2e">Peak</span>
+        <div style="margin-top:5px">Solid WR2 role at 18% target share. Dominant air yard share (22%) signals true alpha usage. Highly efficient receiver (+0.28 EPA/tgt).</div>
+      </div>
+    </div>
+    <div class="draft-card">
+      <div class="draft-card-top">
+        <div class="draft-rank" style="color:#4ade80">35</div>
+        <div style="flex:1;padding:0 8px">
+          <div class="draft-name">Dalton Schultz</div>
+          <div class="draft-meta">HOU · TE · Age 29 · Declining</div>
+        </div>
+        <div class="draft-score" style="color:#4ade80">80</div>
+      </div>
+      <div class="draft-card-body">
+        <div class="dc-stat">
+          <div class="dc-val">137</div>
+          <div class="dc-lbl">Fpts</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">22%</div>
+          <div class="dc-lbl">Tgt Sh</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">8.0</div>
+          <div class="dc-lbl">PPG</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">+10</div>
+          <div class="dc-lbl">WAR</div>
+        </div></div>
+      <div class="draft-signal">
+        <span class="signal-tag" style="color:#f59e0b;background:#2d1a00">Declining</span><span class="signal-tag" style="color:#4ade80;background:#052e16">Rising</span><span class="signal-tag" style="color:#f472b6;background:#2d0a1a">Alpha</span>
+        <div style="margin-top:5px">True alpha at 22% target share. Highly efficient receiver (+0.34 EPA/tgt). Big YoY breakout (+45 fpts).</div>
+      </div>
+    </div>
+    <div class="draft-card">
+      <div class="draft-card-top">
+        <div class="draft-rank" style="color:#4ade80">36</div>
+        <div style="flex:1;padding:0 8px">
+          <div class="draft-name">Juwan Johnson</div>
+          <div class="draft-meta">NO · TE · Age 29 · Peak</div>
+        </div>
+        <div class="draft-score" style="color:#4ade80">80</div>
+      </div>
+      <div class="draft-card-body">
+        <div class="dc-stat">
+          <div class="dc-val">141</div>
+          <div class="dc-lbl">Fpts</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">22%</div>
+          <div class="dc-lbl">Tgt Sh</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">8.3</div>
+          <div class="dc-lbl">PPG</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">+15</div>
+          <div class="dc-lbl">WAR</div>
+        </div></div>
+      <div class="draft-signal">
+        <span class="signal-tag" style="color:#60a5fa;background:#0c1a2e">Peak</span><span class="signal-tag" style="color:#4ade80;background:#052e16">Rising</span>
+        <div style="margin-top:5px">Solid WR2 role at 22% target share. Highly efficient receiver (+0.35 EPA/tgt). Big YoY breakout (+44 fpts).</div>
+      </div>
+    </div>
+    <div class="draft-card">
+      <div class="draft-card-top">
+        <div class="draft-rank" style="color:#4ade80">37</div>
+        <div style="flex:1;padding:0 8px">
+          <div class="draft-name">Stefon Diggs</div>
+          <div class="draft-meta">NE · WR · Age 32 · Veteran</div>
+        </div>
+        <div class="draft-score" style="color:#4ade80">80</div>
+      </div>
+      <div class="draft-card-body">
+        <div class="dc-stat">
+          <div class="dc-val">168</div>
+          <div class="dc-lbl">Fpts</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">26%</div>
+          <div class="dc-lbl">Tgt Sh</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">9.9</div>
+          <div class="dc-lbl">PPG</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">+42</div>
+          <div class="dc-lbl">WAR</div>
+        </div></div>
+      <div class="draft-signal">
+        <span class="signal-tag" style="color:#f87171;background:#2d0a0a">Veteran</span><span class="signal-tag" style="color:#4ade80;background:#052e16">Rising</span><span class="signal-tag" style="color:#f472b6;background:#2d0a1a">Alpha</span>
+        <div style="margin-top:5px">True alpha at 26% target share. Dominant air yard share (20%) signals true alpha usage. Highly efficient receiver (+0.69 EPA/tgt).</div>
+      </div>
+    </div>
+    <div class="draft-card">
+      <div class="draft-card-top">
+        <div class="draft-rank" style="color:#4ade80">38</div>
+        <div style="flex:1;padding:0 8px">
+          <div class="draft-name">Parker Washington</div>
+          <div class="draft-meta">JAX · WR · Age 23 · Breakout</div>
+        </div>
+        <div class="draft-score" style="color:#4ade80">80</div>
+      </div>
+      <div class="draft-card-body">
+        <div class="dc-stat">
+          <div class="dc-val">144</div>
+          <div class="dc-lbl">Fpts</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">21%</div>
+          <div class="dc-lbl">Tgt Sh</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">8.5</div>
+          <div class="dc-lbl">PPG</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">+18</div>
+          <div class="dc-lbl">WAR</div>
+        </div></div>
+      <div class="draft-signal">
+        <span class="signal-tag" style="color:#4ade80;background:#052e16">Breakout</span><span class="signal-tag" style="color:#4ade80;background:#052e16">Rising</span>
+        <div style="margin-top:5px">Solid WR2 role at 21% target share. Dominant air yard share (24%) signals true alpha usage. Highly efficient receiver (+0.31 EPA/tgt).</div>
+      </div>
+    </div>
+    <div class="draft-card">
+      <div class="draft-card-top">
+        <div class="draft-rank" style="color:#4ade80">39</div>
+        <div style="flex:1;padding:0 8px">
+          <div class="draft-name">Christian Watson</div>
+          <div class="draft-meta">GB · WR · Age 26 · Peak</div>
+        </div>
+        <div class="draft-score" style="color:#4ade80">80</div>
+      </div>
+      <div class="draft-card-body">
+        <div class="dc-stat">
+          <div class="dc-val">115</div>
+          <div class="dc-lbl">Fpts</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">15%</div>
+          <div class="dc-lbl">Tgt Sh</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">6.8</div>
+          <div class="dc-lbl">PPG</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">-11</div>
+          <div class="dc-lbl">WAR</div>
+        </div></div>
+      <div class="draft-signal">
+        <span class="signal-tag" style="color:#60a5fa;background:#0c1a2e">Peak</span><span class="signal-tag" style="color:#94a3b8;background:#1e293b">–WAR</span>
+        <div style="margin-top:5px">Volume concern at 15% target share. Dominant air yard share (25%) signals true alpha usage. Highly efficient receiver (+0.59 EPA/tgt).</div>
+      </div>
+    </div>
+    <div class="draft-card">
+      <div class="draft-card-top">
+        <div class="draft-rank" style="color:#4ade80">40</div>
+        <div style="flex:1;padding:0 8px">
+          <div class="draft-name">Theo Johnson</div>
+          <div class="draft-meta">NYG · TE · Age 24 · Breakout</div>
+        </div>
+        <div class="draft-score" style="color:#4ade80">79</div>
+      </div>
+      <div class="draft-card-body">
+        <div class="dc-stat">
+          <div class="dc-val">105</div>
+          <div class="dc-lbl">Fpts</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">18%</div>
+          <div class="dc-lbl">Tgt Sh</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">6.2</div>
+          <div class="dc-lbl">PPG</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">-21</div>
+          <div class="dc-lbl">WAR</div>
+        </div></div>
+      <div class="draft-signal">
+        <span class="signal-tag" style="color:#4ade80;background:#052e16">Breakout</span><span class="signal-tag" style="color:#4ade80;background:#052e16">Rising</span><span class="signal-tag" style="color:#94a3b8;background:#1e293b">–WAR</span>
+        <div style="margin-top:5px">Solid WR2 role at 18% target share. Red zone TE — 25% team RZ targets. Highly efficient receiver (+0.12 EPA/tgt).</div>
+      </div>
+    </div>
+    <div class="draft-card">
+      <div class="draft-card-top">
+        <div class="draft-rank" style="color:#4ade80">41</div>
+        <div style="flex:1;padding:0 8px">
+          <div class="draft-name">Darren Waller</div>
+          <div class="draft-meta">MIA · TE · Age 33 · Veteran</div>
+        </div>
+        <div class="draft-score" style="color:#4ade80">79</div>
+      </div>
+      <div class="draft-card-body">
+        <div class="dc-stat">
+          <div class="dc-val">77</div>
+          <div class="dc-lbl">Fpts</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">10%</div>
+          <div class="dc-lbl">Tgt Sh</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">4.5</div>
+          <div class="dc-lbl">PPG</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">-50</div>
+          <div class="dc-lbl">WAR</div>
+        </div></div>
+      <div class="draft-signal">
+        <span class="signal-tag" style="color:#f87171;background:#2d0a0a">Veteran</span><span class="signal-tag" style="color:#94a3b8;background:#1e293b">–WAR</span>
+        <div style="margin-top:5px">Volume concern at 10% target share. Highly efficient receiver (+0.81 EPA/tgt). Age risk entering 2026.</div>
+      </div>
+    </div>
+    <div class="draft-card">
+      <div class="draft-card-top">
+        <div class="draft-rank" style="color:#4ade80">42</div>
+        <div style="flex:1;padding:0 8px">
+          <div class="draft-name">Colby Parkinson</div>
+          <div class="draft-meta">LA · TE · Age 27 · Peak</div>
+        </div>
+        <div class="draft-score" style="color:#4ade80">79</div>
+      </div>
+      <div class="draft-card-body">
+        <div class="dc-stat">
+          <div class="dc-val">108</div>
+          <div class="dc-lbl">Fpts</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">11%</div>
+          <div class="dc-lbl">Tgt Sh</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">6.4</div>
+          <div class="dc-lbl">PPG</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">-18</div>
+          <div class="dc-lbl">WAR</div>
+        </div></div>
+      <div class="draft-signal">
+        <span class="signal-tag" style="color:#60a5fa;background:#0c1a2e">Peak</span><span class="signal-tag" style="color:#4ade80;background:#052e16">Rising</span><span class="signal-tag" style="color:#94a3b8;background:#1e293b">–WAR</span>
+        <div style="margin-top:5px">Volume concern at 11% target share. Red zone TE — 22% team RZ targets. Highly efficient receiver (+0.22 EPA/tgt).</div>
+      </div>
+    </div>
+    <div class="draft-card">
+      <div class="draft-card-top">
+        <div class="draft-rank" style="color:#4ade80">43</div>
+        <div style="flex:1;padding:0 8px">
+          <div class="draft-name">Tyler Warren</div>
+          <div class="draft-meta">IND · TE · Age 23 · Breakout</div>
+        </div>
+        <div class="draft-score" style="color:#4ade80">79</div>
+      </div>
+      <div class="draft-card-body">
+        <div class="dc-stat">
+          <div class="dc-val">150</div>
+          <div class="dc-lbl">Fpts</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">25%</div>
+          <div class="dc-lbl">Tgt Sh</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">8.9</div>
+          <div class="dc-lbl">PPG</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">+24</div>
+          <div class="dc-lbl">WAR</div>
+        </div></div>
+      <div class="draft-signal">
+        <span class="signal-tag" style="color:#4ade80;background:#052e16">Breakout</span><span class="signal-tag" style="color:#f472b6;background:#2d0a1a">Alpha</span>
+        <div style="margin-top:5px">True alpha at 25% target share. Red zone TE — 31% team RZ targets. Highly efficient receiver (+0.14 EPA/tgt).</div>
+      </div>
+    </div>
+    <div class="draft-card">
+      <div class="draft-card-top">
+        <div class="draft-rank" style="color:#4ade80">44</div>
+        <div style="flex:1;padding:0 8px">
+          <div class="draft-name">Zach Ertz</div>
+          <div class="draft-meta">WAS · TE · Age 35 · Veteran</div>
+        </div>
+        <div class="draft-score" style="color:#4ade80">79</div>
+      </div>
+      <div class="draft-card-body">
+        <div class="dc-stat">
+          <div class="dc-val">102</div>
+          <div class="dc-lbl">Fpts</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">19%</div>
+          <div class="dc-lbl">Tgt Sh</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">6.0</div>
+          <div class="dc-lbl">PPG</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">-25</div>
+          <div class="dc-lbl">WAR</div>
+        </div></div>
+      <div class="draft-signal">
+        <span class="signal-tag" style="color:#f87171;background:#2d0a0a">Veteran</span><span class="signal-tag" style="color:#f87171;background:#2d0a0a">Declining</span><span class="signal-tag" style="color:#94a3b8;background:#1e293b">–WAR</span>
+        <div style="margin-top:5px">Solid WR2 role at 19% target share. Highly efficient receiver (+0.16 EPA/tgt). Sharp regression from prior year (-43 fpts).</div>
+      </div>
+    </div>
+    <div class="draft-card">
+      <div class="draft-card-top">
+        <div class="draft-rank" style="color:#4ade80">45</div>
+        <div style="flex:1;padding:0 8px">
+          <div class="draft-name">AJ Barner</div>
+          <div class="draft-meta">SEA · TE · Age 23 · Breakout</div>
+        </div>
+        <div class="draft-score" style="color:#4ade80">78</div>
+      </div>
+      <div class="draft-card-body">
+        <div class="dc-stat">
+          <div class="dc-val">121</div>
+          <div class="dc-lbl">Fpts</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">17%</div>
+          <div class="dc-lbl">Tgt Sh</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">7.1</div>
+          <div class="dc-lbl">PPG</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">-5</div>
+          <div class="dc-lbl">WAR</div>
+        </div></div>
+      <div class="draft-signal">
+        <span class="signal-tag" style="color:#4ade80;background:#052e16">Breakout</span><span class="signal-tag" style="color:#4ade80;background:#052e16">Rising</span><span class="signal-tag" style="color:#94a3b8;background:#1e293b">–WAR</span>
+        <div style="margin-top:5px">Solid WR2 role at 17% target share. Red zone TE — 22% team RZ targets. Highly efficient receiver (+0.41 EPA/tgt).</div>
+      </div>
+    </div>
+    <div class="draft-card">
+      <div class="draft-card-top">
+        <div class="draft-rank" style="color:#4ade80">46</div>
+        <div style="flex:1;padding:0 8px">
+          <div class="draft-name">Emeka Egbuka</div>
+          <div class="draft-meta">TB · WR · Age 23 · Breakout</div>
+        </div>
+        <div class="draft-score" style="color:#4ade80">78</div>
+      </div>
+      <div class="draft-card-body">
+        <div class="dc-stat">
+          <div class="dc-val">164</div>
+          <div class="dc-lbl">Fpts</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">28%</div>
+          <div class="dc-lbl">Tgt Sh</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">9.7</div>
+          <div class="dc-lbl">PPG</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">+39</div>
+          <div class="dc-lbl">WAR</div>
+        </div></div>
+      <div class="draft-signal">
+        <span class="signal-tag" style="color:#4ade80;background:#052e16">Breakout</span><span class="signal-tag" style="color:#f472b6;background:#2d0a1a">Alpha</span>
+        <div style="margin-top:5px">True alpha at 28% target share. Dominant air yard share (35%) signals true alpha usage. Young receiver with upside remaining.</div>
+      </div>
+    </div>
+    <div class="draft-card">
+      <div class="draft-card-top">
+        <div class="draft-rank" style="color:#4ade80">47</div>
+        <div style="flex:1;padding:0 8px">
+          <div class="draft-name">Harold Fannin Jr.</div>
+          <div class="draft-meta">CLE · TE · Age 21 · Breakout</div>
+        </div>
+        <div class="draft-score" style="color:#4ade80">78</div>
+      </div>
+      <div class="draft-card-body">
+        <div class="dc-stat">
+          <div class="dc-val">150</div>
+          <div class="dc-lbl">Fpts</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">27%</div>
+          <div class="dc-lbl">Tgt Sh</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">8.8</div>
+          <div class="dc-lbl">PPG</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">+24</div>
+          <div class="dc-lbl">WAR</div>
+        </div></div>
+      <div class="draft-signal">
+        <span class="signal-tag" style="color:#4ade80;background:#052e16">Breakout</span><span class="signal-tag" style="color:#f472b6;background:#2d0a1a">Alpha</span>
+        <div style="margin-top:5px">True alpha at 27% target share. Red zone TE — 27% team RZ targets. Young receiver with upside remaining.</div>
+      </div>
+    </div>
+    <div class="draft-card">
+      <div class="draft-card-top">
+        <div class="draft-rank" style="color:#4ade80">48</div>
+        <div style="flex:1;padding:0 8px">
+          <div class="draft-name">Pat Freiermuth</div>
+          <div class="draft-meta">PIT · TE · Age 27 · Peak</div>
+        </div>
+        <div class="draft-score" style="color:#4ade80">78</div>
+      </div>
+      <div class="draft-card-body">
+        <div class="dc-stat">
+          <div class="dc-val">93</div>
+          <div class="dc-lbl">Fpts</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">14%</div>
+          <div class="dc-lbl">Tgt Sh</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">5.5</div>
+          <div class="dc-lbl">PPG</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">-33</div>
+          <div class="dc-lbl">WAR</div>
+        </div></div>
+      <div class="draft-signal">
+        <span class="signal-tag" style="color:#60a5fa;background:#0c1a2e">Peak</span><span class="signal-tag" style="color:#f87171;background:#2d0a0a">Declining</span><span class="signal-tag" style="color:#94a3b8;background:#1e293b">–WAR</span>
+        <div style="margin-top:5px">Volume concern at 14% target share. Highly efficient receiver (+0.43 EPA/tgt). Sharp regression from prior year (-45 fpts).</div>
+      </div>
+    </div>
+    <div class="draft-card">
+      <div class="draft-card-top">
+        <div class="draft-rank" style="color:#4ade80">49</div>
+        <div style="flex:1;padding:0 8px">
+          <div class="draft-name">Rome Odunze</div>
+          <div class="draft-meta">CHI · WR · Age 23 · Breakout</div>
+        </div>
+        <div class="draft-score" style="color:#4ade80">78</div>
+      </div>
+      <div class="draft-card-body">
+        <div class="dc-stat">
+          <div class="dc-val">123</div>
+          <div class="dc-lbl">Fpts</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">20%</div>
+          <div class="dc-lbl">Tgt Sh</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">7.2</div>
+          <div class="dc-lbl">PPG</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">-2</div>
+          <div class="dc-lbl">WAR</div>
+        </div></div>
+      <div class="draft-signal">
+        <span class="signal-tag" style="color:#4ade80;background:#052e16">Breakout</span><span class="signal-tag" style="color:#94a3b8;background:#1e293b">–WAR</span>
+        <div style="margin-top:5px">Solid WR2 role at 20% target share. Dominant air yard share (27%) signals true alpha usage. Highly efficient receiver (+0.23 EPA/tgt).</div>
+      </div>
+    </div>
+    <div class="draft-card">
+      <div class="draft-card-top">
+        <div class="draft-rank" style="color:#4ade80">50</div>
+        <div style="flex:1;padding:0 8px">
+          <div class="draft-name">Sam LaPorta</div>
+          <div class="draft-meta">DET · TE · Age 25 · Breakout</div>
+        </div>
+        <div class="draft-score" style="color:#4ade80">78</div>
+      </div>
+      <div class="draft-card-body">
+        <div class="dc-stat">
+          <div class="dc-val">87</div>
+          <div class="dc-lbl">Fpts</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">11%</div>
+          <div class="dc-lbl">Tgt Sh</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">5.1</div>
+          <div class="dc-lbl">PPG</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">-39</div>
+          <div class="dc-lbl">WAR</div>
+        </div></div>
+      <div class="draft-signal">
+        <span class="signal-tag" style="color:#4ade80;background:#052e16">Breakout</span><span class="signal-tag" style="color:#f87171;background:#2d0a0a">Declining</span><span class="signal-tag" style="color:#94a3b8;background:#1e293b">–WAR</span>
+        <div style="margin-top:5px">Volume concern at 11% target share. Highly efficient receiver (+0.74 EPA/tgt). Sharp regression from prior year (-58 fpts).</div>
+      </div>
+    </div>
+    <div class="draft-card">
+      <div class="draft-card-top">
+        <div class="draft-rank" style="color:#4ade80">51</div>
+        <div style="flex:1;padding:0 8px">
+          <div class="draft-name">Brenton Strange</div>
+          <div class="draft-meta">JAX · TE · Age 25 · Breakout</div>
+        </div>
+        <div class="draft-score" style="color:#4ade80">77</div>
+      </div>
+      <div class="draft-card-body">
+        <div class="dc-stat">
+          <div class="dc-val">95</div>
+          <div class="dc-lbl">Fpts</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">13%</div>
+          <div class="dc-lbl">Tgt Sh</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">5.6</div>
+          <div class="dc-lbl">PPG</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">-31</div>
+          <div class="dc-lbl">WAR</div>
+        </div></div>
+      <div class="draft-signal">
+        <span class="signal-tag" style="color:#4ade80;background:#052e16">Breakout</span><span class="signal-tag" style="color:#94a3b8;background:#1e293b">–WAR</span>
+        <div style="margin-top:5px">Volume concern at 13% target share. Highly efficient receiver (+0.52 EPA/tgt). Young receiver with upside remaining.</div>
+      </div>
+    </div>
+    <div class="draft-card">
+      <div class="draft-card-top">
+        <div class="draft-rank" style="color:#4ade80">52</div>
+        <div style="flex:1;padding:0 8px">
+          <div class="draft-name">Troy Franklin</div>
+          <div class="draft-meta">DEN · WR · Age 23 · Breakout</div>
+        </div>
+        <div class="draft-score" style="color:#4ade80">77</div>
+      </div>
+      <div class="draft-card-body">
+        <div class="dc-stat">
+          <div class="dc-val">145</div>
+          <div class="dc-lbl">Fpts</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">23%</div>
+          <div class="dc-lbl">Tgt Sh</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">8.5</div>
+          <div class="dc-lbl">PPG</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">+20</div>
+          <div class="dc-lbl">WAR</div>
+        </div></div>
+      <div class="draft-signal">
+        <span class="signal-tag" style="color:#4ade80;background:#052e16">Breakout</span><span class="signal-tag" style="color:#4ade80;background:#052e16">Rising</span><span class="signal-tag" style="color:#f472b6;background:#2d0a1a">Alpha</span>
+        <div style="margin-top:5px">True alpha at 23% target share. Dominant air yard share (30%) signals true alpha usage. Big YoY breakout (+92 fpts).</div>
+      </div>
+    </div>
+    <div class="draft-card">
+      <div class="draft-card-top">
+        <div class="draft-rank" style="color:#4ade80">53</div>
+        <div style="flex:1;padding:0 8px">
+          <div class="draft-name">Wan'Dale Robinson</div>
+          <div class="draft-meta">NYG · WR · Age 25 · Peak</div>
+        </div>
+        <div class="draft-score" style="color:#4ade80">77</div>
+      </div>
+      <div class="draft-card-body">
+        <div class="dc-stat">
+          <div class="dc-val">172</div>
+          <div class="dc-lbl">Fpts</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">35%</div>
+          <div class="dc-lbl">Tgt Sh</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">10.1</div>
+          <div class="dc-lbl">PPG</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">+46</div>
+          <div class="dc-lbl">WAR</div>
+        </div></div>
+      <div class="draft-signal">
+        <span class="signal-tag" style="color:#60a5fa;background:#0c1a2e">Peak</span><span class="signal-tag" style="color:#4ade80;background:#052e16">Rising</span><span class="signal-tag" style="color:#f472b6;background:#2d0a1a">Alpha</span>
+        <div style="margin-top:5px">True alpha at 35% target share. Dominant air yard share (28%) signals true alpha usage. Highly efficient receiver (+0.14 EPA/tgt).</div>
+      </div>
+    </div>
+    <div class="draft-card">
+      <div class="draft-card-top">
+        <div class="draft-rank" style="color:#4ade80">54</div>
+        <div style="flex:1;padding:0 8px">
+          <div class="draft-name">Dawson Knox</div>
+          <div class="draft-meta">BUF · TE · Age 29 · Peak</div>
+        </div>
+        <div class="draft-score" style="color:#4ade80">77</div>
+      </div>
+      <div class="draft-card-body">
+        <div class="dc-stat">
+          <div class="dc-val">86</div>
+          <div class="dc-lbl">Fpts</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">13%</div>
+          <div class="dc-lbl">Tgt Sh</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">5.1</div>
+          <div class="dc-lbl">PPG</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">-40</div>
+          <div class="dc-lbl">WAR</div>
+        </div></div>
+      <div class="draft-signal">
+        <span class="signal-tag" style="color:#60a5fa;background:#0c1a2e">Peak</span><span class="signal-tag" style="color:#4ade80;background:#052e16">Rising</span><span class="signal-tag" style="color:#94a3b8;background:#1e293b">–WAR</span>
+        <div style="margin-top:5px">Volume concern at 13% target share. Red zone TE — 20% team RZ targets. Highly efficient receiver (+0.35 EPA/tgt).</div>
+      </div>
+    </div>
+    <div class="draft-card">
+      <div class="draft-card-top">
+        <div class="draft-rank" style="color:#4ade80">55</div>
+        <div style="flex:1;padding:0 8px">
+          <div class="draft-name">Jauan Jennings</div>
+          <div class="draft-meta">SF · WR · Age 28 · Declining</div>
+        </div>
+        <div class="draft-score" style="color:#4ade80">76</div>
+      </div>
+      <div class="draft-card-body">
+        <div class="dc-stat">
+          <div class="dc-val">146</div>
+          <div class="dc-lbl">Fpts</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">24%</div>
+          <div class="dc-lbl">Tgt Sh</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">8.6</div>
+          <div class="dc-lbl">PPG</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">+20</div>
+          <div class="dc-lbl">WAR</div>
+        </div></div>
+      <div class="draft-signal">
+        <span class="signal-tag" style="color:#f59e0b;background:#2d1a00">Declining</span><span class="signal-tag" style="color:#f472b6;background:#2d0a1a">Alpha</span>
+        <div style="margin-top:5px">True alpha at 24% target share. Dominant air yard share (25%) signals true alpha usage.</div>
+      </div>
+    </div>
+    <div class="draft-card">
+      <div class="draft-card-top">
+        <div class="draft-rank" style="color:#4ade80">56</div>
+        <div style="flex:1;padding:0 8px">
+          <div class="draft-name">Terry McLaurin</div>
+          <div class="draft-meta">WAS · WR · Age 30 · Declining</div>
+        </div>
+        <div class="draft-score" style="color:#4ade80">76</div>
+      </div>
+      <div class="draft-card-body">
+        <div class="dc-stat">
+          <div class="dc-val">95</div>
+          <div class="dc-lbl">Fpts</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">16%</div>
+          <div class="dc-lbl">Tgt Sh</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">5.6</div>
+          <div class="dc-lbl">PPG</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">-30</div>
+          <div class="dc-lbl">WAR</div>
+        </div></div>
+      <div class="draft-signal">
+        <span class="signal-tag" style="color:#f59e0b;background:#2d1a00">Declining</span><span class="signal-tag" style="color:#f87171;background:#2d0a0a">Declining</span><span class="signal-tag" style="color:#94a3b8;background:#1e293b">–WAR</span>
+        <div style="margin-top:5px">Volume concern at 16% target share. Dominant air yard share (22%) signals true alpha usage. Highly efficient receiver (+0.53 EPA/tgt).</div>
+      </div>
+    </div>
+    <div class="draft-card">
+      <div class="draft-card-top">
+        <div class="draft-rank" style="color:#4ade80">57</div>
+        <div style="flex:1;padding:0 8px">
+          <div class="draft-name">Keenan Allen</div>
+          <div class="draft-meta">LAC · WR · Age 33 · Veteran</div>
+        </div>
+        <div class="draft-score" style="color:#4ade80">76</div>
+      </div>
+      <div class="draft-card-body">
+        <div class="dc-stat">
+          <div class="dc-val">142</div>
+          <div class="dc-lbl">Fpts</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">26%</div>
+          <div class="dc-lbl">Tgt Sh</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">8.4</div>
+          <div class="dc-lbl">PPG</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">+17</div>
+          <div class="dc-lbl">WAR</div>
+        </div></div>
+      <div class="draft-signal">
+        <span class="signal-tag" style="color:#f87171;background:#2d0a0a">Veteran</span><span class="signal-tag" style="color:#f472b6;background:#2d0a1a">Alpha</span>
+        <div style="margin-top:5px">True alpha at 26% target share. Dominant air yard share (23%) signals true alpha usage. Highly efficient receiver (+0.29 EPA/tgt).</div>
+      </div>
+    </div>
+    <div class="draft-card">
+      <div class="draft-card-top">
+        <div class="draft-rank" style="color:#4ade80">58</div>
+        <div style="flex:1;padding:0 8px">
+          <div class="draft-name">Michael Pittman</div>
+          <div class="draft-meta">IND · WR · Age 28 · Peak</div>
+        </div>
+        <div class="draft-score" style="color:#4ade80">76</div>
+      </div>
+      <div class="draft-card-body">
+        <div class="dc-stat">
+          <div class="dc-val">164</div>
+          <div class="dc-lbl">Fpts</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">25%</div>
+          <div class="dc-lbl">Tgt Sh</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">9.7</div>
+          <div class="dc-lbl">PPG</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">+39</div>
+          <div class="dc-lbl">WAR</div>
+        </div></div>
+      <div class="draft-signal">
+        <span class="signal-tag" style="color:#60a5fa;background:#0c1a2e">Peak</span><span class="signal-tag" style="color:#4ade80;background:#052e16">Rising</span><span class="signal-tag" style="color:#f472b6;background:#2d0a1a">Alpha</span>
+        <div style="margin-top:5px">True alpha at 25% target share. Dominant air yard share (21%) signals true alpha usage. Highly efficient receiver (+0.20 EPA/tgt).</div>
+      </div>
+    </div>
+    <div class="draft-card">
+      <div class="draft-card-top">
+        <div class="draft-rank" style="color:#4ade80">59</div>
+        <div style="flex:1;padding:0 8px">
+          <div class="draft-name">Rashee Rice</div>
+          <div class="draft-meta">KC · WR · Age 25 · Peak</div>
+        </div>
+        <div class="draft-score" style="color:#4ade80">75</div>
+      </div>
+      <div class="draft-card-body">
+        <div class="dc-stat">
+          <div class="dc-val">124</div>
+          <div class="dc-lbl">Fpts</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">17%</div>
+          <div class="dc-lbl">Tgt Sh</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">7.3</div>
+          <div class="dc-lbl">PPG</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">-2</div>
+          <div class="dc-lbl">WAR</div>
+        </div></div>
+      <div class="draft-signal">
+        <span class="signal-tag" style="color:#60a5fa;background:#0c1a2e">Peak</span><span class="signal-tag" style="color:#4ade80;background:#052e16">Rising</span><span class="signal-tag" style="color:#94a3b8;background:#1e293b">–WAR</span>
+        <div style="margin-top:5px">Solid WR2 role at 17% target share. Highly efficient receiver (+0.20 EPA/tgt). Big YoY breakout (+71 fpts).</div>
+      </div>
+    </div>
+    <div class="draft-card">
+      <div class="draft-card-top">
+        <div class="draft-rank" style="color:#60a5fa">60</div>
+        <div style="flex:1;padding:0 8px">
+          <div class="draft-name">Justin Jefferson</div>
+          <div class="draft-meta">MIN · WR · Age 26 · Peak</div>
+        </div>
+        <div class="draft-score" style="color:#60a5fa">75</div>
+      </div>
+      <div class="draft-card-body">
+        <div class="dc-stat">
+          <div class="dc-val">160</div>
+          <div class="dc-lbl">Fpts</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">36%</div>
+          <div class="dc-lbl">Tgt Sh</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">9.4</div>
+          <div class="dc-lbl">PPG</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">+34</div>
+          <div class="dc-lbl">WAR</div>
+        </div></div>
+      <div class="draft-signal">
+        <span class="signal-tag" style="color:#60a5fa;background:#0c1a2e">Peak</span><span class="signal-tag" style="color:#f87171;background:#2d0a0a">Declining</span><span class="signal-tag" style="color:#f472b6;background:#2d0a1a">Alpha</span>
+        <div style="margin-top:5px">True alpha at 36% target share. Dominant air yard share (38%) signals true alpha usage. Below-average efficiency (-0.10 EPA/tgt).</div>
+      </div>
+    </div>
+    <div class="draft-card">
+      <div class="draft-card-top">
+        <div class="draft-rank" style="color:#60a5fa">61</div>
+        <div style="flex:1;padding:0 8px">
+          <div class="draft-name">DJ Moore</div>
+          <div class="draft-meta">CHI · WR · Age 28 · Declining</div>
+        </div>
+        <div class="draft-score" style="color:#60a5fa">74</div>
+      </div>
+      <div class="draft-card-body">
+        <div class="dc-stat">
+          <div class="dc-val">142</div>
+          <div class="dc-lbl">Fpts</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">19%</div>
+          <div class="dc-lbl">Tgt Sh</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">8.3</div>
+          <div class="dc-lbl">PPG</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">+16</div>
+          <div class="dc-lbl">WAR</div>
+        </div></div>
+      <div class="draft-signal">
+        <span class="signal-tag" style="color:#f59e0b;background:#2d1a00">Declining</span><span class="signal-tag" style="color:#f87171;background:#2d0a0a">Declining</span>
+        <div style="margin-top:5px">Solid WR2 role at 19% target share. Dominant air yard share (22%) signals true alpha usage. Highly efficient receiver (+0.16 EPA/tgt).</div>
+      </div>
+    </div>
+    <div class="draft-card">
+      <div class="draft-card-top">
+        <div class="draft-rank" style="color:#60a5fa">62</div>
+        <div style="flex:1;padding:0 8px">
+          <div class="draft-name">Ladd McConkey</div>
+          <div class="draft-meta">LAC · WR · Age 24 · Breakout</div>
+        </div>
+        <div class="draft-score" style="color:#60a5fa">74</div>
+      </div>
+      <div class="draft-card-body">
+        <div class="dc-stat">
+          <div class="dc-val">148</div>
+          <div class="dc-lbl">Fpts</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">23%</div>
+          <div class="dc-lbl">Tgt Sh</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">8.7</div>
+          <div class="dc-lbl">PPG</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">+22</div>
+          <div class="dc-lbl">WAR</div>
+        </div></div>
+      <div class="draft-signal">
+        <span class="signal-tag" style="color:#4ade80;background:#052e16">Breakout</span><span class="signal-tag" style="color:#f87171;background:#2d0a0a">Declining</span><span class="signal-tag" style="color:#f472b6;background:#2d0a1a">Alpha</span>
+        <div style="margin-top:5px">True alpha at 23% target share. Dominant air yard share (23%) signals true alpha usage. Sharp regression from prior year (-53 fpts).</div>
+      </div>
+    </div>
+    <div class="draft-card">
+      <div class="draft-card-top">
+        <div class="draft-rank" style="color:#60a5fa">63</div>
+        <div style="flex:1;padding:0 8px">
+          <div class="draft-name">Kayshon Boutte</div>
+          <div class="draft-meta">NE · WR · Age 23 · Breakout</div>
+        </div>
+        <div class="draft-score" style="color:#60a5fa">74</div>
+      </div>
+      <div class="draft-card-body">
+        <div class="dc-stat">
+          <div class="dc-val">108</div>
+          <div class="dc-lbl">Fpts</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">12%</div>
+          <div class="dc-lbl">Tgt Sh</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">6.3</div>
+          <div class="dc-lbl">PPG</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">-18</div>
+          <div class="dc-lbl">WAR</div>
+        </div></div>
+      <div class="draft-signal">
+        <span class="signal-tag" style="color:#4ade80;background:#052e16">Breakout</span><span class="signal-tag" style="color:#94a3b8;background:#1e293b">–WAR</span>
+        <div style="margin-top:5px">Volume concern at 12% target share. Highly efficient receiver (+0.80 EPA/tgt). Young receiver with upside remaining.</div>
+      </div>
+    </div>
+    <div class="draft-card">
+      <div class="draft-card-top">
+        <div class="draft-rank" style="color:#60a5fa">64</div>
+        <div style="flex:1;padding:0 8px">
+          <div class="draft-name">Marvin Harrison Jr.</div>
+          <div class="draft-meta">ARI · WR · Age 23 · Breakout</div>
+        </div>
+        <div class="draft-score" style="color:#60a5fa">74</div>
+      </div>
+      <div class="draft-card-body">
+        <div class="dc-stat">
+          <div class="dc-val">106</div>
+          <div class="dc-lbl">Fpts</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">15%</div>
+          <div class="dc-lbl">Tgt Sh</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">6.2</div>
+          <div class="dc-lbl">PPG</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">-20</div>
+          <div class="dc-lbl">WAR</div>
+        </div></div>
+      <div class="draft-signal">
+        <span class="signal-tag" style="color:#4ade80;background:#052e16">Breakout</span><span class="signal-tag" style="color:#f87171;background:#2d0a0a">Declining</span><span class="signal-tag" style="color:#94a3b8;background:#1e293b">–WAR</span>
+        <div style="margin-top:5px">Volume concern at 15% target share. Dominant air yard share (22%) signals true alpha usage. Highly efficient receiver (+0.42 EPA/tgt).</div>
+      </div>
+    </div>
+    <div class="draft-card">
+      <div class="draft-card-top">
+        <div class="draft-rank" style="color:#60a5fa">65</div>
+        <div style="flex:1;padding:0 8px">
+          <div class="draft-name">Jake Tonges</div>
+          <div class="draft-meta">SF · TE · Age 26 · Peak</div>
+        </div>
+        <div class="draft-score" style="color:#60a5fa">73</div>
+      </div>
+      <div class="draft-card-body">
+        <div class="dc-stat">
+          <div class="dc-val">76</div>
+          <div class="dc-lbl">Fpts</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">12%</div>
+          <div class="dc-lbl">Tgt Sh</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">4.5</div>
+          <div class="dc-lbl">PPG</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">-50</div>
+          <div class="dc-lbl">WAR</div>
+        </div></div>
+      <div class="draft-signal">
+        <span class="signal-tag" style="color:#60a5fa;background:#0c1a2e">Peak</span><span class="signal-tag" style="color:#4ade80;background:#052e16">Rising</span><span class="signal-tag" style="color:#94a3b8;background:#1e293b">–WAR</span>
+        <div style="margin-top:5px">Volume concern at 12% target share. Highly efficient receiver (+0.31 EPA/tgt). Big YoY breakout (+76 fpts).</div>
+      </div>
+    </div>
+    <div class="draft-card">
+      <div class="draft-card-top">
+        <div class="draft-rank" style="color:#60a5fa">66</div>
+        <div style="flex:1;padding:0 8px">
+          <div class="draft-name">Mark Andrews</div>
+          <div class="draft-meta">BAL · TE · Age 30 · Declining</div>
+        </div>
+        <div class="draft-score" style="color:#60a5fa">73</div>
+      </div>
+      <div class="draft-card-body">
+        <div class="dc-stat">
+          <div class="dc-val">107</div>
+          <div class="dc-lbl">Fpts</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">21%</div>
+          <div class="dc-lbl">Tgt Sh</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">6.3</div>
+          <div class="dc-lbl">PPG</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">-19</div>
+          <div class="dc-lbl">WAR</div>
+        </div></div>
+      <div class="draft-signal">
+        <span class="signal-tag" style="color:#f59e0b;background:#2d1a00">Declining</span><span class="signal-tag" style="color:#f87171;background:#2d0a0a">Declining</span><span class="signal-tag" style="color:#94a3b8;background:#1e293b">–WAR</span>
+        <div style="margin-top:5px">Solid WR2 role at 21% target share. Red zone TE — 29% team RZ targets. Sharp regression from prior year (-54 fpts).</div>
+      </div>
+    </div>
+    <div class="draft-card">
+      <div class="draft-card-top">
+        <div class="draft-rank" style="color:#60a5fa">67</div>
+        <div style="flex:1;padding:0 8px">
+          <div class="draft-name">Tre Tucker</div>
+          <div class="draft-meta">LV · WR · Age 24 · Peak</div>
+        </div>
+        <div class="draft-score" style="color:#60a5fa">73</div>
+      </div>
+      <div class="draft-card-body">
+        <div class="dc-stat">
+          <div class="dc-val">133</div>
+          <div class="dc-lbl">Fpts</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">23%</div>
+          <div class="dc-lbl">Tgt Sh</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">7.8</div>
+          <div class="dc-lbl">PPG</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">+8</div>
+          <div class="dc-lbl">WAR</div>
+        </div></div>
+      <div class="draft-signal">
+        <span class="signal-tag" style="color:#60a5fa;background:#0c1a2e">Peak</span><span class="signal-tag" style="color:#f472b6;background:#2d0a1a">Alpha</span>
+        <div style="margin-top:5px">True alpha at 23% target share. Dominant air yard share (28%) signals true alpha usage. Highly efficient receiver (+0.24 EPA/tgt).</div>
+      </div>
+    </div>
+    <div class="draft-card">
+      <div class="draft-card-top">
+        <div class="draft-rank" style="color:#60a5fa">68</div>
+        <div style="flex:1;padding:0 8px">
+          <div class="draft-name">Michael Wilson</div>
+          <div class="draft-meta">ARI · WR · Age 26 · Peak</div>
+        </div>
+        <div class="draft-score" style="color:#60a5fa">73</div>
+      </div>
+      <div class="draft-card-body">
+        <div class="dc-stat">
+          <div class="dc-val">109</div>
+          <div class="dc-lbl">Fpts</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">14%</div>
+          <div class="dc-lbl">Tgt Sh</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">6.4</div>
+          <div class="dc-lbl">PPG</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">-16</div>
+          <div class="dc-lbl">WAR</div>
+        </div></div>
+      <div class="draft-signal">
+        <span class="signal-tag" style="color:#60a5fa;background:#0c1a2e">Peak</span><span class="signal-tag" style="color:#94a3b8;background:#1e293b">–WAR</span>
+        <div style="margin-top:5px">Volume concern at 14% target share.</div>
+      </div>
+    </div>
+    <div class="draft-card">
+      <div class="draft-card-top">
+        <div class="draft-rank" style="color:#60a5fa">69</div>
+        <div style="flex:1;padding:0 8px">
+          <div class="draft-name">Marquise Brown</div>
+          <div class="draft-meta">KC · WR · Age 28 · Declining</div>
+        </div>
+        <div class="draft-score" style="color:#60a5fa">73</div>
+      </div>
+      <div class="draft-card-body">
+        <div class="dc-stat">
+          <div class="dc-val">113</div>
+          <div class="dc-lbl">Fpts</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">16%</div>
+          <div class="dc-lbl">Tgt Sh</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">6.7</div>
+          <div class="dc-lbl">PPG</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">-12</div>
+          <div class="dc-lbl">WAR</div>
+        </div></div>
+      <div class="draft-signal">
+        <span class="signal-tag" style="color:#f59e0b;background:#2d1a00">Declining</span><span class="signal-tag" style="color:#4ade80;background:#052e16">Rising</span><span class="signal-tag" style="color:#94a3b8;background:#1e293b">–WAR</span>
+        <div style="margin-top:5px">Solid WR2 role at 16% target share. Highly efficient receiver (+0.30 EPA/tgt). Big YoY breakout (+100 fpts).</div>
+      </div>
+    </div>
+    <div class="draft-card">
+      <div class="draft-card-top">
+        <div class="draft-rank" style="color:#60a5fa">70</div>
+        <div style="flex:1;padding:0 8px">
+          <div class="draft-name">Jordan Addison</div>
+          <div class="draft-meta">MIN · WR · Age 24 · Breakout</div>
+        </div>
+        <div class="draft-score" style="color:#60a5fa">72</div>
+      </div>
+      <div class="draft-card-body">
+        <div class="dc-stat">
+          <div class="dc-val">112</div>
+          <div class="dc-lbl">Fpts</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">20%</div>
+          <div class="dc-lbl">Tgt Sh</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">6.6</div>
+          <div class="dc-lbl">PPG</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">-13</div>
+          <div class="dc-lbl">WAR</div>
+        </div></div>
+      <div class="draft-signal">
+        <span class="signal-tag" style="color:#4ade80;background:#052e16">Breakout</span><span class="signal-tag" style="color:#f87171;background:#2d0a0a">Declining</span><span class="signal-tag" style="color:#94a3b8;background:#1e293b">–WAR</span>
+        <div style="margin-top:5px">Solid WR2 role at 20% target share. Dominant air yard share (28%) signals true alpha usage. Highly efficient receiver (+0.18 EPA/tgt).</div>
+      </div>
+    </div>
+    <div class="draft-card">
+      <div class="draft-card-top">
+        <div class="draft-rank" style="color:#60a5fa">71</div>
+        <div style="flex:1;padding:0 8px">
+          <div class="draft-name">Keon Coleman</div>
+          <div class="draft-meta">BUF · WR · Age 22 · Breakout</div>
+        </div>
+        <div class="draft-score" style="color:#60a5fa">71</div>
+      </div>
+      <div class="draft-card-body">
+        <div class="dc-stat">
+          <div class="dc-val">85</div>
+          <div class="dc-lbl">Fpts</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">16%</div>
+          <div class="dc-lbl">Tgt Sh</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">5.0</div>
+          <div class="dc-lbl">PPG</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">-41</div>
+          <div class="dc-lbl">WAR</div>
+        </div></div>
+      <div class="draft-signal">
+        <span class="signal-tag" style="color:#4ade80;background:#052e16">Breakout</span><span class="signal-tag" style="color:#94a3b8;background:#1e293b">–WAR</span>
+        <div style="margin-top:5px">Volume concern at 16% target share. Highly efficient receiver (+0.20 EPA/tgt). Young receiver with upside remaining.</div>
+      </div>
+    </div>
+    <div class="draft-card">
+      <div class="draft-card-top">
+        <div class="draft-rank" style="color:#60a5fa">72</div>
+        <div style="flex:1;padding:0 8px">
+          <div class="draft-name">Jayden Higgins</div>
+          <div class="draft-meta">HOU · WR · Age 23 · Breakout</div>
+        </div>
+        <div class="draft-score" style="color:#60a5fa">71</div>
+      </div>
+      <div class="draft-card-body">
+        <div class="dc-stat">
+          <div class="dc-val">109</div>
+          <div class="dc-lbl">Fpts</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">14%</div>
+          <div class="dc-lbl">Tgt Sh</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">6.4</div>
+          <div class="dc-lbl">PPG</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">-17</div>
+          <div class="dc-lbl">WAR</div>
+        </div></div>
+      <div class="draft-signal">
+        <span class="signal-tag" style="color:#4ade80;background:#052e16">Breakout</span><span class="signal-tag" style="color:#94a3b8;background:#1e293b">–WAR</span>
+        <div style="margin-top:5px">Volume concern at 14% target share. Highly efficient receiver (+0.24 EPA/tgt). Young receiver with upside remaining.</div>
+      </div>
+    </div>
+    <div class="draft-card">
+      <div class="draft-card-top">
+        <div class="draft-rank" style="color:#60a5fa">73</div>
+        <div style="flex:1;padding:0 8px">
+          <div class="draft-name">Jalen Nailor</div>
+          <div class="draft-meta">MIN · WR · Age 26 · Peak</div>
+        </div>
+        <div class="draft-score" style="color:#60a5fa">70</div>
+      </div>
+      <div class="draft-card-body">
+        <div class="dc-stat">
+          <div class="dc-val">86</div>
+          <div class="dc-lbl">Fpts</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">14%</div>
+          <div class="dc-lbl">Tgt Sh</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">5.1</div>
+          <div class="dc-lbl">PPG</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">-39</div>
+          <div class="dc-lbl">WAR</div>
+        </div></div>
+      <div class="draft-signal">
+        <span class="signal-tag" style="color:#60a5fa;background:#0c1a2e">Peak</span><span class="signal-tag" style="color:#94a3b8;background:#1e293b">–WAR</span>
+        <div style="margin-top:5px">Volume concern at 14% target share. Highly efficient receiver (+0.21 EPA/tgt).</div>
+      </div>
+    </div>
+    <div class="draft-card">
+      <div class="draft-card-top">
+        <div class="draft-rank" style="color:#60a5fa">74</div>
+        <div style="flex:1;padding:0 8px">
+          <div class="draft-name">Deebo Samuel Sr.</div>
+          <div class="draft-meta">WAS · WR · Age 30 · Declining</div>
+        </div>
+        <div class="draft-score" style="color:#60a5fa">70</div>
+      </div>
+      <div class="draft-card-body">
+        <div class="dc-stat">
+          <div class="dc-val">152</div>
+          <div class="dc-lbl">Fpts</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">26%</div>
+          <div class="dc-lbl">Tgt Sh</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">9.0</div>
+          <div class="dc-lbl">PPG</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">+27</div>
+          <div class="dc-lbl">WAR</div>
+        </div></div>
+      <div class="draft-signal">
+        <span class="signal-tag" style="color:#f59e0b;background:#2d1a00">Declining</span><span class="signal-tag" style="color:#f472b6;background:#2d0a1a">Alpha</span>
+        <div style="margin-top:5px">True alpha at 26% target share. Highly efficient receiver (+0.18 EPA/tgt).</div>
+      </div>
+    </div>
+    <div class="draft-card">
+      <div class="draft-card-top">
+        <div class="draft-rank" style="color:#60a5fa">75</div>
+        <div style="flex:1;padding:0 8px">
+          <div class="draft-name">Brian Thomas Jr.</div>
+          <div class="draft-meta">JAX · WR · Age 23 · Breakout</div>
+        </div>
+        <div class="draft-score" style="color:#60a5fa">70</div>
+      </div>
+      <div class="draft-card-body">
+        <div class="dc-stat">
+          <div class="dc-val">115</div>
+          <div class="dc-lbl">Fpts</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">19%</div>
+          <div class="dc-lbl">Tgt Sh</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">6.8</div>
+          <div class="dc-lbl">PPG</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">-11</div>
+          <div class="dc-lbl">WAR</div>
+        </div></div>
+      <div class="draft-signal">
+        <span class="signal-tag" style="color:#4ade80;background:#052e16">Breakout</span><span class="signal-tag" style="color:#f87171;background:#2d0a0a">Declining</span><span class="signal-tag" style="color:#94a3b8;background:#1e293b">–WAR</span>
+        <div style="margin-top:5px">Solid WR2 role at 19% target share. Dominant air yard share (26%) signals true alpha usage. Highly efficient receiver (+0.19 EPA/tgt).</div>
+      </div>
+    </div>
+    <div class="draft-card">
+      <div class="draft-card-top">
+        <div class="draft-rank" style="color:#60a5fa">76</div>
+        <div style="flex:1;padding:0 8px">
+          <div class="draft-name">T.J. Hockenson</div>
+          <div class="draft-meta">MIN · TE · Age 28 · Peak</div>
+        </div>
+        <div class="draft-score" style="color:#60a5fa">70</div>
+      </div>
+      <div class="draft-card-body">
+        <div class="dc-stat">
+          <div class="dc-val">87</div>
+          <div class="dc-lbl">Fpts</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">17%</div>
+          <div class="dc-lbl">Tgt Sh</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">5.1</div>
+          <div class="dc-lbl">PPG</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">-39</div>
+          <div class="dc-lbl">WAR</div>
+        </div></div>
+      <div class="draft-signal">
+        <span class="signal-tag" style="color:#60a5fa;background:#0c1a2e">Peak</span><span class="signal-tag" style="color:#94a3b8;background:#1e293b">–WAR</span>
+        <div style="margin-top:5px">Solid WR2 role at 17% target share. Highly efficient receiver (+0.21 EPA/tgt).</div>
+      </div>
+    </div>
+    <div class="draft-card">
+      <div class="draft-card-top">
+        <div class="draft-rank" style="color:#60a5fa">77</div>
+        <div style="flex:1;padding:0 8px">
+          <div class="draft-name">Tyler Higbee</div>
+          <div class="draft-meta">LA · TE · Age 33 · Veteran</div>
+        </div>
+        <div class="draft-score" style="color:#60a5fa">69</div>
+      </div>
+      <div class="draft-card-body">
+        <div class="dc-stat">
+          <div class="dc-val">59</div>
+          <div class="dc-lbl">Fpts</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">7%</div>
+          <div class="dc-lbl">Tgt Sh</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">3.4</div>
+          <div class="dc-lbl">PPG</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">-68</div>
+          <div class="dc-lbl">WAR</div>
+        </div></div>
+      <div class="draft-signal">
+        <span class="signal-tag" style="color:#f87171;background:#2d0a0a">Veteran</span><span class="signal-tag" style="color:#4ade80;background:#052e16">Rising</span><span class="signal-tag" style="color:#94a3b8;background:#1e293b">–WAR</span>
+        <div style="margin-top:5px">Volume concern at 7% target share. Highly efficient receiver (+0.26 EPA/tgt). Age risk entering 2026.</div>
+      </div>
+    </div>
+    <div class="draft-card">
+      <div class="draft-card-top">
+        <div class="draft-rank" style="color:#60a5fa">78</div>
+        <div style="flex:1;padding:0 8px">
+          <div class="draft-name">David Njoku</div>
+          <div class="draft-meta">CLE · TE · Age 29 · Declining</div>
+        </div>
+        <div class="draft-score" style="color:#60a5fa">69</div>
+      </div>
+      <div class="draft-card-body">
+        <div class="dc-stat">
+          <div class="dc-val">70</div>
+          <div class="dc-lbl">Fpts</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">12%</div>
+          <div class="dc-lbl">Tgt Sh</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">4.1</div>
+          <div class="dc-lbl">PPG</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">-56</div>
+          <div class="dc-lbl">WAR</div>
+        </div></div>
+      <div class="draft-signal">
+        <span class="signal-tag" style="color:#f59e0b;background:#2d1a00">Declining</span><span class="signal-tag" style="color:#f87171;background:#2d0a0a">Declining</span><span class="signal-tag" style="color:#94a3b8;background:#1e293b">–WAR</span>
+        <div style="margin-top:5px">Volume concern at 12% target share. Red zone TE — 22% team RZ targets. Below-average efficiency (-0.08 EPA/tgt).</div>
+      </div>
+    </div>
+    <div class="draft-card">
+      <div class="draft-card-top">
+        <div class="draft-rank" style="color:#60a5fa">79</div>
+        <div style="flex:1;padding:0 8px">
+          <div class="draft-name">Khalil Shakir</div>
+          <div class="draft-meta">BUF · WR · Age 26 · Peak</div>
+        </div>
+        <div class="draft-score" style="color:#60a5fa">69</div>
+      </div>
+      <div class="draft-card-body">
+        <div class="dc-stat">
+          <div class="dc-val">127</div>
+          <div class="dc-lbl">Fpts</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">24%</div>
+          <div class="dc-lbl">Tgt Sh</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">7.5</div>
+          <div class="dc-lbl">PPG</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">+2</div>
+          <div class="dc-lbl">WAR</div>
+        </div></div>
+      <div class="draft-signal">
+        <span class="signal-tag" style="color:#60a5fa;background:#0c1a2e">Peak</span><span class="signal-tag" style="color:#f472b6;background:#2d0a1a">Alpha</span>
+        <div style="margin-top:5px">True alpha at 24% target share.</div>
+      </div>
+    </div>
+    <div class="draft-card">
+      <div class="draft-card-top">
+        <div class="draft-rank" style="color:#60a5fa">80</div>
+        <div style="flex:1;padding:0 8px">
+          <div class="draft-name">Chig Okonkwo</div>
+          <div class="draft-meta">TEN · TE · Age 26 · Peak</div>
+        </div>
+        <div class="draft-score" style="color:#60a5fa">69</div>
+      </div>
+      <div class="draft-card-body">
+        <div class="dc-stat">
+          <div class="dc-val">96</div>
+          <div class="dc-lbl">Fpts</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">18%</div>
+          <div class="dc-lbl">Tgt Sh</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">5.6</div>
+          <div class="dc-lbl">PPG</div>
+        </div>
+        <div class="dc-stat">
+          <div class="dc-val">-30</div>
+          <div class="dc-lbl">WAR</div>
+        </div></div>
+      <div class="draft-signal">
+        <span class="signal-tag" style="color:#60a5fa;background:#0c1a2e">Peak</span><span class="signal-tag" style="color:#94a3b8;background:#1e293b">–WAR</span>
+        <div style="margin-top:5px">Solid WR2 role at 18% target share. Highly efficient receiver (+0.16 EPA/tgt).</div>
+      </div>
+    </div>
+<div class="pg-footer">
+  DTFFL Analytics · 2026 Draft Prep · nflverse 2025 data<br>
+  Score = 2025 composite percentile vs peers · Signals = age curve + WAR + trend
+</div>
+
+<nav class="bottom-nav" id="bottom-nav">
+  <a class="nav-tab" id="nav-reports" href="../index.html">
+    <span class="nav-icon">📊</span>Reports
+  </a>
+  <a class="nav-tab" id="nav-trends" href="../trends_index.html">
+    <span class="nav-icon">📈</span>Trends
+  </a>
+  <a class="nav-tab" id="nav-draft" href="../draft_prep/rb_draft_prep_2026.html">
+    <span class="nav-icon">🏈</span>Draft
+  </a>
+</nav>
+<script>
+(function(){
+  var p = window.location.pathname;
+  if (p.includes('trends') || p.includes('candidate'))  {
+    document.getElementById('nav-trends').classList.add('active');
+  } else if (p.includes('draft_prep')) {
+    document.getElementById('nav-draft').classList.add('active');
+  } else {
+    document.getElementById('nav-reports').classList.add('active');
+  }
+})();
+</script>
+</body></html>
