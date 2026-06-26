@@ -232,7 +232,7 @@ var sortState   = {};  // tableId -> {col, asc}
 function playerCell(p) {
   var img = '';
   if (p.headshot) {
-    img = '<img src="' + p.headshot + '" onerror="this.style.display='none'">';
+    img = '<img src="' + p.headshot + '">';
   }
   var link = p.slug
     ? '../players/profiles/' + p.slug + '.html'
