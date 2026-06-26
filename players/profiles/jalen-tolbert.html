@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<title>Jalen Tolbert — DTFFL Analytics</title>
+
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  background: #0f172a; color: #e2e8f0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  max-width: 480px; margin: 0 auto;
+  padding-bottom: calc(70px + env(safe-area-inset-bottom));
+  -webkit-text-size-adjust: 100%;
+}
+.bottom-nav {
+  position: fixed; bottom: 0; left: 50%; transform: translateX(-50%);
+  width: 100%; max-width: 480px;
+  background: #0f172a; border-top: 1px solid #1e293b;
+  display: flex; z-index: 100;
+  padding-bottom: env(safe-area-inset-bottom);
+}
+.nav-tab {
+  flex: 1; display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  padding: 8px 0 6px; text-decoration: none;
+  color: #475569; font-size: 10px; font-weight: 600;
+  letter-spacing: .03em; gap: 3px;
+  -webkit-tap-highlight-color: transparent;
+}
+.nav-tab:active { background: #1e293b; }
+.nav-tab.active { color: #4ade80; }
+.nav-icon { font-size: 18px; line-height: 1; }
+</style>
+<style>
+/* ── Profile Hero ───────────────────────────────────────────── */
+.profile-hero {
+  background: linear-gradient(160deg, #1e293b 0%, #0f172a 70%);
+  border-bottom: 1px solid #334155;
+  padding: 20px 16px 16px;
+  display: flex; gap: 16px; align-items: flex-start;
+}
+.headshot-wrap {
+  flex-shrink: 0;
+  width: 90px; height: 90px;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #1e293b;
+  border: 2px solid #334155;
+}
+.headshot { width: 100%; height: 100%; object-fit: cover; object-position: top; }
+.hero-info { flex: 1; min-width: 0; }
+.hero-name { font-size: 22px; font-weight: 800; color: #f8fafc;
+              line-height: 1.1; word-break: break-word; }
+.hero-meta { display: flex; gap: 8px; align-items: center; margin-top: 6px; flex-wrap: wrap; }
+.pos-badge {
+  font-size: 11px; font-weight: 700; padding: 2px 8px;
+  border-radius: 99px; background: #1a1a2e; color: #60a5fa;
+  border: 1px solid #60a5fa40;
+}
+.team-badge { font-size: 11px; color: #94a3b8; font-weight: 600; }
+/* ── Pills ──────────────────────────────────────────────────── */
+.pills { display: flex; flex-wrap: wrap; gap: 8px; padding: 14px 16px 4px; }
+.pill, .pill-highlight {
+  background: #1e293b; border: 1px solid #334155;
+  border-radius: 8px; padding: 7px 10px;
+  display: flex; flex-direction: column; gap: 2px;
+  min-width: 80px;
+}
+.pill-highlight { border-color: #60a5fa50; }
+.pill-lbl { font-size: 9px; font-weight: 700; text-transform: uppercase;
+             letter-spacing: .05em; color: #64748b; }
+.pill-val { font-size: 15px; font-weight: 700; color: #f1f5f9; }
+/* ── Sections ───────────────────────────────────────────────── */
+.section { padding: 16px 16px 4px; }
+.section-title { font-size: 13px; font-weight: 700; text-transform: uppercase;
+                  letter-spacing: .07em; color: #475569; margin-bottom: 6px; }
+.section-desc { font-size: 11px; color: #64748b; margin-bottom: 10px; }
+/* ── Table ──────────────────────────────────────────────────── */
+.table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+.stat-table { width: 100%; border-collapse: collapse; font-size: 12px; }
+.stat-table th {
+  background: #1e293b; color: #94a3b8; font-size: 10px;
+  font-weight: 700; text-transform: uppercase; letter-spacing: .04em;
+  padding: 8px 6px; text-align: center; white-space: nowrap;
+}
+.stat-table td { padding: 9px 6px; text-align: center; border-bottom: 1px solid #1e293b; color: #e2e8f0; }
+.stat-table tr:last-child td { border-bottom: none; }
+.stat-table tr:nth-child(even) td { background: #0f1a2b; }
+.green { color: #4ade80 !important; font-weight: 700; }
+.blue  { color: #60a5fa !important; font-weight: 600; }
+.amber { color: #f59e0b !important; font-weight: 600; }
+.muted { color: #64748b !important; }
+/* ── Back link ──────────────────────────────────────────────── */
+.back-bar {
+  display: flex; align-items: center; gap: 8px;
+  padding: 12px 16px; border-bottom: 1px solid #1e293b;
+}
+.back-link { color: #475569; text-decoration: none; font-size: 12px; font-weight: 600; }
+.back-link:active { color: #4ade80; }
+</style>
+</head><body>
+<div class="back-bar">
+  <a href="../players/index.html" class="back-link">← All Players</a>
+</div>
+
+<div class="profile-hero">
+  
+        <div class="headshot-wrap">
+          <img src="https://static.www.nfl.com/image/upload/f_auto,q_auto/league/pif5ffxlibkfp90k1sj4" alt="Jalen Tolbert" class="headshot"
+               onerror="this.parentElement.style.display='none'">
+        </div>
+  <div class="hero-info">
+    <h1 class="hero-name">Jalen Tolbert</h1>
+    <div class="hero-meta">
+      <span class="pos-badge">WR</span>
+      <span class="team-badge">DAL</span>
+    </div>
+  </div>
+</div>
+
+<div class="pills">
+  <div class="pill"><span class="pill-lbl">Height</span><span class="pill-val">6'1"</span></div><div class="pill"><span class="pill-lbl">Weight</span><span class="pill-val">195 lbs</span></div><div class="pill"><span class="pill-lbl">Age</span><span class="pill-val">27 yrs</span></div><div class="pill"><span class="pill-lbl">Draft Year</span><span class="pill-val">2022</span></div><div class="pill"><span class="pill-lbl">Draft Pick</span><span class="pill-val">#88</span></div><div class="pill"><span class="pill-lbl">NFL Exp</span><span class="pill-val">3 yrs</span></div>
+</div>
+
+
+    <div class="section">
+      <h3 class="section-title">Weekly Finishes</h3>
+      <p class="section-desc">Positional rank among all WRs each week (half-PPR). Ties use minimum rank.</p>
+      <div class="table-wrap">
+        <table class="stat-table">
+          <thead><tr><th>Year</th> <th>Team</th> <th>Top 14</th> <th>Outside Top 14</th> <th>Top 28</th> <th>Outside Top 28</th> <th>Top 42</th> <th>Outside Top 42</th> <th>Duck Eggs</th></tr></thead>
+          <tbody><tr><td>2025</td><td>DAL</td><td class="green">0/11 0%</td><td class="muted">11/11 100%</td><td class="blue">1/11 9%</td><td class="muted">10/11 91%</td><td class="amber">2/11 18%</td><td class="muted">9/11 82%</td><td class="muted">3/11 27%</td></tr><tr><td>2024</td><td>DAL</td><td class="green">1/17 6%</td><td class="muted">16/17 94%</td><td class="blue">4/17 24%</td><td class="muted">13/17 76%</td><td class="amber">8/17 47%</td><td class="muted">9/17 53%</td><td class="muted">1/17 6%</td></tr><tr><td>2023</td><td>DAL</td><td class="green">0/13 0%</td><td class="muted">13/13 100%</td><td class="blue">1/13 8%</td><td class="muted">12/13 92%</td><td class="amber">2/13 15%</td><td class="muted">11/13 85%</td><td class="muted">3/13 23%</td></tr><tr><td>2022</td><td>DAL</td><td class="green">0/2 0%</td><td class="muted">2/2 100%</td><td class="blue">0/2 0%</td><td class="muted">2/2 100%</td><td class="amber">0/2 0%</td><td class="muted">2/2 100%</td><td class="muted">0/2 0%</td></tr></tbody>
+        </table>
+      </div>
+    </div>
+
+
+<nav class="bottom-nav">
+  <a href="../index.html" class="nav-tab" id="nav-home">
+    <span class="nav-icon">🏈</span><span>Home</span>
+  </a>
+  <a href="../reports/index.html" class="nav-tab" id="nav-reports">
+    <span class="nav-icon">📊</span><span>Reports</span>
+  </a>
+  <a href="../history/index.html" class="nav-tab" id="nav-history">
+    <span class="nav-icon">🏆</span><span>History</span>
+  </a>
+  <a href="../players/index.html" class="nav-tab active" id="nav-players">
+    <span class="nav-icon">👤</span><span>Players</span>
+  </a>
+  <a href="../draft-prep/index.html" class="nav-tab" id="nav-draft">
+    <span class="nav-icon">📋</span><span>Draft Prep</span>
+  </a>
+</nav>
+</body></html>
