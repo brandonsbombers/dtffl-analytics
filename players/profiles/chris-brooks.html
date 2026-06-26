@@ -34,7 +34,6 @@ body {
 .nav-icon { font-size: 18px; line-height: 1; }
 </style>
 <style>
-/* ── Profile Hero ───────────────────────────────────────────── */
 .profile-hero {
   background: linear-gradient(160deg, #1e293b 0%, #0f172a 70%);
   border-bottom: 1px solid #334155;
@@ -42,69 +41,60 @@ body {
   display: flex; gap: 16px; align-items: flex-start;
 }
 .headshot-wrap {
-  flex-shrink: 0;
-  width: 90px; height: 90px;
-  border-radius: 12px;
-  overflow: hidden;
-  background: #1e293b;
-  border: 2px solid #334155;
+  flex-shrink: 0; width: 90px; height: 90px;
+  border-radius: 12px; overflow: hidden;
+  background: #1e293b; border: 2px solid #334155;
 }
-.headshot { width: 100%; height: 100%; object-fit: cover; object-position: top; }
-.hero-info { flex: 1; min-width: 0; }
-.hero-name { font-size: 22px; font-weight: 800; color: #f8fafc;
-              line-height: 1.1; word-break: break-word; }
-.hero-meta { display: flex; gap: 8px; align-items: center; margin-top: 6px; flex-wrap: wrap; }
+.headshot { width:100%; height:100%; object-fit:cover; object-position:top; }
+.hero-info { flex:1; min-width:0; }
+.hero-name { font-size:22px; font-weight:800; color:#f8fafc; line-height:1.1; word-break:break-word; }
+.hero-meta { display:flex; gap:8px; align-items:center; margin-top:6px; flex-wrap:wrap; }
 .pos-badge {
-  font-size: 11px; font-weight: 700; padding: 2px 8px;
-  border-radius: 99px; background: #1a1a2e; color: #4ade80;
-  border: 1px solid #4ade8040;
+  font-size:11px; font-weight:700; padding:2px 8px;
+  border-radius:99px; background:#1a1a2e; color:#4ade80;
+  border:1px solid #4ade8040;
 }
-.team-badge { font-size: 11px; color: #94a3b8; font-weight: 600; }
-/* ── Pills ──────────────────────────────────────────────────── */
-.pills { display: flex; flex-wrap: wrap; gap: 8px; padding: 14px 16px 4px; }
-.pill, .pill-highlight {
-  background: #1e293b; border: 1px solid #334155;
-  border-radius: 8px; padding: 7px 10px;
-  display: flex; flex-direction: column; gap: 2px;
-  min-width: 80px;
+.team-badge { font-size:11px; color:#94a3b8; font-weight:600; }
+/* ── Pills 2-col grid ── */
+.pills-grid { padding:14px 16px 4px; display:flex; flex-direction:column; gap:8px; }
+.pill-row   { display:flex; gap:8px; }
+.pill, .pill-empty {
+  flex:1; background:#1e293b; border:1px solid #334155;
+  border-radius:8px; padding:7px 10px;
+  display:flex; flex-direction:column; gap:2px;
 }
-.pill-highlight { border-color: #4ade8050; }
-.pill-lbl { font-size: 9px; font-weight: 700; text-transform: uppercase;
-             letter-spacing: .05em; color: #64748b; }
-.pill-val { font-size: 15px; font-weight: 700; color: #f1f5f9; }
-/* ── Sections ───────────────────────────────────────────────── */
-.section { padding: 16px 16px 4px; }
-.section-title { font-size: 13px; font-weight: 700; text-transform: uppercase;
-                  letter-spacing: .07em; color: #475569; margin-bottom: 6px; }
-.section-desc { font-size: 11px; color: #64748b; margin-bottom: 10px; }
-/* ── Table ──────────────────────────────────────────────────── */
-.table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
-.stat-table { width: 100%; border-collapse: collapse; font-size: 12px; }
+.pill-empty { border-color:transparent; background:transparent; }
+.pill-lbl { font-size:9px; font-weight:700; text-transform:uppercase; letter-spacing:.05em; color:#64748b; }
+.pill-val { font-size:15px; font-weight:700; color:#f1f5f9; }
+/* ── Sections ── */
+.section { padding:16px 16px 4px; }
+.section-title { font-size:13px; font-weight:700; text-transform:uppercase; letter-spacing:.07em; color:#475569; margin-bottom:6px; }
+.section-desc  { font-size:11px; color:#64748b; margin-bottom:10px; }
+/* ── Tables ── */
+.table-wrap { overflow-x:auto; -webkit-overflow-scrolling:touch; }
+.stat-table { width:100%; border-collapse:collapse; font-size:12px; }
 .stat-table th {
-  background: #1e293b; color: #94a3b8; font-size: 10px;
-  font-weight: 700; text-transform: uppercase; letter-spacing: .04em;
-  padding: 8px 6px; text-align: center; white-space: nowrap;
+  background:#1e293b; color:#94a3b8; font-size:10px;
+  font-weight:700; text-transform:uppercase; letter-spacing:.04em;
+  padding:8px 6px; text-align:center; white-space:nowrap;
 }
-.stat-table td { padding: 9px 6px; text-align: center; border-bottom: 1px solid #1e293b; color: #e2e8f0; }
-.stat-table tr:last-child td { border-bottom: none; }
-.stat-table tr:nth-child(even) td { background: #0f1a2b; }
-.green { color: #4ade80 !important; font-weight: 700; }
-.blue  { color: #60a5fa !important; font-weight: 600; }
-.amber { color: #f59e0b !important; font-weight: 600; }
-.muted { color: #64748b !important; }
-/* ── Back link ──────────────────────────────────────────────── */
-.back-bar {
-  display: flex; align-items: center; gap: 8px;
-  padding: 12px 16px; border-bottom: 1px solid #1e293b;
-}
-.back-link { color: #475569; text-decoration: none; font-size: 12px; font-weight: 600; }
-.back-link:active { color: #4ade80; }
+.stat-table td { padding:9px 6px; text-align:center; border-bottom:1px solid #1e293b; color:#e2e8f0; }
+.stat-table tr:last-child td { border-bottom:none; }
+.stat-table tr:nth-child(even) td { background:#0f1a2b; }
+.stat-table tr.green td { color:#4ade80; }
+.stat-table tr.amber td { color:#f59e0b; }
+.green { color:#4ade80 !important; font-weight:700; }
+.blue  { color:#60a5fa !important; font-weight:600; }
+.amber { color:#f59e0b !important; font-weight:600; }
+.muted { color:#64748b !important; }
+.back-bar { display:flex; align-items:center; gap:8px; padding:12px 16px; border-bottom:1px solid #1e293b; }
+.back-link { color:#475569; text-decoration:none; font-size:12px; font-weight:600; }
+.back-link:active { color:#4ade80; }
 </style>
 </head><body>
 <div class="back-bar">
   <a href="../players/index.html" class="back-link">← All Players</a>
 </div>
-
 <div class="profile-hero">
   
         <div class="headshot-wrap">
@@ -119,23 +109,29 @@ body {
     </div>
   </div>
 </div>
+<div class="pills-grid"><div class="pill-row"><div class="pill"><span class="pill-lbl">Height</span><span class="pill-val">6'1"</span></div><div class="pill"><span class="pill-lbl">Draft Year</span><span class="pill-val">2023</span></div></div><div class="pill-row"><div class="pill"><span class="pill-lbl">Weight</span><span class="pill-val">230 lbs</span></div><div class="pill"><span class="pill-lbl">Draft Pick</span><span class="pill-val">UDFA</span></div></div><div class="pill-row"><div class="pill"><span class="pill-lbl">Age</span><span class="pill-val">26 yrs</span></div><div class="pill"><span class="pill-lbl">NFL Exp</span><span class="pill-val">2 yrs</span></div></div></div>
 
-<div class="pills">
-  <div class="pill"><span class="pill-lbl">Height</span><span class="pill-val">6'1"</span></div><div class="pill"><span class="pill-lbl">Weight</span><span class="pill-val">230 lbs</span></div><div class="pill"><span class="pill-lbl">Age</span><span class="pill-val">26 yrs</span></div><div class="pill"><span class="pill-lbl">Draft Year</span><span class="pill-val">2023</span></div><div class="pill"><span class="pill-lbl">Draft Pick</span><span class="pill-val">UDFA</span></div><div class="pill"><span class="pill-lbl">NFL Exp</span><span class="pill-val">2 yrs</span></div>
-</div>
-
+    <div class="section">
+      <h3 class="section-title">Box Score</h3>
+      <p class="section-desc">2025 season averages (half-PPR, 6pt passing TD, long TD &amp; yardage bonuses included). Weeks with zero stats hidden.</p>
+      <div class="table-wrap">
+        <table class="stat-table">
+          <thead><tr><th>Stat</th><th>Last Game</th><th>Last 4 Avg</th><th>2025 Avg</th></tr></thead>
+          <tbody><tr class="green"><td><b>FPTS</b></td><td>12.2</td><td>5.1</td><td>4.0</td></tr><tr><td><b>Carries</b></td><td>26.0</td><td>8.0</td><td>4.2</td></tr><tr><td><b>Receptions</b></td><td>0.0</td><td>1.0</td><td>2.0</td></tr><tr><td><b>Yards</b></td><td>122.0</td><td>46.0</td><td>30.3</td></tr><tr><td><b>TDs</b></td><td>0.0</td><td>0.0</td><td>0.0</td></tr></tbody>
+        </table>
+      </div>
+    </div>
 
     <div class="section">
       <h3 class="section-title">Weekly Finishes</h3>
       <p class="section-desc">Positional rank among all RBs each week (half-PPR). Ties use minimum rank.</p>
       <div class="table-wrap">
         <table class="stat-table">
-          <thead><tr><th>Year</th> <th>Team</th> <th>Top 14</th> <th>Outside Top 14</th> <th>Top 28</th> <th>Outside Top 28</th> <th>Duck Eggs</th></tr></thead>
-          <tbody><tr><td>2025</td><td>GB</td><td class="green">0/14 0%</td><td class="muted">14/14 100%</td><td class="blue">0/14 0%</td><td class="muted">14/14 100%</td><td class="muted">1/14 7%</td></tr><tr><td>2024</td><td>GB</td><td class="green">0/11 0%</td><td class="muted">11/11 100%</td><td class="blue">0/11 0%</td><td class="muted">11/11 100%</td><td class="muted">0/11 0%</td></tr><tr><td>2023</td><td>MIA</td><td class="green">0/3 0%</td><td class="muted">3/3 100%</td><td class="blue">0/3 0%</td><td class="muted">3/3 100%</td><td class="muted">0/3 0%</td></tr></tbody>
+          <thead><tr><th>Year</th> <th>Team</th> <th>Top 14</th> <th>Top 28</th> <th>Outside Top 28</th> <th>🥚 Duck Eggs</th></tr></thead>
+          <tbody><tr><td>2025</td><td>GB</td><td class="green">0/14 0%</td><td class="blue">0/14 0%</td><td class="muted">14/14 100%</td><td class="muted">1/14 7%</td></tr><tr><td>2024</td><td>GB</td><td class="green">0/11 0%</td><td class="blue">0/11 0%</td><td class="muted">11/11 100%</td><td class="muted">0/11 0%</td></tr><tr><td>2023</td><td>MIA</td><td class="green">0/3 0%</td><td class="blue">0/3 0%</td><td class="muted">3/3 100%</td><td class="muted">0/3 0%</td></tr></tbody>
         </table>
       </div>
     </div>
-
 
 <nav class="bottom-nav">
   <a href="../index.html" class="nav-tab" id="nav-home">
