@@ -230,9 +230,10 @@ var currentYear = 2025;
 var sortState   = {};  // tableId -> {col, asc}
 
 function playerCell(p) {
-  var img = p.headshot
-    ? '<img src="' + p.headshot + '" onerror="this.style.display='none'">'
-    : '';
+  var img = '';
+  if (p.headshot) {
+    img = '<img src="' + p.headshot + '" onerror="this.style.display='none'">';
+  }
   var link = p.slug
     ? '../players/profiles/' + p.slug + '.html'
     : '#';
@@ -289,6 +290,6 @@ function sortTbl(tblId, colIdx) {
 }
 
 // Init
-window.onload = function() { setYear(2025); }; });
+renderYear(2025);
 </script>
 </body></html>
