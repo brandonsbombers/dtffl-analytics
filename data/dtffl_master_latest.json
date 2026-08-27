@@ -56,20 +56,6 @@
     "Low PPG": 10.85
   },
   {
-    "NameKey": "aaron jones",
-    "Andy PPG": 10.85,
-    "Jason PPG": 13.41,
-    "Mike PPG": 13.12,
-    "FP PPG": 14.24,
-    "CBS PPG": 14.47,
-    "Player name": "Aaron Jones Sr.",
-    "Team": "MIN",
-    "Pos": "RB",
-    "Avg PPG": 13.22,
-    "High PPG": 14.47,
-    "Low PPG": 10.85
-  },
-  {
     "NameKey": "aaron rodgers",
     "Andy PPG": 22.29,
     "Jason PPG": 25.18,
@@ -168,20 +154,6 @@
     "Low PPG": 0.26
   },
   {
-    "NameKey": "adam randall",
-    "Andy PPG": 3.88,
-    "Jason PPG": 3.26,
-    "Mike PPG": 0.26,
-    "FP PPG": 5.49,
-    "CBS PPG": 10.0,
-    "Player name": "Adam Randall",
-    "Team": "BAL",
-    "Pos": "RB",
-    "Avg PPG": 4.58,
-    "High PPG": 10.0,
-    "Low PPG": 0.26
-  },
-  {
     "NameKey": "adam thielen",
     "Andy PPG": NaN,
     "Jason PPG": NaN,
@@ -208,20 +180,6 @@
     "Avg PPG": 4.3,
     "High PPG": 5.03,
     "Low PPG": 3.56
-  },
-  {
-    "NameKey": "adonai mitchell",
-    "Andy PPG": 8.68,
-    "Jason PPG": 10.5,
-    "Mike PPG": 7.32,
-    "FP PPG": 9.04,
-    "CBS PPG": 7.94,
-    "Player name": "Adonai Mitchell",
-    "Team": "NYJ",
-    "Pos": "WR",
-    "Avg PPG": 8.7,
-    "High PPG": 10.5,
-    "Low PPG": 7.32
   },
   {
     "NameKey": "adonai mitchell",
@@ -334,34 +292,6 @@
     "Avg PPG": 8.65,
     "High PPG": 10.35,
     "Low PPG": 5.82
-  },
-  {
-    "NameKey": "aj barner",
-    "Andy PPG": 10.35,
-    "Jason PPG": 5.82,
-    "Mike PPG": 8.24,
-    "FP PPG": 8.79,
-    "CBS PPG": 10.03,
-    "Player name": "AJ Barner",
-    "Team": "SEA",
-    "Pos": "TE",
-    "Avg PPG": 8.65,
-    "High PPG": 10.35,
-    "Low PPG": 5.82
-  },
-  {
-    "NameKey": "aj brown",
-    "Andy PPG": 18.65,
-    "Jason PPG": 20.65,
-    "Mike PPG": 19.32,
-    "FP PPG": 19.98,
-    "CBS PPG": 21.62,
-    "Player name": "A.J. Brown",
-    "Team": "NE",
-    "Pos": "WR",
-    "Avg PPG": 20.04,
-    "High PPG": 21.62,
-    "Low PPG": 18.65
   },
   {
     "NameKey": "aj brown",
@@ -488,20 +418,6 @@
     "Avg PPG": 0.56,
     "High PPG": 0.63,
     "Low PPG": 0.5
-  },
-  {
-    "NameKey": "alec pierce",
-    "Andy PPG": 18.0,
-    "Jason PPG": 16.18,
-    "Mike PPG": 17.0,
-    "FP PPG": 15.55,
-    "CBS PPG": 17.32,
-    "Player name": "Alec Pierce",
-    "Team": "IND",
-    "Pos": "WR",
-    "Avg PPG": 16.81,
-    "High PPG": 18.0,
-    "Low PPG": 15.55
   },
   {
     "NameKey": "alec pierce",
@@ -672,20 +588,6 @@
     "Low PPG": 6.94
   },
   {
-    "NameKey": "alvin kamara",
-    "Andy PPG": 8.21,
-    "Jason PPG": 9.59,
-    "Mike PPG": 6.94,
-    "FP PPG": 10.35,
-    "CBS PPG": 10.15,
-    "Player name": "Alvin Kamara",
-    "Team": "NO",
-    "Pos": "RB",
-    "Avg PPG": 9.05,
-    "High PPG": 10.35,
-    "Low PPG": 6.94
-  },
-  {
     "NameKey": "amar johnson",
     "Andy PPG": NaN,
     "Jason PPG": NaN,
@@ -756,20 +658,6 @@
     "Low PPG": 22.41
   },
   {
-    "NameKey": "amonra st brown",
-    "Andy PPG": 23.76,
-    "Jason PPG": 23.41,
-    "Mike PPG": 22.41,
-    "FP PPG": 23.78,
-    "CBS PPG": 23.62,
-    "Player name": "Amon-Ra St. Brown",
-    "Team": "DET",
-    "Pos": "WR",
-    "Avg PPG": 23.4,
-    "High PPG": 23.78,
-    "Low PPG": 22.41
-  },
-  {
     "NameKey": "anderson castle",
     "Andy PPG": NaN,
     "Jason PPG": NaN,
@@ -810,20 +698,6 @@
     "Avg PPG": 0.0,
     "High PPG": 0.0,
     "Low PPG": 0.0
-  },
-  {
-    "NameKey": "andrei iosivas",
-    "Andy PPG": 4.44,
-    "Jason PPG": 8.38,
-    "Mike PPG": 5.94,
-    "FP PPG": 6.14,
-    "CBS PPG": 7.91,
-    "Player name": "Andrei Iosivas",
-    "Team": "CIN",
-    "Pos": "WR",
-    "Avg PPG": 6.56,
-    "High PPG": 8.38,
-    "Low PPG": 4.44
   },
   {
     "NameKey": "andrei iosivas",
@@ -1204,20 +1078,6 @@
     "Low PPG": 5.62
   },
   {
-    "NameKey": "antonio williams",
-    "Andy PPG": 7.15,
-    "Jason PPG": 7.38,
-    "Mike PPG": 5.62,
-    "FP PPG": 8.16,
-    "CBS PPG": 10.44,
-    "Player name": "Antonio Williams",
-    "Team": "WAS",
-    "Pos": "WR",
-    "Avg PPG": 7.75,
-    "High PPG": 10.44,
-    "Low PPG": 5.62
-  },
-  {
     "NameKey": "antwane wells",
     "Andy PPG": NaN,
     "Jason PPG": NaN,
@@ -1342,20 +1202,6 @@
     "Avg PPG": 6.92,
     "High PPG": 8.5,
     "Low PPG": 5.35
-  },
-  {
-    "NameKey": "ashton jeanty",
-    "Andy PPG": 21.76,
-    "Jason PPG": 23.53,
-    "Mike PPG": 22.03,
-    "FP PPG": 22.68,
-    "CBS PPG": 20.21,
-    "Player name": "Ashton Jeanty",
-    "Team": "LV",
-    "Pos": "RB",
-    "Avg PPG": 22.04,
-    "High PPG": 23.53,
-    "Low PPG": 20.21
   },
   {
     "NameKey": "ashton jeanty",
@@ -1890,20 +1736,6 @@
     "Low PPG": 1.44
   },
   {
-    "NameKey": "ben sinnott",
-    "Andy PPG": 4.71,
-    "Jason PPG": 4.29,
-    "Mike PPG": 1.44,
-    "FP PPG": 1.46,
-    "CBS PPG": 1.74,
-    "Player name": "Ben Sinnott",
-    "Team": "WAS",
-    "Pos": "TE",
-    "Avg PPG": 2.73,
-    "High PPG": 4.71,
-    "Low PPG": 1.44
-  },
-  {
     "NameKey": "ben skowronek",
     "Andy PPG": NaN,
     "Jason PPG": NaN,
@@ -2002,34 +1834,6 @@
     "Low PPG": 16.65
   },
   {
-    "NameKey": "bhayshul tuten",
-    "Andy PPG": 18.68,
-    "Jason PPG": 19.44,
-    "Mike PPG": 19.26,
-    "FP PPG": 18.84,
-    "CBS PPG": 16.65,
-    "Player name": "Bhayshul Tuten",
-    "Team": "JAX",
-    "Pos": "RB",
-    "Avg PPG": 18.57,
-    "High PPG": 19.44,
-    "Low PPG": 16.65
-  },
-  {
-    "NameKey": "bijan robinson",
-    "Andy PPG": 30.56,
-    "Jason PPG": 33.59,
-    "Mike PPG": 33.0,
-    "FP PPG": 31.57,
-    "CBS PPG": 31.76,
-    "Player name": "Bijan Robinson",
-    "Team": "ATL",
-    "Pos": "RB",
-    "Avg PPG": 32.1,
-    "High PPG": 33.59,
-    "Low PPG": 30.56
-  },
-  {
     "NameKey": "bijan robinson",
     "Andy PPG": 30.56,
     "Jason PPG": 33.59,
@@ -2098,20 +1902,6 @@
     "Avg PPG": 0.0,
     "High PPG": 0.0,
     "Low PPG": 0.0
-  },
-  {
-    "NameKey": "blake corum",
-    "Andy PPG": 15.35,
-    "Jason PPG": 12.62,
-    "Mike PPG": 12.47,
-    "FP PPG": 12.75,
-    "CBS PPG": 12.29,
-    "Player name": "Blake Corum",
-    "Team": "LAR",
-    "Pos": "RB",
-    "Avg PPG": 13.1,
-    "High PPG": 15.35,
-    "Low PPG": 12.29
   },
   {
     "NameKey": "blake corum",
@@ -2266,20 +2056,6 @@
     "Avg PPG": 0.0,
     "High PPG": 0.0,
     "Low PPG": 0.0
-  },
-  {
-    "NameKey": "braelon allen",
-    "Andy PPG": 9.29,
-    "Jason PPG": 5.47,
-    "Mike PPG": 3.59,
-    "FP PPG": 8.14,
-    "CBS PPG": 10.09,
-    "Player name": "Braelon Allen",
-    "Team": "NYJ",
-    "Pos": "RB",
-    "Avg PPG": 7.32,
-    "High PPG": 10.09,
-    "Low PPG": 3.59
   },
   {
     "NameKey": "braelon allen",
@@ -2478,20 +2254,6 @@
     "Low PPG": 1.54
   },
   {
-    "NameKey": "brashard smith",
-    "Andy PPG": 4.18,
-    "Jason PPG": 4.0,
-    "Mike PPG": 3.74,
-    "FP PPG": 1.54,
-    "CBS PPG": 4.38,
-    "Player name": "Brashard Smith",
-    "Team": "KC",
-    "Pos": "RB",
-    "Avg PPG": 3.57,
-    "High PPG": 4.38,
-    "Low PPG": 1.54
-  },
-  {
     "NameKey": "braxton berrios",
     "Andy PPG": NaN,
     "Jason PPG": NaN,
@@ -2604,20 +2366,6 @@
     "Low PPG": 20.15
   },
   {
-    "NameKey": "breece hall",
-    "Andy PPG": 21.44,
-    "Jason PPG": 20.71,
-    "Mike PPG": 20.15,
-    "FP PPG": 22.46,
-    "CBS PPG": 20.59,
-    "Player name": "Breece Hall",
-    "Team": "NYJ",
-    "Pos": "RB",
-    "Avg PPG": 21.07,
-    "High PPG": 22.46,
-    "Low PPG": 20.15
-  },
-  {
     "NameKey": "brelan chancellor",
     "Andy PPG": NaN,
     "Jason PPG": NaN,
@@ -2688,20 +2436,6 @@
     "Low PPG": 1.21
   },
   {
-    "NameKey": "brenen thompson",
-    "Andy PPG": 6.12,
-    "Jason PPG": 1.21,
-    "Mike PPG": 5.0,
-    "FP PPG": 1.32,
-    "CBS PPG": 1.5,
-    "Player name": "Brenen Thompson",
-    "Team": "LAC",
-    "Pos": "WR",
-    "Avg PPG": 3.03,
-    "High PPG": 6.12,
-    "Low PPG": 1.21
-  },
-  {
     "NameKey": "brennan eagles",
     "Andy PPG": NaN,
     "Jason PPG": NaN,
@@ -2728,20 +2462,6 @@
     "Avg PPG": 0.0,
     "High PPG": 0.0,
     "Low PPG": 0.0
-  },
-  {
-    "NameKey": "brenton strange",
-    "Andy PPG": 11.03,
-    "Jason PPG": 12.56,
-    "Mike PPG": 11.03,
-    "FP PPG": 11.27,
-    "CBS PPG": 13.59,
-    "Player name": "Brenton Strange",
-    "Team": "JAX",
-    "Pos": "TE",
-    "Avg PPG": 11.9,
-    "High PPG": 13.59,
-    "Low PPG": 11.03
   },
   {
     "NameKey": "brenton strange",
@@ -2870,34 +2590,6 @@
     "Low PPG": 6.88
   },
   {
-    "NameKey": "brian robinson",
-    "Andy PPG": 6.88,
-    "Jason PPG": 9.59,
-    "Mike PPG": 7.24,
-    "FP PPG": 8.06,
-    "CBS PPG": 7.94,
-    "Player name": "Brian Robinson",
-    "Team": "ATL",
-    "Pos": "RB",
-    "Avg PPG": 7.94,
-    "High PPG": 9.59,
-    "Low PPG": 6.88
-  },
-  {
-    "NameKey": "brian thomas",
-    "Andy PPG": 17.06,
-    "Jason PPG": 16.35,
-    "Mike PPG": 15.41,
-    "FP PPG": 14.27,
-    "CBS PPG": 15.74,
-    "Player name": "Brian Thomas Jr.",
-    "Team": "JAX",
-    "Pos": "WR",
-    "Avg PPG": 15.77,
-    "High PPG": 17.06,
-    "Low PPG": 14.27
-  },
-  {
     "NameKey": "brian thomas",
     "Andy PPG": 17.06,
     "Jason PPG": 16.35,
@@ -2980,20 +2672,6 @@
     "Avg PPG": 0.0,
     "High PPG": 0.0,
     "Low PPG": 0.0
-  },
-  {
-    "NameKey": "brock bowers",
-    "Andy PPG": 20.06,
-    "Jason PPG": 19.26,
-    "Mike PPG": 18.15,
-    "FP PPG": 17.71,
-    "CBS PPG": 17.53,
-    "Player name": "Brock Bowers",
-    "Team": "LV",
-    "Pos": "TE",
-    "Avg PPG": 18.54,
-    "High PPG": 20.06,
-    "Low PPG": 17.53
   },
   {
     "NameKey": "brock bowers",
@@ -3304,20 +2982,6 @@
     "Low PPG": 19.06
   },
   {
-    "NameKey": "bucky irving",
-    "Andy PPG": 19.06,
-    "Jason PPG": 19.62,
-    "Mike PPG": 20.24,
-    "FP PPG": 20.05,
-    "CBS PPG": 21.59,
-    "Player name": "Bucky Irving",
-    "Team": "TB",
-    "Pos": "RB",
-    "Avg PPG": 20.11,
-    "High PPG": 21.59,
-    "Low PPG": 19.06
-  },
-  {
     "NameKey": "bug howard",
     "Andy PPG": NaN,
     "Jason PPG": NaN,
@@ -3388,20 +3052,6 @@
     "Low PPG": 8.53
   },
   {
-    "NameKey": "cade otton",
-    "Andy PPG": 8.53,
-    "Jason PPG": 9.21,
-    "Mike PPG": 8.91,
-    "FP PPG": 9.41,
-    "CBS PPG": 11.85,
-    "Player name": "Cade Otton",
-    "Team": "TB",
-    "Pos": "TE",
-    "Avg PPG": 9.58,
-    "High PPG": 11.85,
-    "Low PPG": 8.53
-  },
-  {
     "NameKey": "cade stover",
     "Andy PPG": NaN,
     "Jason PPG": NaN,
@@ -3428,20 +3078,6 @@
     "Avg PPG": 0.0,
     "High PPG": 0.0,
     "Low PPG": 0.0
-  },
-  {
-    "NameKey": "caleb douglas",
-    "Andy PPG": 6.71,
-    "Jason PPG": 9.26,
-    "Mike PPG": 6.79,
-    "FP PPG": 8.16,
-    "CBS PPG": 7.38,
-    "Player name": "Caleb Douglas",
-    "Team": "MIA",
-    "Pos": "WR",
-    "Avg PPG": 7.66,
-    "High PPG": 9.26,
-    "Low PPG": 6.71
   },
   {
     "NameKey": "caleb douglas",
@@ -3514,20 +3150,6 @@
     "Low PPG": 0.0
   },
   {
-    "NameKey": "calvin austin",
-    "Andy PPG": 5.06,
-    "Jason PPG": 3.06,
-    "Mike PPG": 1.5,
-    "FP PPG": NaN,
-    "CBS PPG": 0.0,
-    "Player name": "Calvin Austin III",
-    "Team": "NYG",
-    "Pos": "WR",
-    "Avg PPG": 2.41,
-    "High PPG": 5.06,
-    "Low PPG": 0.0
-  },
-  {
     "NameKey": "calvin jackson",
     "Andy PPG": NaN,
     "Jason PPG": NaN,
@@ -3540,20 +3162,6 @@
     "Avg PPG": 0.0,
     "High PPG": 0.0,
     "Low PPG": 0.0
-  },
-  {
-    "NameKey": "calvin ridley",
-    "Andy PPG": 8.21,
-    "Jason PPG": 8.03,
-    "Mike PPG": 9.06,
-    "FP PPG": 11.99,
-    "CBS PPG": 13.12,
-    "Player name": "Calvin Ridley",
-    "Team": "TEN",
-    "Pos": "WR",
-    "Avg PPG": 10.08,
-    "High PPG": 13.12,
-    "Low PPG": 8.03
   },
   {
     "NameKey": "calvin ridley",
@@ -3652,20 +3260,6 @@
     "Avg PPG": 0.0,
     "High PPG": 0.0,
     "Low PPG": 0.0
-  },
-  {
-    "NameKey": "cam skattebo",
-    "Andy PPG": 19.62,
-    "Jason PPG": 20.15,
-    "Mike PPG": 19.82,
-    "FP PPG": 20.74,
-    "CBS PPG": 20.85,
-    "Player name": "Cam Skattebo",
-    "Team": "NYG",
-    "Pos": "RB",
-    "Avg PPG": 20.24,
-    "High PPG": 20.85,
-    "Low PPG": 19.62
   },
   {
     "NameKey": "cam skattebo",
@@ -3834,20 +3428,6 @@
     "Avg PPG": 1.24,
     "High PPG": 1.24,
     "Low PPG": 1.24
-  },
-  {
-    "NameKey": "carnell tate",
-    "Andy PPG": 17.91,
-    "Jason PPG": 18.56,
-    "Mike PPG": 16.47,
-    "FP PPG": 14.01,
-    "CBS PPG": 12.24,
-    "Player name": "Carnell Tate",
-    "Team": "TEN",
-    "Pos": "WR",
-    "Avg PPG": 15.84,
-    "High PPG": 18.56,
-    "Low PPG": 12.24
   },
   {
     "NameKey": "carnell tate",
@@ -4102,20 +3682,6 @@
     "Low PPG": 1.41
   },
   {
-    "NameKey": "cedric tillman",
-    "Andy PPG": 4.0,
-    "Jason PPG": 1.41,
-    "Mike PPG": 3.32,
-    "FP PPG": 4.18,
-    "CBS PPG": 7.68,
-    "Player name": "Cedric Tillman",
-    "Team": "CLE",
-    "Pos": "WR",
-    "Avg PPG": 4.12,
-    "High PPG": 7.68,
-    "Low PPG": 1.41
-  },
-  {
     "NameKey": "cedrick wilson",
     "Andy PPG": NaN,
     "Jason PPG": NaN,
@@ -4128,20 +3694,6 @@
     "Avg PPG": 0.0,
     "High PPG": 0.0,
     "Low PPG": 0.0
-  },
-  {
-    "NameKey": "ceedee lamb",
-    "Andy PPG": 19.94,
-    "Jason PPG": 23.15,
-    "Mike PPG": 22.56,
-    "FP PPG": 20.96,
-    "CBS PPG": 21.12,
-    "Player name": "CeeDee Lamb",
-    "Team": "DAL",
-    "Pos": "WR",
-    "Avg PPG": 21.55,
-    "High PPG": 23.15,
-    "Low PPG": 19.94
   },
   {
     "NameKey": "ceedee lamb",
@@ -4312,20 +3864,6 @@
     "Low PPG": 4.24
   },
   {
-    "NameKey": "charlie kolar",
-    "Andy PPG": 4.35,
-    "Jason PPG": 7.26,
-    "Mike PPG": 6.62,
-    "FP PPG": 4.24,
-    "CBS PPG": 6.26,
-    "Player name": "Charlie Kolar",
-    "Team": "LAC",
-    "Pos": "TE",
-    "Avg PPG": 5.75,
-    "High PPG": 7.26,
-    "Low PPG": 4.24
-  },
-  {
     "NameKey": "charlie taumoepeau",
     "Andy PPG": NaN,
     "Jason PPG": NaN,
@@ -4352,20 +3890,6 @@
     "Avg PPG": 2.38,
     "High PPG": 3.5,
     "Low PPG": 1.26
-  },
-  {
-    "NameKey": "chase brown",
-    "Andy PPG": 21.06,
-    "Jason PPG": 23.82,
-    "Mike PPG": 23.03,
-    "FP PPG": 23.51,
-    "CBS PPG": 24.76,
-    "Player name": "Chase Brown",
-    "Team": "CIN",
-    "Pos": "RB",
-    "Avg PPG": 23.24,
-    "High PPG": 24.76,
-    "Low PPG": 21.06
   },
   {
     "NameKey": "chase brown",
@@ -4522,34 +4046,6 @@
     "Low PPG": 9.36
   },
   {
-    "NameKey": "chig okonkwo",
-    "Andy PPG": 10.71,
-    "Jason PPG": 10.38,
-    "Mike PPG": 10.21,
-    "FP PPG": 9.36,
-    "CBS PPG": 10.15,
-    "Player name": "Chig Okonkwo",
-    "Team": "WAS",
-    "Pos": "TE",
-    "Avg PPG": 10.16,
-    "High PPG": 10.71,
-    "Low PPG": 9.36
-  },
-  {
-    "NameKey": "chimere dike",
-    "Andy PPG": 9.32,
-    "Jason PPG": 3.85,
-    "Mike PPG": 3.38,
-    "FP PPG": 5.68,
-    "CBS PPG": 8.74,
-    "Player name": "Chimere Dike",
-    "Team": "TEN",
-    "Pos": "WR",
-    "Avg PPG": 6.19,
-    "High PPG": 9.32,
-    "Low PPG": 3.38
-  },
-  {
     "NameKey": "chimere dike",
     "Andy PPG": 9.32,
     "Jason PPG": 3.85,
@@ -4592,20 +4088,6 @@
     "Low PPG": 5.38
   },
   {
-    "NameKey": "chris bell",
-    "Andy PPG": 5.38,
-    "Jason PPG": 7.35,
-    "Mike PPG": 6.62,
-    "FP PPG": 7.66,
-    "CBS PPG": 9.85,
-    "Player name": "Chris Bell",
-    "Team": "MIA",
-    "Pos": "WR",
-    "Avg PPG": 7.37,
-    "High PPG": 9.85,
-    "Low PPG": 5.38
-  },
-  {
     "NameKey": "chris blair",
     "Andy PPG": NaN,
     "Jason PPG": NaN,
@@ -4632,34 +4114,6 @@
     "Avg PPG": 2.18,
     "High PPG": 5.21,
     "Low PPG": 0.0
-  },
-  {
-    "NameKey": "chris brazzell",
-    "Andy PPG": 3.53,
-    "Jason PPG": 0.0,
-    "Mike PPG": 5.21,
-    "FP PPG": NaN,
-    "CBS PPG": 0.0,
-    "Player name": "Chris Brazzell II",
-    "Team": "CAR",
-    "Pos": "WR",
-    "Avg PPG": 2.18,
-    "High PPG": 5.21,
-    "Low PPG": 0.0
-  },
-  {
-    "NameKey": "chris brooks",
-    "Andy PPG": 9.15,
-    "Jason PPG": 6.56,
-    "Mike PPG": 1.29,
-    "FP PPG": 5.42,
-    "CBS PPG": NaN,
-    "Player name": "Chris Brooks",
-    "Team": "GB",
-    "Pos": "RB",
-    "Avg PPG": 5.6,
-    "High PPG": 9.15,
-    "Low PPG": 1.29
   },
   {
     "NameKey": "chris brooks",
@@ -4730,20 +4184,6 @@
     "Avg PPG": 0.0,
     "High PPG": 0.0,
     "Low PPG": 0.0
-  },
-  {
-    "NameKey": "chris godwin",
-    "Andy PPG": 13.82,
-    "Jason PPG": 14.79,
-    "Mike PPG": 15.85,
-    "FP PPG": 13.11,
-    "CBS PPG": 14.44,
-    "Player name": "Chris Godwin Jr.",
-    "Team": "TB",
-    "Pos": "WR",
-    "Avg PPG": 14.4,
-    "High PPG": 15.85,
-    "Low PPG": 13.11
   },
   {
     "NameKey": "chris godwin",
@@ -4844,20 +4284,6 @@
     "Low PPG": 18.29
   },
   {
-    "NameKey": "chris olave",
-    "Andy PPG": 18.29,
-    "Jason PPG": 20.35,
-    "Mike PPG": 19.44,
-    "FP PPG": 19.82,
-    "CBS PPG": 21.26,
-    "Player name": "Chris Olave",
-    "Team": "NO",
-    "Pos": "WR",
-    "Avg PPG": 19.83,
-    "High PPG": 21.26,
-    "Low PPG": 18.29
-  },
-  {
     "NameKey": "chris pierce",
     "Andy PPG": NaN,
     "Jason PPG": NaN,
@@ -4870,20 +4296,6 @@
     "Avg PPG": 0.0,
     "High PPG": 0.0,
     "Low PPG": 0.0
-  },
-  {
-    "NameKey": "chris rodriguez",
-    "Andy PPG": 9.62,
-    "Jason PPG": 9.44,
-    "Mike PPG": 11.32,
-    "FP PPG": 9.02,
-    "CBS PPG": 11.29,
-    "Player name": "Chris Rodriguez Jr.",
-    "Team": "JAX",
-    "Pos": "RB",
-    "Avg PPG": 10.14,
-    "High PPG": 11.32,
-    "Low PPG": 9.02
   },
   {
     "NameKey": "chris rodriguez",
@@ -4940,34 +4352,6 @@
     "Avg PPG": 6.52,
     "High PPG": 10.68,
     "Low PPG": 4.26
-  },
-  {
-    "NameKey": "christian kirk",
-    "Andy PPG": 4.26,
-    "Jason PPG": 5.38,
-    "Mike PPG": 5.76,
-    "FP PPG": 6.51,
-    "CBS PPG": 10.68,
-    "Player name": "Christian Kirk",
-    "Team": "SF",
-    "Pos": "WR",
-    "Avg PPG": 6.52,
-    "High PPG": 10.68,
-    "Low PPG": 4.26
-  },
-  {
-    "NameKey": "christian mccaffrey",
-    "Andy PPG": 28.71,
-    "Jason PPG": 31.15,
-    "Mike PPG": 28.0,
-    "FP PPG": 28.35,
-    "CBS PPG": 26.82,
-    "Player name": "Christian McCaffrey",
-    "Team": "SF",
-    "Pos": "RB",
-    "Avg PPG": 28.61,
-    "High PPG": 31.15,
-    "Low PPG": 26.82
   },
   {
     "NameKey": "christian mccaffrey",
@@ -5054,20 +4438,6 @@
     "Low PPG": 15.44
   },
   {
-    "NameKey": "christian watson",
-    "Andy PPG": 17.71,
-    "Jason PPG": 17.65,
-    "Mike PPG": 18.09,
-    "FP PPG": 15.44,
-    "CBS PPG": 15.76,
-    "Player name": "Christian Watson",
-    "Team": "GB",
-    "Pos": "WR",
-    "Avg PPG": 16.93,
-    "High PPG": 18.09,
-    "Low PPG": 15.44
-  },
-  {
     "NameKey": "christion jones",
     "Andy PPG": NaN,
     "Jason PPG": NaN,
@@ -5108,20 +4478,6 @@
     "Avg PPG": 0.0,
     "High PPG": 0.0,
     "Low PPG": 0.0
-  },
-  {
-    "NameKey": "chuba hubbard",
-    "Andy PPG": 14.26,
-    "Jason PPG": 15.35,
-    "Mike PPG": 15.76,
-    "FP PPG": 15.3,
-    "CBS PPG": 15.06,
-    "Player name": "Chuba Hubbard",
-    "Team": "CAR",
-    "Pos": "RB",
-    "Avg PPG": 15.15,
-    "High PPG": 15.76,
-    "Low PPG": 14.26
   },
   {
     "NameKey": "chuba hubbard",
@@ -5460,20 +4816,6 @@
     "Low PPG": 6.15
   },
   {
-    "NameKey": "colby parkinson",
-    "Andy PPG": 9.29,
-    "Jason PPG": 8.12,
-    "Mike PPG": 6.15,
-    "FP PPG": 6.59,
-    "CBS PPG": 8.56,
-    "Player name": "Colby Parkinson",
-    "Team": "LAR",
-    "Pos": "TE",
-    "Avg PPG": 7.74,
-    "High PPG": 9.29,
-    "Low PPG": 6.15
-  },
-  {
     "NameKey": "colby suits",
     "Andy PPG": NaN,
     "Jason PPG": NaN,
@@ -5542,20 +4884,6 @@
     "Avg PPG": 0.0,
     "High PPG": 0.0,
     "Low PPG": 0.0
-  },
-  {
-    "NameKey": "cole kmet",
-    "Andy PPG": 5.94,
-    "Jason PPG": 7.5,
-    "Mike PPG": 8.03,
-    "FP PPG": 4.95,
-    "CBS PPG": 4.18,
-    "Player name": "Cole Kmet",
-    "Team": "CHI",
-    "Pos": "TE",
-    "Avg PPG": 6.12,
-    "High PPG": 8.03,
-    "Low PPG": 4.18
   },
   {
     "NameKey": "cole kmet",
@@ -5712,20 +5040,6 @@
     "Low PPG": 15.06
   },
   {
-    "NameKey": "colston loveland",
-    "Andy PPG": 15.35,
-    "Jason PPG": 18.0,
-    "Mike PPG": 15.06,
-    "FP PPG": 15.74,
-    "CBS PPG": 17.59,
-    "Player name": "Colston Loveland",
-    "Team": "CHI",
-    "Pos": "TE",
-    "Avg PPG": 16.35,
-    "High PPG": 18.0,
-    "Low PPG": 15.06
-  },
-  {
     "NameKey": "colton dowell",
     "Andy PPG": NaN,
     "Jason PPG": NaN,
@@ -5808,20 +5122,6 @@
     "Avg PPG": 0.0,
     "High PPG": 0.0,
     "Low PPG": 0.0
-  },
-  {
-    "NameKey": "cooper kupp",
-    "Andy PPG": 7.82,
-    "Jason PPG": 10.94,
-    "Mike PPG": 7.79,
-    "FP PPG": 9.61,
-    "CBS PPG": 11.38,
-    "Player name": "Cooper Kupp",
-    "Team": "SEA",
-    "Pos": "WR",
-    "Avg PPG": 9.51,
-    "High PPG": 11.38,
-    "Low PPG": 7.79
   },
   {
     "NameKey": "cooper kupp",
@@ -6006,20 +5306,6 @@
     "Low PPG": 13.12
   },
   {
-    "NameKey": "courtland sutton",
-    "Andy PPG": 13.12,
-    "Jason PPG": 13.85,
-    "Mike PPG": 14.85,
-    "FP PPG": 15.1,
-    "CBS PPG": 15.47,
-    "Player name": "Courtland Sutton",
-    "Team": "DEN",
-    "Pos": "WR",
-    "Avg PPG": 14.48,
-    "High PPG": 15.47,
-    "Low PPG": 13.12
-  },
-  {
     "NameKey": "courtney jackson",
     "Andy PPG": NaN,
     "Jason PPG": NaN,
@@ -6074,20 +5360,6 @@
     "Avg PPG": 0.0,
     "High PPG": 0.0,
     "Low PPG": 0.0
-  },
-  {
-    "NameKey": "cyrus allen",
-    "Andy PPG": 7.35,
-    "Jason PPG": 9.47,
-    "Mike PPG": 8.41,
-    "FP PPG": 4.18,
-    "CBS PPG": 1.44,
-    "Player name": "Cyrus Allen",
-    "Team": "KC",
-    "Pos": "WR",
-    "Avg PPG": 6.17,
-    "High PPG": 9.47,
-    "Low PPG": 1.44
   },
   {
     "NameKey": "cyrus allen",
@@ -6258,20 +5530,6 @@
     "Low PPG": 10.74
   },
   {
-    "NameKey": "dallas goedert",
-    "Andy PPG": 11.76,
-    "Jason PPG": 10.74,
-    "Mike PPG": 11.21,
-    "FP PPG": 12.84,
-    "CBS PPG": 14.82,
-    "Player name": "Dallas Goedert",
-    "Team": "PHI",
-    "Pos": "TE",
-    "Avg PPG": 12.27,
-    "High PPG": 14.82,
-    "Low PPG": 10.74
-  },
-  {
     "NameKey": "dallen bentley",
     "Andy PPG": NaN,
     "Jason PPG": NaN,
@@ -6328,20 +5586,6 @@
     "Low PPG": 11.12
   },
   {
-    "NameKey": "dalton kincaid",
-    "Andy PPG": 11.12,
-    "Jason PPG": 13.82,
-    "Mike PPG": 11.65,
-    "FP PPG": 12.08,
-    "CBS PPG": 13.53,
-    "Player name": "Dalton Kincaid",
-    "Team": "BUF",
-    "Pos": "TE",
-    "Avg PPG": 12.44,
-    "High PPG": 13.82,
-    "Low PPG": 11.12
-  },
-  {
     "NameKey": "dalton schoen",
     "Andy PPG": NaN,
     "Jason PPG": NaN,
@@ -6354,20 +5598,6 @@
     "Avg PPG": 0.0,
     "High PPG": 0.0,
     "Low PPG": 0.0
-  },
-  {
-    "NameKey": "dalton schultz",
-    "Andy PPG": 12.06,
-    "Jason PPG": 12.12,
-    "Mike PPG": 11.35,
-    "FP PPG": 10.65,
-    "CBS PPG": 11.74,
-    "Player name": "Dalton Schultz",
-    "Team": "HOU",
-    "Pos": "TE",
-    "Avg PPG": 11.58,
-    "High PPG": 12.12,
-    "Low PPG": 10.65
   },
   {
     "NameKey": "dalton schultz",
@@ -6536,20 +5766,6 @@
     "Avg PPG": 0.0,
     "High PPG": 0.0,
     "Low PPG": 0.0
-  },
-  {
-    "NameKey": "dandre swift",
-    "Andy PPG": 19.88,
-    "Jason PPG": 20.56,
-    "Mike PPG": 22.0,
-    "FP PPG": 20.51,
-    "CBS PPG": 21.94,
-    "Player name": "D'Andre Swift",
-    "Team": "CHI",
-    "Pos": "RB",
-    "Avg PPG": 20.98,
-    "High PPG": 22.0,
-    "Low PPG": 19.88
   },
   {
     "NameKey": "dandre swift",
@@ -6888,20 +6104,6 @@
     "Low PPG": 6.71
   },
   {
-    "NameKey": "darius slayton",
-    "Andy PPG": 7.97,
-    "Jason PPG": 6.71,
-    "Mike PPG": 8.65,
-    "FP PPG": 8.07,
-    "CBS PPG": 9.24,
-    "Player name": "Darius Slayton",
-    "Team": "NYG",
-    "Pos": "WR",
-    "Avg PPG": 8.13,
-    "High PPG": 9.24,
-    "Low PPG": 6.71
-  },
-  {
     "NameKey": "darnell holland",
     "Andy PPG": NaN,
     "Jason PPG": NaN,
@@ -6928,34 +6130,6 @@
     "Avg PPG": 6.71,
     "High PPG": 10.38,
     "Low PPG": 3.47
-  },
-  {
-    "NameKey": "darnell mooney",
-    "Andy PPG": 7.26,
-    "Jason PPG": 10.38,
-    "Mike PPG": 3.47,
-    "FP PPG": 5.7,
-    "CBS PPG": 6.74,
-    "Player name": "Darnell Mooney",
-    "Team": "NYG",
-    "Pos": "WR",
-    "Avg PPG": 6.71,
-    "High PPG": 10.38,
-    "Low PPG": 3.47
-  },
-  {
-    "NameKey": "darnell washington",
-    "Andy PPG": 4.24,
-    "Jason PPG": 4.06,
-    "Mike PPG": 4.18,
-    "FP PPG": 5.58,
-    "CBS PPG": 6.38,
-    "Player name": "Darnell Washington",
-    "Team": "PIT",
-    "Pos": "TE",
-    "Avg PPG": 4.89,
-    "High PPG": 6.38,
-    "Low PPG": 4.06
   },
   {
     "NameKey": "darnell washington",
@@ -7000,20 +6174,6 @@
     "Low PPG": 5.53
   },
   {
-    "NameKey": "darren waller",
-    "Andy PPG": 7.53,
-    "Jason PPG": 9.79,
-    "Mike PPG": 5.53,
-    "FP PPG": 8.34,
-    "CBS PPG": 9.12,
-    "Player name": "Darren Waller",
-    "Team": "CAR",
-    "Pos": "TE",
-    "Avg PPG": 8.06,
-    "High PPG": 9.79,
-    "Low PPG": 5.53
-  },
-  {
     "NameKey": "darrin hall",
     "Andy PPG": NaN,
     "Jason PPG": NaN,
@@ -7040,20 +6200,6 @@
     "Avg PPG": 0.0,
     "High PPG": 0.0,
     "Low PPG": 0.0
-  },
-  {
-    "NameKey": "davante adams",
-    "Andy PPG": 15.12,
-    "Jason PPG": 17.12,
-    "Mike PPG": 17.09,
-    "FP PPG": 16.66,
-    "CBS PPG": 15.76,
-    "Player name": "Davante Adams",
-    "Team": "LAR",
-    "Pos": "WR",
-    "Avg PPG": 16.35,
-    "High PPG": 17.12,
-    "Low PPG": 15.12
   },
   {
     "NameKey": "davante adams",
@@ -7140,20 +6286,6 @@
     "Low PPG": 16.21
   },
   {
-    "NameKey": "david montgomery",
-    "Andy PPG": 16.21,
-    "Jason PPG": 18.09,
-    "Mike PPG": 19.65,
-    "FP PPG": 17.95,
-    "CBS PPG": 18.68,
-    "Player name": "David Montgomery",
-    "Team": "HOU",
-    "Pos": "RB",
-    "Avg PPG": 18.12,
-    "High PPG": 19.65,
-    "Low PPG": 16.21
-  },
-  {
     "NameKey": "david moore",
     "Andy PPG": NaN,
     "Jason PPG": NaN,
@@ -7166,20 +6298,6 @@
     "Avg PPG": 0.7,
     "High PPG": 1.41,
     "Low PPG": 0.0
-  },
-  {
-    "NameKey": "david njoku",
-    "Andy PPG": 6.44,
-    "Jason PPG": 7.79,
-    "Mike PPG": 8.47,
-    "FP PPG": 7.58,
-    "CBS PPG": 8.29,
-    "Player name": "David Njoku",
-    "Team": "LAC",
-    "Pos": "TE",
-    "Avg PPG": 7.71,
-    "High PPG": 8.47,
-    "Low PPG": 6.44
   },
   {
     "NameKey": "david njoku",
@@ -7306,20 +6424,6 @@
     "Avg PPG": 0.0,
     "High PPG": 0.0,
     "Low PPG": 0.0
-  },
-  {
-    "NameKey": "dawson knox",
-    "Andy PPG": 5.47,
-    "Jason PPG": 6.03,
-    "Mike PPG": 6.44,
-    "FP PPG": 5.98,
-    "CBS PPG": 7.03,
-    "Player name": "Dawson Knox",
-    "Team": "BUF",
-    "Pos": "TE",
-    "Avg PPG": 6.19,
-    "High PPG": 7.03,
-    "Low PPG": 5.47
   },
   {
     "NameKey": "dawson knox",
@@ -7518,20 +6622,6 @@
     "Low PPG": 8.56
   },
   {
-    "NameKey": "deebo samuel",
-    "Andy PPG": 8.56,
-    "Jason PPG": 10.47,
-    "Mike PPG": 9.5,
-    "FP PPG": 11.87,
-    "CBS PPG": 12.44,
-    "Player name": "Deebo Samuel Sr.",
-    "Team": "SF",
-    "Pos": "WR",
-    "Avg PPG": 10.57,
-    "High PPG": 12.44,
-    "Low PPG": 8.56
-  },
-  {
     "NameKey": "deejay dallas",
     "Andy PPG": NaN,
     "Jason PPG": NaN,
@@ -7586,20 +6676,6 @@
     "Avg PPG": 5.91,
     "High PPG": 7.53,
     "Low PPG": 4.29
-  },
-  {
-    "NameKey": "demario douglas",
-    "Andy PPG": 10.62,
-    "Jason PPG": 8.26,
-    "Mike PPG": 8.09,
-    "FP PPG": 6.23,
-    "CBS PPG": 4.97,
-    "Player name": "DeMario Douglas",
-    "Team": "NE",
-    "Pos": "WR",
-    "Avg PPG": 7.63,
-    "High PPG": 10.62,
-    "Low PPG": 4.97
   },
   {
     "NameKey": "demario douglas",
@@ -7686,20 +6762,6 @@
     "Low PPG": 1.03
   },
   {
-    "NameKey": "demond claiborne",
-    "Andy PPG": 3.09,
-    "Jason PPG": 5.79,
-    "Mike PPG": 1.32,
-    "FP PPG": 1.03,
-    "CBS PPG": 1.29,
-    "Player name": "Demond Claiborne",
-    "Team": "MIN",
-    "Pos": "RB",
-    "Avg PPG": 2.5,
-    "High PPG": 5.79,
-    "Low PPG": 1.03
-  },
-  {
     "NameKey": "demontre tuggle",
     "Andy PPG": NaN,
     "Jason PPG": NaN,
@@ -7754,20 +6816,6 @@
     "Avg PPG": 0.0,
     "High PPG": 0.0,
     "Low PPG": 0.0
-  },
-  {
-    "NameKey": "denzel boston",
-    "Andy PPG": 12.76,
-    "Jason PPG": 7.88,
-    "Mike PPG": 9.68,
-    "FP PPG": 11.82,
-    "CBS PPG": 12.71,
-    "Player name": "Denzel Boston",
-    "Team": "CLE",
-    "Pos": "WR",
-    "Avg PPG": 10.97,
-    "High PPG": 12.76,
-    "Low PPG": 7.88
   },
   {
     "NameKey": "denzel boston",
@@ -7966,20 +7014,6 @@
     "Low PPG": 21.5
   },
   {
-    "NameKey": "derrick henry",
-    "Andy PPG": 21.5,
-    "Jason PPG": 22.26,
-    "Mike PPG": 24.41,
-    "FP PPG": 26.23,
-    "CBS PPG": 27.91,
-    "Player name": "Derrick Henry",
-    "Team": "BAL",
-    "Pos": "RB",
-    "Avg PPG": 24.46,
-    "High PPG": 27.91,
-    "Low PPG": 21.5
-  },
-  {
     "NameKey": "derrick johnson",
     "Andy PPG": NaN,
     "Jason PPG": NaN,
@@ -8120,20 +7154,6 @@
     "Low PPG": 5.0
   },
   {
-    "NameKey": "devaughn vele",
-    "Andy PPG": 5.0,
-    "Jason PPG": 6.82,
-    "Mike PPG": 8.88,
-    "FP PPG": 9.51,
-    "CBS PPG": 9.91,
-    "Player name": "Devaughn Vele",
-    "Team": "NO",
-    "Pos": "WR",
-    "Avg PPG": 8.02,
-    "High PPG": 9.91,
-    "Low PPG": 5.0
-  },
-  {
     "NameKey": "deven thompkins",
     "Andy PPG": NaN,
     "Jason PPG": NaN,
@@ -8232,20 +7252,6 @@
     "Low PPG": 1.01
   },
   {
-    "NameKey": "devin neal",
-    "Andy PPG": 5.29,
-    "Jason PPG": 4.76,
-    "Mike PPG": 1.91,
-    "FP PPG": 1.01,
-    "CBS PPG": 3.38,
-    "Player name": "Devin Neal",
-    "Team": "NO",
-    "Pos": "RB",
-    "Avg PPG": 3.27,
-    "High PPG": 5.29,
-    "Low PPG": 1.01
-  },
-  {
     "NameKey": "devin ross",
     "Andy PPG": NaN,
     "Jason PPG": NaN,
@@ -8272,34 +7278,6 @@
     "Avg PPG": 2.25,
     "High PPG": 4.41,
     "Low PPG": 0.0
-  },
-  {
-    "NameKey": "devin singletary",
-    "Andy PPG": 4.41,
-    "Jason PPG": 3.76,
-    "Mike PPG": 1.88,
-    "FP PPG": 0.0,
-    "CBS PPG": 1.21,
-    "Player name": "Devin Singletary",
-    "Team": "NYG",
-    "Pos": "RB",
-    "Avg PPG": 2.25,
-    "High PPG": 4.41,
-    "Low PPG": 0.0
-  },
-  {
-    "NameKey": "devon achane",
-    "Andy PPG": 27.32,
-    "Jason PPG": 24.56,
-    "Mike PPG": 22.94,
-    "FP PPG": 25.74,
-    "CBS PPG": 26.97,
-    "Player name": "De'Von Achane",
-    "Team": "MIA",
-    "Pos": "RB",
-    "Avg PPG": 25.51,
-    "High PPG": 27.32,
-    "Low PPG": 22.94
   },
   {
     "NameKey": "devon achane",
@@ -8356,20 +7334,6 @@
     "Avg PPG": 0.0,
     "High PPG": 0.0,
     "Low PPG": 0.0
-  },
-  {
-    "NameKey": "devonta smith",
-    "Andy PPG": 17.97,
-    "Jason PPG": 19.38,
-    "Mike PPG": 18.03,
-    "FP PPG": 18.21,
-    "CBS PPG": 18.53,
-    "Player name": "DeVonta Smith",
-    "Team": "PHI",
-    "Pos": "WR",
-    "Avg PPG": 18.42,
-    "High PPG": 19.38,
-    "Low PPG": 17.97
   },
   {
     "NameKey": "devonta smith",
@@ -8456,20 +7420,6 @@
     "Low PPG": 3.38
   },
   {
-    "NameKey": "devontez walker",
-    "Andy PPG": 3.65,
-    "Jason PPG": 3.97,
-    "Mike PPG": 3.38,
-    "FP PPG": 3.53,
-    "CBS PPG": 6.65,
-    "Player name": "Devontez Walker",
-    "Team": "BAL",
-    "Pos": "WR",
-    "Avg PPG": 4.24,
-    "High PPG": 6.65,
-    "Low PPG": 3.38
-  },
-  {
     "NameKey": "devontres dukes",
     "Andy PPG": NaN,
     "Jason PPG": NaN,
@@ -8524,20 +7474,6 @@
     "Avg PPG": 0.0,
     "High PPG": 0.0,
     "Low PPG": 0.0
-  },
-  {
-    "NameKey": "dezhaun stribling",
-    "Andy PPG": 12.65,
-    "Jason PPG": 12.74,
-    "Mike PPG": 14.76,
-    "FP PPG": 12.7,
-    "CBS PPG": 13.68,
-    "Player name": "De'Zhaun Stribling",
-    "Team": "SF",
-    "Pos": "WR",
-    "Avg PPG": 13.31,
-    "High PPG": 14.76,
-    "Low PPG": 12.65
   },
   {
     "NameKey": "dezhaun stribling",
@@ -8680,20 +7616,6 @@
     "Low PPG": 1.21
   },
   {
-    "NameKey": "dj giddens",
-    "Andy PPG": 7.0,
-    "Jason PPG": 4.68,
-    "Mike PPG": 3.47,
-    "FP PPG": 1.81,
-    "CBS PPG": 1.21,
-    "Player name": "DJ Giddens",
-    "Team": "IND",
-    "Pos": "RB",
-    "Avg PPG": 3.63,
-    "High PPG": 7.0,
-    "Low PPG": 1.21
-  },
-  {
     "NameKey": "dj herman",
     "Andy PPG": NaN,
     "Jason PPG": NaN,
@@ -8720,20 +7642,6 @@
     "Avg PPG": 0.0,
     "High PPG": 0.0,
     "Low PPG": 0.0
-  },
-  {
-    "NameKey": "dj moore",
-    "Andy PPG": 17.41,
-    "Jason PPG": 17.82,
-    "Mike PPG": 15.44,
-    "FP PPG": 15.76,
-    "CBS PPG": 15.41,
-    "Player name": "DJ Moore",
-    "Team": "BUF",
-    "Pos": "WR",
-    "Avg PPG": 16.37,
-    "High PPG": 17.82,
-    "Low PPG": 15.41
   },
   {
     "NameKey": "dj moore",
@@ -8832,20 +7740,6 @@
     "Avg PPG": 0.0,
     "High PPG": 0.0,
     "Low PPG": 0.0
-  },
-  {
-    "NameKey": "dk metcalf",
-    "Andy PPG": 17.24,
-    "Jason PPG": 16.68,
-    "Mike PPG": 15.82,
-    "FP PPG": 15.19,
-    "CBS PPG": 15.03,
-    "Player name": "DK Metcalf",
-    "Team": "PIT",
-    "Pos": "WR",
-    "Avg PPG": 15.99,
-    "High PPG": 17.24,
-    "Low PPG": 15.03
   },
   {
     "NameKey": "dk metcalf",
@@ -9072,20 +7966,6 @@
     "Low PPG": 7.0
   },
   {
-    "NameKey": "dontayvion wicks",
-    "Andy PPG": 8.74,
-    "Jason PPG": 10.47,
-    "Mike PPG": 9.91,
-    "FP PPG": 7.72,
-    "CBS PPG": 7.0,
-    "Player name": "Dontayvion Wicks",
-    "Team": "PHI",
-    "Pos": "WR",
-    "Avg PPG": 8.77,
-    "High PPG": 10.47,
-    "Low PPG": 7.0
-  },
-  {
     "NameKey": "donte sylencieux",
     "Andy PPG": NaN,
     "Jason PPG": NaN,
@@ -9098,20 +7978,6 @@
     "Avg PPG": 0.0,
     "High PPG": 0.0,
     "Low PPG": 0.0
-  },
-  {
-    "NameKey": "donte thornton",
-    "Andy PPG": 5.21,
-    "Jason PPG": 3.79,
-    "Mike PPG": 3.68,
-    "FP PPG": 0.75,
-    "CBS PPG": 4.38,
-    "Player name": "Dont'e Thornton Jr.",
-    "Team": "LV",
-    "Pos": "WR",
-    "Avg PPG": 3.56,
-    "High PPG": 5.21,
-    "Low PPG": 0.75
   },
   {
     "NameKey": "donte thornton",
@@ -9168,20 +8034,6 @@
     "Avg PPG": 1.18,
     "High PPG": 1.18,
     "Low PPG": 1.18
-  },
-  {
-    "NameKey": "drake london",
-    "Andy PPG": 18.76,
-    "Jason PPG": 20.24,
-    "Mike PPG": 19.65,
-    "FP PPG": 21.12,
-    "CBS PPG": 21.88,
-    "Player name": "Drake London",
-    "Team": "ATL",
-    "Pos": "WR",
-    "Avg PPG": 20.33,
-    "High PPG": 21.88,
-    "Low PPG": 18.76
   },
   {
     "NameKey": "drake london",
@@ -9534,20 +8386,6 @@
     "Low PPG": 7.94
   },
   {
-    "NameKey": "dylan sampson",
-    "Andy PPG": 8.5,
-    "Jason PPG": 10.97,
-    "Mike PPG": 7.94,
-    "FP PPG": 8.94,
-    "CBS PPG": 10.56,
-    "Player name": "Dylan Sampson",
-    "Team": "CLE",
-    "Pos": "RB",
-    "Avg PPG": 9.38,
-    "High PPG": 10.97,
-    "Low PPG": 7.94
-  },
-  {
     "NameKey": "dylan soehner",
     "Andy PPG": NaN,
     "Jason PPG": NaN,
@@ -9786,20 +8624,6 @@
     "Low PPG": 3.78
   },
   {
-    "NameKey": "eli stowers",
-    "Andy PPG": 5.59,
-    "Jason PPG": 6.38,
-    "Mike PPG": 5.53,
-    "FP PPG": 3.78,
-    "CBS PPG": 5.56,
-    "Player name": "Eli Stowers",
-    "Team": "PHI",
-    "Pos": "TE",
-    "Avg PPG": 5.37,
-    "High PPG": 6.38,
-    "Low PPG": 3.78
-  },
-  {
     "NameKey": "eli wilson",
     "Andy PPG": NaN,
     "Jason PPG": NaN,
@@ -9840,34 +8664,6 @@
     "Avg PPG": 7.07,
     "High PPG": 10.29,
     "Low PPG": 4.62
-  },
-  {
-    "NameKey": "elic ayomanor",
-    "Andy PPG": 8.56,
-    "Jason PPG": 5.74,
-    "Mike PPG": 4.62,
-    "FP PPG": 6.15,
-    "CBS PPG": 10.29,
-    "Player name": "Elic Ayomanor",
-    "Team": "TEN",
-    "Pos": "WR",
-    "Avg PPG": 7.07,
-    "High PPG": 10.29,
-    "Low PPG": 4.62
-  },
-  {
-    "NameKey": "elijah arroyo",
-    "Andy PPG": 7.24,
-    "Jason PPG": 1.59,
-    "Mike PPG": 3.91,
-    "FP PPG": 4.41,
-    "CBS PPG": 1.29,
-    "Player name": "Elijah Arroyo",
-    "Team": "SEA",
-    "Pos": "TE",
-    "Avg PPG": 3.69,
-    "High PPG": 7.24,
-    "Low PPG": 1.29
   },
   {
     "NameKey": "elijah arroyo",
@@ -9982,20 +8778,6 @@
     "Low PPG": 2.79
   },
   {
-    "NameKey": "elijah sarratt",
-    "Andy PPG": 3.88,
-    "Jason PPG": 3.76,
-    "Mike PPG": 3.74,
-    "FP PPG": 2.79,
-    "CBS PPG": 4.68,
-    "Player name": "Elijah Sarratt",
-    "Team": "BAL",
-    "Pos": "WR",
-    "Avg PPG": 3.77,
-    "High PPG": 4.68,
-    "Low PPG": 2.79
-  },
-  {
     "NameKey": "elijah tautolliver",
     "Andy PPG": NaN,
     "Jason PPG": NaN,
@@ -10094,20 +8876,6 @@
     "Low PPG": 1.41
   },
   {
-    "NameKey": "emanuel wilson",
-    "Andy PPG": 5.47,
-    "Jason PPG": 1.41,
-    "Mike PPG": 4.44,
-    "FP PPG": 4.74,
-    "CBS PPG": 8.41,
-    "Player name": "Emanuel Wilson",
-    "Team": "SEA",
-    "Pos": "RB",
-    "Avg PPG": 4.89,
-    "High PPG": 8.41,
-    "Low PPG": 1.41
-  },
-  {
     "NameKey": "emari demercado",
     "Andy PPG": 5.06,
     "Jason PPG": 2.35,
@@ -10120,34 +8888,6 @@
     "Avg PPG": 4.96,
     "High PPG": 9.32,
     "Low PPG": 0.97
-  },
-  {
-    "NameKey": "emari demercado",
-    "Andy PPG": 5.06,
-    "Jason PPG": 2.35,
-    "Mike PPG": 0.97,
-    "FP PPG": 7.09,
-    "CBS PPG": 9.32,
-    "Player name": "Emari Demercado",
-    "Team": "KC",
-    "Pos": "RB",
-    "Avg PPG": 4.96,
-    "High PPG": 9.32,
-    "Low PPG": 0.97
-  },
-  {
-    "NameKey": "emeka egbuka",
-    "Andy PPG": 18.71,
-    "Jason PPG": 18.56,
-    "Mike PPG": 17.97,
-    "FP PPG": 17.84,
-    "CBS PPG": 18.41,
-    "Player name": "Emeka Egbuka",
-    "Team": "TB",
-    "Pos": "WR",
-    "Avg PPG": 18.3,
-    "High PPG": 18.71,
-    "Low PPG": 17.84
   },
   {
     "NameKey": "emeka egbuka",
@@ -10204,20 +8944,6 @@
     "Avg PPG": 2.65,
     "High PPG": 2.65,
     "Low PPG": 2.65
-  },
-  {
-    "NameKey": "emmett johnson",
-    "Andy PPG": 5.12,
-    "Jason PPG": 8.79,
-    "Mike PPG": 6.62,
-    "FP PPG": 3.82,
-    "CBS PPG": 1.26,
-    "Player name": "Emmett Johnson",
-    "Team": "KC",
-    "Pos": "RB",
-    "Avg PPG": 5.12,
-    "High PPG": 8.79,
-    "Low PPG": 1.26
   },
   {
     "NameKey": "emmett johnson",
@@ -10386,20 +9112,6 @@
     "Avg PPG": 0.0,
     "High PPG": 0.0,
     "Low PPG": 0.0
-  },
-  {
-    "NameKey": "evan engram",
-    "Andy PPG": 7.26,
-    "Jason PPG": 5.88,
-    "Mike PPG": 7.32,
-    "FP PPG": 8.28,
-    "CBS PPG": 8.47,
-    "Player name": "Evan Engram",
-    "Team": "DEN",
-    "Pos": "TE",
-    "Avg PPG": 7.44,
-    "High PPG": 8.47,
-    "Low PPG": 5.88
   },
   {
     "NameKey": "evan engram",
@@ -10668,20 +9380,6 @@
     "Low PPG": 17.15
   },
   {
-    "NameKey": "garrett wilson",
-    "Andy PPG": 18.41,
-    "Jason PPG": 19.79,
-    "Mike PPG": 18.71,
-    "FP PPG": 18.09,
-    "CBS PPG": 17.15,
-    "Player name": "Garrett Wilson",
-    "Team": "NYJ",
-    "Pos": "WR",
-    "Avg PPG": 18.43,
-    "High PPG": 19.79,
-    "Low PPG": 17.15
-  },
-  {
     "NameKey": "gary brightwell",
     "Andy PPG": NaN,
     "Jason PPG": NaN,
@@ -10836,34 +9534,6 @@
     "Low PPG": 13.24
   },
   {
-    "NameKey": "george kittle",
-    "Andy PPG": 13.24,
-    "Jason PPG": 13.38,
-    "Mike PPG": 14.79,
-    "FP PPG": 13.63,
-    "CBS PPG": 15.74,
-    "Player name": "George Kittle",
-    "Team": "SF",
-    "Pos": "TE",
-    "Avg PPG": 14.16,
-    "High PPG": 15.74,
-    "Low PPG": 13.24
-  },
-  {
-    "NameKey": "george pickens",
-    "Andy PPG": 19.65,
-    "Jason PPG": 20.35,
-    "Mike PPG": 20.24,
-    "FP PPG": 19.72,
-    "CBS PPG": 22.76,
-    "Player name": "George Pickens",
-    "Team": "DAL",
-    "Pos": "WR",
-    "Avg PPG": 20.54,
-    "High PPG": 22.76,
-    "Low PPG": 19.65
-  },
-  {
     "NameKey": "george pickens",
     "Andy PPG": 19.65,
     "Jason PPG": 20.35,
@@ -10904,20 +9574,6 @@
     "Avg PPG": 0.0,
     "High PPG": 0.0,
     "Low PPG": 0.0
-  },
-  {
-    "NameKey": "germie bernard",
-    "Andy PPG": 7.41,
-    "Jason PPG": 8.74,
-    "Mike PPG": 8.94,
-    "FP PPG": 8.37,
-    "CBS PPG": 8.53,
-    "Player name": "Germie Bernard",
-    "Team": "PIT",
-    "Pos": "WR",
-    "Avg PPG": 8.4,
-    "High PPG": 8.94,
-    "Low PPG": 7.41
   },
   {
     "NameKey": "germie bernard",
@@ -11144,20 +9800,6 @@
     "Low PPG": 7.97
   },
   {
-    "NameKey": "greg dulcich",
-    "Andy PPG": 11.35,
-    "Jason PPG": 7.97,
-    "Mike PPG": 10.5,
-    "FP PPG": 10.19,
-    "CBS PPG": 11.06,
-    "Player name": "Greg Dulcich",
-    "Team": "MIA",
-    "Pos": "TE",
-    "Avg PPG": 10.21,
-    "High PPG": 11.35,
-    "Low PPG": 7.97
-  },
-  {
     "NameKey": "griffin hebert",
     "Andy PPG": NaN,
     "Jason PPG": NaN,
@@ -11184,20 +9826,6 @@
     "Avg PPG": 0.0,
     "High PPG": 0.0,
     "Low PPG": 0.0
-  },
-  {
-    "NameKey": "gunnar helm",
-    "Andy PPG": 8.21,
-    "Jason PPG": 8.26,
-    "Mike PPG": 4.5,
-    "FP PPG": 7.94,
-    "CBS PPG": 6.94,
-    "Player name": "Gunnar Helm",
-    "Team": "TEN",
-    "Pos": "TE",
-    "Avg PPG": 7.17,
-    "High PPG": 8.26,
-    "Low PPG": 4.5
   },
   {
     "NameKey": "gunnar helm",
@@ -11310,20 +9938,6 @@
     "Avg PPG": 0.0,
     "High PPG": 0.0,
     "Low PPG": 0.0
-  },
-  {
-    "NameKey": "harold fannin",
-    "Andy PPG": 13.21,
-    "Jason PPG": 16.32,
-    "Mike PPG": 13.91,
-    "FP PPG": 13.97,
-    "CBS PPG": 15.38,
-    "Player name": "Harold Fannin Jr.",
-    "Team": "CLE",
-    "Pos": "TE",
-    "Avg PPG": 14.56,
-    "High PPG": 16.32,
-    "Low PPG": 13.21
   },
   {
     "NameKey": "harold fannin",
@@ -11536,20 +10150,6 @@
     "Low PPG": 1.15
   },
   {
-    "NameKey": "hollywood brown",
-    "Andy PPG": 4.94,
-    "Jason PPG": 1.74,
-    "Mike PPG": 1.15,
-    "FP PPG": 6.12,
-    "CBS PPG": NaN,
-    "Player name": "Hollywood Brown",
-    "Team": "PHI",
-    "Pos": "WR",
-    "Avg PPG": 3.49,
-    "High PPG": 6.12,
-    "Low PPG": 1.15
-  },
-  {
     "NameKey": "holton ahlers",
     "Andy PPG": NaN,
     "Jason PPG": NaN,
@@ -11576,20 +10176,6 @@
     "Avg PPG": 0.0,
     "High PPG": 0.0,
     "Low PPG": 0.0
-  },
-  {
-    "NameKey": "hunter henry",
-    "Andy PPG": 11.03,
-    "Jason PPG": 10.97,
-    "Mike PPG": 10.88,
-    "FP PPG": 11.42,
-    "CBS PPG": 12.12,
-    "Player name": "Hunter Henry",
-    "Team": "NE",
-    "Pos": "TE",
-    "Avg PPG": 11.28,
-    "High PPG": 12.12,
-    "Low PPG": 10.88
   },
   {
     "NameKey": "hunter henry",
@@ -11788,20 +10374,6 @@
     "Low PPG": 6.15
   },
   {
-    "NameKey": "isaac teslaa",
-    "Andy PPG": 7.65,
-    "Jason PPG": 6.68,
-    "Mike PPG": 6.15,
-    "FP PPG": 6.54,
-    "CBS PPG": 7.5,
-    "Player name": "Isaac TeSlaa",
-    "Team": "DET",
-    "Pos": "WR",
-    "Avg PPG": 6.9,
-    "High PPG": 7.65,
-    "Low PPG": 6.15
-  },
-  {
     "NameKey": "isaac zico",
     "Andy PPG": NaN,
     "Jason PPG": NaN,
@@ -11858,20 +10430,6 @@
     "Low PPG": 3.15
   },
   {
-    "NameKey": "isaiah davis",
-    "Andy PPG": 6.32,
-    "Jason PPG": 5.59,
-    "Mike PPG": 3.26,
-    "FP PPG": 3.43,
-    "CBS PPG": 3.15,
-    "Player name": "Isaiah Davis",
-    "Team": "NYJ",
-    "Pos": "RB",
-    "Avg PPG": 4.35,
-    "High PPG": 6.32,
-    "Low PPG": 3.15
-  },
-  {
     "NameKey": "isaiah hodgins",
     "Andy PPG": NaN,
     "Jason PPG": NaN,
@@ -11884,20 +10442,6 @@
     "Avg PPG": 1.29,
     "High PPG": 1.29,
     "Low PPG": 1.29
-  },
-  {
-    "NameKey": "isaiah likely",
-    "Andy PPG": 11.88,
-    "Jason PPG": 12.68,
-    "Mike PPG": 10.68,
-    "FP PPG": 12.48,
-    "CBS PPG": 15.12,
-    "Player name": "Isaiah Likely",
-    "Team": "NYG",
-    "Pos": "TE",
-    "Avg PPG": 12.57,
-    "High PPG": 15.12,
-    "Low PPG": 10.68
   },
   {
     "NameKey": "isaiah likely",
@@ -12068,20 +10612,6 @@
     "Low PPG": 7.97
   },
   {
-    "NameKey": "isiah pacheco",
-    "Andy PPG": 7.97,
-    "Jason PPG": 10.29,
-    "Mike PPG": 9.29,
-    "FP PPG": 10.54,
-    "CBS PPG": 11.53,
-    "Player name": "Isiah Pacheco",
-    "Team": "DET",
-    "Pos": "RB",
-    "Avg PPG": 9.92,
-    "High PPG": 11.53,
-    "Low PPG": 7.97
-  },
-  {
     "NameKey": "israel abanikanda",
     "Andy PPG": NaN,
     "Jason PPG": NaN,
@@ -12164,20 +10694,6 @@
     "Avg PPG": 0.0,
     "High PPG": 0.0,
     "Low PPG": 0.0
-  },
-  {
-    "NameKey": "jack bech",
-    "Andy PPG": 6.56,
-    "Jason PPG": 7.21,
-    "Mike PPG": 5.97,
-    "FP PPG": 5.11,
-    "CBS PPG": 4.53,
-    "Player name": "Jack Bech",
-    "Team": "LV",
-    "Pos": "WR",
-    "Avg PPG": 5.88,
-    "High PPG": 7.21,
-    "Low PPG": 4.53
   },
   {
     "NameKey": "jack bech",
@@ -12558,20 +11074,6 @@
     "Low PPG": 13.51
   },
   {
-    "NameKey": "jacory croskeymerritt",
-    "Andy PPG": 17.38,
-    "Jason PPG": 14.38,
-    "Mike PPG": 17.82,
-    "FP PPG": 13.51,
-    "CBS PPG": 13.62,
-    "Player name": "Jacory Croskey-Merritt",
-    "Team": "WAS",
-    "Pos": "RB",
-    "Avg PPG": 15.34,
-    "High PPG": 17.82,
-    "Low PPG": 13.51
-  },
-  {
     "NameKey": "jadakis bonds",
     "Andy PPG": NaN,
     "Jason PPG": NaN,
@@ -12584,20 +11086,6 @@
     "Avg PPG": 0.0,
     "High PPG": 0.0,
     "Low PPG": 0.0
-  },
-  {
-    "NameKey": "jadarian price",
-    "Andy PPG": 17.79,
-    "Jason PPG": 19.29,
-    "Mike PPG": 15.94,
-    "FP PPG": 17.64,
-    "CBS PPG": 18.56,
-    "Player name": "Jadarian Price",
-    "Team": "SEA",
-    "Pos": "RB",
-    "Avg PPG": 17.84,
-    "High PPG": 19.29,
-    "Low PPG": 15.94
   },
   {
     "NameKey": "jadarian price",
@@ -12740,20 +11228,6 @@
     "Low PPG": 3.82
   },
   {
-    "NameKey": "jahan dotson",
-    "Andy PPG": 3.82,
-    "Jason PPG": 7.12,
-    "Mike PPG": 5.59,
-    "FP PPG": 7.24,
-    "CBS PPG": 4.03,
-    "Player name": "Jahan Dotson",
-    "Team": "ATL",
-    "Pos": "WR",
-    "Avg PPG": 5.56,
-    "High PPG": 7.24,
-    "Low PPG": 3.82
-  },
-  {
     "NameKey": "jahdae walker",
     "Andy PPG": NaN,
     "Jason PPG": NaN,
@@ -12794,20 +11268,6 @@
     "Avg PPG": 0.0,
     "High PPG": 0.0,
     "Low PPG": 0.0
-  },
-  {
-    "NameKey": "jahmyr gibbs",
-    "Andy PPG": 30.74,
-    "Jason PPG": 32.62,
-    "Mike PPG": 33.21,
-    "FP PPG": 31.88,
-    "CBS PPG": 32.82,
-    "Player name": "Jahmyr Gibbs",
-    "Team": "DET",
-    "Pos": "RB",
-    "Avg PPG": 32.25,
-    "High PPG": 33.21,
-    "Low PPG": 30.74
   },
   {
     "NameKey": "jahmyr gibbs",
@@ -12906,20 +11366,6 @@
     "Avg PPG": 0.0,
     "High PPG": 0.0,
     "Low PPG": 0.0
-  },
-  {
-    "NameKey": "jake ferguson",
-    "Andy PPG": 11.0,
-    "Jason PPG": 11.85,
-    "Mike PPG": 10.24,
-    "FP PPG": 11.51,
-    "CBS PPG": 12.29,
-    "Player name": "Jake Ferguson",
-    "Team": "DAL",
-    "Pos": "TE",
-    "Avg PPG": 11.38,
-    "High PPG": 12.29,
-    "Low PPG": 10.24
   },
   {
     "NameKey": "jake ferguson",
@@ -13062,34 +11508,6 @@
     "Low PPG": 8.38
   },
   {
-    "NameKey": "jakobi lane",
-    "Andy PPG": 9.0,
-    "Jason PPG": 8.38,
-    "Mike PPG": 8.68,
-    "FP PPG": 9.73,
-    "CBS PPG": 11.65,
-    "Player name": "Ja'Kobi Lane",
-    "Team": "BAL",
-    "Pos": "WR",
-    "Avg PPG": 9.49,
-    "High PPG": 11.65,
-    "Low PPG": 8.38
-  },
-  {
-    "NameKey": "jakobi meyers",
-    "Andy PPG": 13.35,
-    "Jason PPG": 11.71,
-    "Mike PPG": 11.97,
-    "FP PPG": 13.32,
-    "CBS PPG": 13.53,
-    "Player name": "Jakobi Meyers",
-    "Team": "JAX",
-    "Pos": "WR",
-    "Avg PPG": 12.78,
-    "High PPG": 13.53,
-    "Low PPG": 11.71
-  },
-  {
     "NameKey": "jakobi meyers",
     "Andy PPG": 13.35,
     "Jason PPG": 11.71,
@@ -13144,20 +11562,6 @@
     "Avg PPG": 2.98,
     "High PPG": 5.97,
     "Low PPG": 0.0
-  },
-  {
-    "NameKey": "jalen coker",
-    "Andy PPG": 10.56,
-    "Jason PPG": 12.97,
-    "Mike PPG": 12.12,
-    "FP PPG": 11.91,
-    "CBS PPG": 12.76,
-    "Player name": "Jalen Coker",
-    "Team": "CAR",
-    "Pos": "WR",
-    "Avg PPG": 12.06,
-    "High PPG": 12.97,
-    "Low PPG": 10.56
   },
   {
     "NameKey": "jalen coker",
@@ -13244,20 +11648,6 @@
     "Low PPG": 5.12
   },
   {
-    "NameKey": "jalen mcmillan",
-    "Andy PPG": 7.35,
-    "Jason PPG": 5.12,
-    "Mike PPG": 8.03,
-    "FP PPG": 10.18,
-    "CBS PPG": 10.41,
-    "Player name": "Jalen McMillan",
-    "Team": "TB",
-    "Pos": "WR",
-    "Avg PPG": 8.22,
-    "High PPG": 10.41,
-    "Low PPG": 5.12
-  },
-  {
     "NameKey": "jalen milroe",
     "Andy PPG": NaN,
     "Jason PPG": NaN,
@@ -13314,20 +11704,6 @@
     "Low PPG": 8.12
   },
   {
-    "NameKey": "jalen nailor",
-    "Andy PPG": 10.76,
-    "Jason PPG": 10.32,
-    "Mike PPG": 8.12,
-    "FP PPG": 9.75,
-    "CBS PPG": 9.85,
-    "Player name": "Jalen Nailor",
-    "Team": "LV",
-    "Pos": "WR",
-    "Avg PPG": 9.76,
-    "High PPG": 10.76,
-    "Low PPG": 8.12
-  },
-  {
     "NameKey": "jalen reagor",
     "Andy PPG": NaN,
     "Jason PPG": NaN,
@@ -13368,20 +11744,6 @@
     "Avg PPG": 0.0,
     "High PPG": 0.0,
     "Low PPG": 0.0
-  },
-  {
-    "NameKey": "jalen tolbert",
-    "Andy PPG": 6.12,
-    "Jason PPG": 5.06,
-    "Mike PPG": 9.06,
-    "FP PPG": 6.62,
-    "CBS PPG": 6.21,
-    "Player name": "Jalen Tolbert",
-    "Team": "MIA",
-    "Pos": "WR",
-    "Avg PPG": 6.61,
-    "High PPG": 9.06,
-    "Low PPG": 5.06
   },
   {
     "NameKey": "jalen tolbert",
@@ -13678,20 +12040,6 @@
     "Low PPG": 25.06
   },
   {
-    "NameKey": "jamarr chase",
-    "Andy PPG": 25.06,
-    "Jason PPG": 25.65,
-    "Mike PPG": 26.12,
-    "FP PPG": 25.31,
-    "CBS PPG": 25.76,
-    "Player name": "Ja'Marr Chase",
-    "Team": "CIN",
-    "Pos": "WR",
-    "Avg PPG": 25.58,
-    "High PPG": 26.12,
-    "Low PPG": 25.06
-  },
-  {
     "NameKey": "jameis winston",
     "Andy PPG": NaN,
     "Jason PPG": NaN,
@@ -13746,34 +12094,6 @@
     "Avg PPG": 5.99,
     "High PPG": 10.0,
     "Low PPG": 4.18
-  },
-  {
-    "NameKey": "james conner",
-    "Andy PPG": 5.12,
-    "Jason PPG": 5.56,
-    "Mike PPG": 5.09,
-    "FP PPG": 4.18,
-    "CBS PPG": 10.0,
-    "Player name": "James Conner",
-    "Team": "ARI",
-    "Pos": "RB",
-    "Avg PPG": 5.99,
-    "High PPG": 10.0,
-    "Low PPG": 4.18
-  },
-  {
-    "NameKey": "james cook",
-    "Andy PPG": 27.65,
-    "Jason PPG": 27.91,
-    "Mike PPG": 26.24,
-    "FP PPG": 25.38,
-    "CBS PPG": 25.12,
-    "Player name": "James Cook III",
-    "Team": "BUF",
-    "Pos": "RB",
-    "Avg PPG": 26.46,
-    "High PPG": 27.91,
-    "Low PPG": 25.12
   },
   {
     "NameKey": "james cook",
@@ -13844,20 +12164,6 @@
     "Avg PPG": 0.0,
     "High PPG": 0.0,
     "Low PPG": 0.0
-  },
-  {
-    "NameKey": "jameson williams",
-    "Andy PPG": 18.56,
-    "Jason PPG": 17.18,
-    "Mike PPG": 17.09,
-    "FP PPG": 17.33,
-    "CBS PPG": 17.79,
-    "Player name": "Jameson Williams",
-    "Team": "DET",
-    "Pos": "WR",
-    "Avg PPG": 17.59,
-    "High PPG": 18.56,
-    "Low PPG": 17.09
   },
   {
     "NameKey": "jameson williams",
@@ -14266,34 +12572,6 @@
     "Low PPG": 3.24
   },
   {
-    "NameKey": "jatavion sanders",
-    "Andy PPG": 4.41,
-    "Jason PPG": 6.09,
-    "Mike PPG": 5.53,
-    "FP PPG": 3.24,
-    "CBS PPG": 3.56,
-    "Player name": "Ja'Tavion Sanders",
-    "Team": "CAR",
-    "Pos": "TE",
-    "Avg PPG": 4.57,
-    "High PPG": 6.09,
-    "Low PPG": 3.24
-  },
-  {
-    "NameKey": "jauan jennings",
-    "Andy PPG": 10.35,
-    "Jason PPG": 9.41,
-    "Mike PPG": NaN,
-    "FP PPG": 9.94,
-    "CBS PPG": 11.44,
-    "Player name": "Jauan Jennings",
-    "Team": "MIN",
-    "Pos": "WR",
-    "Avg PPG": 10.28,
-    "High PPG": 11.44,
-    "Low PPG": 9.41
-  },
-  {
     "NameKey": "jauan jennings",
     "Andy PPG": 10.35,
     "Jason PPG": 9.41,
@@ -14378,20 +12656,6 @@
     "Low PPG": 18.38
   },
   {
-    "NameKey": "javonte williams",
-    "Andy PPG": 18.94,
-    "Jason PPG": 20.32,
-    "Mike PPG": 19.53,
-    "FP PPG": 21.32,
-    "CBS PPG": 18.38,
-    "Player name": "Javonte Williams",
-    "Team": "DAL",
-    "Pos": "RB",
-    "Avg PPG": 19.7,
-    "High PPG": 21.32,
-    "Low PPG": 18.38
-  },
-  {
     "NameKey": "jawhar jordan",
     "Andy PPG": NaN,
     "Jason PPG": NaN,
@@ -14432,20 +12696,6 @@
     "Avg PPG": 0.0,
     "High PPG": 0.0,
     "Low PPG": 0.0
-  },
-  {
-    "NameKey": "jaxon smithnjigba",
-    "Andy PPG": 25.47,
-    "Jason PPG": 23.97,
-    "Mike PPG": 25.32,
-    "FP PPG": 25.46,
-    "CBS PPG": 26.91,
-    "Player name": "Jaxon Smith-Njigba",
-    "Team": "SEA",
-    "Pos": "WR",
-    "Avg PPG": 25.43,
-    "High PPG": 26.91,
-    "Low PPG": 23.97
   },
   {
     "NameKey": "jaxon smithnjigba",
@@ -14532,20 +12782,6 @@
     "Low PPG": 11.29
   },
   {
-    "NameKey": "jayden reed",
-    "Andy PPG": 11.29,
-    "Jason PPG": 15.03,
-    "Mike PPG": 12.91,
-    "FP PPG": 13.09,
-    "CBS PPG": 13.06,
-    "Player name": "Jayden Reed",
-    "Team": "GB",
-    "Pos": "WR",
-    "Avg PPG": 13.08,
-    "High PPG": 15.03,
-    "Low PPG": 11.29
-  },
-  {
     "NameKey": "jaydn ott",
     "Andy PPG": NaN,
     "Jason PPG": NaN,
@@ -14558,20 +12794,6 @@
     "Avg PPG": 0.0,
     "High PPG": 0.0,
     "Low PPG": 0.0
-  },
-  {
-    "NameKey": "jaydon blue",
-    "Andy PPG": 3.74,
-    "Jason PPG": 7.82,
-    "Mike PPG": 0.94,
-    "FP PPG": 4.74,
-    "CBS PPG": 1.15,
-    "Player name": "Jaydon Blue",
-    "Team": "DAL",
-    "Pos": "RB",
-    "Avg PPG": 3.68,
-    "High PPG": 7.82,
-    "Low PPG": 0.94
   },
   {
     "NameKey": "jaydon blue",
@@ -14644,20 +12866,6 @@
     "Low PPG": 16.22
   },
   {
-    "NameKey": "jaylen waddle",
-    "Andy PPG": 18.47,
-    "Jason PPG": 19.47,
-    "Mike PPG": 18.06,
-    "FP PPG": 16.22,
-    "CBS PPG": 16.29,
-    "Player name": "Jaylen Waddle",
-    "Team": "DEN",
-    "Pos": "WR",
-    "Avg PPG": 17.7,
-    "High PPG": 19.47,
-    "Low PPG": 16.22
-  },
-  {
     "NameKey": "jaylen warren",
     "Andy PPG": 15.91,
     "Jason PPG": 15.12,
@@ -14670,34 +12878,6 @@
     "Avg PPG": 16.02,
     "High PPG": 17.3,
     "Low PPG": 14.65
-  },
-  {
-    "NameKey": "jaylen warren",
-    "Andy PPG": 15.91,
-    "Jason PPG": 15.12,
-    "Mike PPG": 14.65,
-    "FP PPG": 17.3,
-    "CBS PPG": 17.12,
-    "Player name": "Jaylen Warren",
-    "Team": "PIT",
-    "Pos": "RB",
-    "Avg PPG": 16.02,
-    "High PPG": 17.3,
-    "Low PPG": 14.65
-  },
-  {
-    "NameKey": "jaylen wright",
-    "Andy PPG": 1.97,
-    "Jason PPG": 6.06,
-    "Mike PPG": 3.44,
-    "FP PPG": 4.76,
-    "CBS PPG": 5.74,
-    "Player name": "Jaylen Wright",
-    "Team": "MIA",
-    "Pos": "RB",
-    "Avg PPG": 4.39,
-    "High PPG": 6.06,
-    "Low PPG": 1.97
   },
   {
     "NameKey": "jaylen wright",
@@ -14726,20 +12906,6 @@
     "Avg PPG": 3.62,
     "High PPG": 4.59,
     "Low PPG": 2.75
-  },
-  {
-    "NameKey": "jaylin noel",
-    "Andy PPG": 5.44,
-    "Jason PPG": 7.71,
-    "Mike PPG": 7.24,
-    "FP PPG": 7.91,
-    "CBS PPG": 8.18,
-    "Player name": "Jaylin Noel",
-    "Team": "HOU",
-    "Pos": "WR",
-    "Avg PPG": 7.3,
-    "High PPG": 8.18,
-    "Low PPG": 5.44
   },
   {
     "NameKey": "jaylin noel",
@@ -15008,20 +13174,6 @@
     "Low PPG": 20.0
   },
   {
-    "NameKey": "jeremiyah love",
-    "Andy PPG": 20.0,
-    "Jason PPG": 20.59,
-    "Mike PPG": 22.41,
-    "FP PPG": 22.65,
-    "CBS PPG": 21.21,
-    "Player name": "Jeremiyah Love",
-    "Team": "ARI",
-    "Pos": "RB",
-    "Avg PPG": 21.37,
-    "High PPG": 22.65,
-    "Low PPG": 20.0
-  },
-  {
     "NameKey": "jeremy gallon",
     "Andy PPG": NaN,
     "Jason PPG": NaN,
@@ -15148,20 +13300,6 @@
     "Low PPG": 0.94
   },
   {
-    "NameKey": "jerome ford",
-    "Andy PPG": 1.59,
-    "Jason PPG": 5.65,
-    "Mike PPG": 4.79,
-    "FP PPG": 0.94,
-    "CBS PPG": 3.29,
-    "Player name": "Jerome Ford",
-    "Team": "WAS",
-    "Pos": "RB",
-    "Avg PPG": 3.25,
-    "High PPG": 5.65,
-    "Low PPG": 0.94
-  },
-  {
     "NameKey": "jerome kapp",
     "Andy PPG": NaN,
     "Jason PPG": NaN,
@@ -15216,20 +13354,6 @@
     "Avg PPG": 0.0,
     "High PPG": 0.0,
     "Low PPG": 0.0
-  },
-  {
-    "NameKey": "jerry jeudy",
-    "Andy PPG": 8.03,
-    "Jason PPG": 10.53,
-    "Mike PPG": 8.97,
-    "FP PPG": 11.69,
-    "CBS PPG": 12.18,
-    "Player name": "Jerry Jeudy",
-    "Team": "CLE",
-    "Pos": "WR",
-    "Avg PPG": 10.28,
-    "High PPG": 12.18,
-    "Low PPG": 8.03
   },
   {
     "NameKey": "jerry jeudy",
@@ -15454,20 +13578,6 @@
     "Avg PPG": 0.0,
     "High PPG": 0.0,
     "Low PPG": 0.0
-  },
-  {
-    "NameKey": "jk dobbins",
-    "Andy PPG": 11.68,
-    "Jason PPG": 13.82,
-    "Mike PPG": 18.12,
-    "FP PPG": 16.01,
-    "CBS PPG": 16.97,
-    "Player name": "J.K. Dobbins",
-    "Team": "DEN",
-    "Pos": "RB",
-    "Avg PPG": 15.32,
-    "High PPG": 18.12,
-    "Low PPG": 11.68
   },
   {
     "NameKey": "jk dobbins",
@@ -16030,20 +14140,6 @@
     "Low PPG": 1.32
   },
   {
-    "NameKey": "jonah coleman",
-    "Andy PPG": 11.44,
-    "Jason PPG": 10.91,
-    "Mike PPG": 4.74,
-    "FP PPG": 3.99,
-    "CBS PPG": 1.32,
-    "Player name": "Jonah Coleman",
-    "Team": "DEN",
-    "Pos": "RB",
-    "Avg PPG": 6.48,
-    "High PPG": 11.44,
-    "Low PPG": 1.32
-  },
-  {
     "NameKey": "jonathan adams",
     "Andy PPG": NaN,
     "Jason PPG": NaN,
@@ -16114,20 +14210,6 @@
     "Low PPG": 25.68
   },
   {
-    "NameKey": "jonathan taylor",
-    "Andy PPG": 26.18,
-    "Jason PPG": 28.94,
-    "Mike PPG": 25.68,
-    "FP PPG": 28.36,
-    "CBS PPG": 30.06,
-    "Player name": "Jonathan Taylor",
-    "Team": "IND",
-    "Pos": "RB",
-    "Avg PPG": 27.84,
-    "High PPG": 30.06,
-    "Low PPG": 25.68
-  },
-  {
     "NameKey": "jonathan ward",
     "Andy PPG": NaN,
     "Jason PPG": NaN,
@@ -16140,20 +14222,6 @@
     "Avg PPG": 0.0,
     "High PPG": 0.0,
     "Low PPG": 0.0
-  },
-  {
-    "NameKey": "jonathon brooks",
-    "Andy PPG": 15.68,
-    "Jason PPG": 13.32,
-    "Mike PPG": 15.97,
-    "FP PPG": 15.09,
-    "CBS PPG": 16.47,
-    "Player name": "Jonathon Brooks",
-    "Team": "CAR",
-    "Pos": "RB",
-    "Avg PPG": 15.31,
-    "High PPG": 16.47,
-    "Low PPG": 13.32
   },
   {
     "NameKey": "jonathon brooks",
@@ -16224,20 +14292,6 @@
     "Avg PPG": 0.0,
     "High PPG": 0.0,
     "Low PPG": 0.0
-  },
-  {
-    "NameKey": "jordan addison",
-    "Andy PPG": 13.56,
-    "Jason PPG": 13.62,
-    "Mike PPG": 14.24,
-    "FP PPG": 12.89,
-    "CBS PPG": 13.18,
-    "Player name": "Jordan Addison",
-    "Team": "MIN",
-    "Pos": "WR",
-    "Avg PPG": 13.5,
-    "High PPG": 14.24,
-    "Low PPG": 12.89
   },
   {
     "NameKey": "jordan addison",
@@ -16338,20 +14392,6 @@
     "Low PPG": 2.47
   },
   {
-    "NameKey": "jordan james",
-    "Andy PPG": 12.41,
-    "Jason PPG": 8.47,
-    "Mike PPG": 2.47,
-    "FP PPG": 6.21,
-    "CBS PPG": 11.29,
-    "Player name": "Jordan James",
-    "Team": "SF",
-    "Pos": "RB",
-    "Avg PPG": 8.17,
-    "High PPG": 12.41,
-    "Low PPG": 2.47
-  },
-  {
     "NameKey": "jordan love",
     "Andy PPG": 26.06,
     "Jason PPG": 29.65,
@@ -16364,20 +14404,6 @@
     "Avg PPG": 27.12,
     "High PPG": 29.65,
     "Low PPG": 26.0
-  },
-  {
-    "NameKey": "jordan mason",
-    "Andy PPG": 14.76,
-    "Jason PPG": 13.38,
-    "Mike PPG": 14.85,
-    "FP PPG": 13.43,
-    "CBS PPG": 14.24,
-    "Player name": "Jordan Mason",
-    "Team": "MIN",
-    "Pos": "RB",
-    "Avg PPG": 14.13,
-    "High PPG": 14.85,
-    "Low PPG": 13.38
   },
   {
     "NameKey": "jordan mason",
@@ -16520,20 +14546,6 @@
     "Low PPG": 1.44
   },
   {
-    "NameKey": "jordan whittington",
-    "Andy PPG": 3.68,
-    "Jason PPG": 3.91,
-    "Mike PPG": 5.24,
-    "FP PPG": 1.44,
-    "CBS PPG": 5.18,
-    "Player name": "Jordan Whittington",
-    "Team": "LAR",
-    "Pos": "WR",
-    "Avg PPG": 3.89,
-    "High PPG": 5.24,
-    "Low PPG": 1.44
-  },
-  {
     "NameKey": "jordan williamslambert",
     "Andy PPG": NaN,
     "Jason PPG": NaN,
@@ -16546,20 +14558,6 @@
     "Avg PPG": 0.0,
     "High PPG": 0.0,
     "Low PPG": 0.0
-  },
-  {
-    "NameKey": "jordyn tyson",
-    "Andy PPG": 10.85,
-    "Jason PPG": 13.15,
-    "Mike PPG": 9.97,
-    "FP PPG": 8.45,
-    "CBS PPG": 9.12,
-    "Player name": "Jordyn Tyson",
-    "Team": "NO",
-    "Pos": "WR",
-    "Avg PPG": 10.31,
-    "High PPG": 13.15,
-    "Low PPG": 8.45
   },
   {
     "NameKey": "jordyn tyson",
@@ -16702,20 +14700,6 @@
     "Low PPG": 11.79
   },
   {
-    "NameKey": "josh downs",
-    "Andy PPG": 12.94,
-    "Jason PPG": 12.03,
-    "Mike PPG": 11.79,
-    "FP PPG": 11.93,
-    "CBS PPG": 12.65,
-    "Player name": "Josh Downs",
-    "Team": "IND",
-    "Pos": "WR",
-    "Avg PPG": 12.27,
-    "High PPG": 12.94,
-    "Low PPG": 11.79
-  },
-  {
     "NameKey": "josh harper",
     "Andy PPG": NaN,
     "Jason PPG": NaN,
@@ -16756,20 +14740,6 @@
     "Avg PPG": 0.0,
     "High PPG": 0.0,
     "Low PPG": 0.0
-  },
-  {
-    "NameKey": "josh jacobs",
-    "Andy PPG": 20.06,
-    "Jason PPG": 21.44,
-    "Mike PPG": 20.79,
-    "FP PPG": 22.22,
-    "CBS PPG": 21.44,
-    "Player name": "Josh Jacobs",
-    "Team": "GB",
-    "Pos": "RB",
-    "Avg PPG": 21.19,
-    "High PPG": 22.22,
-    "Low PPG": 20.06
   },
   {
     "NameKey": "josh jacobs",
@@ -17206,20 +15176,6 @@
     "Low PPG": 5.62
   },
   {
-    "NameKey": "justice hill",
-    "Andy PPG": 6.74,
-    "Jason PPG": 6.91,
-    "Mike PPG": 5.62,
-    "FP PPG": 9.31,
-    "CBS PPG": 9.24,
-    "Player name": "Justice Hill",
-    "Team": "BAL",
-    "Pos": "RB",
-    "Avg PPG": 7.56,
-    "High PPG": 9.31,
-    "Low PPG": 5.62
-  },
-  {
     "NameKey": "justin fields",
     "Andy PPG": NaN,
     "Jason PPG": NaN,
@@ -17276,20 +15232,6 @@
     "Low PPG": 19.44
   },
   {
-    "NameKey": "justin jefferson",
-    "Andy PPG": 20.09,
-    "Jason PPG": 20.85,
-    "Mike PPG": 19.44,
-    "FP PPG": 21.04,
-    "CBS PPG": 20.21,
-    "Player name": "Justin Jefferson",
-    "Team": "MIN",
-    "Pos": "WR",
-    "Avg PPG": 20.33,
-    "High PPG": 21.04,
-    "Low PPG": 19.44
-  },
-  {
     "NameKey": "justin johnson",
     "Andy PPG": NaN,
     "Jason PPG": NaN,
@@ -17302,20 +15244,6 @@
     "Avg PPG": 0.0,
     "High PPG": 0.0,
     "Low PPG": 0.0
-  },
-  {
-    "NameKey": "justin joly",
-    "Andy PPG": NaN,
-    "Jason PPG": 1.5,
-    "Mike PPG": 1.44,
-    "FP PPG": 0.89,
-    "CBS PPG": 1.29,
-    "Player name": "Justin Joly",
-    "Team": "DEN",
-    "Pos": "TE",
-    "Avg PPG": 1.28,
-    "High PPG": 1.5,
-    "Low PPG": 0.89
   },
   {
     "NameKey": "justin joly",
@@ -17472,20 +15400,6 @@
     "Low PPG": 11.62
   },
   {
-    "NameKey": "juwan johnson",
-    "Andy PPG": 12.76,
-    "Jason PPG": 12.85,
-    "Mike PPG": 11.62,
-    "FP PPG": 11.81,
-    "CBS PPG": 13.85,
-    "Player name": "Juwan Johnson",
-    "Team": "NO",
-    "Pos": "TE",
-    "Avg PPG": 12.58,
-    "High PPG": 13.85,
-    "Low PPG": 11.62
-  },
-  {
     "NameKey": "juwann winfree",
     "Andy PPG": NaN,
     "Jason PPG": NaN,
@@ -17584,20 +15498,6 @@
     "Low PPG": 4.09
   },
   {
-    "NameKey": "kaelon black",
-    "Andy PPG": 4.09,
-    "Jason PPG": 4.82,
-    "Mike PPG": 6.62,
-    "FP PPG": 7.82,
-    "CBS PPG": 10.26,
-    "Player name": "Kaelon Black",
-    "Team": "SF",
-    "Pos": "RB",
-    "Avg PPG": 6.72,
-    "High PPG": 10.26,
-    "Low PPG": 4.09
-  },
-  {
     "NameKey": "kai locksley",
     "Andy PPG": NaN,
     "Jason PPG": NaN,
@@ -17640,20 +15540,6 @@
     "Low PPG": 0.25
   },
   {
-    "NameKey": "kaleb johnson",
-    "Andy PPG": 0.85,
-    "Jason PPG": 4.29,
-    "Mike PPG": 2.59,
-    "FP PPG": 0.25,
-    "CBS PPG": 0.47,
-    "Player name": "Kaleb Johnson",
-    "Team": "PIT",
-    "Pos": "RB",
-    "Avg PPG": 1.69,
-    "High PPG": 4.29,
-    "Low PPG": 0.25
-  },
-  {
     "NameKey": "kalel mullings",
     "Andy PPG": NaN,
     "Jason PPG": NaN,
@@ -17680,20 +15566,6 @@
     "Avg PPG": 0.0,
     "High PPG": 0.0,
     "Low PPG": 0.0
-  },
-  {
-    "NameKey": "kalif raymond",
-    "Andy PPG": 4.94,
-    "Jason PPG": 3.91,
-    "Mike PPG": 5.06,
-    "FP PPG": 3.41,
-    "CBS PPG": 4.41,
-    "Player name": "Kalif Raymond",
-    "Team": "CHI",
-    "Pos": "WR",
-    "Avg PPG": 4.35,
-    "High PPG": 5.06,
-    "Low PPG": 3.41
   },
   {
     "NameKey": "kalif raymond",
@@ -17864,34 +15736,6 @@
     "Low PPG": 9.42
   },
   {
-    "NameKey": "kayshon boutte",
-    "Andy PPG": 10.94,
-    "Jason PPG": 12.12,
-    "Mike PPG": 13.24,
-    "FP PPG": 9.42,
-    "CBS PPG": 10.32,
-    "Player name": "Kayshon Boutte",
-    "Team": "HOU",
-    "Pos": "WR",
-    "Avg PPG": 11.21,
-    "High PPG": 13.24,
-    "Low PPG": 9.42
-  },
-  {
-    "NameKey": "kaytron allen",
-    "Andy PPG": 7.26,
-    "Jason PPG": 3.74,
-    "Mike PPG": 0.12,
-    "FP PPG": 1.14,
-    "CBS PPG": 2.76,
-    "Player name": "Kaytron Allen",
-    "Team": "WAS",
-    "Pos": "RB",
-    "Avg PPG": 3.0,
-    "High PPG": 7.26,
-    "Low PPG": 0.12
-  },
-  {
     "NameKey": "kaytron allen",
     "Andy PPG": 7.26,
     "Jason PPG": 3.74,
@@ -17918,20 +15762,6 @@
     "Avg PPG": 0.0,
     "High PPG": 0.0,
     "Low PPG": 0.0
-  },
-  {
-    "NameKey": "kc concepcion",
-    "Andy PPG": 11.68,
-    "Jason PPG": 12.94,
-    "Mike PPG": 11.15,
-    "FP PPG": 12.56,
-    "CBS PPG": 13.24,
-    "Player name": "KC Concepcion",
-    "Team": "CLE",
-    "Pos": "WR",
-    "Avg PPG": 12.31,
-    "High PPG": 13.24,
-    "Low PPG": 11.15
   },
   {
     "NameKey": "kc concepcion",
@@ -18004,20 +15834,6 @@
     "Low PPG": 7.15
   },
   {
-    "NameKey": "keaton mitchell",
-    "Andy PPG": 9.03,
-    "Jason PPG": 10.35,
-    "Mike PPG": 10.29,
-    "FP PPG": 7.28,
-    "CBS PPG": 7.15,
-    "Player name": "Keaton Mitchell",
-    "Team": "LAC",
-    "Pos": "RB",
-    "Avg PPG": 8.82,
-    "High PPG": 10.35,
-    "Low PPG": 7.15
-  },
-  {
     "NameKey": "kedon slovis",
     "Andy PPG": NaN,
     "Jason PPG": NaN,
@@ -18044,20 +15860,6 @@
     "Avg PPG": 0.0,
     "High PPG": 0.0,
     "Low PPG": 0.0
-  },
-  {
-    "NameKey": "keenan allen",
-    "Andy PPG": 9.0,
-    "Jason PPG": 11.47,
-    "Mike PPG": 12.32,
-    "FP PPG": 10.34,
-    "CBS PPG": 11.71,
-    "Player name": "Keenan Allen",
-    "Team": "IND",
-    "Pos": "WR",
-    "Avg PPG": 10.97,
-    "High PPG": 12.32,
-    "Low PPG": 9.0
   },
   {
     "NameKey": "keenan allen",
@@ -18312,34 +16114,6 @@
     "Low PPG": 1.5
   },
   {
-    "NameKey": "kendrick bourne",
-    "Andy PPG": 6.76,
-    "Jason PPG": 6.26,
-    "Mike PPG": 1.5,
-    "FP PPG": 3.85,
-    "CBS PPG": 6.97,
-    "Player name": "Kendrick Bourne",
-    "Team": "ARI",
-    "Pos": "WR",
-    "Avg PPG": 5.07,
-    "High PPG": 6.97,
-    "Low PPG": 1.5
-  },
-  {
-    "NameKey": "kendrick law",
-    "Andy PPG": NaN,
-    "Jason PPG": 0.97,
-    "Mike PPG": NaN,
-    "FP PPG": NaN,
-    "CBS PPG": 0.0,
-    "Player name": "Kendrick Law",
-    "Team": "DET",
-    "Pos": "WR",
-    "Avg PPG": 0.48,
-    "High PPG": 0.97,
-    "Low PPG": 0.0
-  },
-  {
     "NameKey": "kendrick law",
     "Andy PPG": NaN,
     "Jason PPG": 0.97,
@@ -18424,20 +16198,6 @@
     "Low PPG": 22.5
   },
   {
-    "NameKey": "kenneth walker",
-    "Andy PPG": 24.03,
-    "Jason PPG": 23.53,
-    "Mike PPG": 24.82,
-    "FP PPG": 23.38,
-    "CBS PPG": 22.5,
-    "Player name": "Kenneth Walker",
-    "Team": "KC",
-    "Pos": "RB",
-    "Avg PPG": 23.65,
-    "High PPG": 24.82,
-    "Low PPG": 22.5
-  },
-  {
     "NameKey": "kenny fletcher",
     "Andy PPG": NaN,
     "Jason PPG": NaN,
@@ -18450,20 +16210,6 @@
     "Avg PPG": 0.0,
     "High PPG": 0.0,
     "Low PPG": 0.0
-  },
-  {
-    "NameKey": "kenny gainwell",
-    "Andy PPG": 14.59,
-    "Jason PPG": 14.06,
-    "Mike PPG": 15.53,
-    "FP PPG": 14.18,
-    "CBS PPG": 15.59,
-    "Player name": "Kenny Gainwell",
-    "Team": "TB",
-    "Pos": "RB",
-    "Avg PPG": 14.79,
-    "High PPG": 15.59,
-    "Low PPG": 14.06
   },
   {
     "NameKey": "kenny gainwell",
@@ -18550,20 +16296,6 @@
     "Low PPG": 7.41
   },
   {
-    "NameKey": "kenyon sadiq",
-    "Andy PPG": 7.41,
-    "Jason PPG": 9.94,
-    "Mike PPG": 10.47,
-    "FP PPG": 9.28,
-    "CBS PPG": 9.79,
-    "Player name": "Kenyon Sadiq",
-    "Team": "NYJ",
-    "Pos": "TE",
-    "Avg PPG": 9.38,
-    "High PPG": 10.47,
-    "Low PPG": 7.41
-  },
-  {
     "NameKey": "kenzel doe",
     "Andy PPG": NaN,
     "Jason PPG": NaN,
@@ -18576,20 +16308,6 @@
     "Avg PPG": 0.0,
     "High PPG": 0.0,
     "Low PPG": 0.0
-  },
-  {
-    "NameKey": "keon coleman",
-    "Andy PPG": 7.26,
-    "Jason PPG": 8.97,
-    "Mike PPG": 7.94,
-    "FP PPG": 5.81,
-    "CBS PPG": 5.03,
-    "Player name": "Keon Coleman",
-    "Team": "BUF",
-    "Pos": "WR",
-    "Avg PPG": 7.0,
-    "High PPG": 8.97,
-    "Low PPG": 5.03
   },
   {
     "NameKey": "keon coleman",
@@ -18900,20 +16618,6 @@
     "Low PPG": 11.09
   },
   {
-    "NameKey": "khalil shakir",
-    "Andy PPG": 12.71,
-    "Jason PPG": 11.71,
-    "Mike PPG": 11.97,
-    "FP PPG": 12.08,
-    "CBS PPG": 11.09,
-    "Player name": "Khalil Shakir",
-    "Team": "BUF",
-    "Pos": "WR",
-    "Avg PPG": 11.91,
-    "High PPG": 12.71,
-    "Low PPG": 11.09
-  },
-  {
     "NameKey": "khalil tate",
     "Andy PPG": NaN,
     "Jason PPG": NaN,
@@ -18926,20 +16630,6 @@
     "Avg PPG": 0.0,
     "High PPG": 0.0,
     "Low PPG": 0.0
-  },
-  {
-    "NameKey": "kimani vidal",
-    "Andy PPG": 9.65,
-    "Jason PPG": 7.18,
-    "Mike PPG": 5.12,
-    "FP PPG": 4.69,
-    "CBS PPG": 6.47,
-    "Player name": "Kimani Vidal",
-    "Team": "LAC",
-    "Pos": "RB",
-    "Avg PPG": 6.62,
-    "High PPG": 9.65,
-    "Low PPG": 4.69
   },
   {
     "NameKey": "kimani vidal",
@@ -19292,20 +16982,6 @@
     "Low PPG": 14.62
   },
   {
-    "NameKey": "kyle monangai",
-    "Andy PPG": 14.62,
-    "Jason PPG": 15.06,
-    "Mike PPG": 15.21,
-    "FP PPG": 14.84,
-    "CBS PPG": 15.21,
-    "Player name": "Kyle Monangai",
-    "Team": "CHI",
-    "Pos": "RB",
-    "Avg PPG": 14.99,
-    "High PPG": 15.21,
-    "Low PPG": 14.62
-  },
-  {
     "NameKey": "kyle philips",
     "Andy PPG": NaN,
     "Jason PPG": NaN,
@@ -19318,20 +16994,6 @@
     "Avg PPG": 0.0,
     "High PPG": 0.0,
     "Low PPG": 0.0
-  },
-  {
-    "NameKey": "kyle pitts",
-    "Andy PPG": 13.38,
-    "Jason PPG": 13.94,
-    "Mike PPG": 11.71,
-    "FP PPG": 13.94,
-    "CBS PPG": 14.21,
-    "Player name": "Kyle Pitts Sr.",
-    "Team": "ATL",
-    "Pos": "TE",
-    "Avg PPG": 13.44,
-    "High PPG": 14.21,
-    "Low PPG": 11.71
   },
   {
     "NameKey": "kyle pitts",
@@ -19418,20 +17080,6 @@
     "Low PPG": 3.35
   },
   {
-    "NameKey": "kyle williams",
-    "Andy PPG": 8.74,
-    "Jason PPG": 8.41,
-    "Mike PPG": 8.79,
-    "FP PPG": 4.08,
-    "CBS PPG": 3.35,
-    "Player name": "Kyle Williams",
-    "Team": "NE",
-    "Pos": "WR",
-    "Avg PPG": 6.67,
-    "High PPG": 8.79,
-    "Low PPG": 3.35
-  },
-  {
     "NameKey": "kylen granson",
     "Andy PPG": NaN,
     "Jason PPG": NaN,
@@ -19472,20 +17120,6 @@
     "Avg PPG": 0.0,
     "High PPG": 0.0,
     "Low PPG": 0.0
-  },
-  {
-    "NameKey": "kyren williams",
-    "Andy PPG": 19.09,
-    "Jason PPG": 22.47,
-    "Mike PPG": 20.91,
-    "FP PPG": 21.48,
-    "CBS PPG": 21.94,
-    "Player name": "Kyren Williams",
-    "Team": "LAR",
-    "Pos": "RB",
-    "Avg PPG": 21.18,
-    "High PPG": 22.47,
-    "Low PPG": 19.09
   },
   {
     "NameKey": "kyren williams",
@@ -19556,20 +17190,6 @@
     "Avg PPG": 0.0,
     "High PPG": 0.0,
     "Low PPG": 0.0
-  },
-  {
-    "NameKey": "ladd mcconkey",
-    "Andy PPG": 18.24,
-    "Jason PPG": 18.03,
-    "Mike PPG": 16.68,
-    "FP PPG": 16.83,
-    "CBS PPG": 17.59,
-    "Player name": "Ladd McConkey",
-    "Team": "LAC",
-    "Pos": "WR",
-    "Avg PPG": 17.47,
-    "High PPG": 18.24,
-    "Low PPG": 16.68
   },
   {
     "NameKey": "ladd mcconkey",
@@ -19892,20 +17512,6 @@
     "Avg PPG": 0.0,
     "High PPG": 0.0,
     "Low PPG": 0.0
-  },
-  {
-    "NameKey": "lequint allen",
-    "Andy PPG": 7.18,
-    "Jason PPG": 5.88,
-    "Mike PPG": 4.5,
-    "FP PPG": 2.03,
-    "CBS PPG": 3.62,
-    "Player name": "LeQuint Allen Jr.",
-    "Team": "JAX",
-    "Pos": "RB",
-    "Avg PPG": 4.64,
-    "High PPG": 7.18,
-    "Low PPG": 2.03
   },
   {
     "NameKey": "lequint allen",
@@ -20328,20 +17934,6 @@
     "Low PPG": 3.06
   },
   {
-    "NameKey": "luke musgrave",
-    "Andy PPG": 3.06,
-    "Jason PPG": 5.35,
-    "Mike PPG": 8.29,
-    "FP PPG": 3.29,
-    "CBS PPG": 4.76,
-    "Player name": "Luke Musgrave",
-    "Team": "GB",
-    "Pos": "TE",
-    "Avg PPG": 4.95,
-    "High PPG": 8.29,
-    "Low PPG": 3.06
-  },
-  {
     "NameKey": "luke schoonmaker",
     "Andy PPG": NaN,
     "Jason PPG": NaN,
@@ -20368,20 +17960,6 @@
     "Avg PPG": 0.0,
     "High PPG": 0.0,
     "Low PPG": 0.0
-  },
-  {
-    "NameKey": "luther burden",
-    "Andy PPG": 18.76,
-    "Jason PPG": 17.38,
-    "Mike PPG": 16.91,
-    "FP PPG": 15.99,
-    "CBS PPG": 17.03,
-    "Player name": "Luther Burden III",
-    "Team": "CHI",
-    "Pos": "WR",
-    "Avg PPG": 17.21,
-    "High PPG": 18.76,
-    "Low PPG": 15.99
   },
   {
     "NameKey": "luther burden",
@@ -20454,34 +18032,6 @@
     "Low PPG": 3.15
   },
   {
-    "NameKey": "mack hollins",
-    "Andy PPG": 6.29,
-    "Jason PPG": 3.79,
-    "Mike PPG": 3.15,
-    "FP PPG": 4.36,
-    "CBS PPG": 6.0,
-    "Player name": "Mack Hollins",
-    "Team": "NE",
-    "Pos": "WR",
-    "Avg PPG": 4.72,
-    "High PPG": 6.29,
-    "Low PPG": 3.15
-  },
-  {
-    "NameKey": "makai lemon",
-    "Andy PPG": 11.03,
-    "Jason PPG": 14.74,
-    "Mike PPG": 10.88,
-    "FP PPG": 11.85,
-    "CBS PPG": 11.74,
-    "Player name": "Makai Lemon",
-    "Team": "PHI",
-    "Pos": "WR",
-    "Avg PPG": 12.05,
-    "High PPG": 14.74,
-    "Low PPG": 10.88
-  },
-  {
     "NameKey": "makai lemon",
     "Andy PPG": 11.03,
     "Jason PPG": 14.74,
@@ -20552,20 +18102,6 @@
     "Low PPG": 2.76
   },
   {
-    "NameKey": "malachi fields",
-    "Andy PPG": 9.5,
-    "Jason PPG": 2.76,
-    "Mike PPG": 5.62,
-    "FP PPG": 5.39,
-    "CBS PPG": 7.03,
-    "Player name": "Malachi Fields",
-    "Team": "NYG",
-    "Pos": "WR",
-    "Avg PPG": 6.06,
-    "High PPG": 9.5,
-    "Low PPG": 2.76
-  },
-  {
     "NameKey": "malcome kennedy",
     "Andy PPG": NaN,
     "Jason PPG": NaN,
@@ -20592,20 +18128,6 @@
     "Avg PPG": 0.0,
     "High PPG": 0.0,
     "Low PPG": 0.0
-  },
-  {
-    "NameKey": "malik benson",
-    "Andy PPG": 10.09,
-    "Jason PPG": 1.03,
-    "Mike PPG": 2.76,
-    "FP PPG": 6.44,
-    "CBS PPG": 9.09,
-    "Player name": "Malik Benson",
-    "Team": "LV",
-    "Pos": "WR",
-    "Avg PPG": 5.88,
-    "High PPG": 10.09,
-    "Low PPG": 1.03
   },
   {
     "NameKey": "malik benson",
@@ -20734,20 +18256,6 @@
     "Low PPG": 18.31
   },
   {
-    "NameKey": "malik nabers",
-    "Andy PPG": 18.62,
-    "Jason PPG": 20.29,
-    "Mike PPG": 19.29,
-    "FP PPG": 18.31,
-    "CBS PPG": 18.5,
-    "Player name": "Malik Nabers",
-    "Team": "NYG",
-    "Pos": "WR",
-    "Avg PPG": 19.0,
-    "High PPG": 20.29,
-    "Low PPG": 18.31
-  },
-  {
     "NameKey": "malik taylor",
     "Andy PPG": NaN,
     "Jason PPG": NaN,
@@ -20774,20 +18282,6 @@
     "Avg PPG": 0.0,
     "High PPG": 0.0,
     "Low PPG": 0.0
-  },
-  {
-    "NameKey": "malik washington",
-    "Andy PPG": 9.26,
-    "Jason PPG": 12.26,
-    "Mike PPG": 12.41,
-    "FP PPG": 7.91,
-    "CBS PPG": 7.41,
-    "Player name": "Malik Washington",
-    "Team": "MIA",
-    "Pos": "WR",
-    "Avg PPG": 9.85,
-    "High PPG": 12.41,
-    "Low PPG": 7.41
   },
   {
     "NameKey": "malik washington",
@@ -21042,20 +18536,6 @@
     "Low PPG": 9.12
   },
   {
-    "NameKey": "mark andrews",
-    "Andy PPG": 9.12,
-    "Jason PPG": 12.35,
-    "Mike PPG": 10.41,
-    "FP PPG": 11.86,
-    "CBS PPG": 13.0,
-    "Player name": "Mark Andrews",
-    "Team": "BAL",
-    "Pos": "TE",
-    "Avg PPG": 11.35,
-    "High PPG": 13.0,
-    "Low PPG": 9.12
-  },
-  {
     "NameKey": "mark gronowski",
     "Andy PPG": NaN,
     "Jason PPG": NaN,
@@ -21210,20 +18690,6 @@
     "Low PPG": 1.21
   },
   {
-    "NameKey": "marshawn lloyd",
-    "Andy PPG": 12.03,
-    "Jason PPG": 2.97,
-    "Mike PPG": 7.12,
-    "FP PPG": 5.65,
-    "CBS PPG": 1.21,
-    "Player name": "MarShawn Lloyd",
-    "Team": "GB",
-    "Pos": "RB",
-    "Avg PPG": 5.8,
-    "High PPG": 12.03,
-    "Low PPG": 1.21
-  },
-  {
     "NameKey": "marvin harrison",
     "Andy PPG": 18.09,
     "Jason PPG": 16.53,
@@ -21236,34 +18702,6 @@
     "Avg PPG": 16.3,
     "High PPG": 18.09,
     "Low PPG": 14.88
-  },
-  {
-    "NameKey": "marvin harrison",
-    "Andy PPG": 18.09,
-    "Jason PPG": 16.53,
-    "Mike PPG": 14.88,
-    "FP PPG": 15.61,
-    "CBS PPG": 16.38,
-    "Player name": "Marvin Harrison Jr.",
-    "Team": "ARI",
-    "Pos": "WR",
-    "Avg PPG": 16.3,
-    "High PPG": 18.09,
-    "Low PPG": 14.88
-  },
-  {
-    "NameKey": "marvin mims",
-    "Andy PPG": 6.29,
-    "Jason PPG": 2.88,
-    "Mike PPG": 4.76,
-    "FP PPG": 5.0,
-    "CBS PPG": 5.59,
-    "Player name": "Marvin Mims Jr.",
-    "Team": "DEN",
-    "Pos": "WR",
-    "Avg PPG": 4.9,
-    "High PPG": 6.29,
-    "Low PPG": 2.88
   },
   {
     "NameKey": "marvin mims",
@@ -21348,20 +18786,6 @@
     "Avg PPG": 0.0,
     "High PPG": 0.0,
     "Low PPG": 0.0
-  },
-  {
-    "NameKey": "mason taylor",
-    "Andy PPG": 6.44,
-    "Jason PPG": 4.62,
-    "Mike PPG": 6.59,
-    "FP PPG": 7.18,
-    "CBS PPG": 8.71,
-    "Player name": "Mason Taylor",
-    "Team": "NYJ",
-    "Pos": "TE",
-    "Avg PPG": 6.71,
-    "High PPG": 8.71,
-    "Low PPG": 4.62
   },
   {
     "NameKey": "mason taylor",
@@ -21560,20 +18984,6 @@
     "Low PPG": 10.03
   },
   {
-    "NameKey": "matthew golden",
-    "Andy PPG": 12.18,
-    "Jason PPG": 12.82,
-    "Mike PPG": 10.03,
-    "FP PPG": 12.46,
-    "CBS PPG": 11.56,
-    "Player name": "Matthew Golden",
-    "Team": "GB",
-    "Pos": "WR",
-    "Avg PPG": 11.81,
-    "High PPG": 12.82,
-    "Low PPG": 10.03
-  },
-  {
     "NameKey": "matthew hibner",
     "Andy PPG": NaN,
     "Jason PPG": NaN,
@@ -21684,20 +19094,6 @@
     "Avg PPG": 0.0,
     "High PPG": 0.0,
     "Low PPG": 0.0
-  },
-  {
-    "NameKey": "max klare",
-    "Andy PPG": 3.65,
-    "Jason PPG": 4.41,
-    "Mike PPG": 4.79,
-    "FP PPG": 0.95,
-    "CBS PPG": 1.41,
-    "Player name": "Max Klare",
-    "Team": "LAR",
-    "Pos": "TE",
-    "Avg PPG": 3.04,
-    "High PPG": 4.79,
-    "Low PPG": 0.95
   },
   {
     "NameKey": "max klare",
@@ -21966,20 +19362,6 @@
     "Low PPG": 4.97
   },
   {
-    "NameKey": "michael mayer",
-    "Andy PPG": 5.65,
-    "Jason PPG": 4.97,
-    "Mike PPG": 7.35,
-    "FP PPG": 6.5,
-    "CBS PPG": 6.12,
-    "Player name": "Michael Mayer",
-    "Team": "LV",
-    "Pos": "TE",
-    "Avg PPG": 6.12,
-    "High PPG": 7.35,
-    "Low PPG": 4.97
-  },
-  {
     "NameKey": "michael penix",
     "Andy PPG": 10.65,
     "Jason PPG": 3.0,
@@ -21992,20 +19374,6 @@
     "Avg PPG": 10.78,
     "High PPG": 14.47,
     "Low PPG": 3.0
-  },
-  {
-    "NameKey": "michael pittman",
-    "Andy PPG": 13.62,
-    "Jason PPG": 14.53,
-    "Mike PPG": 13.76,
-    "FP PPG": 13.76,
-    "CBS PPG": 12.5,
-    "Player name": "Michael Pittman Jr.",
-    "Team": "PIT",
-    "Pos": "WR",
-    "Avg PPG": 13.63,
-    "High PPG": 14.53,
-    "Low PPG": 12.5
   },
   {
     "NameKey": "michael pittman",
@@ -22062,20 +19430,6 @@
     "Avg PPG": 0.0,
     "High PPG": 0.0,
     "Low PPG": 0.0
-  },
-  {
-    "NameKey": "michael wilson",
-    "Andy PPG": 14.91,
-    "Jason PPG": 12.15,
-    "Mike PPG": 15.0,
-    "FP PPG": 13.56,
-    "CBS PPG": 14.06,
-    "Player name": "Michael Wilson",
-    "Team": "ARI",
-    "Pos": "WR",
-    "Avg PPG": 13.94,
-    "High PPG": 15.0,
-    "Low PPG": 12.15
   },
   {
     "NameKey": "michael wilson",
@@ -22176,34 +19530,6 @@
     "Low PPG": 15.18
   },
   {
-    "NameKey": "mike evans",
-    "Andy PPG": 15.18,
-    "Jason PPG": 18.5,
-    "Mike PPG": 16.62,
-    "FP PPG": 15.69,
-    "CBS PPG": 16.82,
-    "Player name": "Mike Evans",
-    "Team": "SF",
-    "Pos": "WR",
-    "Avg PPG": 16.56,
-    "High PPG": 18.5,
-    "Low PPG": 15.18
-  },
-  {
-    "NameKey": "mike gesicki",
-    "Andy PPG": 5.47,
-    "Jason PPG": 9.59,
-    "Mike PPG": 8.0,
-    "FP PPG": 7.78,
-    "CBS PPG": 9.09,
-    "Player name": "Mike Gesicki",
-    "Team": "CIN",
-    "Pos": "TE",
-    "Avg PPG": 7.99,
-    "High PPG": 9.59,
-    "Low PPG": 5.47
-  },
-  {
     "NameKey": "mike gesicki",
     "Andy PPG": 5.47,
     "Jason PPG": 9.59,
@@ -22258,20 +19584,6 @@
     "Avg PPG": 0.0,
     "High PPG": 0.0,
     "Low PPG": 0.0
-  },
-  {
-    "NameKey": "mike washington",
-    "Andy PPG": 6.15,
-    "Jason PPG": 10.71,
-    "Mike PPG": 9.71,
-    "FP PPG": 8.46,
-    "CBS PPG": 12.68,
-    "Player name": "Mike Washington Jr.",
-    "Team": "LV",
-    "Pos": "RB",
-    "Avg PPG": 9.54,
-    "High PPG": 12.68,
-    "Low PPG": 6.15
   },
   {
     "NameKey": "mike washington",
@@ -22974,20 +20286,6 @@
     "Low PPG": 1.05
   },
   {
-    "NameKey": "nicholas singleton",
-    "Andy PPG": 5.32,
-    "Jason PPG": 10.68,
-    "Mike PPG": 4.03,
-    "FP PPG": 1.05,
-    "CBS PPG": 1.12,
-    "Player name": "Nicholas Singleton",
-    "Team": "TEN",
-    "Pos": "RB",
-    "Avg PPG": 4.44,
-    "High PPG": 10.68,
-    "Low PPG": 1.05
-  },
-  {
     "NameKey": "nick brossette",
     "Andy PPG": NaN,
     "Jason PPG": NaN,
@@ -23226,20 +20524,6 @@
     "Low PPG": 19.41
   },
   {
-    "NameKey": "nico collins",
-    "Andy PPG": 19.71,
-    "Jason PPG": 19.79,
-    "Mike PPG": 20.71,
-    "FP PPG": 19.41,
-    "CBS PPG": 20.29,
-    "Player name": "Nico Collins",
-    "Team": "HOU",
-    "Pos": "WR",
-    "Avg PPG": 19.98,
-    "High PPG": 20.71,
-    "Low PPG": 19.41
-  },
-  {
     "NameKey": "nico evans",
     "Andy PPG": NaN,
     "Jason PPG": NaN,
@@ -23338,20 +20622,6 @@
     "Low PPG": 1.09
   },
   {
-    "NameKey": "noah fant",
-    "Andy PPG": 4.21,
-    "Jason PPG": 4.06,
-    "Mike PPG": 1.09,
-    "FP PPG": 4.75,
-    "CBS PPG": 7.0,
-    "Player name": "Noah Fant",
-    "Team": "NO",
-    "Pos": "TE",
-    "Avg PPG": 4.22,
-    "High PPG": 7.0,
-    "Low PPG": 1.09
-  },
-  {
     "NameKey": "noah gindorff",
     "Andy PPG": NaN,
     "Jason PPG": NaN,
@@ -23364,20 +20634,6 @@
     "Avg PPG": 0.0,
     "High PPG": 0.0,
     "Low PPG": 0.0
-  },
-  {
-    "NameKey": "noah gray",
-    "Andy PPG": 4.24,
-    "Jason PPG": 1.76,
-    "Mike PPG": 6.88,
-    "FP PPG": 3.85,
-    "CBS PPG": 1.56,
-    "Player name": "Noah Gray",
-    "Team": "KC",
-    "Pos": "TE",
-    "Avg PPG": 3.66,
-    "High PPG": 6.88,
-    "Low PPG": 1.56
   },
   {
     "NameKey": "noah gray",
@@ -23562,20 +20818,6 @@
     "Low PPG": 0.85
   },
   {
-    "NameKey": "ollie gordon",
-    "Andy PPG": 3.41,
-    "Jason PPG": 4.15,
-    "Mike PPG": 1.68,
-    "FP PPG": 3.27,
-    "CBS PPG": 0.85,
-    "Player name": "Ollie Gordon II",
-    "Team": "MIA",
-    "Pos": "RB",
-    "Avg PPG": 2.67,
-    "High PPG": 4.15,
-    "Low PPG": 0.85
-  },
-  {
     "NameKey": "omar bayless",
     "Andy PPG": NaN,
     "Jason PPG": NaN,
@@ -23588,20 +20830,6 @@
     "Avg PPG": 0.0,
     "High PPG": 0.0,
     "Low PPG": 0.0
-  },
-  {
-    "NameKey": "omar cooper",
-    "Andy PPG": 9.97,
-    "Jason PPG": 11.62,
-    "Mike PPG": 8.68,
-    "FP PPG": 7.81,
-    "CBS PPG": 9.06,
-    "Player name": "Omar Cooper Jr.",
-    "Team": "NYJ",
-    "Pos": "WR",
-    "Avg PPG": 9.43,
-    "High PPG": 11.62,
-    "Low PPG": 7.81
   },
   {
     "NameKey": "omar cooper",
@@ -23660,20 +20888,6 @@
     "Low PPG": 19.91
   },
   {
-    "NameKey": "omarion hampton",
-    "Andy PPG": 21.94,
-    "Jason PPG": 23.56,
-    "Mike PPG": 21.88,
-    "FP PPG": 22.03,
-    "CBS PPG": 19.91,
-    "Player name": "Omarion Hampton",
-    "Team": "LAC",
-    "Pos": "RB",
-    "Avg PPG": 21.86,
-    "High PPG": 23.56,
-    "Low PPG": 19.91
-  },
-  {
     "NameKey": "ontaria wilson",
     "Andy PPG": NaN,
     "Jason PPG": NaN,
@@ -23702,20 +20916,6 @@
     "Low PPG": 6.53
   },
   {
-    "NameKey": "oronde gadsden",
-    "Andy PPG": 6.53,
-    "Jason PPG": 8.03,
-    "Mike PPG": 10.56,
-    "FP PPG": 7.83,
-    "CBS PPG": 10.68,
-    "Player name": "Oronde Gadsden",
-    "Team": "LAC",
-    "Pos": "TE",
-    "Avg PPG": 8.73,
-    "High PPG": 10.68,
-    "Low PPG": 6.53
-  },
-  {
     "NameKey": "oscar cardenas",
     "Andy PPG": NaN,
     "Jason PPG": NaN,
@@ -23728,20 +20928,6 @@
     "Avg PPG": 0.0,
     "High PPG": 0.0,
     "Low PPG": 0.0
-  },
-  {
-    "NameKey": "oscar delp",
-    "Andy PPG": NaN,
-    "Jason PPG": 0.47,
-    "Mike PPG": NaN,
-    "FP PPG": 1.05,
-    "CBS PPG": 1.32,
-    "Player name": "Oscar Delp",
-    "Team": "NO",
-    "Pos": "TE",
-    "Avg PPG": 0.95,
-    "High PPG": 1.32,
-    "Low PPG": 0.47
   },
   {
     "NameKey": "oscar delp",
@@ -23828,20 +21014,6 @@
     "Low PPG": 14.28
   },
   {
-    "NameKey": "parker washington",
-    "Andy PPG": 17.76,
-    "Jason PPG": 17.18,
-    "Mike PPG": 16.97,
-    "FP PPG": 14.28,
-    "CBS PPG": 15.35,
-    "Player name": "Parker Washington",
-    "Team": "JAX",
-    "Pos": "WR",
-    "Avg PPG": 16.31,
-    "High PPG": 17.76,
-    "Low PPG": 14.28
-  },
-  {
     "NameKey": "parris campbell",
     "Andy PPG": NaN,
     "Jason PPG": NaN,
@@ -23870,20 +21042,6 @@
     "Low PPG": 4.62
   },
   {
-    "NameKey": "pat bryant",
-    "Andy PPG": 8.76,
-    "Jason PPG": 8.59,
-    "Mike PPG": 8.79,
-    "FP PPG": 5.56,
-    "CBS PPG": 4.62,
-    "Player name": "Pat Bryant",
-    "Team": "DEN",
-    "Pos": "WR",
-    "Avg PPG": 7.26,
-    "High PPG": 8.79,
-    "Low PPG": 4.62
-  },
-  {
     "NameKey": "pat conroy",
     "Andy PPG": NaN,
     "Jason PPG": NaN,
@@ -23896,20 +21054,6 @@
     "Avg PPG": 0.0,
     "High PPG": 0.0,
     "Low PPG": 0.0
-  },
-  {
-    "NameKey": "pat freiermuth",
-    "Andy PPG": 9.53,
-    "Jason PPG": 8.85,
-    "Mike PPG": 9.41,
-    "FP PPG": 9.89,
-    "CBS PPG": 9.35,
-    "Player name": "Pat Freiermuth",
-    "Team": "PIT",
-    "Pos": "TE",
-    "Avg PPG": 9.41,
-    "High PPG": 9.89,
-    "Low PPG": 8.85
   },
   {
     "NameKey": "pat freiermuth",
@@ -24262,20 +21406,6 @@
     "Low PPG": 24.35
   },
   {
-    "NameKey": "puka nacua",
-    "Andy PPG": 24.35,
-    "Jason PPG": 25.26,
-    "Mike PPG": 26.21,
-    "FP PPG": 25.76,
-    "CBS PPG": 28.32,
-    "Player name": "Puka Nacua",
-    "Team": "LAR",
-    "Pos": "WR",
-    "Avg PPG": 25.98,
-    "High PPG": 28.32,
-    "Low PPG": 24.35
-  },
-  {
     "NameKey": "qadir ismail",
     "Andy PPG": NaN,
     "Jason PPG": NaN,
@@ -24316,20 +21446,6 @@
     "Avg PPG": 0.0,
     "High PPG": 0.0,
     "Low PPG": 0.0
-  },
-  {
-    "NameKey": "quentin johnston",
-    "Andy PPG": 15.32,
-    "Jason PPG": 13.29,
-    "Mike PPG": 16.06,
-    "FP PPG": 13.03,
-    "CBS PPG": 14.24,
-    "Player name": "Quentin Johnston",
-    "Team": "LAC",
-    "Pos": "WR",
-    "Avg PPG": 14.39,
-    "High PPG": 16.06,
-    "Low PPG": 13.03
   },
   {
     "NameKey": "quentin johnston",
@@ -24430,20 +21546,6 @@
     "Low PPG": 18.12
   },
   {
-    "NameKey": "quinshon judkins",
-    "Andy PPG": 19.35,
-    "Jason PPG": 18.12,
-    "Mike PPG": 19.03,
-    "FP PPG": 19.84,
-    "CBS PPG": 19.06,
-    "Player name": "Quinshon Judkins",
-    "Team": "CLE",
-    "Pos": "RB",
-    "Avg PPG": 19.08,
-    "High PPG": 19.84,
-    "Low PPG": 18.12
-  },
-  {
     "NameKey": "quintez cephus",
     "Andy PPG": NaN,
     "Jason PPG": NaN,
@@ -24470,20 +21572,6 @@
     "Avg PPG": 0.0,
     "High PPG": 0.0,
     "Low PPG": 0.0
-  },
-  {
-    "NameKey": "rachaad white",
-    "Andy PPG": 13.0,
-    "Jason PPG": 12.09,
-    "Mike PPG": 12.71,
-    "FP PPG": 13.83,
-    "CBS PPG": 13.85,
-    "Player name": "Rachaad White",
-    "Team": "WAS",
-    "Pos": "RB",
-    "Avg PPG": 13.1,
-    "High PPG": 13.85,
-    "Low PPG": 12.09
   },
   {
     "NameKey": "rachaad white",
@@ -24654,20 +21742,6 @@
     "Low PPG": 17.88
   },
   {
-    "NameKey": "rashee rice",
-    "Andy PPG": 17.88,
-    "Jason PPG": 19.74,
-    "Mike PPG": 18.88,
-    "FP PPG": 19.46,
-    "CBS PPG": 21.15,
-    "Player name": "Rashee Rice",
-    "Team": "KC",
-    "Pos": "WR",
-    "Avg PPG": 19.42,
-    "High PPG": 21.15,
-    "Low PPG": 17.88
-  },
-  {
     "NameKey": "rasheen ali",
     "Andy PPG": NaN,
     "Jason PPG": NaN,
@@ -24694,34 +21768,6 @@
     "Avg PPG": 12.55,
     "High PPG": 13.91,
     "Low PPG": 10.94
-  },
-  {
-    "NameKey": "rashid shaheed",
-    "Andy PPG": 10.94,
-    "Jason PPG": 13.53,
-    "Mike PPG": 11.97,
-    "FP PPG": 12.4,
-    "CBS PPG": 13.91,
-    "Player name": "Rashid Shaheed",
-    "Team": "SEA",
-    "Pos": "WR",
-    "Avg PPG": 12.55,
-    "High PPG": 13.91,
-    "Low PPG": 10.94
-  },
-  {
-    "NameKey": "rashod bateman",
-    "Andy PPG": 7.18,
-    "Jason PPG": 8.21,
-    "Mike PPG": 5.26,
-    "FP PPG": 10.42,
-    "CBS PPG": 11.06,
-    "Player name": "Rashod Bateman",
-    "Team": "BAL",
-    "Pos": "WR",
-    "Avg PPG": 8.43,
-    "High PPG": 11.06,
-    "Low PPG": 5.26
   },
   {
     "NameKey": "rashod bateman",
@@ -24764,20 +21810,6 @@
     "Avg PPG": 0.0,
     "High PPG": 0.0,
     "Low PPG": 0.0
-  },
-  {
-    "NameKey": "ray davis",
-    "Andy PPG": 3.47,
-    "Jason PPG": 5.56,
-    "Mike PPG": 5.41,
-    "FP PPG": 1.86,
-    "CBS PPG": 2.24,
-    "Player name": "Ray Davis",
-    "Team": "BUF",
-    "Pos": "RB",
-    "Avg PPG": 3.71,
-    "High PPG": 5.56,
-    "Low PPG": 1.86
   },
   {
     "NameKey": "ray davis",
@@ -24948,20 +21980,6 @@
     "Low PPG": 16.44
   },
   {
-    "NameKey": "rhamondre stevenson",
-    "Andy PPG": 17.68,
-    "Jason PPG": 16.68,
-    "Mike PPG": 16.5,
-    "FP PPG": 16.89,
-    "CBS PPG": 16.44,
-    "Player name": "Rhamondre Stevenson",
-    "Team": "NE",
-    "Pos": "RB",
-    "Avg PPG": 16.84,
-    "High PPG": 17.68,
-    "Low PPG": 16.44
-  },
-  {
     "NameKey": "ricky pearsall",
     "Andy PPG": NaN,
     "Jason PPG": NaN,
@@ -25016,20 +22034,6 @@
     "Avg PPG": 0.0,
     "High PPG": 0.0,
     "Low PPG": 0.0
-  },
-  {
-    "NameKey": "rico dowdle",
-    "Andy PPG": 18.35,
-    "Jason PPG": 14.56,
-    "Mike PPG": 18.68,
-    "FP PPG": 16.56,
-    "CBS PPG": 17.0,
-    "Player name": "Rico Dowdle",
-    "Team": "PIT",
-    "Pos": "RB",
-    "Avg PPG": 17.03,
-    "High PPG": 18.68,
-    "Low PPG": 14.56
   },
   {
     "NameKey": "rico dowdle",
@@ -25128,20 +22132,6 @@
     "Avg PPG": 0.0,
     "High PPG": 0.0,
     "Low PPG": 0.0
-  },
-  {
-    "NameKey": "rj harvey",
-    "Andy PPG": 10.44,
-    "Jason PPG": 13.65,
-    "Mike PPG": 12.53,
-    "FP PPG": 13.02,
-    "CBS PPG": 15.38,
-    "Player name": "RJ Harvey",
-    "Team": "DEN",
-    "Pos": "RB",
-    "Avg PPG": 13.0,
-    "High PPG": 15.38,
-    "Low PPG": 10.44
   },
   {
     "NameKey": "rj harvey",
@@ -25382,34 +22372,6 @@
     "Low PPG": 1.32
   },
   {
-    "NameKey": "roman wilson",
-    "Andy PPG": 5.38,
-    "Jason PPG": 4.12,
-    "Mike PPG": 4.97,
-    "FP PPG": 1.32,
-    "CBS PPG": 6.35,
-    "Player name": "Roman Wilson",
-    "Team": "PIT",
-    "Pos": "WR",
-    "Avg PPG": 4.43,
-    "High PPG": 6.35,
-    "Low PPG": 1.32
-  },
-  {
-    "NameKey": "rome odunze",
-    "Andy PPG": 17.79,
-    "Jason PPG": 16.91,
-    "Mike PPG": 15.32,
-    "FP PPG": 16.1,
-    "CBS PPG": 15.62,
-    "Player name": "Rome Odunze",
-    "Team": "CHI",
-    "Pos": "WR",
-    "Avg PPG": 16.35,
-    "High PPG": 17.79,
-    "Low PPG": 15.32
-  },
-  {
     "NameKey": "rome odunze",
     "Andy PPG": 17.79,
     "Jason PPG": 16.91,
@@ -25436,20 +22398,6 @@
     "Avg PPG": 0.0,
     "High PPG": 0.0,
     "Low PPG": 0.0
-  },
-  {
-    "NameKey": "romeo doubs",
-    "Andy PPG": 13.06,
-    "Jason PPG": 12.12,
-    "Mike PPG": 12.76,
-    "FP PPG": 12.51,
-    "CBS PPG": 13.56,
-    "Player name": "Romeo Doubs",
-    "Team": "NE",
-    "Pos": "WR",
-    "Avg PPG": 12.8,
-    "High PPG": 13.56,
-    "Low PPG": 12.12
   },
   {
     "NameKey": "romeo doubs",
@@ -25646,20 +22594,6 @@
     "Avg PPG": 0.0,
     "High PPG": 0.0,
     "Low PPG": 0.0
-  },
-  {
-    "NameKey": "ryan flournoy",
-    "Andy PPG": 7.29,
-    "Jason PPG": 7.15,
-    "Mike PPG": 8.91,
-    "FP PPG": 6.72,
-    "CBS PPG": 6.15,
-    "Player name": "Ryan Flournoy",
-    "Team": "DAL",
-    "Pos": "WR",
-    "Avg PPG": 7.24,
-    "High PPG": 8.91,
-    "Low PPG": 6.15
   },
   {
     "NameKey": "ryan flournoy",
@@ -25900,20 +22834,6 @@
     "Low PPG": 12.5
   },
   {
-    "NameKey": "sam laporta",
-    "Andy PPG": 12.5,
-    "Jason PPG": 14.76,
-    "Mike PPG": 14.09,
-    "FP PPG": 13.76,
-    "CBS PPG": 15.18,
-    "Player name": "Sam LaPorta",
-    "Team": "DET",
-    "Pos": "TE",
-    "Avg PPG": 14.06,
-    "High PPG": 15.18,
-    "Low PPG": 12.5
-  },
-  {
     "NameKey": "sam pinckney",
     "Andy PPG": NaN,
     "Jason PPG": NaN,
@@ -26012,20 +22932,6 @@
     "Low PPG": 3.41
   },
   {
-    "NameKey": "samaje perine",
-    "Andy PPG": 7.97,
-    "Jason PPG": 6.79,
-    "Mike PPG": 3.41,
-    "FP PPG": 8.04,
-    "CBS PPG": 7.91,
-    "Player name": "Samaje Perine",
-    "Team": "CIN",
-    "Pos": "RB",
-    "Avg PPG": 6.82,
-    "High PPG": 8.04,
-    "Low PPG": 3.41
-  },
-  {
     "NameKey": "samori toure",
     "Andy PPG": NaN,
     "Jason PPG": NaN,
@@ -26066,20 +22972,6 @@
     "Avg PPG": 0.0,
     "High PPG": 0.0,
     "Low PPG": 0.0
-  },
-  {
-    "NameKey": "saquon barkley",
-    "Andy PPG": 21.85,
-    "Jason PPG": 21.74,
-    "Mike PPG": 22.88,
-    "FP PPG": 24.34,
-    "CBS PPG": 24.53,
-    "Player name": "Saquon Barkley",
-    "Team": "PHI",
-    "Pos": "RB",
-    "Avg PPG": 23.07,
-    "High PPG": 24.53,
-    "Low PPG": 21.74
   },
   {
     "NameKey": "saquon barkley",
@@ -26234,20 +23126,6 @@
     "Avg PPG": 0.0,
     "High PPG": 0.0,
     "Low PPG": 0.0
-  },
-  {
-    "NameKey": "sean tucker",
-    "Andy PPG": 5.21,
-    "Jason PPG": 4.47,
-    "Mike PPG": 0.94,
-    "FP PPG": 2.99,
-    "CBS PPG": 1.56,
-    "Player name": "Sean Tucker",
-    "Team": "TB",
-    "Pos": "RB",
-    "Avg PPG": 3.03,
-    "High PPG": 5.21,
-    "Low PPG": 0.94
   },
   {
     "NameKey": "sean tucker",
@@ -26740,20 +23618,6 @@
     "Low PPG": 12.15
   },
   {
-    "NameKey": "stefon diggs",
-    "Andy PPG": 13.65,
-    "Jason PPG": 12.15,
-    "Mike PPG": 14.97,
-    "FP PPG": 12.38,
-    "CBS PPG": 12.35,
-    "Player name": "Stefon Diggs",
-    "Team": "WAS",
-    "Pos": "WR",
-    "Avg PPG": 13.1,
-    "High PPG": 14.97,
-    "Low PPG": 12.15
-  },
-  {
     "NameKey": "stephen carlson",
     "Andy PPG": NaN,
     "Jason PPG": NaN,
@@ -26964,20 +23828,6 @@
     "Low PPG": 0.56
   },
   {
-    "NameKey": "tahj brooks",
-    "Andy PPG": 0.94,
-    "Jason PPG": 3.26,
-    "Mike PPG": 1.24,
-    "FP PPG": 1.02,
-    "CBS PPG": 0.56,
-    "Player name": "Tahj Brooks",
-    "Team": "CIN",
-    "Pos": "RB",
-    "Avg PPG": 1.4,
-    "High PPG": 3.26,
-    "Low PPG": 0.56
-  },
-  {
     "NameKey": "tahj washington",
     "Andy PPG": NaN,
     "Jason PPG": NaN,
@@ -27088,34 +23938,6 @@
     "Avg PPG": 8.97,
     "High PPG": 11.5,
     "Low PPG": 5.85
-  },
-  {
-    "NameKey": "tank bigsby",
-    "Andy PPG": 11.5,
-    "Jason PPG": 9.76,
-    "Mike PPG": 5.85,
-    "FP PPG": 8.0,
-    "CBS PPG": 9.76,
-    "Player name": "Tank Bigsby",
-    "Team": "PHI",
-    "Pos": "RB",
-    "Avg PPG": 8.97,
-    "High PPG": 11.5,
-    "Low PPG": 5.85
-  },
-  {
-    "NameKey": "tank dell",
-    "Andy PPG": 6.76,
-    "Jason PPG": 5.53,
-    "Mike PPG": 13.09,
-    "FP PPG": 8.98,
-    "CBS PPG": 10.82,
-    "Player name": "Tank Dell",
-    "Team": "HOU",
-    "Pos": "WR",
-    "Avg PPG": 9.04,
-    "High PPG": 13.09,
-    "Low PPG": 5.53
   },
   {
     "NameKey": "tank dell",
@@ -27510,20 +24332,6 @@
     "Low PPG": 16.81
   },
   {
-    "NameKey": "tee higgins",
-    "Andy PPG": 18.29,
-    "Jason PPG": 18.29,
-    "Mike PPG": 17.5,
-    "FP PPG": 16.81,
-    "CBS PPG": 18.41,
-    "Player name": "Tee Higgins",
-    "Team": "CIN",
-    "Pos": "WR",
-    "Avg PPG": 17.86,
-    "High PPG": 18.41,
-    "Low PPG": 16.81
-  },
-  {
     "NameKey": "tejhaun palmer",
     "Andy PPG": NaN,
     "Jason PPG": NaN,
@@ -27608,20 +24416,6 @@
     "Low PPG": 4.29
   },
   {
-    "NameKey": "terrance ferguson",
-    "Andy PPG": 4.29,
-    "Jason PPG": 9.0,
-    "Mike PPG": 6.5,
-    "FP PPG": 9.41,
-    "CBS PPG": 9.09,
-    "Player name": "Terrance Ferguson",
-    "Team": "LAR",
-    "Pos": "TE",
-    "Avg PPG": 7.66,
-    "High PPG": 9.41,
-    "Low PPG": 4.29
-  },
-  {
     "NameKey": "terrell jennings",
     "Andy PPG": NaN,
     "Jason PPG": NaN,
@@ -27648,20 +24442,6 @@
     "Avg PPG": 0.0,
     "High PPG": 0.0,
     "Low PPG": 0.0
-  },
-  {
-    "NameKey": "terry mclaurin",
-    "Andy PPG": 17.38,
-    "Jason PPG": 17.38,
-    "Mike PPG": 16.71,
-    "FP PPG": 16.27,
-    "CBS PPG": 16.5,
-    "Player name": "Terry McLaurin",
-    "Team": "WAS",
-    "Pos": "WR",
-    "Avg PPG": 16.85,
-    "High PPG": 17.38,
-    "Low PPG": 16.27
   },
   {
     "NameKey": "terry mclaurin",
@@ -27706,34 +24486,6 @@
     "Low PPG": 17.68
   },
   {
-    "NameKey": "tetairoa mcmillan",
-    "Andy PPG": 17.68,
-    "Jason PPG": 18.68,
-    "Mike PPG": 18.06,
-    "FP PPG": 18.31,
-    "CBS PPG": 19.18,
-    "Player name": "Tetairoa McMillan",
-    "Team": "CAR",
-    "Pos": "WR",
-    "Avg PPG": 18.38,
-    "High PPG": 19.18,
-    "Low PPG": 17.68
-  },
-  {
-    "NameKey": "tez johnson",
-    "Andy PPG": 6.88,
-    "Jason PPG": 6.24,
-    "Mike PPG": 4.38,
-    "FP PPG": 1.0,
-    "CBS PPG": 6.12,
-    "Player name": "Tez Johnson",
-    "Team": "TB",
-    "Pos": "WR",
-    "Avg PPG": 4.92,
-    "High PPG": 6.88,
-    "Low PPG": 1.0
-  },
-  {
     "NameKey": "tez johnson",
     "Andy PPG": 6.88,
     "Jason PPG": 6.24,
@@ -27774,20 +24526,6 @@
     "Avg PPG": 0.0,
     "High PPG": 0.0,
     "Low PPG": 0.0
-  },
-  {
-    "NameKey": "theo johnson",
-    "Andy PPG": 6.85,
-    "Jason PPG": 3.71,
-    "Mike PPG": 5.53,
-    "FP PPG": 5.72,
-    "CBS PPG": 7.59,
-    "Player name": "Theo Johnson",
-    "Team": "NYG",
-    "Pos": "TE",
-    "Avg PPG": 5.88,
-    "High PPG": 7.59,
-    "Low PPG": 3.71
   },
   {
     "NameKey": "theo johnson",
@@ -28084,20 +24822,6 @@
     "Low PPG": 7.65
   },
   {
-    "NameKey": "tj hockenson",
-    "Andy PPG": 7.65,
-    "Jason PPG": 9.97,
-    "Mike PPG": 9.56,
-    "FP PPG": 9.98,
-    "CBS PPG": 9.26,
-    "Player name": "T.J. Hockenson",
-    "Team": "MIN",
-    "Pos": "TE",
-    "Avg PPG": 9.28,
-    "High PPG": 9.98,
-    "Low PPG": 7.65
-  },
-  {
     "NameKey": "tj luther",
     "Andy PPG": NaN,
     "Jason PPG": NaN,
@@ -28266,20 +24990,6 @@
     "Low PPG": 15.06
   },
   {
-    "NameKey": "tony pollard",
-    "Andy PPG": 15.06,
-    "Jason PPG": 15.09,
-    "Mike PPG": 16.21,
-    "FP PPG": 17.87,
-    "CBS PPG": 17.53,
-    "Player name": "Tony Pollard",
-    "Team": "TEN",
-    "Pos": "RB",
-    "Avg PPG": 16.35,
-    "High PPG": 17.87,
-    "Low PPG": 15.06
-  },
-  {
     "NameKey": "toriano clinton",
     "Andy PPG": NaN,
     "Jason PPG": NaN,
@@ -28292,20 +25002,6 @@
     "Avg PPG": 0.0,
     "High PPG": 0.0,
     "Low PPG": 0.0
-  },
-  {
-    "NameKey": "tory horton",
-    "Andy PPG": 8.29,
-    "Jason PPG": 6.32,
-    "Mike PPG": 5.76,
-    "FP PPG": 7.46,
-    "CBS PPG": 9.68,
-    "Player name": "Tory Horton",
-    "Team": "SEA",
-    "Pos": "WR",
-    "Avg PPG": 7.5,
-    "High PPG": 9.68,
-    "Low PPG": 5.76
   },
   {
     "NameKey": "tory horton",
@@ -28406,20 +25102,6 @@
     "Low PPG": 19.38
   },
   {
-    "NameKey": "travis etienne",
-    "Andy PPG": 20.0,
-    "Jason PPG": 19.38,
-    "Mike PPG": 19.5,
-    "FP PPG": 21.42,
-    "CBS PPG": 20.97,
-    "Player name": "Travis Etienne Jr.",
-    "Team": "NO",
-    "Pos": "RB",
-    "Avg PPG": 20.25,
-    "High PPG": 21.42,
-    "Low PPG": 19.38
-  },
-  {
     "NameKey": "travis homer",
     "Andy PPG": NaN,
     "Jason PPG": NaN,
@@ -28448,20 +25130,6 @@
     "Low PPG": 4.88
   },
   {
-    "NameKey": "travis hunter",
-    "Andy PPG": 12.24,
-    "Jason PPG": 7.97,
-    "Mike PPG": 6.97,
-    "FP PPG": 8.46,
-    "CBS PPG": 4.88,
-    "Player name": "Travis Hunter",
-    "Team": "JAX",
-    "Pos": "WR",
-    "Avg PPG": 8.1,
-    "High PPG": 12.24,
-    "Low PPG": 4.88
-  },
-  {
     "NameKey": "travis jonsen",
     "Andy PPG": NaN,
     "Jason PPG": NaN,
@@ -28474,20 +25142,6 @@
     "Avg PPG": 0.0,
     "High PPG": 0.0,
     "Low PPG": 0.0
-  },
-  {
-    "NameKey": "travis kelce",
-    "Andy PPG": 10.76,
-    "Jason PPG": 12.91,
-    "Mike PPG": 12.65,
-    "FP PPG": 13.34,
-    "CBS PPG": 14.21,
-    "Player name": "Travis Kelce",
-    "Team": "KC",
-    "Pos": "TE",
-    "Avg PPG": 12.77,
-    "High PPG": 14.21,
-    "Low PPG": 10.76
   },
   {
     "NameKey": "travis kelce",
@@ -28602,20 +25256,6 @@
     "Low PPG": 4.5
   },
   {
-    "NameKey": "tre harris",
-    "Andy PPG": 10.12,
-    "Jason PPG": 9.32,
-    "Mike PPG": 5.06,
-    "FP PPG": 6.93,
-    "CBS PPG": 4.5,
-    "Player name": "Tre' Harris",
-    "Team": "LAC",
-    "Pos": "WR",
-    "Avg PPG": 7.19,
-    "High PPG": 10.12,
-    "Low PPG": 4.5
-  },
-  {
     "NameKey": "tre mckitty",
     "Andy PPG": NaN,
     "Jason PPG": NaN,
@@ -28670,20 +25310,6 @@
     "Avg PPG": 0.0,
     "High PPG": 0.0,
     "Low PPG": 0.0
-  },
-  {
-    "NameKey": "tre tucker",
-    "Andy PPG": 10.21,
-    "Jason PPG": 9.56,
-    "Mike PPG": 13.18,
-    "FP PPG": 10.82,
-    "CBS PPG": 10.88,
-    "Player name": "Tre Tucker",
-    "Team": "LV",
-    "Pos": "WR",
-    "Avg PPG": 10.93,
-    "High PPG": 13.18,
-    "Low PPG": 9.56
   },
   {
     "NameKey": "tre tucker",
@@ -28840,20 +25466,6 @@
     "Low PPG": 16.71
   },
   {
-    "NameKey": "treveyon henderson",
-    "Andy PPG": 16.71,
-    "Jason PPG": 19.47,
-    "Mike PPG": 17.71,
-    "FP PPG": 17.14,
-    "CBS PPG": 16.91,
-    "Player name": "TreVeyon Henderson",
-    "Team": "NE",
-    "Pos": "RB",
-    "Avg PPG": 17.59,
-    "High PPG": 19.47,
-    "Low PPG": 16.71
-  },
-  {
     "NameKey": "trevion thompson",
     "Andy PPG": NaN,
     "Jason PPG": NaN,
@@ -28908,20 +25520,6 @@
     "Avg PPG": 0.0,
     "High PPG": 0.0,
     "Low PPG": 0.0
-  },
-  {
-    "NameKey": "trevor etienne",
-    "Andy PPG": 1.24,
-    "Jason PPG": 6.15,
-    "Mike PPG": 1.26,
-    "FP PPG": 0.66,
-    "CBS PPG": 0.76,
-    "Player name": "Trevor Etienne",
-    "Team": "CAR",
-    "Pos": "RB",
-    "Avg PPG": 2.01,
-    "High PPG": 6.15,
-    "Low PPG": 0.66
   },
   {
     "NameKey": "trevor etienne",
@@ -29022,20 +25620,6 @@
     "Low PPG": 17.88
   },
   {
-    "NameKey": "trey mcbride",
-    "Andy PPG": 19.74,
-    "Jason PPG": 18.0,
-    "Mike PPG": 17.88,
-    "FP PPG": 18.3,
-    "CBS PPG": 19.74,
-    "Player name": "Trey McBride",
-    "Team": "ARI",
-    "Pos": "TE",
-    "Avg PPG": 18.73,
-    "High PPG": 19.74,
-    "Low PPG": 17.88
-  },
-  {
     "NameKey": "trey palmer",
     "Andy PPG": NaN,
     "Jason PPG": NaN,
@@ -29062,20 +25646,6 @@
     "Avg PPG": 0.0,
     "High PPG": 0.0,
     "Low PPG": 0.0
-  },
-  {
-    "NameKey": "treylon burks",
-    "Andy PPG": 5.62,
-    "Jason PPG": 3.71,
-    "Mike PPG": 3.82,
-    "FP PPG": 3.64,
-    "CBS PPG": 5.24,
-    "Player name": "Treylon Burks",
-    "Team": "WAS",
-    "Pos": "WR",
-    "Avg PPG": 4.41,
-    "High PPG": 5.62,
-    "Low PPG": 3.64
   },
   {
     "NameKey": "treylon burks",
@@ -29132,20 +25702,6 @@
     "Avg PPG": 0.0,
     "High PPG": 0.0,
     "Low PPG": 0.0
-  },
-  {
-    "NameKey": "troy franklin",
-    "Andy PPG": 8.82,
-    "Jason PPG": 6.71,
-    "Mike PPG": 4.85,
-    "FP PPG": 7.42,
-    "CBS PPG": 10.82,
-    "Player name": "Troy Franklin",
-    "Team": "DEN",
-    "Pos": "WR",
-    "Avg PPG": 7.72,
-    "High PPG": 10.82,
-    "Low PPG": 4.85
   },
   {
     "NameKey": "troy franklin",
@@ -29232,34 +25788,6 @@
     "Low PPG": 13.51
   },
   {
-    "NameKey": "tucker kraft",
-    "Andy PPG": 14.74,
-    "Jason PPG": 13.88,
-    "Mike PPG": 14.26,
-    "FP PPG": 13.51,
-    "CBS PPG": 15.0,
-    "Player name": "Tucker Kraft",
-    "Team": "GB",
-    "Pos": "TE",
-    "Avg PPG": 14.28,
-    "High PPG": 15.0,
-    "Low PPG": 13.51
-  },
-  {
-    "NameKey": "tutu atwell",
-    "Andy PPG": 4.09,
-    "Jason PPG": 3.32,
-    "Mike PPG": 3.82,
-    "FP PPG": 4.65,
-    "CBS PPG": 6.38,
-    "Player name": "Tutu Atwell",
-    "Team": "MIA",
-    "Pos": "WR",
-    "Avg PPG": 4.45,
-    "High PPG": 6.38,
-    "Low PPG": 3.32
-  },
-  {
     "NameKey": "tutu atwell",
     "Andy PPG": 4.09,
     "Jason PPG": 3.32,
@@ -29314,20 +25842,6 @@
     "Avg PPG": 0.0,
     "High PPG": 0.0,
     "Low PPG": 0.0
-  },
-  {
-    "NameKey": "ty johnson",
-    "Andy PPG": 6.97,
-    "Jason PPG": 7.47,
-    "Mike PPG": 4.21,
-    "FP PPG": 8.02,
-    "CBS PPG": 8.82,
-    "Player name": "Ty Johnson",
-    "Team": "BUF",
-    "Pos": "RB",
-    "Avg PPG": 7.1,
-    "High PPG": 8.82,
-    "Low PPG": 4.21
   },
   {
     "NameKey": "ty johnson",
@@ -29400,20 +25914,6 @@
     "Low PPG": 9.5
   },
   {
-    "NameKey": "tyjae spears",
-    "Andy PPG": 17.29,
-    "Jason PPG": 10.26,
-    "Mike PPG": 9.5,
-    "FP PPG": 11.14,
-    "CBS PPG": 11.41,
-    "Player name": "Tyjae Spears",
-    "Team": "TEN",
-    "Pos": "RB",
-    "Avg PPG": 11.92,
-    "High PPG": 17.29,
-    "Low PPG": 9.5
-  },
-  {
     "NameKey": "tyjon lindsey",
     "Andy PPG": NaN,
     "Jason PPG": NaN,
@@ -29454,20 +25954,6 @@
     "Avg PPG": 0.0,
     "High PPG": 0.0,
     "Low PPG": 0.0
-  },
-  {
-    "NameKey": "tyler allgeier",
-    "Andy PPG": 8.56,
-    "Jason PPG": 7.74,
-    "Mike PPG": 10.32,
-    "FP PPG": 8.02,
-    "CBS PPG": 8.71,
-    "Player name": "Tyler Allgeier",
-    "Team": "ARI",
-    "Pos": "RB",
-    "Avg PPG": 8.67,
-    "High PPG": 10.32,
-    "Low PPG": 7.74
   },
   {
     "NameKey": "tyler allgeier",
@@ -29820,34 +26306,6 @@
     "Low PPG": 14.72
   },
   {
-    "NameKey": "tyler warren",
-    "Andy PPG": 15.29,
-    "Jason PPG": 17.53,
-    "Mike PPG": 14.82,
-    "FP PPG": 14.72,
-    "CBS PPG": 15.47,
-    "Player name": "Tyler Warren",
-    "Team": "IND",
-    "Pos": "TE",
-    "Avg PPG": 15.57,
-    "High PPG": 17.53,
-    "Low PPG": 14.72
-  },
-  {
-    "NameKey": "tyquan thornton",
-    "Andy PPG": 6.06,
-    "Jason PPG": 6.59,
-    "Mike PPG": 6.29,
-    "FP PPG": 7.62,
-    "CBS PPG": 9.15,
-    "Player name": "Tyquan Thornton",
-    "Team": "KC",
-    "Pos": "WR",
-    "Avg PPG": 7.14,
-    "High PPG": 9.15,
-    "Low PPG": 6.06
-  },
-  {
     "NameKey": "tyquan thornton",
     "Andy PPG": 6.06,
     "Jason PPG": 6.59,
@@ -29988,20 +26446,6 @@
     "Low PPG": 6.53
   },
   {
-    "NameKey": "tyrone tracy",
-    "Andy PPG": 13.5,
-    "Jason PPG": 6.53,
-    "Mike PPG": 7.41,
-    "FP PPG": 8.51,
-    "CBS PPG": 12.5,
-    "Player name": "Tyrone Tracy Jr.",
-    "Team": "NYG",
-    "Pos": "RB",
-    "Avg PPG": 9.69,
-    "High PPG": 13.5,
-    "Low PPG": 6.53
-  },
-  {
     "NameKey": "tyshaun james",
     "Andy PPG": NaN,
     "Jason PPG": NaN,
@@ -30098,20 +26542,6 @@
     "Avg PPG": 0.0,
     "High PPG": 0.0,
     "Low PPG": 0.0
-  },
-  {
-    "NameKey": "wandale robinson",
-    "Andy PPG": 15.06,
-    "Jason PPG": 12.85,
-    "Mike PPG": 12.88,
-    "FP PPG": 13.07,
-    "CBS PPG": 13.41,
-    "Player name": "Wan'Dale Robinson",
-    "Team": "TEN",
-    "Pos": "WR",
-    "Avg PPG": 13.45,
-    "High PPG": 15.06,
-    "Low PPG": 12.85
   },
   {
     "NameKey": "wandale robinson",
@@ -30310,20 +26740,6 @@
     "Low PPG": 0.24
   },
   {
-    "NameKey": "will shipley",
-    "Andy PPG": 6.06,
-    "Jason PPG": 1.18,
-    "Mike PPG": 0.24,
-    "FP PPG": 1.22,
-    "CBS PPG": 0.94,
-    "Player name": "Will Shipley",
-    "Team": "PHI",
-    "Pos": "RB",
-    "Avg PPG": 1.93,
-    "High PPG": 6.06,
-    "Low PPG": 0.24
-  },
-  {
     "NameKey": "willie johnson",
     "Andy PPG": NaN,
     "Jason PPG": NaN,
@@ -30350,20 +26766,6 @@
     "Avg PPG": 0.0,
     "High PPG": 0.0,
     "Low PPG": 0.0
-  },
-  {
-    "NameKey": "woody marks",
-    "Andy PPG": 11.41,
-    "Jason PPG": 11.68,
-    "Mike PPG": 9.0,
-    "FP PPG": 11.42,
-    "CBS PPG": 11.74,
-    "Player name": "Woody Marks",
-    "Team": "HOU",
-    "Pos": "RB",
-    "Avg PPG": 11.05,
-    "High PPG": 11.74,
-    "Low PPG": 9.0
   },
   {
     "NameKey": "woody marks",
@@ -30434,20 +26836,6 @@
     "Avg PPG": 0.0,
     "High PPG": 0.0,
     "Low PPG": 0.0
-  },
-  {
-    "NameKey": "xavier legette",
-    "Andy PPG": 1.79,
-    "Jason PPG": 5.24,
-    "Mike PPG": 3.47,
-    "FP PPG": 7.11,
-    "CBS PPG": 6.18,
-    "Player name": "Xavier Legette",
-    "Team": "CAR",
-    "Pos": "WR",
-    "Avg PPG": 4.76,
-    "High PPG": 7.11,
-    "Low PPG": 1.79
   },
   {
     "NameKey": "xavier legette",
@@ -30576,20 +26964,6 @@
     "Low PPG": 11.88
   },
   {
-    "NameKey": "xavier worthy",
-    "Andy PPG": 12.06,
-    "Jason PPG": 13.0,
-    "Mike PPG": 11.88,
-    "FP PPG": 12.65,
-    "CBS PPG": 11.91,
-    "Player name": "Xavier Worthy",
-    "Team": "KC",
-    "Pos": "WR",
-    "Avg PPG": 12.3,
-    "High PPG": 13.0,
-    "Low PPG": 11.88
-  },
-  {
     "NameKey": "xazavian valladay",
     "Andy PPG": NaN,
     "Jason PPG": NaN,
@@ -30602,20 +26976,6 @@
     "Avg PPG": 0.0,
     "High PPG": 0.0,
     "Low PPG": 0.0
-  },
-  {
-    "NameKey": "zach charbonnet",
-    "Andy PPG": 7.88,
-    "Jason PPG": 12.56,
-    "Mike PPG": 6.41,
-    "FP PPG": 9.99,
-    "CBS PPG": 11.24,
-    "Player name": "Zach Charbonnet",
-    "Team": "SEA",
-    "Pos": "RB",
-    "Avg PPG": 9.62,
-    "High PPG": 12.56,
-    "Low PPG": 6.41
   },
   {
     "NameKey": "zach charbonnet",
@@ -30758,20 +27118,6 @@
     "Low PPG": 5.35
   },
   {
-    "NameKey": "zachariah branch",
-    "Andy PPG": 6.91,
-    "Jason PPG": 11.15,
-    "Mike PPG": 5.35,
-    "FP PPG": 6.28,
-    "CBS PPG": 7.0,
-    "Player name": "Zachariah Branch",
-    "Team": "ATL",
-    "Pos": "WR",
-    "Avg PPG": 7.34,
-    "High PPG": 11.15,
-    "Low PPG": 5.35
-  },
-  {
     "NameKey": "zack annexstad",
     "Andy PPG": NaN,
     "Jason PPG": NaN,
@@ -30896,34 +27242,6 @@
     "Avg PPG": 3.7,
     "High PPG": 7.53,
     "Low PPG": 1.47
-  },
-  {
-    "NameKey": "zavion thomas",
-    "Andy PPG": 3.0,
-    "Jason PPG": 1.47,
-    "Mike PPG": NaN,
-    "FP PPG": 2.79,
-    "CBS PPG": 7.53,
-    "Player name": "Zavion Thomas",
-    "Team": "CHI",
-    "Pos": "WR",
-    "Avg PPG": 3.7,
-    "High PPG": 7.53,
-    "Low PPG": 1.47
-  },
-  {
-    "NameKey": "zay flowers",
-    "Andy PPG": 18.68,
-    "Jason PPG": 19.65,
-    "Mike PPG": 18.88,
-    "FP PPG": 18.83,
-    "CBS PPG": 19.97,
-    "Player name": "Zay Flowers",
-    "Team": "BAL",
-    "Pos": "WR",
-    "Avg PPG": 19.2,
-    "High PPG": 19.97,
-    "Low PPG": 18.68
   },
   {
     "NameKey": "zay flowers",
