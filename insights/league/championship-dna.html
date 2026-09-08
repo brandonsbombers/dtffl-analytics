@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<title>DTFFL Insights &middot; Championship DNA</title>
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  background: #0f172a; color: #e2e8f0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  max-width: 480px; margin: 0 auto;
+  padding-bottom: calc(56px + env(safe-area-inset-bottom));
+  -webkit-text-size-adjust: 100%;
+}
+.pg-header { position: sticky; top: 0; z-index: 10; background: #0f172a; border-bottom: 1px solid #1e293b; padding: 14px 16px 10px; }
+.pg-title { font-size: 18px; font-weight: 700; color: #f8fafc; line-height: 1.2; }
+.pg-sub   { font-size: 12px; color: #64748b; margin-top: 3px; }
+.hero { padding: 24px 16px 16px; border-bottom: 1px solid #1e293b; }
+.hero-title { font-size: 26px; font-weight: 800; color: #f8fafc; line-height: 1.1; }
+.hero-sub { font-size: 13px; color: #64748b; margin-top: 5px; }
+.sec-label, .section-hd { padding: 14px 16px 6px; font-size: 11px; font-weight: 700; letter-spacing: .07em; text-transform: uppercase; color: #475569; }
+.section-hd { border-top: 1px solid #1e293b; margin-top: 6px; }
+.section-note { padding: 0 16px 8px; font-size: 11px; color: #64748b; }
+.link-list { padding: 0 12px; }
+.link-row { display: flex; align-items: center; gap: 12px; padding: 12px 8px; border-bottom: 1px solid #1e293b; text-decoration: none; color: inherit; }
+.link-row:last-child { border-bottom: none; }
+.link-row:active { background: #1e293b; border-radius: 8px; }
+.link-row.disabled { opacity: 0.4; pointer-events: none; }
+.link-icon { font-size: 20px; flex-shrink: 0; }
+.link-title { font-size: 14px; font-weight: 600; color: #f1f5f9; }
+.link-meta { font-size: 11px; color: #64748b; margin-top: 2px; }
+.link-arr { margin-left: auto; color: #334155; font-size: 16px; flex-shrink: 0; }
+.soon-tag { margin-left: auto; font-size: 10px; color: #475569; background: #1e293b; padding: 2px 8px; border-radius: 99px; }
+.select-wrap { padding: 12px 16px 4px; }
+select.insights-select {
+  width: 100%; background: #1e293b; border: 1px solid #334155; color: #f1f5f9;
+  font-size: 14px; font-weight: 600; padding: 10px 12px; border-radius: 10px;
+  -webkit-appearance: none; appearance: none;
+}
+.comp-bar-row { display: flex; align-items: center; gap: 8px; padding: 5px 0; }
+.comp-label { width: 44px; font-size: 12px; font-weight: 700; color: #94a3b8; flex-shrink: 0; }
+.comp-track { flex: 1; height: 16px; background: #1e293b; border-radius: 4px; overflow: hidden; }
+.comp-fill { height: 100%; border-radius: 4px; }
+.comp-pct { width: 42px; text-align: right; font-size: 12px; color: #f1f5f9; font-weight: 600; flex-shrink: 0; }
+.legend { display: flex; gap: 14px; padding: 0 16px 8px; font-size: 11px; color: #94a3b8; }
+.legend-item { display: flex; align-items: center; gap: 5px; }
+.legend-dot { width: 9px; height: 9px; border-radius: 50%; }
+.pick-list { padding: 4px 16px; }
+.pick-row { display: flex; justify-content: space-between; align-items: center; padding: 8px 0; border-bottom: 1px solid #1e293b; font-size: 13px; }
+.pick-row:last-child { border-bottom: none; }
+.pick-name { color: #f1f5f9; font-weight: 600; }
+.pick-meta { color: #64748b; font-size: 11px; margin-top: 1px; }
+.pick-val { font-weight: 700; }
+.pick-val.reach { color: #f87171; }
+.pick-val.value { color: #4ade80; }
+.pick-val.na { color: #475569; font-weight: 400; }
+table.heatmap { border-collapse: collapse; font-size: 10px; width: 100%; }
+table.heatmap th { color: #64748b; font-weight: 600; padding: 4px 3px; text-align: center; }
+table.heatmap td { text-align: center; padding: 6px 3px; color: #0f172a; font-weight: 700; border-radius: 3px; }
+table.heatmap td.rd { color: #475569; font-weight: 600; background: none; text-align: left; padding-left: 4px; }
+table.heatmap td.empty { background: #1e293b; color: #334155; font-weight: 400; }
+.pg-footer, .footer { padding: 20px 16px 40px; font-size: 11px; color: #334155; text-align: center; }
+.bottom-nav { position: fixed; bottom: 0; left: 50%; transform: translateX(-50%); width: 100%; max-width: 480px; background: #0f172a; border-top: 1px solid #1e293b; display: flex; z-index: 100; padding-bottom: env(safe-area-inset-bottom); }
+.nav-tab { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 8px 0 6px; text-decoration: none; color: #475569; font-size: 10px; font-weight: 600; letter-spacing: .03em; gap: 3px; -webkit-tap-highlight-color: transparent; }
+.nav-tab:active { background: #1e293b; }
+.nav-tab.active { color: #4ade80; }
+.nav-icon { font-size: 18px; line-height: 1; }
+</style></head><body>
+
+<div class="pg-header">
+  <div class="pg-title">Championship DNA</div>
+  <div class="pg-sub">What champions drafted differently, rounds 1&ndash;5</div>
+</div>
+<div id="dnaTable" style="padding:12px 16px 8px;overflow-x:auto"></div>
+<div class="section-hd">Takeaways</div>
+<div id="dnaStats" style="padding:4px 16px 24px"></div>
+
+<nav class="bottom-nav"><a class="nav-tab" href="../index.html"><span class="nav-icon">🏠</span>Home</a><a class="nav-tab active" href="index.html"><span class="nav-icon">🏆</span>League</a><a class="nav-tab" href="../team.html"><span class="nav-icon">👥</span>Teams</a></nav>
+
+<script>
+async function loadJSON(path) { const r = await fetch(path); if (!r.ok) throw new Error(path); return r.json(); }
+(async function() {
+  const tableEl = document.getElementById('dnaTable');
+  const statsEl = document.getElementById('dnaStats');
+  let champions, history;
+  try {
+    [champions, history] = await Promise.all([
+      loadJSON('../../data/dtffl_champions_latest.json'),
+      loadJSON('../../data/dtffl_draft_history_all_seasons_latest.json'),
+    ]);
+  } catch (e) {
+    tableEl.innerHTML = '<div style="font-size:12px;color:#f87171">Could not load champions or draft history.</div>';
+    return;
+  }
+
+  const usable = champions.filter(c => c.Has_Draft_Data === 'Yes');
+
+  function firstQbRound(rows) {
+    const qbRows = rows.filter(r => r.Position === 'QB').sort((a, b) => a.Round - b.Round);
+    return qbRows.length ? qbRows[0].Round : null;
+  }
+  function wrShareEarly(rows) {
+    const early = rows.filter(r => r.Round <= 5);
+    if (!early.length) return null;
+    return early.filter(r => r.Position === 'WR').length / early.length * 100;
+  }
+
+  const seasonRows = [];
+  usable.forEach(c => {
+    const champPicks = history.filter(r => r.Season === c.Year && r.Owner_ID === c.Owner_ID);
+    const leaguePicks = history.filter(r => r.Season === c.Year);
+    const teams = [...new Set(leaguePicks.map(r => r.Owner_ID))];
+
+    const champQbRound = firstQbRound(champPicks);
+    const champWrShare = wrShareEarly(champPicks);
+
+    const leagueQbRounds = teams.map(t => firstQbRound(leaguePicks.filter(r => r.Owner_ID === t))).filter(v => v !== null);
+    const leagueWrShares = teams.map(t => wrShareEarly(leaguePicks.filter(r => r.Owner_ID === t))).filter(v => v !== null);
+    const avgQbRound = leagueQbRounds.reduce((a, b) => a + b, 0) / leagueQbRounds.length;
+    const avgWrShare = leagueWrShares.reduce((a, b) => a + b, 0) / leagueWrShares.length;
+
+    seasonRows.push({
+      year: c.Year, team: c.Team_Name,
+      champQbRound, avgQbRound: avgQbRound.toFixed(1),
+      champWrShare: champWrShare !== null ? champWrShare.toFixed(0) : '-',
+      avgWrShare: avgWrShare.toFixed(0),
+    });
+  });
+
+  let tableHtml = '<table class="heatmap" style="font-size:11px"><tr><th style="text-align:left">Season</th><th>Champ QB rd</th><th>League avg</th><th>Champ WR% (R1-5)</th><th>League avg</th></tr>';
+  seasonRows.forEach(r => {
+    tableHtml += '<tr><td class="rd">' + r.year + '</td>' +
+      '<td style="color:#f1f5f9;background:none">' + (r.champQbRound ?? '-') + '</td>' +
+      '<td style="color:#64748b;background:none">' + r.avgQbRound + '</td>' +
+      '<td style="color:#f1f5f9;background:none">' + r.champWrShare + '%</td>' +
+      '<td style="color:#64748b;background:none">' + r.avgWrShare + '%</td></tr>';
+  });
+  tableHtml += '</table>';
+  tableEl.innerHTML = tableHtml;
+
+  // Computed takeaways -- counted directly from the rows above, not asserted
+  const laterQb = seasonRows.filter(r => r.champQbRound !== null && r.champQbRound > parseFloat(r.avgQbRound)).length;
+  const higherWr = seasonRows.filter(r => r.champWrShare !== '-' && parseFloat(r.champWrShare) > parseFloat(r.avgWrShare)).length;
+  statsEl.innerHTML =
+    '<div class="pick-row"><div class="pick-name">Champion took QB later than league average</div><div class="pick-val">' + laterQb + ' of ' + seasonRows.length + ' seasons</div></div>' +
+    '<div class="pick-row"><div class="pick-name">Champion had higher WR share in rounds 1-5</div><div class="pick-val">' + higherWr + ' of ' + seasonRows.length + ' seasons</div></div>';
+})();
+</script>
+
+</body></html>
