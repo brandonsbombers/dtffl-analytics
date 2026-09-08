@@ -22,7 +22,7 @@
     "Team_Name": "Bold's Ladies of the Evening",
     "Player": "Ezekiel Elliott",
     "Position": "RB",
-    "NFL_Team": NaN,
+    "NFL_Team": null,
     "Keeper": "No"
   },
   {
@@ -282,7 +282,7 @@
     "Team_Name": "Dunlavy's Destroyers",
     "Player": "James Robinson",
     "Position": "RB",
-    "NFL_Team": NaN,
+    "NFL_Team": null,
     "Keeper": "No"
   },
   {
@@ -373,7 +373,7 @@
     "Team_Name": "More Cowbell",
     "Player": "Damien Harris",
     "Position": "RB",
-    "NFL_Team": NaN,
+    "NFL_Team": null,
     "Keeper": "No"
   },
   {
@@ -555,7 +555,7 @@
     "Team_Name": "Brandon's Bombers",
     "Player": "Chris Carson",
     "Position": "RB",
-    "NFL_Team": NaN,
+    "NFL_Team": null,
     "Keeper": "No"
   },
   {
@@ -646,7 +646,7 @@
     "Team_Name": "Bold's Ladies of the Evening",
     "Player": "Mike Davis",
     "Position": "RB",
-    "NFL_Team": NaN,
+    "NFL_Team": null,
     "Keeper": "No"
   },
   {
@@ -672,7 +672,7 @@
     "Team_Name": "Happ's Fighting Sea Toads",
     "Player": "Julio Jones",
     "Position": "WR",
-    "NFL_Team": NaN,
+    "NFL_Team": null,
     "Keeper": "No"
   },
   {
@@ -802,7 +802,7 @@
     "Team_Name": "Curry O'jus",
     "Player": "Ryan Tannehill",
     "Position": "QB",
-    "NFL_Team": NaN,
+    "NFL_Team": null,
     "Keeper": "No"
   },
   {
@@ -854,7 +854,7 @@
     "Team_Name": "Fooseball is the Devil",
     "Player": "Chase Claypool",
     "Position": "WR",
-    "NFL_Team": NaN,
+    "NFL_Team": null,
     "Keeper": "No"
   },
   {
@@ -880,7 +880,7 @@
     "Team_Name": "More Cowbell",
     "Player": "Kenny Golladay",
     "Position": "WR",
-    "NFL_Team": NaN,
+    "NFL_Team": null,
     "Keeper": "No"
   },
   {
@@ -919,7 +919,7 @@
     "Team_Name": "Bold's Ladies of the Evening",
     "Player": "Jared Cook",
     "Position": "TE",
-    "NFL_Team": NaN,
+    "NFL_Team": null,
     "Keeper": "No"
   },
   {
@@ -932,7 +932,7 @@
     "Team_Name": "Matt's Monsters",
     "Player": "Logan Thomas",
     "Position": "TE",
-    "NFL_Team": NaN,
+    "NFL_Team": null,
     "Keeper": "No"
   },
   {
@@ -984,7 +984,7 @@
     "Team_Name": "Happ's Fighting Sea Toads",
     "Player": "Michael Thomas",
     "Position": "WR",
-    "NFL_Team": NaN,
+    "NFL_Team": null,
     "Keeper": "No"
   },
   {
@@ -1010,7 +1010,7 @@
     "Team_Name": "Brandon's Bombers",
     "Player": "Darrell Henderson Jr.",
     "Position": "RB",
-    "NFL_Team": NaN,
+    "NFL_Team": null,
     "Keeper": "No"
   },
   {
@@ -1023,7 +1023,7 @@
     "Team_Name": "Fooseball is the Devil",
     "Player": "Leonard Fournette",
     "Position": "RB",
-    "NFL_Team": NaN,
+    "NFL_Team": null,
     "Keeper": "No"
   },
   {
@@ -1062,7 +1062,7 @@
     "Team_Name": "Niko's Plane Freaks",
     "Player": "Kenyan Drake",
     "Position": "RB",
-    "NFL_Team": NaN,
+    "NFL_Team": null,
     "Keeper": "No"
   },
   {
@@ -1101,7 +1101,7 @@
     "Team_Name": "Smaby Nots",
     "Player": "Melvin Gordon",
     "Position": "RB",
-    "NFL_Team": NaN,
+    "NFL_Team": null,
     "Keeper": "No"
   },
   {
@@ -1192,7 +1192,7 @@
     "Team_Name": "More Cowbell",
     "Player": "Ronald Jones",
     "Position": "RB",
-    "NFL_Team": NaN,
+    "NFL_Team": null,
     "Keeper": "No"
   },
   {
@@ -1309,7 +1309,7 @@
     "Team_Name": "More Cowbell",
     "Player": "Rob Gronkowski",
     "Position": "TE",
-    "NFL_Team": NaN,
+    "NFL_Team": null,
     "Keeper": "No"
   },
   {
@@ -1387,7 +1387,7 @@
     "Team_Name": "Curry O'jus",
     "Player": "Sony Michel",
     "Position": "RB",
-    "NFL_Team": NaN,
+    "NFL_Team": null,
     "Keeper": "No"
   },
   {
@@ -1413,7 +1413,7 @@
     "Team_Name": "Smaby Nots",
     "Player": "Will Fuller",
     "Position": "WR",
-    "NFL_Team": NaN,
+    "NFL_Team": null,
     "Keeper": "No"
   },
   {
@@ -1426,7 +1426,7 @@
     "Team_Name": "Curry O'jus",
     "Player": "Corey Davis",
     "Position": "WR",
-    "NFL_Team": NaN,
+    "NFL_Team": null,
     "Keeper": "No"
   },
   {
@@ -1439,7 +1439,7 @@
     "Team_Name": "Niko's Plane Freaks",
     "Player": "Emmanuel Sanders",
     "Position": "WR",
-    "NFL_Team": NaN,
+    "NFL_Team": null,
     "Keeper": "No"
   },
   {
@@ -1517,7 +1517,7 @@
     "Team_Name": "Happ's Fighting Sea Toads",
     "Player": "Jarvis Landry",
     "Position": "WR",
-    "NFL_Team": NaN,
+    "NFL_Team": null,
     "Keeper": "No"
   },
   {
@@ -1699,7 +1699,7 @@
     "Team_Name": "Curry O'jus",
     "Player": "Giovani Bernard",
     "Position": "RB",
-    "NFL_Team": NaN,
+    "NFL_Team": null,
     "Keeper": "No"
   },
   {
@@ -1764,7 +1764,7 @@
     "Team_Name": "Gus's Mad Mongooses",
     "Player": "Ryan Succop",
     "Position": "K",
-    "NFL_Team": NaN,
+    "NFL_Team": null,
     "Keeper": "No"
   },
   {
@@ -1777,7 +1777,7 @@
     "Team_Name": "Joseph Water Buffaloes",
     "Player": "Rodrigo Blankenship",
     "Position": "K",
-    "NFL_Team": NaN,
+    "NFL_Team": null,
     "Keeper": "No"
   },
   {
@@ -1803,7 +1803,7 @@
     "Team_Name": "Brandon's Bombers",
     "Player": "Mason Crosby",
     "Position": "K",
-    "NFL_Team": NaN,
+    "NFL_Team": null,
     "Keeper": "No"
   },
   {
@@ -1868,7 +1868,7 @@
     "Team_Name": "Matt's Monsters",
     "Player": "Robbie Gould",
     "Position": "K",
-    "NFL_Team": NaN,
+    "NFL_Team": null,
     "Keeper": "No"
   },
   {
@@ -1985,7 +1985,7 @@
     "Team_Name": "Brandon's Bombers",
     "Player": "Dalvin Cook",
     "Position": "RB",
-    "NFL_Team": NaN,
+    "NFL_Team": null,
     "Keeper": "No"
   },
   {
@@ -2037,7 +2037,7 @@
     "Team_Name": "Smaby Nots",
     "Player": "Leonard Fournette",
     "Position": "RB",
-    "NFL_Team": NaN,
+    "NFL_Team": null,
     "Keeper": "No"
   },
   {
@@ -2102,7 +2102,7 @@
     "Team_Name": "Joseph Water Buffaloes",
     "Player": "Jonathan Taylor",
     "Position": "RB",
-    "NFL_Team": NaN,
+    "NFL_Team": null,
     "Keeper": "Yes"
   },
   {
@@ -2141,7 +2141,7 @@
     "Team_Name": "Gus's Mad Mongooses",
     "Player": "Cooper Kupp",
     "Position": "WR",
-    "NFL_Team": NaN,
+    "NFL_Team": null,
     "Keeper": "Yes"
   },
   {
@@ -2206,7 +2206,7 @@
     "Team_Name": "Niko's Plane Freaks",
     "Player": "D'Andre Swift",
     "Position": "RB",
-    "NFL_Team": NaN,
+    "NFL_Team": null,
     "Keeper": "Yes"
   },
   {
@@ -2297,7 +2297,7 @@
     "Team_Name": "Brandon's Bombers",
     "Player": "CeeDee Lamb",
     "Position": "WR",
-    "NFL_Team": NaN,
+    "NFL_Team": null,
     "Keeper": "Yes"
   },
   {
@@ -2310,7 +2310,7 @@
     "Team_Name": "Happ's Fighting Sea Toads",
     "Player": "Ezekiel Elliott",
     "Position": "RB",
-    "NFL_Team": NaN,
+    "NFL_Team": null,
     "Keeper": "No"
   },
   {
@@ -2336,7 +2336,7 @@
     "Team_Name": "Smaby Nots",
     "Player": "Davante Adams",
     "Position": "WR",
-    "NFL_Team": NaN,
+    "NFL_Team": null,
     "Keeper": "Yes"
   },
   {
@@ -2375,7 +2375,7 @@
     "Team_Name": "Happ's Fighting Sea Toads",
     "Player": "Tee Higgins",
     "Position": "WR",
-    "NFL_Team": NaN,
+    "NFL_Team": null,
     "Keeper": "Yes"
   },
   {
@@ -2401,7 +2401,7 @@
     "Team_Name": "More Cowbell",
     "Player": "James Conner",
     "Position": "RB",
-    "NFL_Team": NaN,
+    "NFL_Team": null,
     "Keeper": "Yes"
   },
   {
@@ -2440,7 +2440,7 @@
     "Team_Name": "Fooseball is the Devil",
     "Player": "Tom Brady",
     "Position": "QB",
-    "NFL_Team": NaN,
+    "NFL_Team": null,
     "Keeper": "No"
   },
   {
@@ -2596,7 +2596,7 @@
     "Team_Name": "More Cowbell",
     "Player": "Michael Thomas",
     "Position": "WR",
-    "NFL_Team": NaN,
+    "NFL_Team": null,
     "Keeper": "No"
   },
   {
@@ -2986,7 +2986,7 @@
     "Team_Name": "Bold's Ladies of the Evening",
     "Player": "Damien Harris",
     "Position": "RB",
-    "NFL_Team": NaN,
+    "NFL_Team": null,
     "Keeper": "No"
   },
   {
@@ -3051,7 +3051,7 @@
     "Team_Name": "Matt's Monsters",
     "Player": "Kyle Rudolph",
     "Position": "TE",
-    "NFL_Team": NaN,
+    "NFL_Team": null,
     "Keeper": "No"
   },
   {
@@ -3155,7 +3155,7 @@
     "Team_Name": "Curry O'jus",
     "Player": "Amon-Ra St. Brown",
     "Position": "WR",
-    "NFL_Team": NaN,
+    "NFL_Team": null,
     "Keeper": "Yes"
   },
   {
@@ -3402,7 +3402,7 @@
     "Team_Name": "Curry O'jus",
     "Player": "Rodrigo Blankenship",
     "Position": "K",
-    "NFL_Team": NaN,
+    "NFL_Team": null,
     "Keeper": "No"
   },
   {
@@ -3467,7 +3467,7 @@
     "Team_Name": "Curry O'jus",
     "Player": "James Robinson",
     "Position": "RB",
-    "NFL_Team": NaN,
+    "NFL_Team": null,
     "Keeper": "No"
   },
   {
@@ -3506,7 +3506,7 @@
     "Team_Name": "Matt's Monsters",
     "Player": "Robbie Gould",
     "Position": "K",
-    "NFL_Team": NaN,
+    "NFL_Team": null,
     "Keeper": "No"
   },
   {
@@ -3545,7 +3545,7 @@
     "Team_Name": "Brandon's Bombers",
     "Player": "Ryan Succop",
     "Position": "K",
-    "NFL_Team": NaN,
+    "NFL_Team": null,
     "Keeper": "No"
   },
   {
@@ -3558,7 +3558,7 @@
     "Team_Name": "Happ's Fighting Sea Toads",
     "Player": "Rashaad Penny",
     "Position": "RB",
-    "NFL_Team": NaN,
+    "NFL_Team": null,
     "Keeper": "No"
   },
   {
