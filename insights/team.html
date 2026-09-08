@@ -71,6 +71,7 @@ table.heatmap td.empty { background: #1e293b; color: #334155; font-weight: 400; 
 <div class="pg-header">
   <div class="pg-title" id="teamTitle">Team</div>
   <div class="pg-sub" id="teamSub">Loading&hellip;</div>
+  <div class="pg-sub" id="champBadge" style="color:#4ade80"></div>
 </div>
 <div class="select-wrap"><select class="insights-select" id="ownerSelect"></select></div>
 <div class="section-hd">Draft tendencies</div>
@@ -118,12 +119,13 @@ function heatColor(pct) {
   const svg = document.getElementById('chart');
   const pickListEl = document.getElementById('pickList');
 
-  let allHistory, curveRows, picks2026;
+  let allHistory, curveRows, picks2026, champions;
   try {
-    [allHistory, curveRows, picks2026] = await Promise.all([
+    [allHistory, curveRows, picks2026, champions] = await Promise.all([
       loadJSON('../data/dtffl_draft_history_all_seasons_latest.json'),
       loadJSON('../data/dtffl_value_curve_latest.json'),
       loadJSON('../data/dtffl_draft_picks_latest.json'),
+      loadJSON('../data/dtffl_champions_latest.json'),
     ]);
   } catch (e) {
     teamSub.textContent = 'Could not load data — check the data/ files exist.';
@@ -259,11 +261,19 @@ function heatColor(pct) {
     });
   }
 
+  function renderChampBadge(ownerId) {
+    const badge = document.getElementById('champBadge');
+    if (!badge) return;
+    const titles = champions.filter(c => c.Owner_ID === ownerId).map(c => c.Year).sort((a, b) => a - b);
+        badge.textContent = titles.length ? ('🏆 ' + titles.length + 'x champion (' + titles.join(', ') + ')') : '';
+  }
+
   function renderAll(ownerId) {
     const owner = owners2026.find(o => o.id === ownerId);
     teamTitle.textContent = owner ? owner.team : 'Team';
     renderHeatmap(ownerId);
     renderValueCurve(ownerId, owner ? owner.team : '');
+    renderChampBadge(ownerId);
   }
 
   ownerSelect.addEventListener('change', e => renderAll(e.target.value));
