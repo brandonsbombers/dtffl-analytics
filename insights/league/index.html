@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<title>DTFFL Insights · League</title>
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  background: #0f172a; color: #e2e8f0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  max-width: 480px; margin: 0 auto;
+  padding-bottom: calc(56px + env(safe-area-inset-bottom));
+}
+.pg-header { padding: 14px 16px 10px; border-bottom: 1px solid #1e293b; }
+.pg-title { font-size: 18px; font-weight: 700; color: #f8fafc; }
+.pg-sub { font-size: 12px; color: #64748b; margin-top: 3px; }
+.link-list { padding: 8px 12px; }
+.link-row { display: flex; align-items: center; gap: 12px; padding: 12px 8px; border-bottom: 1px solid #1e293b; text-decoration: none; color: inherit; }
+.link-row:last-child { border-bottom: none; }
+.link-row:active { background: #1e293b; border-radius: 8px; }
+.link-row.disabled { opacity: 0.4; pointer-events: none; }
+.link-icon { font-size: 20px; flex-shrink: 0; }
+.link-title { font-size: 14px; font-weight: 600; color: #f1f5f9; }
+.link-meta { font-size: 11px; color: #64748b; margin-top: 2px; }
+.link-arr { margin-left: auto; color: #334155; font-size: 16px; flex-shrink: 0; }
+.soon-tag { margin-left: auto; font-size: 10px; color: #475569; background: #1e293b; padding: 2px 8px; border-radius: 99px; }
+.bottom-nav { position: fixed; bottom: 0; left: 50%; transform: translateX(-50%); width: 100%; max-width: 480px; background: #0f172a; border-top: 1px solid #1e293b; display: flex; z-index: 100; padding-bottom: env(safe-area-inset-bottom); }
+.nav-tab { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 8px 0 6px; text-decoration: none; color: #475569; font-size: 10px; font-weight: 600; letter-spacing: .03em; gap: 3px; }
+.nav-tab.active { color: #4ade80; }
+.nav-icon { font-size: 18px; line-height: 1; }
+</style></head><body>
+
+<div class="pg-header">
+  <div class="pg-title">League reports</div>
+  <div class="pg-sub">League-wide, all owners compared</div>
+</div>
+
+<div class="link-list">
+  <a class="link-row" href="value-by-round.html">
+    <div class="link-icon">📈</div>
+    <div><div class="link-title">Value by round</div>
+    <div class="link-meta">Any team's picks vs. positional ceiling</div></div>
+    <div class="link-arr">&rsaquo;</div>
+  </a>
+  <div class="link-row disabled">
+    <div class="link-icon">🏈</div>
+    <div><div class="link-title">Draft composition &amp; trends</div>
+    <div class="link-meta">Position mix by year, 2021&ndash;2026</div></div>
+    <div class="soon-tag">soon</div>
+  </div>
+  <div class="link-row disabled">
+    <div class="link-icon">🐍</div>
+    <div><div class="link-title">Draft slot advantage</div>
+    <div class="link-meta">Early vs. middle vs. late</div></div>
+    <div class="soon-tag">soon</div>
+  </div>
+  <div class="link-row disabled">
+    <div class="link-icon">🔄</div>
+    <div><div class="link-title">Streaming rates</div>
+    <div class="link-meta">QB / DST / K churn by owner</div></div>
+    <div class="soon-tag">soon</div>
+  </div>
+  <div class="link-row disabled">
+    <div class="link-icon">📋</div>
+    <div><div class="link-title">Waiver &amp; trade activity</div>
+    <div class="link-meta">Who works the wire</div></div>
+    <div class="soon-tag">soon</div>
+  </div>
+  <div class="link-row disabled">
+    <div class="link-icon">🏆</div>
+    <div><div class="link-title">Championship DNA</div>
+    <div class="link-meta">What winners draft differently</div></div>
+    <div class="soon-tag">soon</div>
+  </div>
+</div>
+
+<nav class="bottom-nav">
+  <a class="nav-tab" href="../index.html"><span class="nav-icon">🏠</span>Home</a>
+  <a class="nav-tab active" href="index.html"><span class="nav-icon">🏆</span>League</a>
+  <a class="nav-tab" href="../team.html"><span class="nav-icon">👥</span>Teams</a>
+</nav>
+</body></html>
