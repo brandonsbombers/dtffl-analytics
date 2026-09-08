@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<title>DTFFL Insights</title>
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  background: #0f172a; color: #e2e8f0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  max-width: 480px; margin: 0 auto;
+  padding-bottom: calc(56px + env(safe-area-inset-bottom));
+  -webkit-text-size-adjust: 100%;
+}
+.hero { padding: 24px 16px 16px; border-bottom: 1px solid #1e293b; }
+.hero-title { font-size: 26px; font-weight: 800; color: #f8fafc; line-height: 1.1; }
+.hero-sub { font-size: 13px; color: #64748b; margin-top: 5px; }
+.sec-label { padding: 14px 16px 6px; font-size: 11px; font-weight: 700; letter-spacing: .07em; text-transform: uppercase; color: #475569; }
+.comp-wrap { padding: 4px 16px 8px; }
+.comp-bar-row { display: flex; align-items: center; gap: 8px; padding: 5px 0; }
+.comp-label { width: 44px; font-size: 12px; font-weight: 700; color: #94a3b8; flex-shrink: 0; }
+.comp-track { flex: 1; height: 16px; background: #1e293b; border-radius: 4px; overflow: hidden; }
+.comp-fill { height: 100%; border-radius: 4px; }
+.comp-pct { width: 42px; text-align: right; font-size: 12px; color: #f1f5f9; font-weight: 600; flex-shrink: 0; }
+.link-list { padding: 0 12px; }
+.link-row { display: flex; align-items: center; gap: 12px; padding: 12px 8px; border-bottom: 1px solid #1e293b; text-decoration: none; color: inherit; }
+.link-row:last-child { border-bottom: none; }
+.link-row:active { background: #1e293b; border-radius: 8px; }
+.link-icon { font-size: 20px; flex-shrink: 0; }
+.link-title { font-size: 14px; font-weight: 600; color: #f1f5f9; }
+.link-meta { font-size: 11px; color: #64748b; margin-top: 2px; }
+.link-arr { margin-left: auto; color: #334155; font-size: 16px; flex-shrink: 0; }
+.footer { padding: 20px 16px 40px; font-size: 11px; color: #334155; text-align: center; }
+.bottom-nav { position: fixed; bottom: 0; left: 50%; transform: translateX(-50%); width: 100%; max-width: 480px; background: #0f172a; border-top: 1px solid #1e293b; display: flex; z-index: 100; padding-bottom: env(safe-area-inset-bottom); }
+.nav-tab { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 8px 0 6px; text-decoration: none; color: #475569; font-size: 10px; font-weight: 600; letter-spacing: .03em; gap: 3px; -webkit-tap-highlight-color: transparent; }
+.nav-tab:active { background: #1e293b; }
+.nav-tab.active { color: #4ade80; }
+.nav-icon { font-size: 18px; line-height: 1; }
+</style></head><body>
+
+<div class="hero">
+  <div class="hero-title">DTFFL<br>Insights</div>
+  <div class="hero-sub">Draft behavior, tendencies &amp; roster value &middot; 2021&ndash;2026</div>
+</div>
+
+<div class="sec-label">2026 draft composition</div>
+<div class="comp-wrap" id="compWrap">
+  <div style="font-size:12px;color:#475569;padding:8px 0">Loading&hellip;</div>
+</div>
+
+<div class="sec-label">League reports</div>
+<div class="link-list">
+  <a class="link-row" href="league/value-by-round.html">
+    <div class="link-icon">📈</div>
+    <div><div class="link-title">Value by round</div>
+    <div class="link-meta">Any team's picks vs. positional ceiling</div></div>
+    <div class="link-arr">&rsaquo;</div>
+  </a>
+</div>
+
+<div class="sec-label">Teams</div>
+<div class="link-list">
+  <a class="link-row" href="team.html">
+    <div class="link-icon">👥</div>
+    <div><div class="link-title">Team lookup</div>
+    <div class="link-meta">Draft tendencies &amp; value by owner</div></div>
+    <div class="link-arr">&rsaquo;</div>
+  </a>
+</div>
+
+<div class="footer">DTFFL Insights &middot; separate from the main analytics site &middot; data refreshed weekly</div>
+
+<nav class="bottom-nav">
+  <a class="nav-tab active" href="index.html"><span class="nav-icon">🏠</span>Home</a>
+  <a class="nav-tab" href="league/index.html"><span class="nav-icon">🏆</span>League</a>
+  <a class="nav-tab" href="team.html"><span class="nav-icon">👥</span>Teams</a>
+</nav>
+
+<script>
+async function loadJSON(path) {
+  const res = await fetch(path);
+  if (!res.ok) throw new Error('Failed to load ' + path);
+  return res.json();
+}
+
+(async function() {
+  const wrap = document.getElementById('compWrap');
+  let picks;
+  try {
+    picks = await loadJSON('../data/dtffl_draft_picks_latest.json');
+  } catch (e) {
+    wrap.innerHTML = '<div style="font-size:12px;color:#f87171">Could not load draft data.</div>';
+    return;
+  }
+  const counts = {};
+  picks.forEach(p => { counts[p.Position] = (counts[p.Position] || 0) + 1; });
+  const total = picks.length;
+  const order = ['WR', 'RB', 'QB', 'K', 'DST', 'TE'];
+  const palette = { WR: '#2a78d6', RB: '#1baf7a', QB: '#6250d6', TE: '#eb6834', K: '#898781', DST: '#e34948' };
+  let html = '';
+  order.forEach(pos => {
+    const n = counts[pos] || 0;
+    const pct = total ? Math.round(n / total * 100) : 0;
+    html += '<div class="comp-bar-row">' +
+      '<div class="comp-label">' + pos + '</div>' +
+      '<div class="comp-track"><div class="comp-fill" style="width:' + pct + '%;background:' + palette[pos] + '"></div></div>' +
+      '<div class="comp-pct">' + n + ' &middot; ' + pct + '%</div>' +
+      '</div>';
+  });
+  wrap.innerHTML = html;
+})();
+</script>
+</body></html>
