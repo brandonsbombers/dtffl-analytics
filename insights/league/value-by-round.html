@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<title>DTFFL Analytics · Value by Round</title>
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  background: #0f172a; color: #e2e8f0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  max-width: 480px; margin: 0 auto;
+  padding-bottom: calc(56px + env(safe-area-inset-bottom));
+  -webkit-text-size-adjust: 100%;
+}
+.pg-header { position: sticky; top: 0; z-index: 10; background: #0f172a; border-bottom: 1px solid #1e293b; padding: 14px 16px 10px; }
+.pg-title { font-size: 18px; font-weight: 700; color: #f8fafc; line-height: 1.2; }
+.pg-sub   { font-size: 12px; color: #64748b; margin-top: 3px; }
+.team-select-wrap { padding: 12px 16px 4px; }
+select#teamSelect {
+  width: 100%; background: #1e293b; border: 1px solid #334155; color: #f1f5f9;
+  font-size: 14px; font-weight: 600; padding: 10px 12px; border-radius: 10px;
+  -webkit-appearance: none; appearance: none;
+}
+.chart-wrap { padding: 12px 12px 4px; }
+.legend { display: flex; gap: 14px; padding: 0 16px 8px; font-size: 11px; color: #94a3b8; }
+.legend-item { display: flex; align-items: center; gap: 5px; }
+.legend-dot { width: 9px; height: 9px; border-radius: 50%; }
+.section-hd { padding: 12px 16px 4px; font-size: 11px; font-weight: 700; letter-spacing: .07em; text-transform: uppercase; color: #475569; border-top: 1px solid #1e293b; margin-top: 6px; }
+.pick-list { padding: 4px 16px; }
+.pick-row { display: flex; justify-content: space-between; align-items: center; padding: 8px 0; border-bottom: 1px solid #1e293b; font-size: 13px; }
+.pick-row:last-child { border-bottom: none; }
+.pick-name { color: #f1f5f9; font-weight: 600; }
+.pick-meta { color: #64748b; font-size: 11px; margin-top: 1px; }
+.pick-val { font-weight: 700; }
+.pick-val.reach { color: #f87171; }
+.pick-val.value { color: #4ade80; }
+.pick-val.na { color: #475569; font-weight: 400; }
+.pg-footer { padding: 20px 16px 40px; font-size: 11px; color: #334155; text-align: center; }
+.bottom-nav { position: fixed; bottom: 0; left: 50%; transform: translateX(-50%); width: 100%; max-width: 480px; background: #0f172a; border-top: 1px solid #1e293b; display: flex; z-index: 100; padding-bottom: env(safe-area-inset-bottom); }
+.nav-tab { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 8px 0 6px; text-decoration: none; color: #475569; font-size: 10px; font-weight: 600; letter-spacing: .03em; gap: 3px; -webkit-tap-highlight-color: transparent; }
+.nav-tab:active { background: #1e293b; }
+.nav-tab.active { color: #4ade80; }
+.nav-icon { font-size: 18px; line-height: 1; }
+</style></head><body>
+
+<div class="pg-header">
+  <div class="pg-title">Value by round</div>
+  <div class="pg-sub">2026 draft · each pick vs. that position's own ceiling</div>
+</div>
+
+<div class="team-select-wrap">
+  <select id="teamSelect"></select>
+</div>
+
+<div class="legend">
+  <span class="legend-item"><span class="legend-dot" style="background:#6250d6"></span>QB</span>
+  <span class="legend-item"><span class="legend-dot" style="background:#1baf7a"></span>RB</span>
+  <span class="legend-item"><span class="legend-dot" style="background:#2a78d6"></span>WR/TE</span>
+</div>
+
+<div class="chart-wrap">
+  <svg id="chart" width="100%" viewBox="0 0 440 300" role="img" aria-label="Positional value by round with this team's picks pinned on"></svg>
+</div>
+
+<div class="section-hd">This team's picks</div>
+<div class="pick-list" id="pickList"></div>
+
+<div class="pg-footer">Curve built from preseason blended projections (Andy/Jason/Mike UDK, FantasyPros, CBS) · frozen at 2026 draft time</div>
+
+<nav class="bottom-nav" id="bottom-nav">
+  <a class="nav-tab" href="../index.html"><span class="nav-icon">🏠</span>Home</a>
+  <a class="nav-tab active" href="index.html"><span class="nav-icon">🏆</span>League</a>
+  <a class="nav-tab" href="../team.html"><span class="nav-icon">👥</span>Teams</a>
+</nav>
+
+<script>
+const colors = { QB: '#6250d6', RB: '#1baf7a', 'WR/TE': '#2a78d6' };
+const x0 = 50, x1 = 410, y0 = 250, y1 = 40, vmin = 15, vmax = 105;
+const xf = r => x0 + (r - 1) * (x1 - x0) / 10;
+const yf = v => y0 - (v - vmin) / (vmax - vmin) * (y0 - y1);
+function initials(n) { return n.split(' ').map(w => w[0]).join('').slice(0, 2).toUpperCase(); }
+function clamp(v) { return Math.max(vmin, Math.min(vmax, v)); }
+
+async function loadJSON(path) {
+  const res = await fetch(path);
+  if (!res.ok) throw new Error('Failed to load ' + path);
+  return res.json();
+}
+
+(async function() {
+  const svg = document.getElementById('chart');
+  const select = document.getElementById('teamSelect');
+  const pickListEl = document.getElementById('pickList');
+
+  let curveRows, picks;
+  try {
+    [curveRows, picks] = await Promise.all([
+      loadJSON('../../data/dtffl_value_curve_latest.json'),
+      loadJSON('../../data/dtffl_draft_picks_latest.json'),
+    ]);
+  } catch (e) {
+    svg.outerHTML = '<p style="padding:16px;color:#f87171;font-size:13px">Could not load data — check that data/dtffl_value_curve_latest.json and data/dtffl_draft_picks_latest.json exist.</p>';
+    return;
+  }
+
+  // Build the curve lines: curveRows is a list of {ADP_Round, QB, RB, 'WR/TE'}
+  const curves = { QB: [], RB: [], 'WR/TE': [] };
+  for (let r = 1; r <= 11; r++) {
+    const row = curveRows.find(x => Number(x.ADP_Round) === r) || {};
+    ['QB', 'RB', 'WR/TE'].forEach(pos => {
+      const v = row[pos];
+      curves[pos].push(v === undefined || v === null ? null : Number(v));
+    });
+  }
+  // Linearly interpolate any gaps (some rounds have no ADP-round data for a position)
+  Object.keys(curves).forEach(pos => {
+    const arr = curves[pos];
+    for (let i = 0; i < arr.length; i++) {
+      if (arr[i] === null) {
+        let lo = i - 1, hi = i + 1;
+        while (lo >= 0 && arr[lo] === null) lo--;
+        while (hi < arr.length && arr[hi] === null) hi++;
+        if (lo >= 0 && hi < arr.length) arr[i] = arr[lo] + (arr[hi] - arr[lo]) * (i - lo) / (hi - lo);
+        else if (lo >= 0) arr[i] = arr[lo];
+        else if (hi < arr.length) arr[i] = arr[hi];
+        else arr[i] = 50;
+      }
+    }
+  });
+
+  // Team dropdown options, from actual picks
+  const teams = [...new Set(picks.map(p => p.Team_Name))].sort();
+  teams.forEach(t => {
+    const opt = document.createElement('option');
+    opt.value = t; opt.textContent = t;
+    select.appendChild(opt);
+  });
+
+  const grid = document.createElementNS('http://www.w3.org/2000/svg', 'g');
+  [20, 40, 60, 80, 100].forEach(v => {
+    const ln = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+    ln.setAttribute('x1', x0); ln.setAttribute('x2', x1);
+    ln.setAttribute('y1', yf(v)); ln.setAttribute('y2', yf(v));
+    ln.setAttribute('stroke', '#1e293b'); ln.setAttribute('stroke-width', '1');
+    grid.appendChild(ln);
+    const t = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+    t.setAttribute('x', x0 - 8); t.setAttribute('y', yf(v));
+    t.setAttribute('text-anchor', 'end'); t.setAttribute('dominant-baseline', 'central');
+    t.setAttribute('font-size', '9'); t.setAttribute('fill', '#475569');
+    t.textContent = v + '%';
+    grid.appendChild(t);
+  });
+  for (let r = 1; r <= 11; r++) {
+    const t = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+    t.setAttribute('x', xf(r)); t.setAttribute('y', y0 + 16);
+    t.setAttribute('text-anchor', 'middle'); t.setAttribute('font-size', '9'); t.setAttribute('fill', '#475569');
+    t.textContent = 'R' + r;
+    grid.appendChild(t);
+  }
+  svg.appendChild(grid);
+
+  const lineGroup = document.createElementNS('http://www.w3.org/2000/svg', 'g');
+  ['QB', 'RB', 'WR/TE'].forEach(pos => {
+    let d = '';
+    curves[pos].forEach((v, i) => { d += (i === 0 ? 'M' : 'L') + xf(i + 1) + ' ' + yf(clamp(v)) + ' '; });
+    const p = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+    p.setAttribute('d', d); p.setAttribute('fill', 'none'); p.setAttribute('stroke', colors[pos]);
+    p.setAttribute('stroke-width', '2'); p.setAttribute('stroke-linecap', 'round'); p.setAttribute('stroke-linejoin', 'round');
+    lineGroup.appendChild(p);
+  });
+  svg.appendChild(lineGroup);
+
+  const pinGroup = document.createElementNS('http://www.w3.org/2000/svg', 'g');
+  svg.appendChild(pinGroup);
+
+  function render(teamName) {
+    pinGroup.innerHTML = '';
+    pickListEl.innerHTML = '';
+    const teamPicks = picks.filter(p => p.Team_Name === teamName).sort((a, b) => a.Round - b.Round);
+    teamPicks.forEach(p => {
+      const rowDiv = document.createElement('div');
+      rowDiv.className = 'pick-row';
+      const val = p.Pct_of_Peak;
+      const hasVal = val !== null && val !== undefined && p.Pos_Group;
+      let valClass = 'na', valText = 'not on chart';
+      if (hasVal) {
+        valText = Number(val).toFixed(1) + '%';
+        valClass = val < 55 ? 'reach' : (val > 85 ? 'value' : '');
+      }
+      rowDiv.innerHTML =
+        '<div><div class="pick-name">R' + p.Round + ' &middot; ' + p.Player + '</div>' +
+        '<div class="pick-meta">' + p.Position + '</div></div>' +
+        '<div class="pick-val ' + valClass + '">' + valText + '</div>';
+      pickListEl.appendChild(rowDiv);
+
+      if (!hasVal) return;
+      const cx = xf(p.Round), cy = yf(clamp(Number(val)));
+      const g = document.createElementNS('http://www.w3.org/2000/svg', 'g');
+      const c = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+      c.setAttribute('cx', cx); c.setAttribute('cy', cy); c.setAttribute('r', 10);
+      c.setAttribute('fill', colors[p.Pos_Group] || '#94a3b8');
+      c.setAttribute('stroke', '#0f172a'); c.setAttribute('stroke-width', '2');
+      if (Number(val) < 40) { c.setAttribute('stroke', '#f87171'); c.setAttribute('stroke-width', '2.5'); }
+      g.appendChild(c);
+      const t = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+      t.setAttribute('x', cx); t.setAttribute('y', cy);
+      t.setAttribute('text-anchor', 'middle'); t.setAttribute('dominant-baseline', 'central');
+      t.setAttribute('font-size', '8'); t.setAttribute('fill', '#fff'); t.setAttribute('font-weight', '700');
+      t.textContent = initials(p.Player);
+      g.appendChild(t);
+      pinGroup.appendChild(g);
+    });
+  }
+
+  select.addEventListener('change', e => render(e.target.value));
+  const defaultTeam = teams.includes("Brandon's Bombers") ? "Brandon's Bombers" : teams[0];
+  select.value = defaultTeam;
+  render(defaultTeam);
+})();
+</script>
+</body></html>
