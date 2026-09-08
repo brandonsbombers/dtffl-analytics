@@ -1,0 +1,202 @@
+[
+  {
+    "Year": 2025,
+    "Team_Name": "Brandon's Bombers",
+    "Owner_ID": "BRANDON",
+    "Owner_Name": "Brandon Gill",
+    "Has_Draft_Data": "Yes",
+    "Notes": null
+  },
+  {
+    "Year": 2024,
+    "Team_Name": "Joseph Water Buffaloes",
+    "Owner_ID": "MJOSEPH",
+    "Owner_Name": "Matt Joseph",
+    "Has_Draft_Data": "Yes",
+    "Notes": null
+  },
+  {
+    "Year": 2023,
+    "Team_Name": "Brandon's Bombers",
+    "Owner_ID": "BRANDON",
+    "Owner_Name": "Brandon Gill",
+    "Has_Draft_Data": "Yes",
+    "Notes": null
+  },
+  {
+    "Year": 2022,
+    "Team_Name": "Niko's Plane Freaks",
+    "Owner_ID": "NIKO",
+    "Owner_Name": "Niko Joseph",
+    "Has_Draft_Data": "Yes",
+    "Notes": null
+  },
+  {
+    "Year": 2021,
+    "Team_Name": "Smaby Nots",
+    "Owner_ID": "SMABY",
+    "Owner_Name": "Niels Smaby",
+    "Has_Draft_Data": "Yes",
+    "Notes": null
+  },
+  {
+    "Year": 2020,
+    "Team_Name": "Smaby Nots",
+    "Owner_ID": "SMABY",
+    "Owner_Name": "Niels Smaby",
+    "Has_Draft_Data": "No",
+    "Notes": null
+  },
+  {
+    "Year": 2019,
+    "Team_Name": "Brandon's Bombers",
+    "Owner_ID": "BRANDON",
+    "Owner_Name": "Brandon Gill",
+    "Has_Draft_Data": "No",
+    "Notes": null
+  },
+  {
+    "Year": 2018,
+    "Team_Name": "Dunlavy's Destroyers",
+    "Owner_ID": "DUNLAVY",
+    "Owner_Name": "Shawn Dunlavy",
+    "Has_Draft_Data": "No",
+    "Notes": null
+  },
+  {
+    "Year": 2017,
+    "Team_Name": "Gus's Mad Mongooses",
+    "Owner_ID": "GUS",
+    "Owner_Name": "Leroy Gill",
+    "Has_Draft_Data": "No",
+    "Notes": null
+  },
+  {
+    "Year": 2016,
+    "Team_Name": "Bold's Ladies of the Evening",
+    "Owner_ID": "BOLD",
+    "Owner_Name": "Matt Bold",
+    "Has_Draft_Data": "No",
+    "Notes": null
+  },
+  {
+    "Year": 2015,
+    "Team_Name": "Gus's Mad Mongooses",
+    "Owner_ID": "GUS",
+    "Owner_Name": "Leroy Gill",
+    "Has_Draft_Data": "No",
+    "Notes": null
+  },
+  {
+    "Year": 2014,
+    "Team_Name": "Smaby Nots",
+    "Owner_ID": "SMABY",
+    "Owner_Name": "Niels Smaby",
+    "Has_Draft_Data": "No",
+    "Notes": null
+  },
+  {
+    "Year": 2013,
+    "Team_Name": "Joseph Water Buffaloes",
+    "Owner_ID": "MJOSEPH",
+    "Owner_Name": "Matt Joseph",
+    "Has_Draft_Data": "No",
+    "Notes": null
+  },
+  {
+    "Year": 2012,
+    "Team_Name": "Curry O'jus",
+    "Owner_ID": "OJUS",
+    "Owner_Name": "Ojustwin Naik",
+    "Has_Draft_Data": "No",
+    "Notes": null
+  },
+  {
+    "Year": 2011,
+    "Team_Name": "Happ's Fighting Sea Toads",
+    "Owner_ID": "HAPP",
+    "Owner_Name": "Jamie Happ",
+    "Has_Draft_Data": "No",
+    "Notes": null
+  },
+  {
+    "Year": 2010,
+    "Team_Name": "Curry O'jus",
+    "Owner_ID": "OJUS",
+    "Owner_Name": "Ojustwin Naik",
+    "Has_Draft_Data": "No",
+    "Notes": null
+  },
+  {
+    "Year": 2009,
+    "Team_Name": "Michael Bolton Soul Providers",
+    "Owner_ID": "LOREN",
+    "Owner_Name": "Loren Ross",
+    "Has_Draft_Data": "No",
+    "Notes": null
+  },
+  {
+    "Year": 2008,
+    "Team_Name": "Happ's Fighting Sea Toads",
+    "Owner_ID": "HAPP",
+    "Owner_Name": "Jamie Happ",
+    "Has_Draft_Data": "No",
+    "Notes": null
+  },
+  {
+    "Year": 2007,
+    "Team_Name": "Orsini Intimidators",
+    "Owner_ID": null,
+    "Owner_Name": null,
+    "Has_Draft_Data": "No",
+    "Notes": "Owner not in Team_Dimension -- pre-2008 defunct team, unresolved"
+  },
+  {
+    "Year": 2006,
+    "Team_Name": "Pioneer_ Workman",
+    "Owner_ID": "MIRELAN",
+    "Owner_Name": "Matt Ireland",
+    "Has_Draft_Data": "No",
+    "Notes": null
+  },
+  {
+    "Year": 2005,
+    "Team_Name": "Wicked Wombats",
+    "Owner_ID": null,
+    "Owner_Name": null,
+    "Has_Draft_Data": "No",
+    "Notes": "Owner not in Team_Dimension -- pre-2008 defunct team, unresolved"
+  },
+  {
+    "Year": 2004,
+    "Team_Name": "Orsini Intimidators",
+    "Owner_ID": null,
+    "Owner_Name": null,
+    "Has_Draft_Data": "No",
+    "Notes": "Owner not in Team_Dimension -- pre-2008 defunct team, unresolved"
+  },
+  {
+    "Year": 2003,
+    "Team_Name": "Davis A maize N Bluemen",
+    "Owner_ID": null,
+    "Owner_Name": null,
+    "Has_Draft_Data": "No",
+    "Notes": "Owner not in Team_Dimension -- pre-2008 defunct team, unresolved"
+  },
+  {
+    "Year": 2002,
+    "Team_Name": "Brandonz Boyz",
+    "Owner_ID": null,
+    "Owner_Name": null,
+    "Has_Draft_Data": "No",
+    "Notes": "Owner not in Team_Dimension -- pre-2008 defunct team, unresolved"
+  },
+  {
+    "Year": 2001,
+    "Team_Name": "Guinness Guzzlers",
+    "Owner_ID": null,
+    "Owner_Name": null,
+    "Has_Draft_Data": "No",
+    "Notes": "Owner not in Team_Dimension -- pre-2008 defunct team, unresolved"
+  }
+]
