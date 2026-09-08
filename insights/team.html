@@ -3,7 +3,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <meta name="apple-mobile-web-app-capable" content="yes">
-<title>DTFFL Analytics · Team</title>
+<title>DTFFL Insights &middot; Team</title>
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 body {
@@ -16,21 +16,33 @@ body {
 .pg-header { position: sticky; top: 0; z-index: 10; background: #0f172a; border-bottom: 1px solid #1e293b; padding: 14px 16px 10px; }
 .pg-title { font-size: 18px; font-weight: 700; color: #f8fafc; line-height: 1.2; }
 .pg-sub   { font-size: 12px; color: #64748b; margin-top: 3px; }
-.owner-select-wrap { padding: 12px 16px 4px; }
-select#ownerSelect {
+.hero { padding: 24px 16px 16px; border-bottom: 1px solid #1e293b; }
+.hero-title { font-size: 26px; font-weight: 800; color: #f8fafc; line-height: 1.1; }
+.hero-sub { font-size: 13px; color: #64748b; margin-top: 5px; }
+.sec-label, .section-hd { padding: 14px 16px 6px; font-size: 11px; font-weight: 700; letter-spacing: .07em; text-transform: uppercase; color: #475569; }
+.section-hd { border-top: 1px solid #1e293b; margin-top: 6px; }
+.section-note { padding: 0 16px 8px; font-size: 11px; color: #64748b; }
+.link-list { padding: 0 12px; }
+.link-row { display: flex; align-items: center; gap: 12px; padding: 12px 8px; border-bottom: 1px solid #1e293b; text-decoration: none; color: inherit; }
+.link-row:last-child { border-bottom: none; }
+.link-row:active { background: #1e293b; border-radius: 8px; }
+.link-row.disabled { opacity: 0.4; pointer-events: none; }
+.link-icon { font-size: 20px; flex-shrink: 0; }
+.link-title { font-size: 14px; font-weight: 600; color: #f1f5f9; }
+.link-meta { font-size: 11px; color: #64748b; margin-top: 2px; }
+.link-arr { margin-left: auto; color: #334155; font-size: 16px; flex-shrink: 0; }
+.soon-tag { margin-left: auto; font-size: 10px; color: #475569; background: #1e293b; padding: 2px 8px; border-radius: 99px; }
+.select-wrap { padding: 12px 16px 4px; }
+select.insights-select {
   width: 100%; background: #1e293b; border: 1px solid #334155; color: #f1f5f9;
   font-size: 14px; font-weight: 600; padding: 10px 12px; border-radius: 10px;
   -webkit-appearance: none; appearance: none;
 }
-.section-hd { padding: 12px 16px 4px; font-size: 11px; font-weight: 700; letter-spacing: .07em; text-transform: uppercase; color: #475569; border-top: 1px solid #1e293b; margin-top: 6px; }
-.section-note { padding: 0 16px 8px; font-size: 11px; color: #64748b; }
-.heatmap-wrap { padding: 4px 16px; overflow-x: auto; }
-table.heatmap { border-collapse: collapse; font-size: 10px; width: 100%; }
-table.heatmap th { color: #64748b; font-weight: 600; padding: 4px 3px; text-align: center; }
-table.heatmap td { text-align: center; padding: 6px 3px; color: #0f172a; font-weight: 700; border-radius: 3px; }
-table.heatmap td.rd { color: #475569; font-weight: 600; background: none; text-align: left; padding-left: 4px; }
-table.heatmap td.empty { background: #1e293b; color: #334155; font-weight: 400; }
-.chart-wrap { padding: 12px 12px 4px; }
+.comp-bar-row { display: flex; align-items: center; gap: 8px; padding: 5px 0; }
+.comp-label { width: 44px; font-size: 12px; font-weight: 700; color: #94a3b8; flex-shrink: 0; }
+.comp-track { flex: 1; height: 16px; background: #1e293b; border-radius: 4px; overflow: hidden; }
+.comp-fill { height: 100%; border-radius: 4px; }
+.comp-pct { width: 42px; text-align: right; font-size: 12px; color: #f1f5f9; font-weight: 600; flex-shrink: 0; }
 .legend { display: flex; gap: 14px; padding: 0 16px 8px; font-size: 11px; color: #94a3b8; }
 .legend-item { display: flex; align-items: center; gap: 5px; }
 .legend-dot { width: 9px; height: 9px; border-radius: 50%; }
@@ -43,7 +55,12 @@ table.heatmap td.empty { background: #1e293b; color: #334155; font-weight: 400; 
 .pick-val.reach { color: #f87171; }
 .pick-val.value { color: #4ade80; }
 .pick-val.na { color: #475569; font-weight: 400; }
-.pg-footer { padding: 20px 16px 40px; font-size: 11px; color: #334155; text-align: center; }
+table.heatmap { border-collapse: collapse; font-size: 10px; width: 100%; }
+table.heatmap th { color: #64748b; font-weight: 600; padding: 4px 3px; text-align: center; }
+table.heatmap td { text-align: center; padding: 6px 3px; color: #0f172a; font-weight: 700; border-radius: 3px; }
+table.heatmap td.rd { color: #475569; font-weight: 600; background: none; text-align: left; padding-left: 4px; }
+table.heatmap td.empty { background: #1e293b; color: #334155; font-weight: 400; }
+.pg-footer, .footer { padding: 20px 16px 40px; font-size: 11px; color: #334155; text-align: center; }
 .bottom-nav { position: fixed; bottom: 0; left: 50%; transform: translateX(-50%); width: 100%; max-width: 480px; background: #0f172a; border-top: 1px solid #1e293b; display: flex; z-index: 100; padding-bottom: env(safe-area-inset-bottom); }
 .nav-tab { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 8px 0 6px; text-decoration: none; color: #475569; font-size: 10px; font-weight: 600; letter-spacing: .03em; gap: 3px; -webkit-tap-highlight-color: transparent; }
 .nav-tab:active { background: #1e293b; }
@@ -55,35 +72,21 @@ table.heatmap td.empty { background: #1e293b; color: #334155; font-weight: 400; 
   <div class="pg-title" id="teamTitle">Team</div>
   <div class="pg-sub" id="teamSub">Loading&hellip;</div>
 </div>
-
-<div class="owner-select-wrap">
-  <select id="ownerSelect"></select>
-</div>
-
+<div class="select-wrap"><select class="insights-select" id="ownerSelect"></select></div>
 <div class="section-hd">Draft tendencies</div>
-<div class="section-note" id="heatmapNote">% of this owner's active seasons where they picked that position in that round</div>
-<div class="heatmap-wrap">
-  <table class="heatmap" id="heatmapTable"></table>
-</div>
-
+<div class="section-note">% of this owner's active seasons where they picked that position in that round</div>
+<div class="heatmap-wrap" style="padding:4px 16px;overflow-x:auto"><table class="heatmap" id="heatmapTable"></table></div>
 <div class="section-hd">2026 value by round</div>
 <div class="legend">
   <span class="legend-item"><span class="legend-dot" style="background:#6250d6"></span>QB</span>
   <span class="legend-item"><span class="legend-dot" style="background:#1baf7a"></span>RB</span>
   <span class="legend-item"><span class="legend-dot" style="background:#2a78d6"></span>WR/TE</span>
 </div>
-<div class="chart-wrap">
-  <svg id="chart" width="100%" viewBox="0 0 440 300" role="img" aria-label="This owner's 2026 picks plotted against positional value by round"></svg>
-</div>
+<div style="padding:12px 12px 4px"><svg id="chart" width="100%" viewBox="0 0 440 300" role="img" aria-label="This owner's 2026 picks plotted against positional value by round"></svg></div>
 <div class="pick-list" id="pickList"></div>
+<div class="pg-footer">Draft tendencies span every season this owner has been active &middot; value curve is 2026-only, frozen at draft time</div>
 
-<div class="pg-footer">Draft tendencies span every season this owner has been active · value curve is 2026-only, frozen at draft time</div>
-
-<nav class="bottom-nav" id="bottom-nav">
-  <a class="nav-tab" href="index.html"><span class="nav-icon">🏠</span>Home</a>
-  <a class="nav-tab" href="league/index.html"><span class="nav-icon">🏆</span>League</a>
-  <a class="nav-tab active" href="team.html"><span class="nav-icon">👥</span>Teams</a>
-</nav>
+<nav class="bottom-nav"><a class="nav-tab" href="index.html"><span class="nav-icon">🏠</span>Home</a><a class="nav-tab" href="league/index.html"><span class="nav-icon">🏆</span>League</a><a class="nav-tab active" href="team.html"><span class="nav-icon">👥</span>Teams</a></nav>
 
 <script>
 const POSITIONS = ['QB', 'RB', 'WR', 'TE', 'K', 'DST'];
@@ -274,4 +277,5 @@ function heatColor(pct) {
   renderAll(initial);
 })();
 </script>
+
 </body></html>
