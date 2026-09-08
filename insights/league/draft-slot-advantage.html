@@ -78,6 +78,7 @@ table.heatmap td.empty { background: #1e293b; color: #334155; font-weight: 400; 
 <div id="winRateBars" style="padding:4px 16px 8px"></div>
 <div class="section-hd">Champion-by-champion</div>
 <div id="champList" style="padding:4px 16px 24px"></div>
+<div class="pg-footer">Draft order confirmed for 2012&ndash;2026 (2016 included) &middot; 2001&ndash;2011 still incomplete</div>
 
 <nav class="bottom-nav"><a class="nav-tab" href="../index.html"><span class="nav-icon">🏠</span>Home</a><a class="nav-tab active" href="index.html"><span class="nav-icon">🏆</span>League</a><a class="nav-tab" href="../team.html"><span class="nav-icon">👥</span>Teams</a></nav>
 
@@ -87,22 +88,21 @@ async function loadJSON(path) { const r = await fetch(path); if (!r.ok) throw ne
   const summaryEl = document.getElementById('slotSummary');
   const winRateEl = document.getElementById('winRateBars');
   const listEl = document.getElementById('champList');
-  let champions, history;
+  let champions, order;
   try {
-    [champions, history] = await Promise.all([
+    [champions, order] = await Promise.all([
       loadJSON('../../data/dtffl_champions_latest.json'),
-      loadJSON('../../data/dtffl_draft_history_all_seasons_latest.json'),
+      loadJSON('../../data/dtffl_draft_order_latest.json'),
     ]);
   } catch (e) {
-    summaryEl.innerHTML = '<div style="font-size:12px;color:#f87171">Could not load champions or draft history.</div>';
+    summaryEl.innerHTML = '<div style="font-size:12px;color:#f87171">Could not load champions or draft order history.</div>';
     return;
   }
 
-  const usable = champions.filter(c => c.Has_Draft_Data === 'Yes');
+  // Only rows with a real, resolved pick -- excludes 2010/2011 placeholders
+  // and any unresolved-owner historical teams.
+  const validOrder = order.filter(r => r.Owner_ID && r.Draft_Slot !== null && r.Team_Count !== null);
 
-  function teamCountForSeason(season) {
-    return Math.max(...history.filter(r => r.Season === season && r.Round === 1).map(r => r.Pick_In_Round));
-  }
   function bucketFor(pick, teamCount) {
     const third = Math.ceil(teamCount / 3);
     if (pick <= third) return 'Early';
@@ -110,30 +110,34 @@ async function loadJSON(path) { const r = await fetch(path); if (!r.ok) throw ne
     return 'Middle';
   }
 
-  // Champion-by-champion: find each champion's actual round-1 pick that season
-  const champRows = usable.map(c => {
-    const pickRow = history.find(r => r.Season === c.Year && r.Owner_ID === c.Owner_ID && r.Round === 1);
-    const teamCount = teamCountForSeason(c.Year);
-    const pick = pickRow ? pickRow.Pick_In_Round : null;
-    const bucket = pick ? bucketFor(pick, teamCount) : null;
-    return { year: c.Year, team: c.Team_Name, owner: c.Owner_Name, pick, teamCount, bucket };
+  // Champion-by-champion: match each championship year+owner to a real draft-order row
+  const champRows = [];
+  champions.forEach(c => {
+    if (!c.Owner_ID) return;
+    const row = validOrder.find(r => r.Season === c.Year && r.Owner_ID === c.Owner_ID);
+    if (!row) return;
+    const pick = Number(row.Draft_Slot);
+    const teamCount = Number(row.Team_Count);
+    champRows.push({ year: c.Year, team: c.Team_Name, owner: c.Owner_Name, pick, teamCount, bucket: bucketFor(pick, teamCount) });
   });
+  champRows.sort((a, b) => a.year - b.year);
 
   const bucketCounts = { Early: 0, Middle: 0, Late: 0 };
-  champRows.forEach(c => { if (c.bucket) bucketCounts[c.bucket]++; });
+  champRows.forEach(c => bucketCounts[c.bucket]++);
 
   summaryEl.innerHTML = ['Early', 'Middle', 'Late'].map(b =>
     '<span class="legend-item" style="margin-right:18px"><span style="font-weight:700;color:#f1f5f9">' + bucketCounts[b] + '</span>&nbsp;' + b + '</span>'
-  ).join('') + '<div class="section-note" style="padding:6px 0 0">out of ' + champRows.length + ' seasons with draft data</div>';
+  ).join('') + '<div class="section-note" style="padding:6px 0 0">out of ' + champRows.length + ' seasons with confirmed draft order</div>';
 
-  // Win rate by bucket: championships in bucket / total team-seasons in that bucket, across all teams+seasons
-  const seasons = [...new Set(usable.map(c => c.Year))];
+  // Win rate by bucket: championships in bucket / total team-seasons in that
+  // bucket, across every team-season that has a resolved pick+team-count --
+  // restricted to seasons that actually produced a champion match above, so
+  // the denominator lines up with the numerator's coverage.
+  const seasonsUsed = [...new Set(champRows.map(c => c.year))];
   const teamSeasonBucketCounts = { Early: 0, Middle: 0, Late: 0 };
-  seasons.forEach(season => {
-    const teamCount = teamCountForSeason(season);
-    history.filter(r => r.Season === season && r.Round === 1).forEach(r => {
-      const b = bucketFor(r.Pick_In_Round, teamCount);
-      teamSeasonBucketCounts[b]++;
+  seasonsUsed.forEach(season => {
+    validOrder.filter(r => r.Season === season).forEach(r => {
+      teamSeasonBucketCounts[bucketFor(Number(r.Draft_Slot), Number(r.Team_Count))]++;
     });
   });
 
@@ -151,7 +155,7 @@ async function loadJSON(path) { const r = await fetch(path); if (!r.ok) throw ne
   listEl.innerHTML = champRows.map(c =>
     '<div class="pick-row"><div><div class="pick-name">' + c.year + ' &middot; ' + c.team + '</div>' +
     '<div class="pick-meta">' + c.owner + '</div></div>' +
-    '<div class="pick-val">' + (c.pick ? ('Pick ' + c.pick + ' of ' + c.teamCount + ' &middot; ' + c.bucket) : 'No round-1 pick found') + '</div></div>'
+    '<div class="pick-val">Pick ' + c.pick + ' of ' + c.teamCount + ' &middot; ' + c.bucket + '</div></div>'
   ).join('');
 })();
 </script>
