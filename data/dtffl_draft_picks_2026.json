@@ -51,8 +51,8 @@
     "Player": "Amon-Ra St. Brown",
     "Position": "WR",
     "Pos_Group": "WR/TE",
-    "Avg PPG": NaN,
-    "Pct_of_Peak": NaN
+    "Avg PPG": 23.59,
+    "Pct_of_Peak": 92.2
   },
   {
     "Owner_Name": "Brandon Gill",
@@ -348,8 +348,8 @@
     "Player": "Jaxon Smith-Njigba",
     "Position": "WR",
     "Pos_Group": "WR/TE",
-    "Avg PPG": NaN,
-    "Pct_of_Peak": NaN
+    "Avg PPG": 25.34,
+    "Pct_of_Peak": 99.0
   },
   {
     "Owner_Name": "Sundeep Shanmugasundaram",
@@ -1063,8 +1063,8 @@
     "Player": "Jacory Croskey-Merritt",
     "Position": "RB",
     "Pos_Group": "RB",
-    "Avg PPG": NaN,
-    "Pct_of_Peak": NaN
+    "Avg PPG": 14.87,
+    "Pct_of_Peak": 45.6
   },
   {
     "Owner_Name": "Amir Maki",
