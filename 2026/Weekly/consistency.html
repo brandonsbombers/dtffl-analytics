@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Consistency Report -- DTFFL Weekly</title>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+body{background:#0f172a;color:#e2e8f0;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;padding-bottom:40px;}
+.hdr{padding:18px 16px 12px;border-bottom:1px solid #1e293b;}
+.hdr h1{font-size:20px;font-weight:800;color:#f8fafc;}
+.hdr p{font-size:12px;color:#64748b;margin-top:4px;}
+.controls{display:flex;gap:10px;flex-wrap:wrap;padding:12px 16px;border-bottom:1px solid #1e293b;}
+select{background:#1e293b;color:#e2e8f0;border:1px solid #334155;border-radius:8px;padding:8px 10px;font-size:13px;}
+.tabs{display:flex;gap:6px;padding:10px 16px 0;flex-wrap:wrap;}
+.tab-btn{background:#1e293b;color:#94a3b8;border:1px solid #334155;border-radius:999px;padding:6px 14px;font-size:12px;font-weight:600;cursor:pointer;}
+.tab-btn.active{background:#4ade80;color:#0f172a;border-color:#4ade80;}
+table{width:100%;border-collapse:collapse;margin-top:12px;font-size:12px;}
+th{position:sticky;top:0;background:#1e293b;color:#94a3b8;text-align:left;padding:8px 10px;cursor:pointer;white-space:nowrap;border-bottom:1px solid #334155;}
+th:hover{color:#f8fafc;}
+td{padding:7px 10px;border-bottom:1px solid #1e293b;white-space:nowrap;}
+tr:hover td{background:#1e293b;}
+.wrap{overflow-x:auto;padding:0 8px;}
+.badge-yes{color:#4ade80;font-weight:700;}
+.badge-no{color:#64748b;}
+.footer{padding:20px 16px 0;font-size:11px;color:#334155;text-align:center;}
+</style></head><body>
+<div class="hdr">
+  <h1>Consistency Report</h1>
+  <p>Season-to-date positional finish tracker -- Best Finish and Top-5/14/28/42 hit rates.</p>
+  <p id="genLabel" style="margin-top:6px;color:#334155;"></p>
+</div>
+<div class="controls">
+  <select id="teamFilter"></select>
+  <span id="rowCount" style="align-self:center;font-size:12px;color:#64748b;"></span>
+</div>
+<div class="tabs"><button class="tab-btn active" data-tab="ALL" onclick="switchTab('ALL')">ALL</button><button class="tab-btn" data-tab="QB" onclick="switchTab('QB')">QB</button><button class="tab-btn" data-tab="RB" onclick="switchTab('RB')">RB</button><button class="tab-btn" data-tab="WRTE" onclick="switchTab('WRTE')">WR/TE</button><button class="tab-btn" data-tab="FLEX" onclick="switchTab('FLEX')">FLEX</button></div>
+<div class="wrap" id="tableWrap"></div>
+<div class="footer">DTFFL Analytics - Toledo scoring - nflverse-supplemented weekly stats</div>
+<script>
+let RAW = null, currentTab = 'ALL', sortCol = null, sortAsc = false;
+
+function fantasyTeams(data) {
+  const set = new Set();
+  Object.values(data.tabs).forEach(rows => rows.forEach(r => {
+    if (r.FantasyTeam && r.FantasyTeam !== 'Available') set.add(r.FantasyTeam);
+  }));
+  return Array.from(set).sort();
+}
+
+function populateTeamFilter(data) {
+  const sel = document.getElementById('teamFilter');
+  sel.innerHTML = '<option value="ALL">All</option><option value="AVAILABLE">Available (No Team)</option>';
+  fantasyTeams(data).forEach(t => {
+    const opt = document.createElement('option');
+    opt.value = t; opt.textContent = t;
+    sel.appendChild(opt);
+  });
+}
+
+function switchTab(tab) {
+  currentTab = tab;
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.toggle('active', b.dataset.tab === tab));
+  render();
+}
+
+function sortBy(col) {
+  if (sortCol === col) { sortAsc = !sortAsc; } else { sortCol = col; sortAsc = true; }
+  render();
+}
+
+function render() {
+  if (!RAW) return;
+  let rows = (RAW.tabs[currentTab] || []).slice();
+  const teamVal = document.getElementById('teamFilter').value;
+  if (teamVal === 'AVAILABLE') rows = rows.filter(r => r.FantasyTeam === 'Available');
+  else if (teamVal !== 'ALL') rows = rows.filter(r => r.FantasyTeam === teamVal);
+
+  if (sortCol) {
+    rows.sort((a,b) => {
+      const av = a[sortCol], bv = b[sortCol];
+      const an = parseFloat(av), bn = parseFloat(bv);
+      let cmp;
+      if (!isNaN(an) && !isNaN(bn) && String(av).match(/^-?[\d.]+$/) && String(bv).match(/^-?[\d.]+$/)) cmp = an - bn;
+      else cmp = String(av ?? '').localeCompare(String(bv ?? ''));
+      return sortAsc ? cmp : -cmp;
+    });
+  }
+
+  const cols = rows.length ? Object.keys(rows[0]) : [];
+  const thead = '<tr>' + cols.map(c => `<th onclick="sortBy('${c}')">${c}${sortCol===c ? (sortAsc?' &#9650;':' &#9660;') : ''}</th>`).join('') + '</tr>';
+  const tbody = rows.map(r => '<tr>' + cols.map(c => {
+    let v = r[c];
+    if (c === 'Available') v = `<span class="${v==='Yes'?'badge-yes':'badge-no'}">${v}</span>`;
+    return `<td>${v ?? ''}</td>`;
+  }).join('') + '</tr>').join('');
+
+  document.getElementById('tableWrap').innerHTML = `<table><thead>${thead}</thead><tbody>${tbody}</tbody></table>`;
+  document.getElementById('rowCount').textContent = `${rows.length} players`;
+}
+
+async function init(jsonPath) {
+  const res = await fetch(jsonPath);
+  RAW = await res.json();
+  populateTeamFilter(RAW);
+  document.getElementById('teamFilter').addEventListener('change', render);
+  document.getElementById('genLabel').textContent = `Season ${RAW.season} - Through Week ${RAW.through_week} - Updated ${RAW.generated}`;
+  render();
+}
+
+init('data/consistency.json');
+</script>
+</body></html>
