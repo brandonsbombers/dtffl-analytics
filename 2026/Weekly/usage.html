@@ -63,6 +63,28 @@ function switchTab(tab) {
   render();
 }
 
+function naturalCompare(a, b) {
+  // Splits into alternating text/number chunks so "WR/TE2" < "WR/TE10" and
+  // "9/12" < "10/12" -- a plain string or numeric compare gets both wrong.
+  a = String(a ?? ''); b = String(b ?? '');
+  const chunkRe = /(\d+)|(\D+)/g;
+  const aParts = a.match(chunkRe) || [];
+  const bParts = b.match(chunkRe) || [];
+  const len = Math.max(aParts.length, bParts.length);
+  for (let i = 0; i < len; i++) {
+    const ap = aParts[i] ?? '', bp = bParts[i] ?? '';
+    if (ap === bp) continue;
+    const aNum = /^\d+$/.test(ap), bNum = /^\d+$/.test(bp);
+    if (aNum && bNum) {
+      const diff = parseInt(ap, 10) - parseInt(bp, 10);
+      if (diff !== 0) return diff;
+    } else {
+      return ap < bp ? -1 : (ap > bp ? 1 : 0);
+    }
+  }
+  return 0;
+}
+
 function sortBy(col) {
   if (sortCol === col) { sortAsc = !sortAsc; } else { sortCol = col; sortAsc = true; }
   render();
@@ -77,11 +99,7 @@ function render() {
 
   if (sortCol) {
     rows.sort((a,b) => {
-      const av = a[sortCol], bv = b[sortCol];
-      const an = parseFloat(av), bn = parseFloat(bv);
-      let cmp;
-      if (!isNaN(an) && !isNaN(bn) && String(av).match(/^-?[\d.]+$/) && String(bv).match(/^-?[\d.]+$/)) cmp = an - bn;
-      else cmp = String(av ?? '').localeCompare(String(bv ?? ''));
+      const cmp = naturalCompare(a[sortCol], b[sortCol]);
       return sortAsc ? cmp : -cmp;
     });
   }
