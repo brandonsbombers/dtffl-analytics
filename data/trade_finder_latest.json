@@ -1,0 +1,860 @@
+{
+  "generated": "2026-09-17",
+  "season": 2026,
+  "teams": [
+    {
+      "team_name": "Bold's Ladies of the Evening",
+      "owner": null,
+      "roster": [
+        {
+          "player": "Jahmyr Gibbs",
+          "pos": "RB",
+          "trade_value": 124.33
+        },
+        {
+          "player": "Lamar Jackson",
+          "pos": "QB",
+          "trade_value": 37.44
+        },
+        {
+          "player": "Davante Adams",
+          "pos": "WR",
+          "trade_value": 20.78
+        },
+        {
+          "player": "Terry McLaurin",
+          "pos": "WR",
+          "trade_value": 16.74
+        },
+        {
+          "player": "Travis Kelce",
+          "pos": "TE",
+          "trade_value": 6.32
+        },
+        {
+          "player": "Makai Lemon",
+          "pos": "WR",
+          "trade_value": 5.67
+        },
+        {
+          "player": "Mike Washington Jr.",
+          "pos": "RB",
+          "trade_value": 4.4
+        },
+        {
+          "player": "James Cook",
+          "pos": "RB",
+          "trade_value": 0.0
+        },
+        {
+          "player": "Brandon Aubrey",
+          "pos": "K",
+          "trade_value": 0.0
+        },
+        {
+          "player": "Kyle Pitts",
+          "pos": "TE",
+          "trade_value": 0.0
+        },
+        {
+          "player": "Steelers",
+          "pos": "DST",
+          "trade_value": 0.0
+        }
+      ]
+    },
+    {
+      "team_name": "Brandon's Bombers",
+      "owner": null,
+      "roster": [
+        {
+          "player": "Christian McCaffrey",
+          "pos": "RB",
+          "trade_value": 69.36
+        },
+        {
+          "player": "Chase Brown",
+          "pos": "RB",
+          "trade_value": 67.39
+        },
+        {
+          "player": "Josh Allen",
+          "pos": "QB",
+          "trade_value": 46.4
+        },
+        {
+          "player": "Colston Loveland",
+          "pos": "TE",
+          "trade_value": 24.33
+        },
+        {
+          "player": "Jaylen Waddle",
+          "pos": "WR",
+          "trade_value": 23.53
+        },
+        {
+          "player": "Alec Pierce",
+          "pos": "WR",
+          "trade_value": 19.86
+        },
+        {
+          "player": "Rome Odunze",
+          "pos": "WR",
+          "trade_value": 18.25
+        },
+        {
+          "player": "Michael Wilson",
+          "pos": "WR",
+          "trade_value": 14.59
+        },
+        {
+          "player": "Quentin Johnston",
+          "pos": "WR",
+          "trade_value": 10.87
+        },
+        {
+          "player": "Tyler Loop",
+          "pos": "K",
+          "trade_value": 0.0
+        },
+        {
+          "player": "Packers",
+          "pos": "DST",
+          "trade_value": 0.0
+        }
+      ]
+    },
+    {
+      "team_name": "Concepts of a Draft Strategy",
+      "owner": null,
+      "roster": [
+        {
+          "player": "Jonathan Taylor",
+          "pos": "RB",
+          "trade_value": 86.95
+        },
+        {
+          "player": "Drake London",
+          "pos": "WR",
+          "trade_value": 35.96
+        },
+        {
+          "player": "Emeka Egbuka",
+          "pos": "WR",
+          "trade_value": 24.76
+        },
+        {
+          "player": "DK Metcalf",
+          "pos": "WR",
+          "trade_value": 20.44
+        },
+        {
+          "player": "TreVeyon Henderson",
+          "pos": "RB",
+          "trade_value": 13.25
+        },
+        {
+          "player": "Brian Thomas Jr.",
+          "pos": "WR",
+          "trade_value": 9.63
+        },
+        {
+          "player": "Jakobi Meyers",
+          "pos": "WR",
+          "trade_value": 8.31
+        },
+        {
+          "player": "Braelon Allen",
+          "pos": "RB",
+          "trade_value": 4.78
+        },
+        {
+          "player": "Bryce Young",
+          "pos": "QB",
+          "trade_value": 4.35
+        },
+        {
+          "player": "Chargers",
+          "pos": "DST",
+          "trade_value": 0.0
+        },
+        {
+          "player": "Chris Boswell",
+          "pos": "K",
+          "trade_value": 0.0
+        }
+      ]
+    },
+    {
+      "team_name": "Curry O'jus",
+      "owner": null,
+      "roster": [
+        {
+          "player": "Justin Jefferson",
+          "pos": "WR",
+          "trade_value": 55.25
+        },
+        {
+          "player": "Omarion Hampton",
+          "pos": "RB",
+          "trade_value": 42.99
+        },
+        {
+          "player": "Christian Watson",
+          "pos": "WR",
+          "trade_value": 30.98
+        },
+        {
+          "player": "Caleb Douglas",
+          "pos": "WR",
+          "trade_value": 9.36
+        },
+        {
+          "player": "Jared Goff",
+          "pos": "QB",
+          "trade_value": 6.03
+        },
+        {
+          "player": "Kalif Raymond",
+          "pos": "WR",
+          "trade_value": 1.8
+        },
+        {
+          "player": "Travis Etienne",
+          "pos": "RB",
+          "trade_value": 0.0
+        },
+        {
+          "player": "Chris Godwin",
+          "pos": "WR",
+          "trade_value": 0.0
+        },
+        {
+          "player": "Texans",
+          "pos": "DST",
+          "trade_value": 0.0
+        },
+        {
+          "player": "Evan McPherson",
+          "pos": "K",
+          "trade_value": 0.0
+        },
+        {
+          "player": "Patrick Mahomes",
+          "pos": "QB",
+          "trade_value": 0.0
+        }
+      ]
+    },
+    {
+      "team_name": "Dunlavy's Destroyers",
+      "owner": null,
+      "roster": [
+        {
+          "player": "Bijan Robinson",
+          "pos": "RB",
+          "trade_value": 106.94
+        },
+        {
+          "player": "Malik Nabers",
+          "pos": "WR",
+          "trade_value": 45.38
+        },
+        {
+          "player": "Breece Hall",
+          "pos": "RB",
+          "trade_value": 39.69
+        },
+        {
+          "player": "Brock Bowers",
+          "pos": "TE",
+          "trade_value": 29.16
+        },
+        {
+          "player": "Tyler Warren",
+          "pos": "TE",
+          "trade_value": 17.61
+        },
+        {
+          "player": "Dak Prescott",
+          "pos": "QB",
+          "trade_value": 9.38
+        },
+        {
+          "player": "Jonathon Brooks",
+          "pos": "RB",
+          "trade_value": 8.96
+        },
+        {
+          "player": "Jordan Mason",
+          "pos": "RB",
+          "trade_value": 8.78
+        },
+        {
+          "player": "Devaughn Vele",
+          "pos": "WR",
+          "trade_value": 7.22
+        },
+        {
+          "player": "Cameron Dicker",
+          "pos": "K",
+          "trade_value": 0.0
+        },
+        {
+          "player": "Patriots",
+          "pos": "DST",
+          "trade_value": 0.0
+        }
+      ]
+    },
+    {
+      "team_name": "Fooseball is the Devil",
+      "owner": null,
+      "roster": [
+        {
+          "player": "Amon-Ra St. Brown",
+          "pos": "WR",
+          "trade_value": 54.69
+        },
+        {
+          "player": "Zay Flowers",
+          "pos": "WR",
+          "trade_value": 35.56
+        },
+        {
+          "player": "Ladd McConkey",
+          "pos": "WR",
+          "trade_value": 33.3
+        },
+        {
+          "player": "Kyren Williams",
+          "pos": "RB",
+          "trade_value": 32.83
+        },
+        {
+          "player": "Jaylen Warren",
+          "pos": "RB",
+          "trade_value": 19.99
+        },
+        {
+          "player": "Justin Herbert",
+          "pos": "QB",
+          "trade_value": 10.03
+        },
+        {
+          "player": "Tony Pollard",
+          "pos": "RB",
+          "trade_value": 6.77
+        },
+        {
+          "player": "Dontayvion Wicks",
+          "pos": "WR",
+          "trade_value": 6.75
+        },
+        {
+          "player": "Eagles",
+          "pos": "DST",
+          "trade_value": 0.0
+        },
+        {
+          "player": "Jason Myers",
+          "pos": "K",
+          "trade_value": 0.0
+        },
+        {
+          "player": "Kenneth Gainwell",
+          "pos": "RB",
+          "trade_value": 0.0
+        }
+      ]
+    },
+    {
+      "team_name": "Gus's Mad Mongooses",
+      "owner": null,
+      "roster": [
+        {
+          "player": "Saquon Barkley",
+          "pos": "RB",
+          "trade_value": 49.3
+        },
+        {
+          "player": "George Pickens",
+          "pos": "WR",
+          "trade_value": 40.23
+        },
+        {
+          "player": "DeVonta Smith",
+          "pos": "WR",
+          "trade_value": 35.48
+        },
+        {
+          "player": "Parker Washington",
+          "pos": "WR",
+          "trade_value": 32.57
+        },
+        {
+          "player": "Jaxson Dart",
+          "pos": "QB",
+          "trade_value": 15.95
+        },
+        {
+          "player": "Jadarian Price",
+          "pos": "RB",
+          "trade_value": 15.79
+        },
+        {
+          "player": "Dalton Kincaid",
+          "pos": "TE",
+          "trade_value": 14.36
+        },
+        {
+          "player": "Kyle Monangai",
+          "pos": "RB",
+          "trade_value": 11.59
+        },
+        {
+          "player": "Jordan Love",
+          "pos": "QB",
+          "trade_value": 5.36
+        },
+        {
+          "player": "Tyler Bass",
+          "pos": "K",
+          "trade_value": 0.0
+        },
+        {
+          "player": "Buccaneers",
+          "pos": "DST",
+          "trade_value": 0.0
+        }
+      ]
+    },
+    {
+      "team_name": "Happ's Fighting Sea Toads",
+      "owner": null,
+      "roster": [
+        {
+          "player": "Derrick Henry",
+          "pos": "RB",
+          "trade_value": 70.79
+        },
+        {
+          "player": "Jaxon Smith-Njigba",
+          "pos": "WR",
+          "trade_value": 61.4
+        },
+        {
+          "player": "Chuba Hubbard",
+          "pos": "RB",
+          "trade_value": 31.38
+        },
+        {
+          "player": "Caleb Williams",
+          "pos": "QB",
+          "trade_value": 27.55
+        },
+        {
+          "player": "Quinshon Judkins",
+          "pos": "RB",
+          "trade_value": 19.03
+        },
+        {
+          "player": "Marvin Harrison Jr.",
+          "pos": "WR",
+          "trade_value": 8.66
+        },
+        {
+          "player": "MarShawn Lloyd",
+          "pos": "RB",
+          "trade_value": 7.11
+        },
+        {
+          "player": "Harold Fannin Jr.",
+          "pos": "TE",
+          "trade_value": 6.94
+        },
+        {
+          "player": "KC Concepcion",
+          "pos": "WR",
+          "trade_value": 0.0
+        },
+        {
+          "player": "Jaguars",
+          "pos": "DST",
+          "trade_value": 0.0
+        },
+        {
+          "player": "Harrison Butker",
+          "pos": "K",
+          "trade_value": 0.0
+        }
+      ]
+    },
+    {
+      "team_name": "Joseph Water Buffaloes",
+      "owner": null,
+      "roster": [
+        {
+          "player": "D'Andre Swift",
+          "pos": "RB",
+          "trade_value": 61.35
+        },
+        {
+          "player": "Ja'Marr Chase",
+          "pos": "WR",
+          "trade_value": 52.96
+        },
+        {
+          "player": "Javonte Williams",
+          "pos": "RB",
+          "trade_value": 47.03
+        },
+        {
+          "player": "Mike Evans",
+          "pos": "WR",
+          "trade_value": 31.41
+        },
+        {
+          "player": "Luther Burden III",
+          "pos": "WR",
+          "trade_value": 27.02
+        },
+        {
+          "player": "Jalen Coker",
+          "pos": "WR",
+          "trade_value": 16.5
+        },
+        {
+          "player": "Jayden Daniels",
+          "pos": "QB",
+          "trade_value": 15.03
+        },
+        {
+          "player": "Jacory Croskey-Merritt",
+          "pos": "RB",
+          "trade_value": 11.91
+        },
+        {
+          "player": "Michael Pittman",
+          "pos": "WR",
+          "trade_value": 0.0
+        },
+        {
+          "player": "Cairo Santos",
+          "pos": "K",
+          "trade_value": 0.0
+        },
+        {
+          "player": "49ers",
+          "pos": "DST",
+          "trade_value": 0.0
+        }
+      ]
+    },
+    {
+      "team_name": "Michael Bolton Soul Providers",
+      "owner": null,
+      "roster": [
+        {
+          "player": "De'Von Achane",
+          "pos": "RB",
+          "trade_value": 43.3
+        },
+        {
+          "player": "Jameson Williams",
+          "pos": "WR",
+          "trade_value": 25.95
+        },
+        {
+          "player": "Rashee Rice",
+          "pos": "WR",
+          "trade_value": 24.24
+        },
+        {
+          "player": "Joe Burrow",
+          "pos": "QB",
+          "trade_value": 18.41
+        },
+        {
+          "player": "Tucker Kraft",
+          "pos": "TE",
+          "trade_value": 16.65
+        },
+        {
+          "player": "Rico Dowdle",
+          "pos": "RB",
+          "trade_value": 15.0
+        },
+        {
+          "player": "Dallas Goedert",
+          "pos": "TE",
+          "trade_value": 11.38
+        },
+        {
+          "player": "Courtland Sutton",
+          "pos": "WR",
+          "trade_value": 8.62
+        },
+        {
+          "player": "Antonio Williams",
+          "pos": "WR",
+          "trade_value": 4.04
+        },
+        {
+          "player": "Ka'imi Fairbairn",
+          "pos": "K",
+          "trade_value": 0.0
+        },
+        {
+          "player": "Ravens",
+          "pos": "DST",
+          "trade_value": 0.0
+        }
+      ]
+    },
+    {
+      "team_name": "More Cowbell",
+      "owner": null,
+      "roster": [
+        {
+          "player": "Ashton Jeanty",
+          "pos": "RB",
+          "trade_value": 88.97
+        },
+        {
+          "player": "Jeremiyah Love",
+          "pos": "RB",
+          "trade_value": 41.33
+        },
+        {
+          "player": "Trey McBride",
+          "pos": "TE",
+          "trade_value": 36.09
+        },
+        {
+          "player": "Brock Purdy",
+          "pos": "QB",
+          "trade_value": 20.57
+        },
+        {
+          "player": "A.J. Brown",
+          "pos": "WR",
+          "trade_value": 15.13
+        },
+        {
+          "player": "J.K. Dobbins",
+          "pos": "RB",
+          "trade_value": 9.51
+        },
+        {
+          "player": "Jordan Addison",
+          "pos": "WR",
+          "trade_value": 8.12
+        },
+        {
+          "player": "Wan'Dale Robinson",
+          "pos": "WR",
+          "trade_value": 4.74
+        },
+        {
+          "player": "Deebo Samuel",
+          "pos": "WR",
+          "trade_value": 0.0
+        },
+        {
+          "player": "Seahawks",
+          "pos": "DST",
+          "trade_value": 0.0
+        },
+        {
+          "player": "Eddy Pineiro",
+          "pos": "K",
+          "trade_value": 0.0
+        }
+      ]
+    },
+    {
+      "team_name": "Niko's Plane Freaks",
+      "owner": null,
+      "roster": [
+        {
+          "player": "Puka Nacua",
+          "pos": "WR",
+          "trade_value": 61.61
+        },
+        {
+          "player": "Cam Skattebo",
+          "pos": "RB",
+          "trade_value": 29.87
+        },
+        {
+          "player": "Tee Higgins",
+          "pos": "WR",
+          "trade_value": 25.33
+        },
+        {
+          "player": "Tetairoa McMillan",
+          "pos": "WR",
+          "trade_value": 24.66
+        },
+        {
+          "player": "Trevor Lawrence",
+          "pos": "QB",
+          "trade_value": 24.65
+        },
+        {
+          "player": "Bhayshul Tuten",
+          "pos": "RB",
+          "trade_value": 18.17
+        },
+        {
+          "player": "Matthew Golden",
+          "pos": "WR",
+          "trade_value": 17.44
+        },
+        {
+          "player": "Carnell Tate",
+          "pos": "WR",
+          "trade_value": 9.83
+        },
+        {
+          "player": "Jayden Reed",
+          "pos": "WR",
+          "trade_value": 9.02
+        },
+        {
+          "player": "Harrison Mevis",
+          "pos": "K",
+          "trade_value": 0.0
+        },
+        {
+          "player": "Falcons",
+          "pos": "DST",
+          "trade_value": 0.0
+        }
+      ]
+    },
+    {
+      "team_name": "Pioneer_Workman",
+      "owner": null,
+      "roster": [
+        {
+          "player": "Kenneth Walker III",
+          "pos": "RB",
+          "trade_value": 97.36
+        },
+        {
+          "player": "Chris Olave",
+          "pos": "WR",
+          "trade_value": 46.95
+        },
+        {
+          "player": "Bucky Irving",
+          "pos": "RB",
+          "trade_value": 34.11
+        },
+        {
+          "player": "Jalen Hurts",
+          "pos": "QB",
+          "trade_value": 29.0
+        },
+        {
+          "player": "DJ Moore",
+          "pos": "WR",
+          "trade_value": 28.22
+        },
+        {
+          "player": "Sam LaPorta",
+          "pos": "TE",
+          "trade_value": 12.24
+        },
+        {
+          "player": "Isaiah Likely",
+          "pos": "TE",
+          "trade_value": 10.86
+        },
+        {
+          "player": "Romeo Doubs",
+          "pos": "WR",
+          "trade_value": 6.52
+        },
+        {
+          "player": "Matthew Stafford",
+          "pos": "QB",
+          "trade_value": 4.06
+        },
+        {
+          "player": "Jake Bates",
+          "pos": "K",
+          "trade_value": 0.0
+        },
+        {
+          "player": "Lions",
+          "pos": "DST",
+          "trade_value": 0.0
+        }
+      ]
+    },
+    {
+      "team_name": "Smaby Nots",
+      "owner": null,
+      "roster": [
+        {
+          "player": "CeeDee Lamb",
+          "pos": "WR",
+          "trade_value": 43.95
+        },
+        {
+          "player": "David Montgomery",
+          "pos": "RB",
+          "trade_value": 43.82
+        },
+        {
+          "player": "Nico Collins",
+          "pos": "WR",
+          "trade_value": 41.64
+        },
+        {
+          "player": "Garrett Wilson",
+          "pos": "WR",
+          "trade_value": 34.36
+        },
+        {
+          "player": "Rhamondre Stevenson",
+          "pos": "RB",
+          "trade_value": 22.57
+        },
+        {
+          "player": "Drake Maye",
+          "pos": "QB",
+          "trade_value": 14.6
+        },
+        {
+          "player": "Stefon Diggs",
+          "pos": "WR",
+          "trade_value": 14.02
+        },
+        {
+          "player": "Blake Corum",
+          "pos": "RB",
+          "trade_value": 8.07
+        },
+        {
+          "player": "Josh Jacobs",
+          "pos": "RB",
+          "trade_value": 6.78
+        },
+        {
+          "player": "Cam Little",
+          "pos": "K",
+          "trade_value": 0.0
+        },
+        {
+          "player": "Chiefs",
+          "pos": "DST",
+          "trade_value": 0.0
+        }
+      ]
+    }
+  ]
+}
