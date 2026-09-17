@@ -246,9 +246,9 @@
           <div class="slider-readout" id="balanceReadout">0% — Even</div>
         </div>
         <div class="slider-scale">
-          <span>◀ Left +50%</span>
+          <span id="scaleLeftLabel">◀ Team A +50%</span>
           <span>Even</span>
-          <span>Right +50% ▶</span>
+          <span id="scaleRightLabel">Team B +50% ▶</span>
         </div>
       </div>
 
@@ -289,15 +289,28 @@
    DTFFL Trade Finder — fully client-side.
    Data source: ../data/trade_finder_latest.json (published by the Colab notebook).
    No server, no build step — every calculation below runs in the browser.
-   Kept modular on purpose: swap TOLERANCE_DEFAULT, the combo generator, or the
-   benefit formula independently without touching the rest.
+   Sides are labeled by owner (falling back to team name) instead of generic
+   "Left"/"Right" wherever they're shown to the user.
    ────────────────────────────────────────────────────────────────────────── */
 
 const DATA_URL = '../data/trade_finder_latest.json';
 const MAX_ROWS_PER_TAB = 40; // keep result tables readable; raise if you want more matches
 
-let TEAMS = [];           // [{team_name, owner, roster:[{player,pos,trade_value}]}]
+let TEAMS = [];
 let currentResults = { '1v1': [], '1v2': [], '1v3': [] };
+
+// short label for a team: owner display name if we have one, else first word of the team name
+function sideLabel(team) {
+  if (!team) return '';
+  if (team.owner) return team.owner;
+  return team.team_name.split(' ')[0].replace(/[^\w']/g, '');
+}
+
+function selectedTeams() {
+  const leftIdx = parseInt(document.getElementById('leftTeam').value, 10);
+  const rightIdx = parseInt(document.getElementById('rightTeam').value, 10);
+  return { left: TEAMS[leftIdx], right: TEAMS[rightIdx] };
+}
 
 // ---- data loading -----------------------------------------------------
 async function loadData() {
@@ -310,6 +323,8 @@ async function loadData() {
     populateTeamDropdowns();
     statusEl.textContent = `Rosters loaded (updated ${payload.generated || 'unknown date'}) — ${TEAMS.length} teams.`;
     document.getElementById('findTradesBtn').disabled = false;
+    updateSliderReadout();
+    updateScaleLabels();
   } catch (err) {
     statusEl.textContent = `Could not load roster/trade-value data (${err.message}). ` +
       'Re-run the export cell in the Colab notebook and re-publish data/trade_finder_latest.json.';
@@ -324,10 +339,9 @@ function populateTeamDropdowns() {
   leftSel.innerHTML = '';
   rightSel.innerHTML = '';
   TEAMS.forEach((t, i) => {
-    const o1 = new Option(t.team_name, i);
-    const o2 = new Option(t.team_name, i);
-    leftSel.add(o1);
-    rightSel.add(o2);
+    const label = t.owner ? `${t.team_name} — ${t.owner}` : t.team_name;
+    leftSel.add(new Option(label, i));
+    rightSel.add(new Option(label, i));
   });
   if (TEAMS.length > 1) rightSel.selectedIndex = 1;
 }
@@ -338,13 +352,23 @@ document.getElementById('swapTeams').addEventListener('click', () => {
   const tmp = leftSel.selectedIndex;
   leftSel.selectedIndex = rightSel.selectedIndex;
   rightSel.selectedIndex = tmp;
+  updateSliderReadout();
+  updateScaleLabels();
 });
+document.getElementById('leftTeam').addEventListener('change', () => { updateSliderReadout(); updateScaleLabels(); });
+document.getElementById('rightTeam').addEventListener('change', () => { updateSliderReadout(); updateScaleLabels(); });
+
+function updateScaleLabels() {
+  const { left, right } = selectedTeams();
+  document.getElementById('scaleLeftLabel').textContent = `◀ ${sideLabel(left)} +50%`;
+  document.getElementById('scaleRightLabel').textContent = `${sideLabel(right)} +50% ▶`;
+}
 
 // ---- slider readout -----------------------------------------------------
-function targetLabel(targetLeftBenefitPct) {
+function targetLabel(targetLeftBenefitPct, leftLabel, rightLabel) {
   const rounded = Math.round(targetLeftBenefitPct * 10) / 10;
   if (Math.abs(rounded) < 0.05) return 'Even';
-  return rounded > 0 ? `Left +${rounded}%` : `Right +${Math.abs(rounded)}%`;
+  return rounded > 0 ? `${leftLabel} +${rounded}%` : `${rightLabel} +${Math.abs(rounded)}%`;
 }
 
 function sliderToTargetLeftBenefit(sliderVal) {
@@ -354,8 +378,10 @@ function sliderToTargetLeftBenefit(sliderVal) {
 
 function updateSliderReadout() {
   const slider = document.getElementById('balanceSlider');
+  const { left, right } = selectedTeams();
   const target = sliderToTargetLeftBenefit(parseFloat(slider.value));
-  document.getElementById('balanceReadout').textContent = `${slider.value}% — ${targetLabel(target)}`;
+  document.getElementById('balanceReadout').textContent =
+    `${slider.value}% — ${targetLabel(target, sideLabel(left), sideLabel(right))}`;
 }
 document.getElementById('balanceSlider').addEventListener('input', updateSliderReadout);
 
@@ -393,11 +419,11 @@ function actualLeftBenefit(leftGroup, rightGroup) {
   return ((received - given) / given) * 100;
 }
 
-function formatBenefit(pct) {
+function formatBenefit(pct, leftLabel, rightLabel) {
   const rounded = Math.round(pct * 10) / 10;
   if (Math.abs(rounded) < 0.05) return { text: 'Even', cls: 'benefit-even' };
-  if (rounded > 0) return { text: `Left +${rounded}%`, cls: 'benefit-left' };
-  return { text: `Right +${Math.abs(rounded)}%`, cls: 'benefit-right' };
+  if (rounded > 0) return { text: `${leftLabel} +${rounded}%`, cls: 'benefit-left' };
+  return { text: `${rightLabel} +${Math.abs(rounded)}%`, cls: 'benefit-right' };
 }
 
 // ---- trade generation ---------------------------------------------------
@@ -437,6 +463,8 @@ function findTrades() {
 
   const leftTeam = TEAMS[leftIdx];
   const rightTeam = TEAMS[rightIdx];
+  const leftLabel = sideLabel(leftTeam);
+  const rightLabel = sideLabel(rightTeam);
   const sliderVal = parseFloat(document.getElementById('balanceSlider').value);
   const targetLeftBenefit = sliderToTargetLeftBenefit(sliderVal);
   const tolerance = Math.max(0, parseFloat(document.getElementById('toleranceInput').value) || 5);
@@ -451,14 +479,7 @@ function findTrades() {
         if (actual === null) continue;
         const diff = Math.abs(actual - targetLeftBenefit);
         if (diff <= tolerance) {
-          buckets[tabKey].push({
-            leftGroup: c.leftGroup,
-            rightGroup: c.rightGroup,
-            leftVal: c.leftVal,
-            rightVal: c.rightVal,
-            actual,
-            diff,
-          });
+          buckets[tabKey].push({ ...c, actual, diff });
         }
       }
     }
@@ -467,7 +488,7 @@ function findTrades() {
   }
 
   currentResults = buckets;
-  renderResults(targetLeftBenefit, tolerance);
+  renderResults(targetLeftBenefit, tolerance, leftLabel, rightLabel);
   statusEl.textContent =
     `Found ${buckets['1v1'].length + buckets['1v2'].length + buckets['1v3'].length} matching trade(s) ` +
     `within ±${tolerance}pp of target.`;
@@ -475,20 +496,20 @@ function findTrades() {
 document.getElementById('findTradesBtn').addEventListener('click', findTrades);
 
 // ---- rendering -----------------------------------------------------------
-function renderResults(targetLeftBenefit, tolerance) {
+function renderResults(targetLeftBenefit, tolerance, leftLabel, rightLabel) {
   document.getElementById('resultsCard').style.display = 'block';
   for (const tabKey of ['1v1', '1v2', '1v3']) {
-    renderPanel(tabKey, currentResults[tabKey], targetLeftBenefit, tolerance);
+    renderPanel(tabKey, currentResults[tabKey], targetLeftBenefit, tolerance, leftLabel, rightLabel);
   }
 }
 
-function renderPanel(tabKey, rows, targetLeftBenefit, tolerance) {
+function renderPanel(tabKey, rows, targetLeftBenefit, tolerance, leftLabel, rightLabel) {
   const panel = document.getElementById(`panel-${tabKey}`);
   const summaryHtml =
-    `<p class="target-summary">Target: <strong>${targetLabel(targetLeftBenefit)}</strong> ` +
+    `<p class="target-summary">Target: <strong>${targetLabel(targetLeftBenefit, leftLabel, rightLabel)}</strong> ` +
     `(±${tolerance}pp)` +
     (rows.length
-      ? ` · Best match — Actual: <strong>${formatBenefit(rows[0].actual).text}</strong>`
+      ? ` · Best match — Actual: <strong>${formatBenefit(rows[0].actual, leftLabel, rightLabel).text}</strong>`
       : '') +
     `</p>`;
 
@@ -498,7 +519,7 @@ function renderPanel(tabKey, rows, targetLeftBenefit, tolerance) {
   }
 
   const rowsHtml = rows.map(r => {
-    const b = formatBenefit(r.actual);
+    const b = formatBenefit(r.actual, leftLabel, rightLabel);
     return `<tr>
       <td>${namesOf(r.leftGroup)}</td>
       <td>${r.leftVal.toFixed(1)}</td>
@@ -513,7 +534,8 @@ function renderPanel(tabKey, rows, targetLeftBenefit, tolerance) {
     <table>
       <thead>
         <tr>
-          <th>Left Gives</th><th>Left Value</th><th>Right Gives</th><th>Right Value</th>
+          <th>${leftLabel} Gives</th><th>${leftLabel} Value</th>
+          <th>${rightLabel} Gives</th><th>${rightLabel} Value</th>
           <th>Actual Benefit</th><th>Target Difference</th>
         </tr>
       </thead>
@@ -532,7 +554,6 @@ document.querySelectorAll('.tab-btn').forEach(btn => {
 });
 
 // ---- init -------------------------------------------------------------
-updateSliderReadout();
 document.getElementById('findTradesBtn').disabled = true;
 loadData();
 </script>
