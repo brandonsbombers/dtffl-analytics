@@ -136,6 +136,7 @@
     display: flex;
     gap: 8px;
     margin-bottom: 14px;
+    flex-wrap: wrap;
   }
   .tab-btn {
     background: var(--bg);
@@ -267,11 +268,17 @@
       <button class="tab-btn active" data-tab="1v1">1 : 1</button>
       <button class="tab-btn" data-tab="1v2">1 : 2</button>
       <button class="tab-btn" data-tab="1v3">1 : 3</button>
+      <button class="tab-btn" data-tab="2v2">2 : 2</button>
+      <button class="tab-btn" data-tab="2v3">2 : 3</button>
+      <button class="tab-btn" data-tab="3v3">3 : 3</button>
     </div>
 
     <div class="tab-panel active" id="panel-1v1"></div>
     <div class="tab-panel" id="panel-1v2"></div>
     <div class="tab-panel" id="panel-1v3"></div>
+    <div class="tab-panel" id="panel-2v2"></div>
+    <div class="tab-panel" id="panel-2v3"></div>
+    <div class="tab-panel" id="panel-3v3"></div>
   </section>
 </main>
 
@@ -297,7 +304,7 @@ const DATA_URL = '../data/trade_finder_latest.json';
 const MAX_ROWS_PER_TAB = 40; // keep result tables readable; raise if you want more matches
 
 let TEAMS = [];
-let currentResults = { '1v1': [], '1v2': [], '1v3': [] };
+let currentResults = {};
 
 // short label for a team: owner display name if we have one, else first word of the team name
 function sideLabel(team) {
@@ -432,6 +439,9 @@ const TAB_SHAPES = {
   '1v1': [[1, 1]],
   '1v2': [[1, 2], [2, 1]],
   '1v3': [[1, 3], [3, 1]],
+  '2v2': [[2, 2]],
+  '2v3': [[2, 3], [3, 2]],
+  '3v3': [[3, 3]],
 };
 
 function generateCandidatesForShape(leftRoster, rightRoster, leftCount, rightCount) {
@@ -469,7 +479,8 @@ function findTrades() {
   const targetLeftBenefit = sliderToTargetLeftBenefit(sliderVal);
   const tolerance = Math.max(0, parseFloat(document.getElementById('toleranceInput').value) || 5);
 
-  const buckets = { '1v1': [], '1v2': [], '1v3': [] };
+  const buckets = {};
+  for (const tabKey of Object.keys(TAB_SHAPES)) buckets[tabKey] = [];
 
   for (const [tabKey, shapes] of Object.entries(TAB_SHAPES)) {
     for (const [lc, rc] of shapes) {
@@ -489,16 +500,16 @@ function findTrades() {
 
   currentResults = buckets;
   renderResults(targetLeftBenefit, tolerance, leftLabel, rightLabel);
+  const totalMatches = Object.values(buckets).reduce((s, arr) => s + arr.length, 0);
   statusEl.textContent =
-    `Found ${buckets['1v1'].length + buckets['1v2'].length + buckets['1v3'].length} matching trade(s) ` +
-    `within ±${tolerance}pp of target.`;
+    `Found ${totalMatches} matching trade(s) within ±${tolerance}pp of target.`;
 }
 document.getElementById('findTradesBtn').addEventListener('click', findTrades);
 
 // ---- rendering -----------------------------------------------------------
 function renderResults(targetLeftBenefit, tolerance, leftLabel, rightLabel) {
   document.getElementById('resultsCard').style.display = 'block';
-  for (const tabKey of ['1v1', '1v2', '1v3']) {
+  for (const tabKey of Object.keys(TAB_SHAPES)) {
     renderPanel(tabKey, currentResults[tabKey], targetLeftBenefit, tolerance, leftLabel, rightLabel);
   }
 }
