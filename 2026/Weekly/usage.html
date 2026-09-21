@@ -31,6 +31,7 @@ tr:hover td{background:#1e293b;}
 </div>
 <div class="controls">
   <select id="teamFilter"></select>
+  <select id="nflTeamFilter"></select>
   <span id="rowCount" style="align-self:center;font-size:12px;color:#64748b;"></span>
 </div>
 <div class="tabs"><button class="tab-btn active" data-tab="ALL" onclick="switchTab('ALL')">ALL</button><button class="tab-btn" data-tab="QB" onclick="switchTab('QB')">QB</button><button class="tab-btn" data-tab="RB" onclick="switchTab('RB')">RB</button><button class="tab-btn" data-tab="WRTE" onclick="switchTab('WRTE')">WR/TE</button><button class="tab-btn" data-tab="FLEX" onclick="switchTab('FLEX')">FLEX</button></div>
@@ -47,10 +48,28 @@ function fantasyTeams(data) {
   return Array.from(set).sort();
 }
 
+function nflTeams(data) {
+  const set = new Set();
+  Object.values(data.tabs).forEach(rows => rows.forEach(r => {
+    if (r.Team) set.add(r.Team);
+  }));
+  return Array.from(set).sort();
+}
+
 function populateTeamFilter(data) {
   const sel = document.getElementById('teamFilter');
-  sel.innerHTML = '<option value="ALL">All</option><option value="AVAILABLE">Available (No Team)</option>';
+  sel.innerHTML = '<option value="ALL">All Fantasy Teams</option><option value="AVAILABLE">Available (No Team)</option>';
   fantasyTeams(data).forEach(t => {
+    const opt = document.createElement('option');
+    opt.value = t; opt.textContent = t;
+    sel.appendChild(opt);
+  });
+}
+
+function populateNflTeamFilter(data) {
+  const sel = document.getElementById('nflTeamFilter');
+  sel.innerHTML = '<option value="ALL">All NFL Teams</option>';
+  nflTeams(data).forEach(t => {
     const opt = document.createElement('option');
     opt.value = t; opt.textContent = t;
     sel.appendChild(opt);
@@ -93,9 +112,13 @@ function sortBy(col) {
 function render() {
   if (!RAW) return;
   let rows = (RAW.tabs[currentTab] || []).slice();
+
   const teamVal = document.getElementById('teamFilter').value;
   if (teamVal === 'AVAILABLE') rows = rows.filter(r => r.FantasyTeam === 'Available');
   else if (teamVal !== 'ALL') rows = rows.filter(r => r.FantasyTeam === teamVal);
+
+  const nflVal = document.getElementById('nflTeamFilter').value;
+  if (nflVal !== 'ALL') rows = rows.filter(r => r.Team === nflVal);
 
   if (sortCol) {
     rows.sort((a,b) => {
@@ -120,7 +143,9 @@ async function init(jsonPath) {
   const res = await fetch(jsonPath);
   RAW = await res.json();
   populateTeamFilter(RAW);
+  populateNflTeamFilter(RAW);
   document.getElementById('teamFilter').addEventListener('change', render);
+  document.getElementById('nflTeamFilter').addEventListener('change', render);
   document.getElementById('genLabel').textContent = `Season ${RAW.season} - Through Week ${RAW.through_week} - Updated ${RAW.generated}`;
   render();
 }
