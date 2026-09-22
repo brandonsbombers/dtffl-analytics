@@ -19,9 +19,12 @@ th{position:sticky;top:0;background:#1e293b;color:#94a3b8;text-align:left;paddin
 th:hover{color:#f8fafc;}
 td{padding:7px 10px;border-bottom:1px solid #1e293b;white-space:nowrap;}
 tr:hover td{background:#1e293b;}
+.bombers-row td{background:#26344a;}
+.bombers-row:hover td{background:#334155;}
 .wrap{overflow-x:auto;padding:0 8px;}
 .badge-yes{color:#4ade80;font-weight:700;}
 .badge-no{color:#64748b;}
+.badge-inj{color:#fb923c;font-weight:700;}
 .footer{padding:20px 16px 0;font-size:11px;color:#334155;text-align:center;}
 </style></head><body>
 <div class="hdr">
@@ -38,6 +41,7 @@ tr:hover td{background:#1e293b;}
 <div class="wrap" id="tableWrap"></div>
 <div class="footer">DTFFL Analytics - Toledo scoring - nflverse-supplemented weekly stats</div>
 <script>
+const BOMBERS_TEAM_NAME = "Brandon's Bombers";
 let RAW = null, currentTab = 'ALL', sortCol = null, sortAsc = false;
 
 function fantasyTeams(data) {
@@ -58,7 +62,9 @@ function nflTeams(data) {
 
 function populateTeamFilter(data) {
   const sel = document.getElementById('teamFilter');
-  sel.innerHTML = '<option value="ALL">All Fantasy Teams</option><option value="AVAILABLE">Available (No Team)</option>';
+  sel.innerHTML = '<option value="ALL">All Fantasy Teams</option>'
+    + '<option value="BOMBERS_ALL">Bombers + Available</option>'
+    + '<option value="AVAILABLE">Available (No Team)</option>';
   fantasyTeams(data).forEach(t => {
     const opt = document.createElement('option');
     opt.value = t; opt.textContent = t;
@@ -83,8 +89,6 @@ function switchTab(tab) {
 }
 
 function naturalCompare(a, b) {
-  // Splits into alternating text/number chunks so "WR/TE2" < "WR/TE10" and
-  // "9/12" < "10/12" -- a plain string or numeric compare gets both wrong.
   a = String(a ?? ''); b = String(b ?? '');
   const chunkRe = /(\d+)|(\D+)/g;
   const aParts = a.match(chunkRe) || [];
@@ -115,6 +119,7 @@ function render() {
 
   const teamVal = document.getElementById('teamFilter').value;
   if (teamVal === 'AVAILABLE') rows = rows.filter(r => r.FantasyTeam === 'Available');
+  else if (teamVal === 'BOMBERS_ALL') rows = rows.filter(r => r.FantasyTeam === 'Available' || r.FantasyTeam === BOMBERS_TEAM_NAME);
   else if (teamVal !== 'ALL') rows = rows.filter(r => r.FantasyTeam === teamVal);
 
   const nflVal = document.getElementById('nflTeamFilter').value;
@@ -129,11 +134,19 @@ function render() {
 
   const cols = rows.length ? Object.keys(rows[0]) : [];
   const thead = '<tr>' + cols.map(c => `<th onclick="sortBy('${c}')">${c}${sortCol===c ? (sortAsc?' &#9650;':' &#9660;') : ''}</th>`).join('') + '</tr>';
-  const tbody = rows.map(r => '<tr>' + cols.map(c => {
-    let v = r[c];
-    if (c === 'Available') v = `<span class="${v==='Yes'?'badge-yes':'badge-no'}">${v}</span>`;
-    return `<td>${v ?? ''}</td>`;
-  }).join('') + '</tr>').join('');
+  const tbody = rows.map(r => {
+    const rowClass = r.FantasyTeam === BOMBERS_TEAM_NAME ? ' class="bombers-row"' : '';
+    const cells = cols.map(c => {
+      let v = r[c];
+      if (c === 'Available') v = `<span class="${v==='Yes'?'badge-yes':'badge-no'}">${v}</span>`;
+      if (c === 'Dropable') {
+        const cls = v === 'Yes (Inj)' ? 'badge-inj' : (v === 'Yes' ? 'badge-yes' : 'badge-no');
+        v = `<span class="${cls}">${v}</span>`;
+      }
+      return `<td>${v ?? ''}</td>`;
+    }).join('');
+    return `<tr${rowClass}>${cells}</tr>`;
+  }).join('');
 
   document.getElementById('tableWrap').innerHTML = `<table><thead>${thead}</thead><tbody>${tbody}</tbody></table>`;
   document.getElementById('rowCount').textContent = `${rows.length} players`;
