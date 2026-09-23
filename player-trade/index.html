@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -247,6 +248,13 @@ footer.sitenav a span.icon { font-size: 1.25rem; }
       <div id="giverChip3"></div>
     </div>
 
+    <div style="margin-bottom: 14px;">
+      <label for="oppTeamFilter">Opponent Team <span style="text-transform:none;">(optional — leave as "All Teams" to search the whole league)</span></label>
+      <select id="oppTeamFilter">
+        <option value="">All Teams</option>
+      </select>
+    </div>
+
     <div class="slider-block">
       <label for="balanceSlider">Trade Balance</label>
       <div class="slider-row">
@@ -318,6 +326,7 @@ async function loadData() {
     SOURCES = payload.sources || ['Yahoo', 'Richards', 'Boone', 'FantasyPros'];
     statusEl.textContent = `Rosters loaded (updated ${payload.generated || 'unknown date'}) — ${TEAMS.length} teams.`;
     document.getElementById('findTradesBtn').disabled = false;
+    populateOppTeamFilter();
   } catch (err) {
     statusEl.textContent = `Could not load roster data (${err.message}).`;
     statusEl.classList.add('error');
@@ -332,6 +341,21 @@ function allPlayersFlat() {
     t.roster.forEach(p => out.push({ ...p, teamIdx, team_name: t.team_name, owner: t.owner }));
   });
   return out;
+}
+
+// opponent-team filter: excludes whichever team Player 1 is currently on
+// (you can't trade with yourself), keeps current selection if still valid
+function populateOppTeamFilter() {
+  const sel = document.getElementById('oppTeamFilter');
+  const previous = sel.value;
+  const myTeamIdx = chosen[0] ? chosen[0].teamIdx : null;
+  sel.innerHTML = '<option value="">All Teams</option>';
+  TEAMS.forEach((t, i) => {
+    if (i === myTeamIdx) return;
+    const label = t.owner ? `${t.team_name} — ${t.owner}` : t.team_name;
+    sel.add(new Option(label, i));
+  });
+  if ([...sel.options].some(o => o.value === previous)) sel.value = previous;
 }
 
 // ---- autocomplete wiring (shared logic, 3 instances) ----
@@ -383,6 +407,7 @@ function selectPlayer(slotNum, player) {
 
   if (slotNum === 1) {
     unlockSlot(2, player.team_name);
+    populateOppTeamFilter();
   } else if (slotNum === 2) {
     unlockSlot(3, player.team_name);
   }
@@ -397,6 +422,7 @@ function clearPlayer(slotNum) {
     document.getElementById('giverChip2').innerHTML = '';
     document.getElementById('giverChip3').innerHTML = '';
     lockSlot(2); lockSlot(3);
+    populateOppTeamFilter();
   } else if (slotNum === 2) {
     chosen[2] = null;
     document.getElementById('giverChip3').innerHTML = '';
@@ -497,11 +523,14 @@ function findTrades() {
   const targetLeftBenefit = sliderToTargetLeftBenefit(sliderVal);
   const tolerance = Math.max(0, parseFloat(document.getElementById('toleranceInput').value) || 5);
   const sourceKeys = SOURCES.map(sourceKeyFor);
+  const oppFilterVal = document.getElementById('oppTeamFilter').value;
+  const oppFilterIdx = oppFilterVal === '' ? null : parseInt(oppFilterVal, 10);
 
   const buckets = { '1': [], '2': [], '3': [] };
 
   TEAMS.forEach((oppTeam, oppIdx) => {
     if (oppIdx === myTeamIdx) return;
+    if (oppFilterIdx !== null && oppIdx !== oppFilterIdx) return;
     const oppLabel = sideLabel(oppTeam);
     [1, 2, 3].forEach(oppCount => {
       const oppCombos = kCombinations(oppTeam.roster, oppCount);
@@ -534,7 +563,8 @@ function findTrades() {
   Object.keys(buckets).forEach(k => renderPanel(k, buckets[k], targetLeftBenefit, tolerance, leftLabel, leftGroup, sourceKeys));
 
   const total = Object.values(buckets).reduce((s, arr) => s + arr.length, 0);
-  statusEl.textContent = `Found ${total} matching trade(s) across the league within ±${tolerance}pp on at least one chart.`;
+  const scopeText = oppFilterIdx !== null ? ` vs ${sideLabel(TEAMS[oppFilterIdx])}` : ' across the league';
+  statusEl.textContent = `Found ${total} matching trade(s)${scopeText} within ±${tolerance}pp on at least one chart.`;
 }
 document.getElementById('findTradesBtn').addEventListener('click', findTrades);
 
@@ -560,7 +590,10 @@ function renderPanel(tabKey, rows, targetLeftBenefit, tolerance, leftLabel, left
     const sourceCells = sourceKeys.map((sk, i) => {
       const b = formatBenefit(r.perSource[sk], leftLabel, r.oppLabel);
       const withinTol = r.perSource[sk] !== null && Math.abs(r.perSource[sk] - targetLeftBenefit) <= tolerance;
-      return `<td data-label="${SOURCES[i]}" class="${b.cls}">${b.text}${withinTol ? '<span class="qual-badge">MATCH</span>' : ''}</td>`;
+      const usesCeiling = sk === 'richards' &&
+        (leftGroup.some(p => p.richards_ceiling) || r.rightGroup.some(p => p.richards_ceiling));
+      const ceilingMark = usesCeiling ? ' <span title="Richards did not rank at least one of these players — using his ≤4 ceiling, not a real rank" style="cursor:help;">†</span>' : '';
+      return `<td data-label="${SOURCES[i]}" class="${b.cls}">${b.text}${ceilingMark}${withinTol ? '<span class="qual-badge">MATCH</span>' : ''}</td>`;
     }).join('');
 
     return `<tr>
@@ -595,3 +628,4 @@ loadData();
 
 </body>
 </html>
+
