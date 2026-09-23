@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Player Trade — DTFFL</title>
+<style>
+
+:root {
+  --bg: #0f1115;
+  --bg-card: #171a21;
+  --bg-card-hover: #1d212a;
+  --border: #2a2e38;
+  --text: #e8eaed;
+  --text-dim: #9aa0ab;
+  --accent: #4ade80;      /* green — favors left/giving side */
+  --accent2: #fb923c;     /* orange — favors right/other side */
+  --accent-neutral: #60a5fa;
+  --danger: #f87171;
+  --radius: 14px;
+  --font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+* { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font);
+  font-size: 16px;
+  padding-bottom: 100px; /* room for fixed footer nav */
+}
+a { color: inherit; }
+.backlink {
+  display: inline-block;
+  padding: 14px 16px 0;
+  color: var(--text-dim);
+  text-decoration: none;
+  font-size: 0.85rem;
+}
+header.hero { text-align: center; padding: 20px 16px 14px; }
+header.hero h1 { margin: 0 0 6px; font-size: 1.7rem; }
+header.hero p { margin: 0; color: var(--text-dim); font-size: 0.9rem; }
+main { max-width: 980px; margin: 0 auto; padding: 0 14px 32px; }
+.card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 18px;
+  margin-bottom: 20px;
+}
+label {
+  display: block;
+  font-size: 0.78rem;
+  color: var(--text-dim);
+  margin-bottom: 6px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+select, input[type="text"], input[type="number"] {
+  width: 100%;
+  background: var(--bg);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 12px 12px;
+  font-size: 1rem; /* >=16px avoids iOS auto-zoom on focus */
+}
+button {
+  min-height: 46px;
+  border-radius: 10px;
+  border: none;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+button.primary-btn {
+  background: var(--accent-neutral);
+  color: #0b1220;
+  width: 100%;
+  padding: 13px 20px;
+}
+button.primary-btn:hover { opacity: 0.88; }
+button.primary-btn:disabled { opacity: 0.4; cursor: not-allowed; }
+
+.controls-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; align-items: end; }
+@media (max-width: 640px) { .controls-grid { grid-template-columns: 1fr; } }
+.swap-arrow {
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.4rem; color: var(--text-dim); grid-column: 1 / -1; margin: -6px 0;
+}
+.slider-block { grid-column: 1 / -1; margin-top: 6px; }
+.slider-row { display: flex; align-items: center; gap: 14px; }
+input[type="range"] { flex: 1; accent-color: var(--accent-neutral); height: 28px; }
+.slider-readout { min-width: 170px; text-align: right; font-weight: 700; font-size: 0.92rem; }
+.slider-scale { display: flex; justify-content: space-between; font-size: 0.72rem; color: var(--text-dim); margin-top: 4px; }
+.tolerance-row { display: flex; align-items: center; gap: 10px; margin-top: 14px; grid-column: 1 / -1; }
+.tolerance-row label { margin: 0; white-space: nowrap; }
+.tolerance-row input { width: 84px; }
+
+.tabs { display: flex; gap: 6px; margin-bottom: 14px; flex-wrap: wrap; }
+.tab-btn {
+  background: var(--bg); border: 1px solid var(--border); color: var(--text-dim);
+  border-radius: 8px; padding: 10px 14px; cursor: pointer; font-size: 0.88rem; font-weight: 600;
+}
+.tab-btn.active { background: var(--accent-neutral); color: #0b1220; border-color: var(--accent-neutral); }
+.tab-panel { display: none; }
+.tab-panel.active { display: block; }
+
+.target-summary { color: var(--text-dim); font-size: 0.85rem; margin-bottom: 14px; }
+.target-summary strong { color: var(--text); }
+
+table { width: 100%; border-collapse: collapse; font-size: 0.86rem; }
+th, td { text-align: left; padding: 9px 8px; border-bottom: 1px solid var(--border); }
+th { color: var(--text-dim); font-weight: 600; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.03em; }
+tr:hover td { background: var(--bg-card-hover); }
+.benefit-left  { color: var(--accent); font-weight: 700; }
+.benefit-right { color: var(--accent2); font-weight: 700; }
+.benefit-even  { color: var(--accent-neutral); font-weight: 700; }
+.benefit-dash  { color: var(--text-dim); }
+.diff-cell { color: var(--text-dim); font-size: 0.8rem; }
+.qual-badge {
+  display: inline-block; font-size: 0.68rem; font-weight: 700; letter-spacing: 0.02em;
+  padding: 2px 6px; border-radius: 5px; background: rgba(96,165,250,0.15); color: var(--accent-neutral);
+  margin-left: 4px;
+}
+.empty-state, .status-line { color: var(--text-dim); font-size: 0.9rem; padding: 10px 0; }
+.status-line.error { color: var(--danger); }
+
+/* responsive table -> stacked cards below 700px, driven by data-label on <td> */
+@media (max-width: 700px) {
+  table.responsive-table thead { display: none; }
+  table.responsive-table, table.responsive-table tbody, table.responsive-table tr, table.responsive-table td {
+    display: block; width: 100%;
+  }
+  table.responsive-table tr {
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    margin-bottom: 10px;
+    padding: 6px 10px;
+    background: var(--bg-card);
+  }
+  table.responsive-table tr:hover td { background: transparent; }
+  table.responsive-table td {
+    border-bottom: none;
+    padding: 7px 2px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+  }
+  table.responsive-table td::before {
+    content: attr(data-label);
+    color: var(--text-dim);
+    font-weight: 600;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    flex-shrink: 0;
+  }
+}
+
+/* type-ahead autocomplete */
+.autocomplete-wrap { position: relative; }
+.autocomplete-list {
+  position: absolute; z-index: 20; top: calc(100% + 4px); left: 0; right: 0;
+  background: var(--bg-card); border: 1px solid var(--border); border-radius: 10px;
+  max-height: 240px; overflow-y: auto; display: none;
+}
+.autocomplete-list.open { display: block; }
+.autocomplete-item { padding: 12px 14px; cursor: pointer; font-size: 0.95rem; border-bottom: 1px solid var(--border); }
+.autocomplete-item:last-child { border-bottom: none; }
+.autocomplete-item:hover, .autocomplete-item.highlighted { background: var(--bg-card-hover); }
+.autocomplete-item .sub { color: var(--text-dim); font-size: 0.78rem; }
+.chosen-chip {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: var(--bg); border: 1px solid var(--border); border-radius: 20px;
+  padding: 8px 8px 8px 14px; font-size: 0.9rem; margin-top: 8px;
+}
+.chosen-chip button { min-height: auto; background: none; color: var(--text-dim); font-size: 1rem; padding: 4px 8px; }
+.giver-slot { margin-bottom: 12px; }
+.giver-slot.disabled { opacity: 0.4; }
+.opp-badge {
+  display: inline-block; font-size: 0.72rem; color: var(--text-dim);
+  background: var(--bg); border: 1px solid var(--border); border-radius: 6px; padding: 2px 8px; margin-bottom: 6px;
+}
+
+/* raw charts page */
+.pos-tabs { display: flex; gap: 6px; margin-bottom: 14px; flex-wrap: wrap; }
+.search-sort-row { display: flex; gap: 10px; margin-bottom: 12px; flex-wrap: wrap; }
+.search-sort-row input[type="text"] { flex: 1; min-width: 160px; }
+.search-sort-row select { width: auto; min-width: 140px; }
+th.sortable { cursor: pointer; user-select: none; }
+th.sortable:after { content: ' \\2195'; color: var(--text-dim); font-size: 0.7em; }
+
+footer.sitenav {
+  position: fixed; bottom: 0; left: 0; right: 0;
+  background: rgba(15, 17, 21, 0.97);
+  border-top: 1px solid var(--border);
+  backdrop-filter: blur(6px);
+  display: flex; justify-content: center; gap: 20px;
+  padding: 10px 10px calc(10px + env(safe-area-inset-bottom));
+}
+footer.sitenav a {
+  color: var(--text-dim); text-decoration: none; font-size: 0.78rem;
+  display: flex; flex-direction: column; align-items: center; gap: 2px;
+  padding: 4px 14px; min-width: 76px;
+}
+footer.sitenav a.current { color: var(--accent-neutral); }
+footer.sitenav a span.icon { font-size: 1.25rem; }
+
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <h1>🎯 Player Trade</h1>
+  <p>Build a 1-, 2-, or 3-player package and see who across the league might bite</p>
+</header>
+
+<main>
+  <section class="card">
+    <div id="giverSlot1" class="giver-slot">
+      <label>Player 1</label>
+      <div class="autocomplete-wrap">
+        <input type="text" id="giverInput1" placeholder="Start typing a name…" autocomplete="off">
+        <div class="autocomplete-list" id="giverList1"></div>
+      </div>
+      <div id="giverChip1"></div>
+    </div>
+
+    <div id="giverSlot2" class="giver-slot disabled">
+      <label>Player 2 <span style="text-transform:none;">(optional — same team as Player 1)</span></label>
+      <div class="autocomplete-wrap">
+        <input type="text" id="giverInput2" placeholder="Pick Player 1 first…" autocomplete="off" disabled>
+        <div class="autocomplete-list" id="giverList2"></div>
+      </div>
+      <div id="giverChip2"></div>
+    </div>
+
+    <div id="giverSlot3" class="giver-slot disabled">
+      <label>Player 3 <span style="text-transform:none;">(optional — same team as Player 1)</span></label>
+      <div class="autocomplete-wrap">
+        <input type="text" id="giverInput3" placeholder="Pick Player 2 first…" autocomplete="off" disabled>
+        <div class="autocomplete-list" id="giverList3"></div>
+      </div>
+      <div id="giverChip3"></div>
+    </div>
+
+    <div class="slider-block">
+      <label for="balanceSlider">Trade Balance</label>
+      <div class="slider-row">
+        <input type="range" id="balanceSlider" min="-50" max="50" step="1" value="0">
+        <div class="slider-readout" id="balanceReadout">0% — Even</div>
+      </div>
+      <div class="slider-scale">
+        <span id="scaleLeftLabel">◀ You +50%</span>
+        <span>Even</span>
+        <span id="scaleRightLabel">Them +50% ▶</span>
+      </div>
+    </div>
+
+    <div class="tolerance-row">
+      <label for="toleranceInput">Tolerance (±pp)</label>
+      <input type="number" id="toleranceInput" value="5" min="0.5" max="25" step="0.5">
+    </div>
+
+    <button class="primary-btn" id="findTradesBtn" style="margin-top:14px;">Find Trades</button>
+    <p class="status-line" id="statusLine">Loading rosters…</p>
+  </section>
+
+  <section class="card" id="resultsCard" style="display:none;">
+    <div class="tabs" id="resultTabs">
+      <button class="tab-btn active" data-tab="1">vs 1 player</button>
+      <button class="tab-btn" data-tab="2">vs 2 players</button>
+      <button class="tab-btn" data-tab="3">vs 3 players</button>
+    </div>
+    <div class="tab-panel active" id="panel-1"></div>
+    <div class="tab-panel" id="panel-2"></div>
+    <div class="tab-panel" id="panel-3"></div>
+  </section>
+</main>
+
+<footer class="sitenav">
+  <a href="../trade-finder/index.html"><span class="icon">🔄</span>Trade Finder</a>
+  <a href="../player-trade/index.html" class="current"><span class="icon">🎯</span>Player Trade</a>
+  <a href="../raw-charts/index.html"><span class="icon">📊</span>Raw Charts</a>
+</footer>
+
+<script>
+/* ──────────────────────────────────────────────────────────────────────────
+   Player Trade — pick 1-3 players from ONE team (Player 2/3 boxes only ever
+   show players from Player 1's team, since a trade is always two teams).
+   Then search every OTHER team's roster for 1-, 2-, or 3-player packages
+   that balance against your group, per chart, same as Trade Finder.
+   ────────────────────────────────────────────────────────────────────────── */
+
+const DATA_URL = '../data/trade_finder_latest.json';
+const MAX_ROWS_PER_TAB = 30;
+
+let TEAMS = [];
+let SOURCES = [];
+let chosen = [null, null, null]; // {team, player, pos, values, teamIdx}
+
+function sideLabel(team) {
+  if (!team) return '';
+  if (team.owner) return team.owner;
+  return team.team_name.split(' ')[0].replace(/[^\w']/g, '');
+}
+
+async function loadData() {
+  const statusEl = document.getElementById('statusLine');
+  try {
+    const resp = await fetch(DATA_URL, { cache: 'no-store' });
+    if (!resp.ok) throw new Error(`HTTP ${resp.status}`);
+    const payload = await resp.json();
+    TEAMS = payload.teams || [];
+    SOURCES = payload.sources || ['Yahoo', 'Richards', 'Boone', 'FantasyPros'];
+    statusEl.textContent = `Rosters loaded (updated ${payload.generated || 'unknown date'}) — ${TEAMS.length} teams.`;
+    document.getElementById('findTradesBtn').disabled = false;
+  } catch (err) {
+    statusEl.textContent = `Could not load roster data (${err.message}).`;
+    statusEl.classList.add('error');
+    document.getElementById('findTradesBtn').disabled = true;
+  }
+}
+
+// flat, searchable list of every rostered player across the league
+function allPlayersFlat() {
+  const out = [];
+  TEAMS.forEach((t, teamIdx) => {
+    t.roster.forEach(p => out.push({ ...p, teamIdx, team_name: t.team_name, owner: t.owner }));
+  });
+  return out;
+}
+
+// ---- autocomplete wiring (shared logic, 3 instances) ----
+function wireAutocomplete(slotNum) {
+  const input = document.getElementById(`giverInput${slotNum}`);
+  const list = document.getElementById(`giverList${slotNum}`);
+
+  input.addEventListener('input', () => {
+    const q = input.value.trim().toLowerCase();
+    list.innerHTML = '';
+    if (q.length < 2) { list.classList.remove('open'); return; }
+
+    let pool;
+    if (slotNum === 1) {
+      pool = allPlayersFlat();
+    } else {
+      const teamIdx = chosen[0] ? chosen[0].teamIdx : null;
+      if (teamIdx === null) { list.classList.remove('open'); return; }
+      pool = TEAMS[teamIdx].roster
+        .map(p => ({ ...p, teamIdx, team_name: TEAMS[teamIdx].team_name, owner: TEAMS[teamIdx].owner }))
+        .filter(p => !chosen.some(c => c && c.player === p.player)); // don't offer already-picked players
+    }
+
+    const matches = pool.filter(p => p.player.toLowerCase().includes(q)).slice(0, 12);
+    if (!matches.length) { list.classList.remove('open'); return; }
+
+    matches.forEach(p => {
+      const item = document.createElement('div');
+      item.className = 'autocomplete-item';
+      item.innerHTML = `${p.player} <div class="sub">${p.pos} · ${p.team_name}</div>`;
+      item.addEventListener('click', () => selectPlayer(slotNum, p));
+      list.appendChild(item);
+    });
+    list.classList.add('open');
+  });
+
+  input.addEventListener('blur', () => setTimeout(() => list.classList.remove('open'), 150));
+}
+
+function selectPlayer(slotNum, player) {
+  chosen[slotNum - 1] = player;
+  const input = document.getElementById(`giverInput${slotNum}`);
+  const list = document.getElementById(`giverList${slotNum}`);
+  const chip = document.getElementById(`giverChip${slotNum}`);
+  input.value = '';
+  list.classList.remove('open');
+  chip.innerHTML = `<span class="chosen-chip">${player.player} <button type="button" data-clear="${slotNum}">✕</button></span>`;
+  chip.querySelector('button').addEventListener('click', () => clearPlayer(slotNum));
+
+  if (slotNum === 1) {
+    unlockSlot(2, player.team_name);
+  } else if (slotNum === 2) {
+    unlockSlot(3, player.team_name);
+  }
+  updateScaleLabels();
+}
+
+function clearPlayer(slotNum) {
+  chosen[slotNum - 1] = null;
+  document.getElementById(`giverChip${slotNum}`).innerHTML = '';
+  if (slotNum === 1) {
+    chosen[1] = null; chosen[2] = null;
+    document.getElementById('giverChip2').innerHTML = '';
+    document.getElementById('giverChip3').innerHTML = '';
+    lockSlot(2); lockSlot(3);
+  } else if (slotNum === 2) {
+    chosen[2] = null;
+    document.getElementById('giverChip3').innerHTML = '';
+    lockSlot(3);
+  }
+  updateScaleLabels();
+}
+
+function unlockSlot(slotNum, teamName) {
+  const slot = document.getElementById(`giverSlot${slotNum}`);
+  const input = document.getElementById(`giverInput${slotNum}`);
+  slot.classList.remove('disabled');
+  input.disabled = false;
+  input.placeholder = `Search ${teamName}'s roster…`;
+}
+
+function lockSlot(slotNum) {
+  const slot = document.getElementById(`giverSlot${slotNum}`);
+  const input = document.getElementById(`giverInput${slotNum}`);
+  slot.classList.add('disabled');
+  input.disabled = true;
+  input.value = '';
+  input.placeholder = slotNum === 2 ? 'Pick Player 1 first…' : 'Pick Player 2 first…';
+}
+
+wireAutocomplete(1); wireAutocomplete(2); wireAutocomplete(3);
+
+// ---- slider ----
+function sliderToTargetLeftBenefit(sliderVal) { return -sliderVal; }
+function targetLabel(targetPct, leftLabel, rightLabel) {
+  const rounded = Math.round(targetPct * 10) / 10;
+  if (Math.abs(rounded) < 0.05) return 'Even';
+  return rounded > 0 ? `${leftLabel} +${rounded}%` : `${rightLabel} +${Math.abs(rounded)}%`;
+}
+function updateScaleLabels() {
+  const leftLabel = chosen[0] ? sideLabel(chosen[0]) : 'You';
+  document.getElementById('scaleLeftLabel').textContent = `◀ ${leftLabel} +50%`;
+  document.getElementById('scaleRightLabel').textContent = `Them +50% ▶`;
+  updateSliderReadout();
+}
+function updateSliderReadout() {
+  const slider = document.getElementById('balanceSlider');
+  const leftLabel = chosen[0] ? sideLabel(chosen[0]) : 'You';
+  const target = sliderToTargetLeftBenefit(parseFloat(slider.value));
+  document.getElementById('balanceReadout').textContent =
+    `${slider.value}% — ${targetLabel(target, leftLabel, 'Them')}`;
+}
+document.getElementById('balanceSlider').addEventListener('input', updateSliderReadout);
+
+// ---- combinatorics + benefit math (same rules as Trade Finder) ----
+function kCombinations(arr, k) {
+  const results = []; const combo = [];
+  function recurse(start) {
+    if (combo.length === k) { results.push(combo.slice()); return; }
+    for (let i = start; i < arr.length; i++) { combo.push(arr[i]); recurse(i + 1); combo.pop(); }
+  }
+  recurse(0);
+  return results;
+}
+function namesOf(group) { return group.map(p => p.player).join(' + '); }
+function sumForSource(group, sourceKey) {
+  let total = 0;
+  for (const p of group) {
+    const v = p.values ? p.values[sourceKey] : null;
+    if (v === null || v === undefined) return null;
+    total += v;
+  }
+  return total;
+}
+function benefitForSource(leftGroup, rightGroup, sourceKey) {
+  const given = sumForSource(leftGroup, sourceKey);
+  const received = sumForSource(rightGroup, sourceKey);
+  if (given === null || received === null || given <= 0) return null;
+  return ((received - given) / given) * 100;
+}
+function formatBenefit(pct, leftLabel, rightLabel) {
+  if (pct === null) return { text: '—', cls: 'benefit-dash' };
+  const rounded = Math.round(pct * 10) / 10;
+  if (Math.abs(rounded) < 0.05) return { text: 'Even', cls: 'benefit-even' };
+  if (rounded > 0) return { text: `${leftLabel} +${rounded}%`, cls: 'benefit-left' };
+  return { text: `${rightLabel} +${Math.abs(rounded)}%`, cls: 'benefit-right' };
+}
+function sourceKeyFor(label) { return label.toLowerCase().replace(/[^a-z]/g, ''); }
+
+function findTrades() {
+  const statusEl = document.getElementById('statusLine');
+  const leftGroup = chosen.filter(Boolean);
+  if (!leftGroup.length) {
+    statusEl.textContent = 'Pick at least one player.';
+    statusEl.classList.add('error');
+    return;
+  }
+  statusEl.classList.remove('error');
+
+  const myTeamIdx = leftGroup[0].teamIdx;
+  const leftLabel = sideLabel(leftGroup[0]);
+  const sliderVal = parseFloat(document.getElementById('balanceSlider').value);
+  const targetLeftBenefit = sliderToTargetLeftBenefit(sliderVal);
+  const tolerance = Math.max(0, parseFloat(document.getElementById('toleranceInput').value) || 5);
+  const sourceKeys = SOURCES.map(sourceKeyFor);
+
+  const buckets = { '1': [], '2': [], '3': [] };
+
+  TEAMS.forEach((oppTeam, oppIdx) => {
+    if (oppIdx === myTeamIdx) return;
+    const oppLabel = sideLabel(oppTeam);
+    [1, 2, 3].forEach(oppCount => {
+      const oppCombos = kCombinations(oppTeam.roster, oppCount);
+      for (const rg of oppCombos) {
+        const perSource = {};
+        let bestDiff = Infinity;
+        let qualifies = false;
+        for (const sk of sourceKeys) {
+          const benefit = benefitForSource(leftGroup, rg, sk);
+          perSource[sk] = benefit;
+          if (benefit !== null) {
+            const diff = Math.abs(benefit - targetLeftBenefit);
+            if (diff <= tolerance) qualifies = true;
+            if (diff < bestDiff) bestDiff = diff;
+          }
+        }
+        if (qualifies) {
+          buckets[String(oppCount)].push({ rightGroup: rg, perSource, diff: bestDiff, oppLabel });
+        }
+      }
+    });
+  });
+
+  Object.keys(buckets).forEach(k => {
+    buckets[k].sort((a, b) => a.diff - b.diff);
+    buckets[k] = buckets[k].slice(0, MAX_ROWS_PER_TAB);
+  });
+
+  document.getElementById('resultsCard').style.display = 'block';
+  Object.keys(buckets).forEach(k => renderPanel(k, buckets[k], targetLeftBenefit, tolerance, leftLabel, leftGroup, sourceKeys));
+
+  const total = Object.values(buckets).reduce((s, arr) => s + arr.length, 0);
+  statusEl.textContent = `Found ${total} matching trade(s) across the league within ±${tolerance}pp on at least one chart.`;
+}
+document.getElementById('findTradesBtn').addEventListener('click', findTrades);
+
+function renderPanel(tabKey, rows, targetLeftBenefit, tolerance, leftLabel, leftGroup, sourceKeys) {
+  const panel = document.getElementById(`panel-${tabKey}`);
+  const summaryHtml = `<p class="target-summary">Target: <strong>${targetLabel(targetLeftBenefit, leftLabel, 'Them')}</strong> (±${tolerance}pp) · You give: <strong>${namesOf(leftGroup)}</strong></p>`;
+
+  if (!rows.length) {
+    panel.innerHTML = summaryHtml + `<p class="empty-state">No trades of this shape qualify anywhere in the league — try widening the tolerance.</p>`;
+    return;
+  }
+
+  const headerCells = ['Team', `${leftLabel} Gives`, `${leftLabel} Value`, 'They Give', 'Their Value'].concat(SOURCES);
+
+  const rowsHtml = rows.map(r => {
+    let leftDisplay = '—', rightDisplay = '—';
+    for (const sk of sourceKeys) {
+      const lv = sumForSource(leftGroup, sk);
+      const rv = sumForSource(r.rightGroup, sk);
+      if (lv !== null && leftDisplay === '—') leftDisplay = lv.toFixed(1);
+      if (rv !== null && rightDisplay === '—') rightDisplay = rv.toFixed(1);
+    }
+    const sourceCells = sourceKeys.map((sk, i) => {
+      const b = formatBenefit(r.perSource[sk], leftLabel, r.oppLabel);
+      const withinTol = r.perSource[sk] !== null && Math.abs(r.perSource[sk] - targetLeftBenefit) <= tolerance;
+      return `<td data-label="${SOURCES[i]}" class="${b.cls}">${b.text}${withinTol ? '<span class="qual-badge">MATCH</span>' : ''}</td>`;
+    }).join('');
+
+    return `<tr>
+      <td data-label="Team">${r.oppLabel}</td>
+      <td data-label="${leftLabel} Gives">${namesOf(leftGroup)}</td>
+      <td data-label="${leftLabel} Value">${leftDisplay}</td>
+      <td data-label="They Give">${namesOf(r.rightGroup)}</td>
+      <td data-label="Their Value">${rightDisplay}</td>
+      ${sourceCells}
+    </tr>`;
+  }).join('');
+
+  panel.innerHTML = summaryHtml + `
+    <table class="responsive-table">
+      <thead><tr>${headerCells.map(h => `<th>${h}</th>`).join('')}</tr></thead>
+      <tbody>${rowsHtml}</tbody>
+    </table>`;
+}
+
+document.querySelectorAll('#resultTabs .tab-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('#resultTabs .tab-btn').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+    btn.classList.add('active');
+    document.getElementById(`panel-${btn.dataset.tab}`).classList.add('active');
+  });
+});
+
+document.getElementById('findTradesBtn').disabled = true;
+loadData();
+</script>
+
+</body>
+</html>
