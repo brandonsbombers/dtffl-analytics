@@ -4,226 +4,218 @@
 <meta charset="UTF-8">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>Trade Finder — DTFFL Analytics</title>
+<title>Trade Finder — DTFFL</title>
 <style>
-  :root {
-    --bg: #0f1115;
-    --bg-card: #171a21;
-    --bg-card-hover: #1d212a;
-    --border: #2a2e38;
-    --text: #e8eaed;
-    --text-dim: #9aa0ab;
-    --accent: #4ade80;      /* green — favors Left */
-    --accent2: #fb923c;     /* orange — favors Right */
-    --accent-neutral: #60a5fa;
-    --danger: #f87171;
-    --radius: 14px;
-    --font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+
+:root {
+  --bg: #0f1115;
+  --bg-card: #171a21;
+  --bg-card-hover: #1d212a;
+  --border: #2a2e38;
+  --text: #e8eaed;
+  --text-dim: #9aa0ab;
+  --accent: #4ade80;      /* green — favors left/giving side */
+  --accent2: #fb923c;     /* orange — favors right/other side */
+  --accent-neutral: #60a5fa;
+  --danger: #f87171;
+  --radius: 14px;
+  --font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+* { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font);
+  font-size: 16px;
+  padding-bottom: 100px; /* room for fixed footer nav */
+}
+a { color: inherit; }
+.backlink {
+  display: inline-block;
+  padding: 14px 16px 0;
+  color: var(--text-dim);
+  text-decoration: none;
+  font-size: 0.85rem;
+}
+header.hero { text-align: center; padding: 20px 16px 14px; }
+header.hero h1 { margin: 0 0 6px; font-size: 1.7rem; }
+header.hero p { margin: 0; color: var(--text-dim); font-size: 0.9rem; }
+main { max-width: 980px; margin: 0 auto; padding: 0 14px 32px; }
+.card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 18px;
+  margin-bottom: 20px;
+}
+label {
+  display: block;
+  font-size: 0.78rem;
+  color: var(--text-dim);
+  margin-bottom: 6px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+select, input[type="text"], input[type="number"] {
+  width: 100%;
+  background: var(--bg);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 12px 12px;
+  font-size: 1rem; /* >=16px avoids iOS auto-zoom on focus */
+}
+button {
+  min-height: 46px;
+  border-radius: 10px;
+  border: none;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+button.primary-btn {
+  background: var(--accent-neutral);
+  color: #0b1220;
+  width: 100%;
+  padding: 13px 20px;
+}
+button.primary-btn:hover { opacity: 0.88; }
+button.primary-btn:disabled { opacity: 0.4; cursor: not-allowed; }
+
+.controls-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; align-items: end; }
+@media (max-width: 640px) { .controls-grid { grid-template-columns: 1fr; } }
+.swap-arrow {
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.4rem; color: var(--text-dim); grid-column: 1 / -1; margin: -6px 0;
+}
+.slider-block { grid-column: 1 / -1; margin-top: 6px; }
+.slider-row { display: flex; align-items: center; gap: 14px; }
+input[type="range"] { flex: 1; accent-color: var(--accent-neutral); height: 28px; }
+.slider-readout { min-width: 170px; text-align: right; font-weight: 700; font-size: 0.92rem; }
+.slider-scale { display: flex; justify-content: space-between; font-size: 0.72rem; color: var(--text-dim); margin-top: 4px; }
+.tolerance-row { display: flex; align-items: center; gap: 10px; margin-top: 14px; grid-column: 1 / -1; }
+.tolerance-row label { margin: 0; white-space: nowrap; }
+.tolerance-row input { width: 84px; }
+
+.tabs { display: flex; gap: 6px; margin-bottom: 14px; flex-wrap: wrap; }
+.tab-btn {
+  background: var(--bg); border: 1px solid var(--border); color: var(--text-dim);
+  border-radius: 8px; padding: 10px 14px; cursor: pointer; font-size: 0.88rem; font-weight: 600;
+}
+.tab-btn.active { background: var(--accent-neutral); color: #0b1220; border-color: var(--accent-neutral); }
+.tab-panel { display: none; }
+.tab-panel.active { display: block; }
+
+.target-summary { color: var(--text-dim); font-size: 0.85rem; margin-bottom: 14px; }
+.target-summary strong { color: var(--text); }
+
+table { width: 100%; border-collapse: collapse; font-size: 0.86rem; }
+th, td { text-align: left; padding: 9px 8px; border-bottom: 1px solid var(--border); }
+th { color: var(--text-dim); font-weight: 600; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.03em; }
+tr:hover td { background: var(--bg-card-hover); }
+.benefit-left  { color: var(--accent); font-weight: 700; }
+.benefit-right { color: var(--accent2); font-weight: 700; }
+.benefit-even  { color: var(--accent-neutral); font-weight: 700; }
+.benefit-dash  { color: var(--text-dim); }
+.diff-cell { color: var(--text-dim); font-size: 0.8rem; }
+.qual-badge {
+  display: inline-block; font-size: 0.68rem; font-weight: 700; letter-spacing: 0.02em;
+  padding: 2px 6px; border-radius: 5px; background: rgba(96,165,250,0.15); color: var(--accent-neutral);
+  margin-left: 4px;
+}
+.empty-state, .status-line { color: var(--text-dim); font-size: 0.9rem; padding: 10px 0; }
+.status-line.error { color: var(--danger); }
+
+/* responsive table -> stacked cards below 700px, driven by data-label on <td> */
+@media (max-width: 700px) {
+  table.responsive-table thead { display: none; }
+  table.responsive-table, table.responsive-table tbody, table.responsive-table tr, table.responsive-table td {
+    display: block; width: 100%;
   }
-  * { box-sizing: border-box; }
-  body {
-    margin: 0;
-    background: var(--bg);
-    color: var(--text);
-    font-family: var(--font);
-    padding-bottom: 96px; /* room for fixed footer nav */
-  }
-  header.hero {
-    text-align: center;
-    padding: 36px 20px 20px;
-  }
-  header.hero h1 {
-    margin: 0 0 6px;
-    font-size: 2rem;
-  }
-  header.hero p {
-    margin: 0;
-    color: var(--text-dim);
-    font-size: 0.95rem;
-  }
-  main {
-    max-width: 980px;
-    margin: 0 auto;
-    padding: 0 20px 40px;
-  }
-  .card {
+  table.responsive-table tr {
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    margin-bottom: 10px;
+    padding: 6px 10px;
     background: var(--bg-card);
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    padding: 22px;
-    margin-bottom: 24px;
   }
-  .controls-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 18px;
-    align-items: end;
-  }
-  @media (max-width: 640px) {
-    .controls-grid { grid-template-columns: 1fr; }
-  }
-  label {
-    display: block;
-    font-size: 0.8rem;
-    color: var(--text-dim);
-    margin-bottom: 6px;
-    text-transform: uppercase;
-    letter-spacing: 0.04em;
-  }
-  select, input[type="number"] {
-    width: 100%;
-    background: var(--bg);
-    color: var(--text);
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    padding: 10px 12px;
-    font-size: 0.95rem;
-  }
-  .swap-arrow {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.4rem;
-    color: var(--text-dim);
-    grid-column: 1 / -1;
-    margin: -6px 0;
-  }
-  .slider-block { grid-column: 1 / -1; margin-top: 6px; }
-  .slider-row { display: flex; align-items: center; gap: 14px; }
-  input[type="range"] {
-    flex: 1;
-    accent-color: var(--accent-neutral);
-  }
-  .slider-readout {
-    min-width: 190px;
-    text-align: right;
-    font-weight: 600;
-    font-size: 0.95rem;
-  }
-  .slider-scale {
+  table.responsive-table tr:hover td { background: transparent; }
+  table.responsive-table td {
+    border-bottom: none;
+    padding: 7px 2px;
     display: flex;
     justify-content: space-between;
-    font-size: 0.72rem;
-    color: var(--text-dim);
-    margin-top: 4px;
-  }
-  .tolerance-row {
-    display: flex;
     align-items: center;
     gap: 10px;
-    margin-top: 14px;
-    grid-column: 1 / -1;
   }
-  .tolerance-row label { margin: 0; white-space: nowrap; }
-  .tolerance-row input { width: 90px; }
-  button#findTradesBtn {
-    grid-column: 1 / -1;
-    margin-top: 8px;
-    background: var(--accent-neutral);
-    color: #0b1220;
-    border: none;
-    border-radius: 10px;
-    padding: 13px 20px;
-    font-size: 1rem;
-    font-weight: 700;
-    cursor: pointer;
-    transition: opacity 0.15s;
-  }
-  button#findTradesBtn:hover { opacity: 0.88; }
-  button#findTradesBtn:disabled { opacity: 0.4; cursor: not-allowed; }
-
-  .tabs {
-    display: flex;
-    gap: 8px;
-    margin-bottom: 14px;
-    flex-wrap: wrap;
-  }
-  .tab-btn {
-    background: var(--bg);
-    border: 1px solid var(--border);
-    color: var(--text-dim);
-    border-radius: 8px;
-    padding: 9px 16px;
-    cursor: pointer;
-    font-size: 0.9rem;
-    font-weight: 600;
-  }
-  .tab-btn.active {
-    background: var(--accent-neutral);
-    color: #0b1220;
-    border-color: var(--accent-neutral);
-  }
-  .tab-panel { display: none; }
-  .tab-panel.active { display: block; }
-
-  .target-summary {
-    color: var(--text-dim);
-    font-size: 0.88rem;
-    margin-bottom: 14px;
-  }
-  .target-summary strong { color: var(--text); }
-
-  table {
-    width: 100%;
-    border-collapse: collapse;
-    font-size: 0.88rem;
-  }
-  th, td {
-    text-align: left;
-    padding: 10px 10px;
-    border-bottom: 1px solid var(--border);
-  }
-  th {
+  table.responsive-table td::before {
+    content: attr(data-label);
     color: var(--text-dim);
     font-weight: 600;
-    font-size: 0.75rem;
+    font-size: 0.7rem;
     text-transform: uppercase;
-    letter-spacing: 0.03em;
+    flex-shrink: 0;
   }
-  tr:hover td { background: var(--bg-card-hover); }
-  .benefit-left  { color: var(--accent); font-weight: 700; }
-  .benefit-right { color: var(--accent2); font-weight: 700; }
-  .benefit-even  { color: var(--accent-neutral); font-weight: 700; }
-  .diff-cell { color: var(--text-dim); font-size: 0.82rem; }
-  .empty-state, .status-line {
-    color: var(--text-dim);
-    font-size: 0.9rem;
-    padding: 12px 0;
-  }
-  .status-line.error { color: var(--danger); }
+}
 
-  footer.sitenav {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: rgba(15, 17, 21, 0.96);
-    border-top: 1px solid var(--border);
-    backdrop-filter: blur(6px);
-    display: flex;
-    justify-content: center;
-    gap: 28px;
-    padding: 12px 10px;
-    flex-wrap: wrap;
-  }
-  footer.sitenav a {
-    color: var(--text-dim);
-    text-decoration: none;
-    font-size: 0.82rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 2px;
-  }
-  footer.sitenav a.current { color: var(--accent-neutral); }
-  footer.sitenav a span.icon { font-size: 1.15rem; }
+/* type-ahead autocomplete */
+.autocomplete-wrap { position: relative; }
+.autocomplete-list {
+  position: absolute; z-index: 20; top: calc(100% + 4px); left: 0; right: 0;
+  background: var(--bg-card); border: 1px solid var(--border); border-radius: 10px;
+  max-height: 240px; overflow-y: auto; display: none;
+}
+.autocomplete-list.open { display: block; }
+.autocomplete-item { padding: 12px 14px; cursor: pointer; font-size: 0.95rem; border-bottom: 1px solid var(--border); }
+.autocomplete-item:last-child { border-bottom: none; }
+.autocomplete-item:hover, .autocomplete-item.highlighted { background: var(--bg-card-hover); }
+.autocomplete-item .sub { color: var(--text-dim); font-size: 0.78rem; }
+.chosen-chip {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: var(--bg); border: 1px solid var(--border); border-radius: 20px;
+  padding: 8px 8px 8px 14px; font-size: 0.9rem; margin-top: 8px;
+}
+.chosen-chip button { min-height: auto; background: none; color: var(--text-dim); font-size: 1rem; padding: 4px 8px; }
+.giver-slot { margin-bottom: 12px; }
+.giver-slot.disabled { opacity: 0.4; }
+.opp-badge {
+  display: inline-block; font-size: 0.72rem; color: var(--text-dim);
+  background: var(--bg); border: 1px solid var(--border); border-radius: 6px; padding: 2px 8px; margin-bottom: 6px;
+}
+
+/* raw charts page */
+.pos-tabs { display: flex; gap: 6px; margin-bottom: 14px; flex-wrap: wrap; }
+.search-sort-row { display: flex; gap: 10px; margin-bottom: 12px; flex-wrap: wrap; }
+.search-sort-row input[type="text"] { flex: 1; min-width: 160px; }
+.search-sort-row select { width: auto; min-width: 140px; }
+th.sortable { cursor: pointer; user-select: none; }
+th.sortable:after { content: ' \\2195'; color: var(--text-dim); font-size: 0.7em; }
+
+footer.sitenav {
+  position: fixed; bottom: 0; left: 0; right: 0;
+  background: rgba(15, 17, 21, 0.97);
+  border-top: 1px solid var(--border);
+  backdrop-filter: blur(6px);
+  display: flex; justify-content: center; gap: 20px;
+  padding: 10px 10px calc(10px + env(safe-area-inset-bottom));
+}
+footer.sitenav a {
+  color: var(--text-dim); text-decoration: none; font-size: 0.78rem;
+  display: flex; flex-direction: column; align-items: center; gap: 2px;
+  padding: 4px 14px; min-width: 76px;
+}
+footer.sitenav a.current { color: var(--accent-neutral); }
+footer.sitenav a span.icon { font-size: 1.25rem; }
+
 </style>
 </head>
 <body>
 
 <header class="hero">
   <h1>🔄 Trade Finder</h1>
-  <p>Compare two rosters &amp; surface balanced deals · Toledo League · DTFFL Trade Values</p>
+  <p>Compare two rosters across Yahoo / Richards / Boone / FantasyPros</p>
 </header>
 
 <main>
@@ -258,9 +250,11 @@
         <input type="number" id="toleranceInput" value="5" min="0.5" max="25" step="0.5">
       </div>
 
-      <button id="findTradesBtn">Find Trades</button>
+      <button class="primary-btn" id="findTradesBtn" style="grid-column: 1 / -1;">Find Trades</button>
     </div>
     <p class="status-line" id="statusLine">Loading current rosters…</p>
+    <p class="target-summary">A trade shows up here if <strong>at least one</strong> chart says it's within tolerance
+      of your target — every chart's number is still shown so you can see the full picture.</p>
   </section>
 
   <section class="card" id="resultsCard" style="display:none;">
@@ -283,30 +277,28 @@
 </main>
 
 <footer class="sitenav">
-  <a href="../index.html"><span class="icon">🏈</span>Home</a>
-  <a href="../reports/index.html"><span class="icon">📊</span>Reports</a>
-  <a href="../history/index.html"><span class="icon">🏆</span>History</a>
-  <a href="../players/index.html"><span class="icon">👤</span>Players</a>
-  <a href="../draft-prep/index.html"><span class="icon">📋</span>Draft Prep</a>
-  <a href="index.html" class="current"><span class="icon">🔄</span>Trade Finder</a>
+  <a href="../trade-finder/index.html" class="current"><span class="icon">🔄</span>Trade Finder</a>
+  <a href="../player-trade/index.html"><span class="icon">🎯</span>Player Trade</a>
+  <a href="../raw-charts/index.html"><span class="icon">📊</span>Raw Charts</a>
 </footer>
 
 <script>
 /* ──────────────────────────────────────────────────────────────────────────
-   DTFFL Trade Finder — fully client-side.
+   DTFFL Trade Finder — fully client-side, multi-chart.
    Data source: ../data/trade_finder_latest.json (published by the Colab notebook).
-   No server, no build step — every calculation below runs in the browser.
-   Sides are labeled by owner (falling back to team name) instead of generic
-   "Left"/"Right" wherever they're shown to the user.
+   Each of the 4 charts (Yahoo/Richards/Boone/FantasyPros) is evaluated
+   SEPARATELY against the target/tolerance; a combo qualifies for display if
+   ANY chart lands within tolerance. All 4 charts' numbers are always shown
+   for a qualifying combo, not just the one(s) that qualified it.
    ────────────────────────────────────────────────────────────────────────── */
 
 const DATA_URL = '../data/trade_finder_latest.json';
-const MAX_ROWS_PER_TAB = 40; // keep result tables readable; raise if you want more matches
+const MAX_ROWS_PER_TAB = 30;
 
 let TEAMS = [];
+let SOURCES = [];         // e.g. ['Yahoo','Richards','Boone','FantasyPros']
 let currentResults = {};
 
-// short label for a team: owner display name if we have one, else first word of the team name
 function sideLabel(team) {
   if (!team) return '';
   if (team.owner) return team.owner;
@@ -319,7 +311,6 @@ function selectedTeams() {
   return { left: TEAMS[leftIdx], right: TEAMS[rightIdx] };
 }
 
-// ---- data loading -----------------------------------------------------
 async function loadData() {
   const statusEl = document.getElementById('statusLine');
   try {
@@ -327,14 +318,14 @@ async function loadData() {
     if (!resp.ok) throw new Error(`HTTP ${resp.status}`);
     const payload = await resp.json();
     TEAMS = payload.teams || [];
+    SOURCES = payload.sources || ['Yahoo', 'Richards', 'Boone', 'FantasyPros'];
     populateTeamDropdowns();
-    statusEl.textContent = `Rosters loaded (updated ${payload.generated || 'unknown date'}) — ${TEAMS.length} teams.`;
+    statusEl.textContent = `Rosters loaded (updated ${payload.generated || 'unknown date'}) — ${TEAMS.length} teams, ${SOURCES.length} charts.`;
     document.getElementById('findTradesBtn').disabled = false;
     updateSliderReadout();
     updateScaleLabels();
   } catch (err) {
-    statusEl.textContent = `Could not load roster/trade-value data (${err.message}). ` +
-      'Re-run the export cell in the Colab notebook and re-publish data/trade_finder_latest.json.';
+    statusEl.textContent = `Could not load roster/trade-value data (${err.message}). Re-run the publish cells in the Colab notebook.`;
     statusEl.classList.add('error');
     document.getElementById('findTradesBtn').disabled = true;
   }
@@ -371,17 +362,13 @@ function updateScaleLabels() {
   document.getElementById('scaleRightLabel').textContent = `${sideLabel(right)} +50% ▶`;
 }
 
-// ---- slider readout -----------------------------------------------------
 function targetLabel(targetLeftBenefitPct, leftLabel, rightLabel) {
   const rounded = Math.round(targetLeftBenefitPct * 10) / 10;
   if (Math.abs(rounded) < 0.05) return 'Even';
   return rounded > 0 ? `${leftLabel} +${rounded}%` : `${rightLabel} +${Math.abs(rounded)}%`;
 }
 
-function sliderToTargetLeftBenefit(sliderVal) {
-  // slider negative => Left receives the advantage => positive Left benefit
-  return -sliderVal;
-}
+function sliderToTargetLeftBenefit(sliderVal) { return -sliderVal; }
 
 function updateSliderReadout() {
   const slider = document.getElementById('balanceSlider');
@@ -392,7 +379,6 @@ function updateSliderReadout() {
 }
 document.getElementById('balanceSlider').addEventListener('input', updateSliderReadout);
 
-// ---- combinatorics -------------------------------------------------------
 function kCombinations(arr, k) {
   const results = [];
   const combo = [];
@@ -408,33 +394,36 @@ function kCombinations(arr, k) {
   return results;
 }
 
-function sumValue(group) {
-  return group.reduce((s, p) => s + p.trade_value, 0);
+function namesOf(group) { return group.map(p => p.player).join(' + '); }
+
+// sum of a chart's value across a group of players. Returns null if ANY
+// player in the group is missing a value for this chart (can't compare
+// apples to apples if part of the package has no number on that chart).
+function sumForSource(group, sourceKey) {
+  let total = 0;
+  for (const p of group) {
+    const v = p.values ? p.values[sourceKey] : null;
+    if (v === null || v === undefined) return null;
+    total += v;
+  }
+  return total;
 }
 
-function namesOf(group) {
-  return group.map(p => p.player).join(' + ');
-}
-
-// ---- benefit calculation ---------------------------------------------
-// Left "gives" = leftGroup, Left "receives" = rightGroup (what the right side sends over).
-// ActualLeftBenefitPct = (received - given) / given * 100
-function actualLeftBenefit(leftGroup, rightGroup) {
-  const given = sumValue(leftGroup);
-  const received = sumValue(rightGroup);
-  if (given <= 0) return null;
+function benefitForSource(leftGroup, rightGroup, sourceKey) {
+  const given = sumForSource(leftGroup, sourceKey);
+  const received = sumForSource(rightGroup, sourceKey);
+  if (given === null || received === null || given <= 0) return null;
   return ((received - given) / given) * 100;
 }
 
 function formatBenefit(pct, leftLabel, rightLabel) {
+  if (pct === null) return { text: '—', cls: 'benefit-dash' };
   const rounded = Math.round(pct * 10) / 10;
   if (Math.abs(rounded) < 0.05) return { text: 'Even', cls: 'benefit-even' };
   if (rounded > 0) return { text: `${leftLabel} +${rounded}%`, cls: 'benefit-left' };
   return { text: `${rightLabel} +${Math.abs(rounded)}%`, cls: 'benefit-right' };
 }
 
-// ---- trade generation ---------------------------------------------------
-// pairShapes: which (leftCount, rightCount) combos belong to each tab
 const TAB_SHAPES = {
   '1v1': [[1, 1]],
   '1v2': [[1, 2], [2, 1]],
@@ -444,19 +433,7 @@ const TAB_SHAPES = {
   '3v3': [[3, 3]],
 };
 
-function generateCandidatesForShape(leftRoster, rightRoster, leftCount, rightCount) {
-  const leftCombos = kCombinations(leftRoster, leftCount);
-  const rightCombos = kCombinations(rightRoster, rightCount);
-  const out = [];
-  for (const lg of leftCombos) {
-    const leftVal = sumValue(lg);
-    if (leftVal <= 0) continue;
-    for (const rg of rightCombos) {
-      out.push({ leftGroup: lg, rightGroup: rg, leftVal, rightVal: sumValue(rg) });
-    }
-  }
-  return out;
-}
+function sourceKeyFor(label) { return label.toLowerCase().replace(/[^a-z]/g, ''); }
 
 function findTrades() {
   const leftIdx = parseInt(document.getElementById('leftTeam').value, 10);
@@ -478,19 +455,32 @@ function findTrades() {
   const sliderVal = parseFloat(document.getElementById('balanceSlider').value);
   const targetLeftBenefit = sliderToTargetLeftBenefit(sliderVal);
   const tolerance = Math.max(0, parseFloat(document.getElementById('toleranceInput').value) || 5);
+  const sourceKeys = SOURCES.map(sourceKeyFor);
 
   const buckets = {};
   for (const tabKey of Object.keys(TAB_SHAPES)) buckets[tabKey] = [];
 
   for (const [tabKey, shapes] of Object.entries(TAB_SHAPES)) {
     for (const [lc, rc] of shapes) {
-      const candidates = generateCandidatesForShape(leftTeam.roster, rightTeam.roster, lc, rc);
-      for (const c of candidates) {
-        const actual = actualLeftBenefit(c.leftGroup, c.rightGroup);
-        if (actual === null) continue;
-        const diff = Math.abs(actual - targetLeftBenefit);
-        if (diff <= tolerance) {
-          buckets[tabKey].push({ ...c, actual, diff });
+      const leftCombos = kCombinations(leftTeam.roster, lc);
+      const rightCombos = kCombinations(rightTeam.roster, rc);
+      for (const lg of leftCombos) {
+        for (const rg of rightCombos) {
+          const perSource = {};
+          let bestDiff = Infinity;
+          let qualifies = false;
+          for (const sk of sourceKeys) {
+            const benefit = benefitForSource(lg, rg, sk);
+            perSource[sk] = benefit;
+            if (benefit !== null) {
+              const diff = Math.abs(benefit - targetLeftBenefit);
+              if (diff <= tolerance) qualifies = true;
+              if (diff < bestDiff) bestDiff = diff;
+            }
+          }
+          if (qualifies) {
+            buckets[tabKey].push({ leftGroup: lg, rightGroup: rg, perSource, diff: bestDiff });
+          }
         }
       }
     }
@@ -499,62 +489,68 @@ function findTrades() {
   }
 
   currentResults = buckets;
-  renderResults(targetLeftBenefit, tolerance, leftLabel, rightLabel);
+  renderResults(targetLeftBenefit, tolerance, leftLabel, rightLabel, sourceKeys);
   const totalMatches = Object.values(buckets).reduce((s, arr) => s + arr.length, 0);
-  statusEl.textContent =
-    `Found ${totalMatches} matching trade(s) within ±${tolerance}pp of target.`;
+  statusEl.textContent = `Found ${totalMatches} matching trade(s) within ±${tolerance}pp of target on at least one chart.`;
 }
 document.getElementById('findTradesBtn').addEventListener('click', findTrades);
 
-// ---- rendering -----------------------------------------------------------
-function renderResults(targetLeftBenefit, tolerance, leftLabel, rightLabel) {
+function renderResults(targetLeftBenefit, tolerance, leftLabel, rightLabel, sourceKeys) {
   document.getElementById('resultsCard').style.display = 'block';
   for (const tabKey of Object.keys(TAB_SHAPES)) {
-    renderPanel(tabKey, currentResults[tabKey], targetLeftBenefit, tolerance, leftLabel, rightLabel);
+    renderPanel(tabKey, currentResults[tabKey], targetLeftBenefit, tolerance, leftLabel, rightLabel, sourceKeys);
   }
 }
 
-function renderPanel(tabKey, rows, targetLeftBenefit, tolerance, leftLabel, rightLabel) {
+function renderPanel(tabKey, rows, targetLeftBenefit, tolerance, leftLabel, rightLabel, sourceKeys) {
   const panel = document.getElementById(`panel-${tabKey}`);
   const summaryHtml =
-    `<p class="target-summary">Target: <strong>${targetLabel(targetLeftBenefit, leftLabel, rightLabel)}</strong> ` +
-    `(±${tolerance}pp)` +
-    (rows.length
-      ? ` · Best match — Actual: <strong>${formatBenefit(rows[0].actual, leftLabel, rightLabel).text}</strong>`
-      : '') +
-    `</p>`;
+    `<p class="target-summary">Target: <strong>${targetLabel(targetLeftBenefit, leftLabel, rightLabel)}</strong> (±${tolerance}pp)</p>`;
 
   if (!rows.length) {
-    panel.innerHTML = summaryHtml + `<p class="empty-state">No trades in this shape land within tolerance — widen the tolerance or pick different teams.</p>`;
+    panel.innerHTML = summaryHtml + `<p class="empty-state">No trades in this shape qualify on any chart — widen the tolerance or pick different teams.</p>`;
     return;
   }
 
+  const headerCells = [`${leftLabel} Gives`, `${leftLabel} Value`, `${rightLabel} Gives`, `${rightLabel} Value`]
+    .concat(SOURCES.map(s => s));
+
   const rowsHtml = rows.map(r => {
-    const b = formatBenefit(r.actual, leftLabel, rightLabel);
+    // show a representative "value" per side using the first chart that has data for the whole group
+    let leftDisplay = '—', rightDisplay = '—';
+    for (const sk of sourceKeys) {
+      const lv = sumForSource(r.leftGroup, sk);
+      const rv = sumForSource(r.rightGroup, sk);
+      if (lv !== null && leftDisplay === '—') leftDisplay = lv.toFixed(1);
+      if (rv !== null && rightDisplay === '—') rightDisplay = rv.toFixed(1);
+    }
+
+    const sourceCells = sourceKeys.map(sk => {
+      const b = formatBenefit(r.perSource[sk], leftLabel, rightLabel);
+      const withinTol = r.perSource[sk] !== null && Math.abs(r.perSource[sk] - targetLeftBenefit) <= tolerance;
+      const label = SOURCES[sourceKeys.indexOf(sk)];
+      const usesCeiling = sk === 'richards' &&
+        (r.leftGroup.some(p => p.richards_ceiling) || r.rightGroup.some(p => p.richards_ceiling));
+      const ceilingMark = usesCeiling ? ' <span title="Richards did not rank at least one of these players — using his ≤4 ceiling, not a real rank" style="cursor:help;">†</span>' : '';
+      return `<td data-label="${label}" class="${b.cls}">${b.text}${ceilingMark}${withinTol ? '<span class="qual-badge">MATCH</span>' : ''}</td>`;
+    }).join('');
+
     return `<tr>
-      <td>${namesOf(r.leftGroup)}</td>
-      <td>${r.leftVal.toFixed(1)}</td>
-      <td>${namesOf(r.rightGroup)}</td>
-      <td>${r.rightVal.toFixed(1)}</td>
-      <td class="${b.cls}">${b.text}</td>
-      <td class="diff-cell">${r.diff.toFixed(1)} pts from target</td>
+      <td data-label="${leftLabel} Gives">${namesOf(r.leftGroup)}</td>
+      <td data-label="${leftLabel} Value">${leftDisplay}</td>
+      <td data-label="${rightLabel} Gives">${namesOf(r.rightGroup)}</td>
+      <td data-label="${rightLabel} Value">${rightDisplay}</td>
+      ${sourceCells}
     </tr>`;
   }).join('');
 
   panel.innerHTML = summaryHtml + `
-    <table>
-      <thead>
-        <tr>
-          <th>${leftLabel} Gives</th><th>${leftLabel} Value</th>
-          <th>${rightLabel} Gives</th><th>${rightLabel} Value</th>
-          <th>Actual Benefit</th><th>Target Difference</th>
-        </tr>
-      </thead>
+    <table class="responsive-table">
+      <thead><tr>${headerCells.map(h => `<th>${h}</th>`).join('')}</tr></thead>
       <tbody>${rowsHtml}</tbody>
     </table>`;
 }
 
-// ---- tabs -----------------------------------------------------------------
 document.querySelectorAll('.tab-btn').forEach(btn => {
   btn.addEventListener('click', () => {
     document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
@@ -564,7 +560,6 @@ document.querySelectorAll('.tab-btn').forEach(btn => {
   });
 });
 
-// ---- init -------------------------------------------------------------
 document.getElementById('findTradesBtn').disabled = true;
 loadData();
 </script>
