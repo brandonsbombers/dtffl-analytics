@@ -1,858 +1,1634 @@
 {
-  "generated": "2026-09-17",
+  "generated": "2026-09-23",
   "season": 2026,
+  "sources": [
+    "Yahoo",
+    "Richards",
+    "Boone",
+    "FantasyPros"
+  ],
   "teams": [
     {
       "team_name": "Bold's Ladies of the Evening",
-      "owner": null,
+      "owner": "M. Bold",
       "roster": [
         {
           "player": "Jahmyr Gibbs",
           "pos": "RB",
-          "trade_value": 123.83
-        },
-        {
-          "player": "Lamar Jackson",
-          "pos": "QB",
-          "trade_value": 28.29
-        },
-        {
-          "player": "Davante Adams",
-          "pos": "WR",
-          "trade_value": 20.75
-        },
-        {
-          "player": "Terry McLaurin",
-          "pos": "WR",
-          "trade_value": 16.68
-        },
-        {
-          "player": "Travis Kelce",
-          "pos": "TE",
-          "trade_value": 6.36
-        },
-        {
-          "player": "Makai Lemon",
-          "pos": "WR",
-          "trade_value": 5.61
-        },
-        {
-          "player": "Mike Washington Jr.",
-          "pos": "RB",
-          "trade_value": 4.4
+          "values": {
+            "yahoo": 72.0,
+            "richards": 47.0,
+            "boone": 92.0,
+            "fantasypros": 75.1
+          }
         },
         {
           "player": "James Cook",
           "pos": "RB",
-          "trade_value": 0.0
+          "values": {
+            "yahoo": 53.0,
+            "richards": 36.5,
+            "boone": 63.0,
+            "fantasypros": 59.3
+          }
         },
         {
-          "player": "Brandon Aubrey",
-          "pos": "K",
-          "trade_value": 0.0
+          "player": "Davante Adams",
+          "pos": "WR",
+          "values": {
+            "yahoo": 30.0,
+            "richards": 15.0,
+            "boone": 37.0,
+            "fantasypros": 26.2
+          }
+        },
+        {
+          "player": "Lamar Jackson",
+          "pos": "QB",
+          "values": {
+            "yahoo": 34.0,
+            "richards": 16.0,
+            "boone": 26.0,
+            "fantasypros": 28.6
+          }
+        },
+        {
+          "player": "Terry McLaurin",
+          "pos": "WR",
+          "values": {
+            "yahoo": 21.0,
+            "richards": 9.0,
+            "boone": 21.0,
+            "fantasypros": 25.2
+          }
+        },
+        {
+          "player": "Travis Kelce",
+          "pos": "TE",
+          "values": {
+            "yahoo": 23.0,
+            "richards": 8.0,
+            "boone": 15.0,
+            "fantasypros": 11.2
+          }
         },
         {
           "player": "Kyle Pitts",
           "pos": "TE",
-          "trade_value": 0.0
+          "values": {
+            "yahoo": 14.0,
+            "richards": 7.5,
+            "boone": 8.0,
+            "fantasypros": 8.3
+          }
         },
         {
-          "player": "Steelers",
+          "player": "Makai Lemon",
+          "pos": "WR",
+          "values": {
+            "yahoo": 7.0,
+            "richards": 4.0,
+            "boone": 8.0,
+            "fantasypros": 16.7
+          }
+        },
+        {
+          "player": "Mike Washington Jr.",
+          "pos": "RB",
+          "values": {
+            "yahoo": 3.0,
+            "richards": 4.0,
+            "boone": 8.0,
+            "fantasypros": 2.0
+          }
+        },
+        {
+          "player": "Brandon Aubrey",
+          "pos": "K",
+          "values": {
+            "yahoo": null,
+            "richards": null,
+            "boone": null,
+            "fantasypros": null
+          }
+        },
+        {
+          "player": "Rams",
           "pos": "DST",
-          "trade_value": 0.0
+          "values": {
+            "yahoo": null,
+            "richards": null,
+            "boone": null,
+            "fantasypros": null
+          }
         }
       ]
     },
     {
       "team_name": "Brandon's Bombers",
-      "owner": null,
+      "owner": "B. Gill",
       "roster": [
         {
           "player": "Christian McCaffrey",
           "pos": "RB",
-          "trade_value": 75.24
+          "values": {
+            "yahoo": 53.0,
+            "richards": 37.5,
+            "boone": 71.0,
+            "fantasypros": 50.5
+          }
         },
         {
           "player": "Chase Brown",
           "pos": "RB",
-          "trade_value": 72.91
-        },
-        {
-          "player": "Josh Allen",
-          "pos": "QB",
-          "trade_value": 44.01
-        },
-        {
-          "player": "Colston Loveland",
-          "pos": "TE",
-          "trade_value": 24.28
+          "values": {
+            "yahoo": 53.0,
+            "richards": 33.5,
+            "boone": 57.0,
+            "fantasypros": 46.8
+          }
         },
         {
           "player": "Jaylen Waddle",
           "pos": "WR",
-          "trade_value": 23.46
+          "values": {
+            "yahoo": 38.0,
+            "richards": 16.5,
+            "boone": 36.0,
+            "fantasypros": 32.0
+          }
         },
         {
-          "player": "Alec Pierce",
-          "pos": "WR",
-          "trade_value": 19.82
+          "player": "Josh Allen",
+          "pos": "QB",
+          "values": {
+            "yahoo": 46.0,
+            "richards": 23.0,
+            "boone": 32.0,
+            "fantasypros": 29.1
+          }
         },
         {
           "player": "Rome Odunze",
           "pos": "WR",
-          "trade_value": 18.2
+          "values": {
+            "yahoo": 18.0,
+            "richards": 8.0,
+            "boone": 19.0,
+            "fantasypros": 22.9
+          }
+        },
+        {
+          "player": "George Kittle",
+          "pos": "TE",
+          "values": {
+            "yahoo": 25.0,
+            "richards": 9.0,
+            "boone": 19.0,
+            "fantasypros": 12.7
+          }
         },
         {
           "player": "Michael Wilson",
           "pos": "WR",
-          "trade_value": 14.62
+          "values": {
+            "yahoo": 10.0,
+            "richards": 7.0,
+            "boone": 18.0,
+            "fantasypros": 13.6
+          }
         },
         {
-          "player": "Quentin Johnston",
-          "pos": "WR",
-          "trade_value": 10.78
+          "player": "Kaelon Black",
+          "pos": "RB",
+          "values": {
+            "yahoo": 11.0,
+            "richards": 5.0,
+            "boone": 12.0,
+            "fantasypros": 8.0
+          }
+        },
+        {
+          "player": "Dalton Schultz",
+          "pos": "TE",
+          "values": {
+            "yahoo": 8.0,
+            "richards": 4.0,
+            "boone": 7.0,
+            "fantasypros": 5.9
+          }
         },
         {
           "player": "Tyler Loop",
           "pos": "K",
-          "trade_value": 0.0
+          "values": {
+            "yahoo": null,
+            "richards": null,
+            "boone": null,
+            "fantasypros": null
+          }
         },
         {
           "player": "Packers",
           "pos": "DST",
-          "trade_value": 0.0
+          "values": {
+            "yahoo": null,
+            "richards": null,
+            "boone": null,
+            "fantasypros": null
+          }
         }
       ]
     },
     {
       "team_name": "Concepts of a Draft Strategy",
-      "owner": null,
+      "owner": "E. Filson",
       "roster": [
         {
           "player": "Jonathan Taylor",
           "pos": "RB",
-          "trade_value": 93.36
+          "values": {
+            "yahoo": 69.0,
+            "richards": 40.5,
+            "boone": 73.0,
+            "fantasypros": 52.3
+          }
         },
         {
           "player": "Drake London",
           "pos": "WR",
-          "trade_value": 36.29
+          "values": {
+            "yahoo": 45.0,
+            "richards": 22.0,
+            "boone": 46.0,
+            "fantasypros": 36.1
+          }
         },
         {
           "player": "Emeka Egbuka",
           "pos": "WR",
-          "trade_value": 24.85
-        },
-        {
-          "player": "DK Metcalf",
-          "pos": "WR",
-          "trade_value": 20.41
+          "values": {
+            "yahoo": 31.0,
+            "richards": 15.5,
+            "boone": 30.0,
+            "fantasypros": 31.0
+          }
         },
         {
           "player": "TreVeyon Henderson",
           "pos": "RB",
-          "trade_value": 11.58
+          "values": {
+            "yahoo": 28.0,
+            "richards": 8.5,
+            "boone": 24.0,
+            "fantasypros": 28.2
+          }
+        },
+        {
+          "player": "DK Metcalf",
+          "pos": "WR",
+          "values": {
+            "yahoo": 19.0,
+            "richards": 6.0,
+            "boone": 20.0,
+            "fantasypros": 22.8
+          }
         },
         {
           "player": "Brian Thomas Jr.",
           "pos": "WR",
-          "trade_value": 9.59
+          "values": {
+            "yahoo": 18.0,
+            "richards": 6.5,
+            "boone": 13.0,
+            "fantasypros": 15.8
+          }
         },
         {
           "player": "Jakobi Meyers",
           "pos": "WR",
-          "trade_value": 8.36
+          "values": {
+            "yahoo": 7.0,
+            "richards": 4.0,
+            "boone": 10.0,
+            "fantasypros": 14.6
+          }
         },
         {
           "player": "Braelon Allen",
           "pos": "RB",
-          "trade_value": 4.4
+          "values": {
+            "yahoo": 4.0,
+            "richards": 4.0,
+            "boone": 8.0,
+            "fantasypros": null
+          }
         },
         {
           "player": "Bryce Young",
           "pos": "QB",
-          "trade_value": 3.83
+          "values": {
+            "yahoo": 8.0,
+            "richards": 5.0,
+            "boone": 4.0,
+            "fantasypros": 1.0
+          }
         },
         {
           "player": "Chargers",
           "pos": "DST",
-          "trade_value": 0.0
+          "values": {
+            "yahoo": null,
+            "richards": null,
+            "boone": null,
+            "fantasypros": null
+          }
         },
         {
           "player": "Chris Boswell",
           "pos": "K",
-          "trade_value": 0.0
+          "values": {
+            "yahoo": null,
+            "richards": null,
+            "boone": null,
+            "fantasypros": null
+          }
         }
       ]
     },
     {
       "team_name": "Curry O'jus",
-      "owner": null,
+      "owner": "O. Naik",
       "roster": [
         {
           "player": "Justin Jefferson",
           "pos": "WR",
-          "trade_value": 57.07
+          "values": {
+            "yahoo": 52.0,
+            "richards": 37.5,
+            "boone": 62.0,
+            "fantasypros": 40.5
+          }
         },
         {
           "player": "Omarion Hampton",
           "pos": "RB",
-          "trade_value": 43.1
+          "values": {
+            "yahoo": 46.0,
+            "richards": 24.0,
+            "boone": 56.0,
+            "fantasypros": 41.6
+          }
         },
         {
           "player": "Christian Watson",
           "pos": "WR",
-          "trade_value": 31.72
-        },
-        {
-          "player": "Caleb Douglas",
-          "pos": "WR",
-          "trade_value": 9.27
-        },
-        {
-          "player": "Jared Goff",
-          "pos": "QB",
-          "trade_value": 4.71
-        },
-        {
-          "player": "Kalif Raymond",
-          "pos": "WR",
-          "trade_value": 1.78
+          "values": {
+            "yahoo": 40.0,
+            "richards": 16.5,
+            "boone": 51.0,
+            "fantasypros": 31.5
+          }
         },
         {
           "player": "Travis Etienne",
           "pos": "RB",
-          "trade_value": 0.0
+          "values": {
+            "yahoo": 28.0,
+            "richards": 13.5,
+            "boone": 22.0,
+            "fantasypros": 31.7
+          }
         },
         {
           "player": "Chris Godwin",
           "pos": "WR",
-          "trade_value": 0.0
-        },
-        {
-          "player": "Texans",
-          "pos": "DST",
-          "trade_value": 0.0
-        },
-        {
-          "player": "Evan McPherson",
-          "pos": "K",
-          "trade_value": 0.0
+          "values": {
+            "yahoo": 18.0,
+            "richards": 5.5,
+            "boone": 14.0,
+            "fantasypros": 17.2
+          }
         },
         {
           "player": "Patrick Mahomes",
           "pos": "QB",
-          "trade_value": 0.0
+          "values": {
+            "yahoo": 29.0,
+            "richards": 8.0,
+            "boone": 13.0,
+            "fantasypros": 9.2
+          }
+        },
+        {
+          "player": "Tony Pollard",
+          "pos": "RB",
+          "values": {
+            "yahoo": 11.0,
+            "richards": 6.0,
+            "boone": 13.0,
+            "fantasypros": 15.9
+          }
+        },
+        {
+          "player": "Adonai Mitchell",
+          "pos": "WR",
+          "values": {
+            "yahoo": 6.0,
+            "richards": 4.0,
+            "boone": 10.0,
+            "fantasypros": 11.9
+          }
+        },
+        {
+          "player": "Jared Goff",
+          "pos": "QB",
+          "values": {
+            "yahoo": 18.0,
+            "richards": 5.0,
+            "boone": 7.0,
+            "fantasypros": 7.6
+          }
+        },
+        {
+          "player": "Texans",
+          "pos": "DST",
+          "values": {
+            "yahoo": null,
+            "richards": null,
+            "boone": null,
+            "fantasypros": null
+          }
+        },
+        {
+          "player": "Evan McPherson",
+          "pos": "K",
+          "values": {
+            "yahoo": null,
+            "richards": null,
+            "boone": null,
+            "fantasypros": null
+          }
         }
       ]
     },
     {
       "team_name": "Dunlavy's Destroyers",
-      "owner": null,
+      "owner": "S. Dunlavy",
       "roster": [
         {
           "player": "Bijan Robinson",
           "pos": "RB",
-          "trade_value": 106.59
-        },
-        {
-          "player": "Malik Nabers",
-          "pos": "WR",
-          "trade_value": 45.6
+          "values": {
+            "yahoo": 63.0,
+            "richards": 43.0,
+            "boone": 82.0,
+            "fantasypros": 67.5
+          }
         },
         {
           "player": "Breece Hall",
           "pos": "RB",
-          "trade_value": 41.91
+          "values": {
+            "yahoo": 40.0,
+            "richards": 24.0,
+            "boone": 46.0,
+            "fantasypros": 37.6
+          }
         },
         {
           "player": "Brock Bowers",
           "pos": "TE",
-          "trade_value": 29.27
+          "values": {
+            "yahoo": 47.0,
+            "richards": 27.5,
+            "boone": 39.0,
+            "fantasypros": 28.0
+          }
+        },
+        {
+          "player": "Malik Nabers",
+          "pos": "WR",
+          "values": {
+            "yahoo": 35.0,
+            "richards": 19.5,
+            "boone": 35.0,
+            "fantasypros": 36.6
+          }
         },
         {
           "player": "Tyler Warren",
           "pos": "TE",
-          "trade_value": 17.73
+          "values": {
+            "yahoo": 26.0,
+            "richards": 14.0,
+            "boone": 22.0,
+            "fantasypros": 15.2
+          }
         },
         {
-          "player": "Jordan Mason",
-          "pos": "RB",
-          "trade_value": 8.24
-        },
-        {
-          "player": "Jonathon Brooks",
-          "pos": "RB",
-          "trade_value": 8.11
+          "player": "Denzel Boston",
+          "pos": "WR",
+          "values": {
+            "yahoo": 23.0,
+            "richards": 6.5,
+            "boone": 15.0,
+            "fantasypros": 15.8
+          }
         },
         {
           "player": "Dak Prescott",
           "pos": "QB",
-          "trade_value": 7.63
+          "values": {
+            "yahoo": 24.0,
+            "richards": 11.0,
+            "boone": 12.0,
+            "fantasypros": 8.0
+          }
+        },
+        {
+          "player": "Jordan Mason",
+          "pos": "RB",
+          "values": {
+            "yahoo": 8.0,
+            "richards": 6.0,
+            "boone": 10.0,
+            "fantasypros": 11.7
+          }
         },
         {
           "player": "Devaughn Vele",
           "pos": "WR",
-          "trade_value": 7.21
-        },
-        {
-          "player": "Cameron Dicker",
-          "pos": "K",
-          "trade_value": 0.0
+          "values": {
+            "yahoo": 8.0,
+            "richards": 6.0,
+            "boone": 10.0,
+            "fantasypros": 7.2
+          }
         },
         {
           "player": "Patriots",
           "pos": "DST",
-          "trade_value": 0.0
+          "values": {
+            "yahoo": null,
+            "richards": null,
+            "boone": null,
+            "fantasypros": null
+          }
+        },
+        {
+          "player": "Spencer Shrader",
+          "pos": "K",
+          "values": {
+            "yahoo": null,
+            "richards": null,
+            "boone": null,
+            "fantasypros": null
+          }
         }
       ]
     },
     {
       "team_name": "Fooseball is the Devil",
-      "owner": null,
+      "owner": "Sundeep",
       "roster": [
         {
           "player": "Amon-Ra St. Brown",
           "pos": "WR",
-          "trade_value": 56.97
+          "values": {
+            "yahoo": 68.0,
+            "richards": 42.0,
+            "boone": 72.0,
+            "fantasypros": 51.3
+          }
         },
         {
           "player": "Zay Flowers",
           "pos": "WR",
-          "trade_value": 36.44
-        },
-        {
-          "player": "Ladd McConkey",
-          "pos": "WR",
-          "trade_value": 33.78
+          "values": {
+            "yahoo": 40.0,
+            "richards": 24.5,
+            "boone": 49.0,
+            "fantasypros": 37.2
+          }
         },
         {
           "player": "Kyren Williams",
           "pos": "RB",
-          "trade_value": 32.63
+          "values": {
+            "yahoo": 44.0,
+            "richards": 20.0,
+            "boone": 39.0,
+            "fantasypros": 39.6
+          }
+        },
+        {
+          "player": "Ladd McConkey",
+          "pos": "WR",
+          "values": {
+            "yahoo": 34.0,
+            "richards": 21.0,
+            "boone": 35.0,
+            "fantasypros": 27.2
+          }
         },
         {
           "player": "Jaylen Warren",
           "pos": "RB",
-          "trade_value": 19.69
+          "values": {
+            "yahoo": 19.0,
+            "richards": 10.0,
+            "boone": 28.0,
+            "fantasypros": 25.5
+          }
         },
         {
-          "player": "Justin Herbert",
-          "pos": "QB",
-          "trade_value": 8.27
+          "player": "Aaron Jones",
+          "pos": "RB",
+          "values": {
+            "yahoo": 18.0,
+            "richards": 9.0,
+            "boone": 22.0,
+            "fantasypros": 17.6
+          }
         },
         {
           "player": "Dontayvion Wicks",
           "pos": "WR",
-          "trade_value": 6.72
+          "values": {
+            "yahoo": 14.0,
+            "richards": 4.0,
+            "boone": 9.0,
+            "fantasypros": 12.9
+          }
         },
         {
-          "player": "Tony Pollard",
-          "pos": "RB",
-          "trade_value": 6.06
+          "player": "Rashod Bateman",
+          "pos": "WR",
+          "values": {
+            "yahoo": 3.0,
+            "richards": 4.0,
+            "boone": 7.0,
+            "fantasypros": 8.0
+          }
         },
         {
           "player": "Eagles",
           "pos": "DST",
-          "trade_value": 0.0
+          "values": {
+            "yahoo": null,
+            "richards": null,
+            "boone": null,
+            "fantasypros": null
+          }
         },
         {
           "player": "Jason Myers",
           "pos": "K",
-          "trade_value": 0.0
+          "values": {
+            "yahoo": null,
+            "richards": null,
+            "boone": null,
+            "fantasypros": null
+          }
         },
         {
-          "player": "Kenneth Gainwell",
-          "pos": "RB",
-          "trade_value": 0.0
+          "player": "C.J. Stroud",
+          "pos": "QB",
+          "values": {
+            "yahoo": 7.0,
+            "richards": 4.0,
+            "boone": 0.0,
+            "fantasypros": 1.0
+          }
         }
       ]
     },
     {
       "team_name": "Gus's Mad Mongooses",
-      "owner": null,
+      "owner": "L. Gill",
       "roster": [
         {
           "player": "Saquon Barkley",
           "pos": "RB",
-          "trade_value": 49.15
-        },
-        {
-          "player": "George Pickens",
-          "pos": "WR",
-          "trade_value": 40.38
+          "values": {
+            "yahoo": 43.0,
+            "richards": 25.5,
+            "boone": 53.0,
+            "fantasypros": 43.7
+          }
         },
         {
           "player": "DeVonta Smith",
           "pos": "WR",
-          "trade_value": 35.76
+          "values": {
+            "yahoo": 46.0,
+            "richards": 24.0,
+            "boone": 53.0,
+            "fantasypros": 33.8
+          }
         },
         {
           "player": "Parker Washington",
           "pos": "WR",
-          "trade_value": 32.91
+          "values": {
+            "yahoo": 40.0,
+            "richards": 16.5,
+            "boone": 44.0,
+            "fantasypros": 33.5
+          }
+        },
+        {
+          "player": "George Pickens",
+          "pos": "WR",
+          "values": {
+            "yahoo": 36.0,
+            "richards": 24.0,
+            "boone": 40.0,
+            "fantasypros": 39.1
+          }
         },
         {
           "player": "Dalton Kincaid",
           "pos": "TE",
-          "trade_value": 14.44
-        },
-        {
-          "player": "Jadarian Price",
-          "pos": "RB",
-          "trade_value": 13.83
-        },
-        {
-          "player": "Jaxson Dart",
-          "pos": "QB",
-          "trade_value": 13.33
+          "values": {
+            "yahoo": 36.0,
+            "richards": 15.0,
+            "boone": 31.0,
+            "fantasypros": 19.4
+          }
         },
         {
           "player": "Kyle Monangai",
           "pos": "RB",
-          "trade_value": 11.86
+          "values": {
+            "yahoo": 19.0,
+            "richards": 5.0,
+            "boone": 14.0,
+            "fantasypros": 19.1
+          }
+        },
+        {
+          "player": "Jonah Coleman",
+          "pos": "RB",
+          "values": {
+            "yahoo": 5.0,
+            "richards": 4.0,
+            "boone": 12.0,
+            "fantasypros": 15.3
+          }
         },
         {
           "player": "Jordan Love",
           "pos": "QB",
-          "trade_value": 4.11
+          "values": {
+            "yahoo": 15.0,
+            "richards": 4.0,
+            "boone": 4.0,
+            "fantasypros": 1.0
+          }
+        },
+        {
+          "player": "Tyler Shough",
+          "pos": "QB",
+          "values": {
+            "yahoo": 14.0,
+            "richards": 6.0,
+            "boone": 4.0,
+            "fantasypros": 1.0
+          }
         },
         {
           "player": "Tyler Bass",
           "pos": "K",
-          "trade_value": 0.0
+          "values": {
+            "yahoo": null,
+            "richards": null,
+            "boone": null,
+            "fantasypros": null
+          }
         },
         {
-          "player": "Buccaneers",
+          "player": "Bills",
           "pos": "DST",
-          "trade_value": 0.0
+          "values": {
+            "yahoo": null,
+            "richards": null,
+            "boone": null,
+            "fantasypros": null
+          }
         }
       ]
     },
     {
       "team_name": "Happ's Fighting Sea Toads",
-      "owner": null,
+      "owner": "J. Happ",
       "roster": [
-        {
-          "player": "Derrick Henry",
-          "pos": "RB",
-          "trade_value": 77.22
-        },
         {
           "player": "Jaxon Smith-Njigba",
           "pos": "WR",
-          "trade_value": 63.21
+          "values": {
+            "yahoo": 68.0,
+            "richards": 43.0,
+            "boone": 78.0,
+            "fantasypros": 55.4
+          }
+        },
+        {
+          "player": "Derrick Henry",
+          "pos": "RB",
+          "values": {
+            "yahoo": 53.0,
+            "richards": 35.0,
+            "boone": 67.0,
+            "fantasypros": 48.9
+          }
         },
         {
           "player": "Chuba Hubbard",
           "pos": "RB",
-          "trade_value": 33.13
-        },
-        {
-          "player": "Caleb Williams",
-          "pos": "QB",
-          "trade_value": 25.55
+          "values": {
+            "yahoo": 33.0,
+            "richards": 15.0,
+            "boone": 36.0,
+            "fantasypros": 23.3
+          }
         },
         {
           "player": "Quinshon Judkins",
           "pos": "RB",
-          "trade_value": 17.89
+          "values": {
+            "yahoo": 23.0,
+            "richards": 11.5,
+            "boone": 23.0,
+            "fantasypros": 25.8
+          }
         },
         {
-          "player": "Marvin Harrison Jr.",
+          "player": "Caleb Williams",
+          "pos": "QB",
+          "values": {
+            "yahoo": 23.0,
+            "richards": 9.0,
+            "boone": 13.0,
+            "fantasypros": 12.0
+          }
+        },
+        {
+          "player": "Xavier Worthy",
           "pos": "WR",
-          "trade_value": 8.63
-        },
-        {
-          "player": "Harold Fannin Jr.",
-          "pos": "TE",
-          "trade_value": 6.94
+          "values": {
+            "yahoo": 8.0,
+            "richards": 4.0,
+            "boone": 10.0,
+            "fantasypros": 14.4
+          }
         },
         {
           "player": "MarShawn Lloyd",
           "pos": "RB",
-          "trade_value": 6.6
+          "values": {
+            "yahoo": 11.0,
+            "richards": 6.0,
+            "boone": 8.0,
+            "fantasypros": 18.9
+          }
         },
         {
-          "player": "KC Concepcion",
-          "pos": "WR",
-          "trade_value": 0.0
+          "player": "Harold Fannin Jr.",
+          "pos": "TE",
+          "values": {
+            "yahoo": 17.0,
+            "richards": 6.5,
+            "boone": 8.0,
+            "fantasypros": 11.3
+          }
         },
         {
-          "player": "Jaguars",
-          "pos": "DST",
-          "trade_value": 0.0
+          "player": "Bo Nix",
+          "pos": "QB",
+          "values": {
+            "yahoo": 12.0,
+            "richards": 4.0,
+            "boone": 3.0,
+            "fantasypros": 1.0
+          }
         },
         {
           "player": "Harrison Butker",
           "pos": "K",
-          "trade_value": 0.0
+          "values": {
+            "yahoo": null,
+            "richards": null,
+            "boone": null,
+            "fantasypros": null
+          }
+        },
+        {
+          "player": "Panthers",
+          "pos": "DST",
+          "values": {
+            "yahoo": null,
+            "richards": null,
+            "boone": null,
+            "fantasypros": null
+          }
         }
       ]
     },
     {
       "team_name": "Joseph Water Buffaloes",
-      "owner": null,
+      "owner": "M. Joseph",
       "roster": [
-        {
-          "player": "D'Andre Swift",
-          "pos": "RB",
-          "trade_value": 67.05
-        },
         {
           "player": "Ja'Marr Chase",
           "pos": "WR",
-          "trade_value": 53.88
+          "values": {
+            "yahoo": 68.0,
+            "richards": 42.5,
+            "boone": 77.0,
+            "fantasypros": 57.1
+          }
+        },
+        {
+          "player": "D'Andre Swift",
+          "pos": "RB",
+          "values": {
+            "yahoo": 39.0,
+            "richards": 22.5,
+            "boone": 55.0,
+            "fantasypros": 40.3
+          }
         },
         {
           "player": "Javonte Williams",
           "pos": "RB",
-          "trade_value": 49.0
+          "values": {
+            "yahoo": 42.0,
+            "richards": 24.0,
+            "boone": 43.0,
+            "fantasypros": 40.8
+          }
         },
         {
           "player": "Mike Evans",
           "pos": "WR",
-          "trade_value": 31.64
-        },
-        {
-          "player": "Luther Burden III",
-          "pos": "WR",
-          "trade_value": 27.08
+          "values": {
+            "yahoo": 29.0,
+            "richards": 14.5,
+            "boone": 34.0,
+            "fantasypros": 25.8
+          }
         },
         {
           "player": "Jalen Coker",
           "pos": "WR",
-          "trade_value": 16.83
+          "values": {
+            "yahoo": 26.0,
+            "richards": 9.0,
+            "boone": 30.0,
+            "fantasypros": 22.7
+          }
         },
         {
-          "player": "Jayden Daniels",
-          "pos": "QB",
-          "trade_value": 12.0
+          "player": "Luther Burden III",
+          "pos": "WR",
+          "values": {
+            "yahoo": 22.0,
+            "richards": 8.0,
+            "boone": 28.0,
+            "fantasypros": 24.2
+          }
         },
         {
           "player": "Jacory Croskey-Merritt",
           "pos": "RB",
-          "trade_value": 10.81
+          "values": {
+            "yahoo": 18.0,
+            "richards": 6.0,
+            "boone": 18.0,
+            "fantasypros": 23.0
+          }
         },
         {
-          "player": "Michael Pittman",
-          "pos": "WR",
-          "trade_value": 0.0
+          "player": "Jayden Daniels",
+          "pos": "QB",
+          "values": {
+            "yahoo": 14.0,
+            "richards": 4.0,
+            "boone": 2.0,
+            "fantasypros": 1.0
+          }
         },
         {
           "player": "Cairo Santos",
           "pos": "K",
-          "trade_value": 0.0
+          "values": {
+            "yahoo": null,
+            "richards": null,
+            "boone": null,
+            "fantasypros": null
+          }
         },
         {
-          "player": "49ers",
+          "player": "Vikings",
           "pos": "DST",
-          "trade_value": 0.0
+          "values": {
+            "yahoo": null,
+            "richards": null,
+            "boone": null,
+            "fantasypros": null
+          }
+        },
+        {
+          "player": "Daniel Jones",
+          "pos": "QB",
+          "values": {
+            "yahoo": 7.0,
+            "richards": 4.0,
+            "boone": 0.0,
+            "fantasypros": 1.0
+          }
         }
       ]
     },
     {
       "team_name": "Michael Bolton Soul Providers",
-      "owner": null,
+      "owner": "L. Ross",
       "roster": [
         {
           "player": "De'Von Achane",
           "pos": "RB",
-          "trade_value": 45.71
-        },
-        {
-          "player": "Jameson Williams",
-          "pos": "WR",
-          "trade_value": 25.92
+          "values": {
+            "yahoo": 39.0,
+            "richards": 26.0,
+            "boone": 43.0,
+            "fantasypros": 42.4
+          }
         },
         {
           "player": "Rashee Rice",
           "pos": "WR",
-          "trade_value": 24.65
+          "values": {
+            "yahoo": 29.0,
+            "richards": 13.5,
+            "boone": 30.0,
+            "fantasypros": 23.3
+          }
+        },
+        {
+          "player": "Jameson Williams",
+          "pos": "WR",
+          "values": {
+            "yahoo": 23.0,
+            "richards": 11.0,
+            "boone": 26.0,
+            "fantasypros": 25.9
+          }
         },
         {
           "player": "Tucker Kraft",
           "pos": "TE",
-          "trade_value": 16.64
+          "values": {
+            "yahoo": 25.0,
+            "richards": 8.5,
+            "boone": 18.0,
+            "fantasypros": 15.2
+          }
         },
         {
           "player": "Joe Burrow",
           "pos": "QB",
-          "trade_value": 15.17
+          "values": {
+            "yahoo": 25.0,
+            "richards": 11.0,
+            "boone": 13.0,
+            "fantasypros": 12.8
+          }
         },
         {
           "player": "Rico Dowdle",
           "pos": "RB",
-          "trade_value": 13.39
-        },
-        {
-          "player": "Dallas Goedert",
-          "pos": "TE",
-          "trade_value": 11.57
+          "values": {
+            "yahoo": 13.0,
+            "richards": 4.0,
+            "boone": 12.0,
+            "fantasypros": 16.6
+          }
         },
         {
           "player": "Courtland Sutton",
           "pos": "WR",
-          "trade_value": 8.57
+          "values": {
+            "yahoo": 7.0,
+            "richards": 7.0,
+            "boone": 10.0,
+            "fantasypros": 18.9
+          }
+        },
+        {
+          "player": "Dallas Goedert",
+          "pos": "TE",
+          "values": {
+            "yahoo": 9.0,
+            "richards": 8.0,
+            "boone": 6.0,
+            "fantasypros": 8.0
+          }
         },
         {
           "player": "Antonio Williams",
           "pos": "WR",
-          "trade_value": 4.01
+          "values": {
+            "yahoo": 3.0,
+            "richards": 4.0,
+            "boone": 6.0,
+            "fantasypros": 3.7
+          }
         },
         {
           "player": "Ka'imi Fairbairn",
           "pos": "K",
-          "trade_value": 0.0
+          "values": {
+            "yahoo": null,
+            "richards": null,
+            "boone": null,
+            "fantasypros": null
+          }
         },
         {
-          "player": "Ravens",
+          "player": "Bengals",
           "pos": "DST",
-          "trade_value": 0.0
+          "values": {
+            "yahoo": null,
+            "richards": null,
+            "boone": null,
+            "fantasypros": null
+          }
         }
       ]
     },
     {
       "team_name": "More Cowbell",
-      "owner": null,
+      "owner": "A. Maki",
       "roster": [
         {
           "player": "Ashton Jeanty",
           "pos": "RB",
-          "trade_value": 92.32
-        },
-        {
-          "player": "Jeremiyah Love",
-          "pos": "RB",
-          "trade_value": 42.13
+          "values": {
+            "yahoo": 51.0,
+            "richards": 30.5,
+            "boone": 63.0,
+            "fantasypros": 45.9
+          }
         },
         {
           "player": "Trey McBride",
           "pos": "TE",
-          "trade_value": 37.24
+          "values": {
+            "yahoo": 46.0,
+            "richards": 29.0,
+            "boone": 44.0,
+            "fantasypros": 26.2
+          }
         },
         {
-          "player": "Brock Purdy",
-          "pos": "QB",
-          "trade_value": 16.18
+          "player": "Jeremiyah Love",
+          "pos": "RB",
+          "values": {
+            "yahoo": 35.0,
+            "richards": 16.5,
+            "boone": 37.0,
+            "fantasypros": 36.6
+          }
         },
         {
           "player": "A.J. Brown",
           "pos": "WR",
-          "trade_value": 15.25
+          "values": {
+            "yahoo": 19.0,
+            "richards": 14.0,
+            "boone": 22.0,
+            "fantasypros": 29.5
+          }
+        },
+        {
+          "player": "Brock Purdy",
+          "pos": "QB",
+          "values": {
+            "yahoo": 25.0,
+            "richards": 11.0,
+            "boone": 18.0,
+            "fantasypros": 10.0
+          }
         },
         {
           "player": "J.K. Dobbins",
           "pos": "RB",
-          "trade_value": 8.25
-        },
-        {
-          "player": "Jordan Addison",
-          "pos": "WR",
-          "trade_value": 8.04
-        },
-        {
-          "player": "Wan'Dale Robinson",
-          "pos": "WR",
-          "trade_value": 4.76
+          "values": {
+            "yahoo": 12.0,
+            "richards": 6.0,
+            "boone": 15.0,
+            "fantasypros": 16.1
+          }
         },
         {
           "player": "Deebo Samuel",
           "pos": "WR",
-          "trade_value": 0.0
+          "values": {
+            "yahoo": 13.0,
+            "richards": 5.5,
+            "boone": 13.0,
+            "fantasypros": 17.6
+          }
+        },
+        {
+          "player": "Jordan Addison",
+          "pos": "WR",
+          "values": {
+            "yahoo": 8.0,
+            "richards": 6.5,
+            "boone": 9.0,
+            "fantasypros": 15.2
+          }
+        },
+        {
+          "player": "Wan'Dale Robinson",
+          "pos": "WR",
+          "values": {
+            "yahoo": 7.0,
+            "richards": 4.0,
+            "boone": 7.0,
+            "fantasypros": 14.7
+          }
         },
         {
           "player": "Seahawks",
           "pos": "DST",
-          "trade_value": 0.0
+          "values": {
+            "yahoo": null,
+            "richards": null,
+            "boone": null,
+            "fantasypros": null
+          }
         },
         {
           "player": "Eddy Pineiro",
           "pos": "K",
-          "trade_value": 0.0
+          "values": {
+            "yahoo": null,
+            "richards": null,
+            "boone": null,
+            "fantasypros": null
+          }
         }
       ]
     },
     {
       "team_name": "Niko's Plane Freaks",
-      "owner": null,
+      "owner": "N. Joseph",
       "roster": [
         {
           "player": "Puka Nacua",
           "pos": "WR",
-          "trade_value": 62.92
-        },
-        {
-          "player": "Cam Skattebo",
-          "pos": "RB",
-          "trade_value": 30.67
+          "values": {
+            "yahoo": 65.0,
+            "richards": 41.5,
+            "boone": 67.0,
+            "fantasypros": 54.0
+          }
         },
         {
           "player": "Tee Higgins",
           "pos": "WR",
-          "trade_value": 25.4
+          "values": {
+            "yahoo": 35.0,
+            "richards": 16.0,
+            "boone": 41.0,
+            "fantasypros": 31.4
+          }
         },
         {
           "player": "Tetairoa McMillan",
           "pos": "WR",
-          "trade_value": 24.78
-        },
-        {
-          "player": "Trevor Lawrence",
-          "pos": "QB",
-          "trade_value": 20.2
-        },
-        {
-          "player": "Matthew Golden",
-          "pos": "WR",
-          "trade_value": 17.46
+          "values": {
+            "yahoo": 33.0,
+            "richards": 16.5,
+            "boone": 34.0,
+            "fantasypros": 29.9
+          }
         },
         {
           "player": "Bhayshul Tuten",
           "pos": "RB",
-          "trade_value": 16.69
+          "values": {
+            "yahoo": 27.0,
+            "richards": 12.0,
+            "boone": 33.0,
+            "fantasypros": 34.7
+          }
+        },
+        {
+          "player": "Cam Skattebo",
+          "pos": "RB",
+          "values": {
+            "yahoo": 35.0,
+            "richards": 16.5,
+            "boone": 32.0,
+            "fantasypros": 33.1
+          }
+        },
+        {
+          "player": "Matthew Golden",
+          "pos": "WR",
+          "values": {
+            "yahoo": 26.0,
+            "richards": 9.0,
+            "boone": 21.0,
+            "fantasypros": 22.7
+          }
+        },
+        {
+          "player": "Josh Downs",
+          "pos": "WR",
+          "values": {
+            "yahoo": 23.0,
+            "richards": 6.0,
+            "boone": 20.0,
+            "fantasypros": 16.4
+          }
+        },
+        {
+          "player": "Trevor Lawrence",
+          "pos": "QB",
+          "values": {
+            "yahoo": 23.0,
+            "richards": 8.0,
+            "boone": 17.0,
+            "fantasypros": 19.0
+          }
         },
         {
           "player": "Carnell Tate",
           "pos": "WR",
-          "trade_value": 9.79
+          "values": {
+            "yahoo": 20.0,
+            "richards": 6.0,
+            "boone": 12.0,
+            "fantasypros": 19.8
+          }
         },
         {
-          "player": "Jayden Reed",
-          "pos": "WR",
-          "trade_value": 8.97
-        },
-        {
-          "player": "Harrison Mevis",
-          "pos": "K",
-          "trade_value": 0.0
-        },
-        {
-          "player": "Falcons",
+          "player": "Broncos",
           "pos": "DST",
-          "trade_value": 0.0
+          "values": {
+            "yahoo": null,
+            "richards": null,
+            "boone": null,
+            "fantasypros": null
+          }
+        },
+        {
+          "player": "Chase McLaughlin",
+          "pos": "K",
+          "values": {
+            "yahoo": null,
+            "richards": null,
+            "boone": null,
+            "fantasypros": null
+          }
         }
       ]
     },
     {
       "team_name": "Pioneer_Workman",
-      "owner": null,
+      "owner": "M. Ireland",
       "roster": [
         {
           "player": "Kenneth Walker III",
           "pos": "RB",
-          "trade_value": 99.85
+          "values": {
+            "yahoo": 62.0,
+            "richards": 41.5,
+            "boone": 74.0,
+            "fantasypros": 60.9
+          }
         },
         {
           "player": "Chris Olave",
           "pos": "WR",
-          "trade_value": 48.44
+          "values": {
+            "yahoo": 52.0,
+            "richards": 28.0,
+            "boone": 62.0,
+            "fantasypros": 40.4
+          }
         },
         {
           "player": "Bucky Irving",
           "pos": "RB",
-          "trade_value": 35.24
+          "values": {
+            "yahoo": 41.0,
+            "richards": 20.0,
+            "boone": 39.0,
+            "fantasypros": 38.6
+          }
         },
         {
           "player": "DJ Moore",
           "pos": "WR",
-          "trade_value": 28.56
-        },
-        {
-          "player": "Jalen Hurts",
-          "pos": "QB",
-          "trade_value": 22.99
+          "values": {
+            "yahoo": 30.0,
+            "richards": 17.5,
+            "boone": 33.0,
+            "fantasypros": 25.7
+          }
         },
         {
           "player": "Sam LaPorta",
           "pos": "TE",
-          "trade_value": 12.28
+          "values": {
+            "yahoo": 30.0,
+            "richards": 9.5,
+            "boone": 21.0,
+            "fantasypros": 13.0
+          }
+        },
+        {
+          "player": "Jalen Hurts",
+          "pos": "QB",
+          "values": {
+            "yahoo": 25.0,
+            "richards": 10.0,
+            "boone": 20.0,
+            "fantasypros": 24.7
+          }
         },
         {
           "player": "Isaiah Likely",
           "pos": "TE",
-          "trade_value": 11.0
+          "values": {
+            "yahoo": 23.0,
+            "richards": 9.5,
+            "boone": 13.0,
+            "fantasypros": 12.0
+          }
         },
         {
           "player": "Romeo Doubs",
           "pos": "WR",
-          "trade_value": 6.46
+          "values": {
+            "yahoo": 6.0,
+            "richards": 4.0,
+            "boone": 10.0,
+            "fantasypros": 15.6
+          }
         },
         {
           "player": "Matthew Stafford",
           "pos": "QB",
-          "trade_value": 3.6
+          "values": {
+            "yahoo": 18.0,
+            "richards": 5.0,
+            "boone": 9.0,
+            "fantasypros": 1.0
+          }
         },
         {
           "player": "Jake Bates",
           "pos": "K",
-          "trade_value": 0.0
+          "values": {
+            "yahoo": null,
+            "richards": null,
+            "boone": null,
+            "fantasypros": null
+          }
         },
         {
           "player": "Lions",
           "pos": "DST",
-          "trade_value": 0.0
+          "values": {
+            "yahoo": null,
+            "richards": null,
+            "boone": null,
+            "fantasypros": null
+          }
         }
       ]
     },
     {
       "team_name": "Smaby Nots",
-      "owner": null,
+      "owner": "N. Smaby",
       "roster": [
-        {
-          "player": "David Montgomery",
-          "pos": "RB",
-          "trade_value": 46.78
-        },
         {
           "player": "CeeDee Lamb",
           "pos": "WR",
-          "trade_value": 44.83
+          "values": {
+            "yahoo": 61.0,
+            "richards": 37.5,
+            "boone": 62.0,
+            "fantasypros": 41.3
+          }
         },
         {
           "player": "Nico Collins",
           "pos": "WR",
-          "trade_value": 42.39
+          "values": {
+            "yahoo": 42.0,
+            "richards": 27.0,
+            "boone": 50.0,
+            "fantasypros": 38.3
+          }
         },
         {
           "player": "Garrett Wilson",
           "pos": "WR",
-          "trade_value": 34.83
+          "values": {
+            "yahoo": 38.0,
+            "richards": 18.5,
+            "boone": 42.0,
+            "fantasypros": 29.2
+          }
+        },
+        {
+          "player": "David Montgomery",
+          "pos": "RB",
+          "values": {
+            "yahoo": 31.0,
+            "richards": 12.5,
+            "boone": 36.0,
+            "fantasypros": 33.1
+          }
         },
         {
           "player": "Rhamondre Stevenson",
           "pos": "RB",
-          "trade_value": 22.51
+          "values": {
+            "yahoo": 18.0,
+            "richards": 9.0,
+            "boone": 22.0,
+            "fantasypros": 24.9
+          }
         },
         {
           "player": "Stefon Diggs",
           "pos": "WR",
-          "trade_value": 14.12
-        },
-        {
-          "player": "Drake Maye",
-          "pos": "QB",
-          "trade_value": 11.54
+          "values": {
+            "yahoo": 23.0,
+            "richards": 8.0,
+            "boone": 22.0,
+            "fantasypros": 19.6
+          }
         },
         {
           "player": "Blake Corum",
           "pos": "RB",
-          "trade_value": 7.7
+          "values": {
+            "yahoo": 19.0,
+            "richards": 7.0,
+            "boone": 18.0,
+            "fantasypros": 24.2
+          }
         },
         {
           "player": "Josh Jacobs",
           "pos": "RB",
-          "trade_value": 6.6
+          "values": {
+            "yahoo": 26.0,
+            "richards": 7.0,
+            "boone": 14.0,
+            "fantasypros": 16.9
+          }
+        },
+        {
+          "player": "Drake Maye",
+          "pos": "QB",
+          "values": {
+            "yahoo": 18.0,
+            "richards": 5.0,
+            "boone": 11.0,
+            "fantasypros": 24.5
+          }
         },
         {
           "player": "Cam Little",
           "pos": "K",
-          "trade_value": 0.0
+          "values": {
+            "yahoo": null,
+            "richards": null,
+            "boone": null,
+            "fantasypros": null
+          }
         },
         {
           "player": "Chiefs",
           "pos": "DST",
-          "trade_value": 0.0
+          "values": {
+            "yahoo": null,
+            "richards": null,
+            "boone": null,
+            "fantasypros": null
+          }
         }
       ]
     }
