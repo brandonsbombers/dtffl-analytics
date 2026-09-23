@@ -8,6 +8,7 @@
         "nfl_team": "BUF",
         "yahoo": 46.0,
         "richards": 23.0,
+        "richards_ceiling": false,
         "boone": 32.0,
         "fantasypros": 29.1
       },
@@ -16,6 +17,7 @@
         "nfl_team": "BAL",
         "yahoo": 34.0,
         "richards": 16.0,
+        "richards_ceiling": false,
         "boone": 26.0,
         "fantasypros": 28.6
       },
@@ -24,6 +26,7 @@
         "nfl_team": "PHI",
         "yahoo": 25.0,
         "richards": 10.0,
+        "richards_ceiling": false,
         "boone": 20.0,
         "fantasypros": 24.7
       },
@@ -32,6 +35,7 @@
         "nfl_team": "SF",
         "yahoo": 25.0,
         "richards": 11.0,
+        "richards_ceiling": false,
         "boone": 18.0,
         "fantasypros": 10.0
       },
@@ -40,6 +44,7 @@
         "nfl_team": "JAX",
         "yahoo": 23.0,
         "richards": 8.0,
+        "richards_ceiling": false,
         "boone": 17.0,
         "fantasypros": 19.0
       },
@@ -48,6 +53,7 @@
         "nfl_team": "CIN",
         "yahoo": 25.0,
         "richards": 11.0,
+        "richards_ceiling": false,
         "boone": 13.0,
         "fantasypros": 12.8
       },
@@ -56,6 +62,7 @@
         "nfl_team": "KC",
         "yahoo": 29.0,
         "richards": 8.0,
+        "richards_ceiling": false,
         "boone": 13.0,
         "fantasypros": 9.2
       },
@@ -64,6 +71,7 @@
         "nfl_team": "CHI",
         "yahoo": 23.0,
         "richards": 9.0,
+        "richards_ceiling": false,
         "boone": 13.0,
         "fantasypros": 12.0
       },
@@ -72,6 +80,7 @@
         "nfl_team": "DAL",
         "yahoo": 24.0,
         "richards": 11.0,
+        "richards_ceiling": false,
         "boone": 12.0,
         "fantasypros": 8.0
       },
@@ -80,6 +89,7 @@
         "nfl_team": "NE",
         "yahoo": 18.0,
         "richards": 5.0,
+        "richards_ceiling": false,
         "boone": 11.0,
         "fantasypros": 24.5
       },
@@ -88,6 +98,7 @@
         "nfl_team": "LA",
         "yahoo": 18.0,
         "richards": 5.0,
+        "richards_ceiling": false,
         "boone": 9.0,
         "fantasypros": 1.0
       },
@@ -96,6 +107,7 @@
         "nfl_team": "DET",
         "yahoo": 18.0,
         "richards": 5.0,
+        "richards_ceiling": false,
         "boone": 7.0,
         "fantasypros": 7.6
       },
@@ -104,6 +116,7 @@
         "nfl_team": "MIN",
         "yahoo": 12.0,
         "richards": 4.0,
+        "richards_ceiling": true,
         "boone": 5.0,
         "fantasypros": 1.0
       },
@@ -112,6 +125,7 @@
         "nfl_team": "CAR",
         "yahoo": 8.0,
         "richards": 5.0,
+        "richards_ceiling": false,
         "boone": 4.0,
         "fantasypros": 1.0
       },
@@ -120,6 +134,7 @@
         "nfl_team": "NO",
         "yahoo": 14.0,
         "richards": 6.0,
+        "richards_ceiling": false,
         "boone": 4.0,
         "fantasypros": 1.0
       },
@@ -128,6 +143,7 @@
         "nfl_team": "GB",
         "yahoo": 15.0,
         "richards": 4.0,
+        "richards_ceiling": true,
         "boone": 4.0,
         "fantasypros": 1.0
       },
@@ -136,6 +152,7 @@
         "nfl_team": "LAC",
         "yahoo": 13.0,
         "richards": 7.0,
+        "richards_ceiling": false,
         "boone": 3.0,
         "fantasypros": 5.6
       },
@@ -144,6 +161,7 @@
         "nfl_team": "DEN",
         "yahoo": 12.0,
         "richards": 4.0,
+        "richards_ceiling": true,
         "boone": 3.0,
         "fantasypros": 1.0
       },
@@ -152,6 +170,7 @@
         "nfl_team": "WAS",
         "yahoo": 14.0,
         "richards": 4.0,
+        "richards_ceiling": true,
         "boone": 2.0,
         "fantasypros": 1.0
       },
@@ -160,6 +179,7 @@
         "nfl_team": "TB",
         "yahoo": 9.0,
         "richards": 4.0,
+        "richards_ceiling": true,
         "boone": 1.0,
         "fantasypros": 1.0
       },
@@ -168,6 +188,7 @@
         "nfl_team": "MIA",
         "yahoo": 7.0,
         "richards": 4.0,
+        "richards_ceiling": true,
         "boone": 1.0,
         "fantasypros": 1.0
       },
@@ -176,6 +197,7 @@
         "nfl_team": "CHI",
         "yahoo": null,
         "richards": 4.0,
+        "richards_ceiling": true,
         "boone": 0.0,
         "fantasypros": null
       },
@@ -184,6 +206,7 @@
         "nfl_team": "MIN",
         "yahoo": 0.0,
         "richards": 4.0,
+        "richards_ceiling": true,
         "boone": 0.0,
         "fantasypros": null
       },
@@ -192,6 +215,7 @@
         "nfl_team": "NYJ",
         "yahoo": null,
         "richards": 4.0,
+        "richards_ceiling": true,
         "boone": 0.0,
         "fantasypros": null
       },
@@ -200,6 +224,7 @@
         "nfl_team": "PIT",
         "yahoo": 5.0,
         "richards": 4.0,
+        "richards_ceiling": true,
         "boone": 0.0,
         "fantasypros": 1.0
       },
@@ -208,6 +233,7 @@
         "nfl_team": "ARI",
         "yahoo": null,
         "richards": 4.0,
+        "richards_ceiling": true,
         "boone": 0.0,
         "fantasypros": null
       },
@@ -216,6 +242,7 @@
         "nfl_team": "TEN",
         "yahoo": 1.0,
         "richards": 4.0,
+        "richards_ceiling": true,
         "boone": 0.0,
         "fantasypros": 1.0
       },
@@ -224,6 +251,7 @@
         "nfl_team": "NYG",
         "yahoo": null,
         "richards": 4.0,
+        "richards_ceiling": true,
         "boone": 0.0,
         "fantasypros": 3.6
       },
@@ -232,6 +260,7 @@
         "nfl_team": "NYG",
         "yahoo": 9.0,
         "richards": 4.0,
+        "richards_ceiling": true,
         "boone": 0.0,
         "fantasypros": null
       },
@@ -240,6 +269,7 @@
         "nfl_team": "ARI",
         "yahoo": 4.0,
         "richards": 4.0,
+        "richards_ceiling": true,
         "boone": 0.0,
         "fantasypros": 1.0
       },
@@ -248,6 +278,7 @@
         "nfl_team": "HOU",
         "yahoo": 7.0,
         "richards": 4.0,
+        "richards_ceiling": true,
         "boone": 0.0,
         "fantasypros": 1.0
       },
@@ -256,6 +287,7 @@
         "nfl_team": "CLE",
         "yahoo": 0.0,
         "richards": 4.0,
+        "richards_ceiling": true,
         "boone": 0.0,
         "fantasypros": null
       },
@@ -264,6 +296,7 @@
         "nfl_team": "SEA",
         "yahoo": null,
         "richards": 4.0,
+        "richards_ceiling": true,
         "boone": 0.0,
         "fantasypros": null
       },
@@ -272,6 +305,7 @@
         "nfl_team": "LV",
         "yahoo": 0.0,
         "richards": 4.0,
+        "richards_ceiling": true,
         "boone": 0.0,
         "fantasypros": null
       },
@@ -280,6 +314,7 @@
         "nfl_team": "NYJ",
         "yahoo": 0.0,
         "richards": 4.0,
+        "richards_ceiling": true,
         "boone": 0.0,
         "fantasypros": 1.0
       },
@@ -288,6 +323,7 @@
         "nfl_team": "IND",
         "yahoo": 7.0,
         "richards": 4.0,
+        "richards_ceiling": true,
         "boone": 0.0,
         "fantasypros": 1.0
       },
@@ -296,6 +332,7 @@
         "nfl_team": "LV",
         "yahoo": 0.0,
         "richards": 4.0,
+        "richards_ceiling": true,
         "boone": 0.0,
         "fantasypros": 1.0
       },
@@ -304,6 +341,7 @@
         "nfl_team": "WAS",
         "yahoo": null,
         "richards": 4.0,
+        "richards_ceiling": true,
         "boone": 0.0,
         "fantasypros": 1.0
       },
@@ -312,6 +350,7 @@
         "nfl_team": "ATL",
         "yahoo": 0.0,
         "richards": 4.0,
+        "richards_ceiling": true,
         "boone": 0.0,
         "fantasypros": 1.0
       },
@@ -320,6 +359,7 @@
         "nfl_team": "CLE",
         "yahoo": 0.0,
         "richards": 4.0,
+        "richards_ceiling": true,
         "boone": 0.0,
         "fantasypros": null
       },
@@ -328,6 +368,7 @@
         "nfl_team": "SEA",
         "yahoo": 9.0,
         "richards": 4.0,
+        "richards_ceiling": true,
         "boone": 0.0,
         "fantasypros": 1.0
       },
@@ -336,6 +377,7 @@
         "nfl_team": "ATL",
         "yahoo": 0.0,
         "richards": 4.0,
+        "richards_ceiling": true,
         "boone": 0.0,
         "fantasypros": null
       },
@@ -344,6 +386,7 @@
         "nfl_team": "CHI",
         "yahoo": null,
         "richards": 4.0,
+        "richards_ceiling": true,
         "boone": 0.0,
         "fantasypros": null
       }
@@ -354,6 +397,7 @@
         "nfl_team": "DET",
         "yahoo": 72.0,
         "richards": 47.0,
+        "richards_ceiling": false,
         "boone": 92.0,
         "fantasypros": 75.1
       },
@@ -362,6 +406,7 @@
         "nfl_team": "ATL",
         "yahoo": 63.0,
         "richards": 43.0,
+        "richards_ceiling": false,
         "boone": 82.0,
         "fantasypros": 67.5
       },
@@ -370,6 +415,7 @@
         "nfl_team": "KC",
         "yahoo": 62.0,
         "richards": 41.5,
+        "richards_ceiling": false,
         "boone": 74.0,
         "fantasypros": 60.9
       },
@@ -378,6 +424,7 @@
         "nfl_team": "IND",
         "yahoo": 69.0,
         "richards": 40.5,
+        "richards_ceiling": false,
         "boone": 73.0,
         "fantasypros": 52.3
       },
@@ -386,6 +433,7 @@
         "nfl_team": "SF",
         "yahoo": 53.0,
         "richards": 37.5,
+        "richards_ceiling": false,
         "boone": 71.0,
         "fantasypros": 50.5
       },
@@ -394,6 +442,7 @@
         "nfl_team": "BAL",
         "yahoo": 53.0,
         "richards": 35.0,
+        "richards_ceiling": false,
         "boone": 67.0,
         "fantasypros": 48.9
       },
@@ -402,6 +451,7 @@
         "nfl_team": "BUF",
         "yahoo": 53.0,
         "richards": 36.5,
+        "richards_ceiling": false,
         "boone": 63.0,
         "fantasypros": 59.3
       },
@@ -410,6 +460,7 @@
         "nfl_team": "LV",
         "yahoo": 51.0,
         "richards": 30.5,
+        "richards_ceiling": false,
         "boone": 63.0,
         "fantasypros": 45.9
       },
@@ -418,6 +469,7 @@
         "nfl_team": "CIN",
         "yahoo": 53.0,
         "richards": 33.5,
+        "richards_ceiling": false,
         "boone": 57.0,
         "fantasypros": 46.8
       },
@@ -426,6 +478,7 @@
         "nfl_team": "LAC",
         "yahoo": 46.0,
         "richards": 24.0,
+        "richards_ceiling": false,
         "boone": 56.0,
         "fantasypros": 41.6
       },
@@ -434,6 +487,7 @@
         "nfl_team": "CHI",
         "yahoo": 39.0,
         "richards": 22.5,
+        "richards_ceiling": false,
         "boone": 55.0,
         "fantasypros": 40.3
       },
@@ -442,6 +496,7 @@
         "nfl_team": "PHI",
         "yahoo": 43.0,
         "richards": 25.5,
+        "richards_ceiling": false,
         "boone": 53.0,
         "fantasypros": 43.7
       },
@@ -450,6 +505,7 @@
         "nfl_team": "NYJ",
         "yahoo": 40.0,
         "richards": 24.0,
+        "richards_ceiling": false,
         "boone": 46.0,
         "fantasypros": 37.6
       },
@@ -458,6 +514,7 @@
         "nfl_team": "MIA",
         "yahoo": 39.0,
         "richards": 26.0,
+        "richards_ceiling": false,
         "boone": 43.0,
         "fantasypros": 42.4
       },
@@ -466,6 +523,7 @@
         "nfl_team": "DAL",
         "yahoo": 42.0,
         "richards": 24.0,
+        "richards_ceiling": false,
         "boone": 43.0,
         "fantasypros": 40.8
       },
@@ -474,6 +532,7 @@
         "nfl_team": "LA",
         "yahoo": 44.0,
         "richards": 20.0,
+        "richards_ceiling": false,
         "boone": 39.0,
         "fantasypros": 39.6
       },
@@ -482,6 +541,7 @@
         "nfl_team": "TB",
         "yahoo": 41.0,
         "richards": 20.0,
+        "richards_ceiling": false,
         "boone": 39.0,
         "fantasypros": 38.6
       },
@@ -490,6 +550,7 @@
         "nfl_team": "ARI",
         "yahoo": 35.0,
         "richards": 16.5,
+        "richards_ceiling": false,
         "boone": 37.0,
         "fantasypros": 36.6
       },
@@ -498,6 +559,7 @@
         "nfl_team": "HOU",
         "yahoo": 31.0,
         "richards": 12.5,
+        "richards_ceiling": false,
         "boone": 36.0,
         "fantasypros": 33.1
       },
@@ -506,6 +568,7 @@
         "nfl_team": "CAR",
         "yahoo": 33.0,
         "richards": 15.0,
+        "richards_ceiling": false,
         "boone": 36.0,
         "fantasypros": 23.3
       },
@@ -514,6 +577,7 @@
         "nfl_team": "JAX",
         "yahoo": 27.0,
         "richards": 12.0,
+        "richards_ceiling": false,
         "boone": 33.0,
         "fantasypros": 34.7
       },
@@ -522,6 +586,7 @@
         "nfl_team": "NYG",
         "yahoo": 35.0,
         "richards": 16.5,
+        "richards_ceiling": false,
         "boone": 32.0,
         "fantasypros": 33.1
       },
@@ -530,6 +595,7 @@
         "nfl_team": "PIT",
         "yahoo": 19.0,
         "richards": 10.0,
+        "richards_ceiling": false,
         "boone": 28.0,
         "fantasypros": 25.5
       },
@@ -538,6 +604,7 @@
         "nfl_team": "SEA",
         "yahoo": 24.0,
         "richards": 14.0,
+        "richards_ceiling": false,
         "boone": 25.0,
         "fantasypros": 25.7
       },
@@ -546,6 +613,7 @@
         "nfl_team": "NE",
         "yahoo": 28.0,
         "richards": 8.5,
+        "richards_ceiling": false,
         "boone": 24.0,
         "fantasypros": 28.2
       },
@@ -554,6 +622,7 @@
         "nfl_team": "CLE",
         "yahoo": 23.0,
         "richards": 11.5,
+        "richards_ceiling": false,
         "boone": 23.0,
         "fantasypros": 25.8
       },
@@ -562,6 +631,7 @@
         "nfl_team": "MIN",
         "yahoo": 18.0,
         "richards": 9.0,
+        "richards_ceiling": false,
         "boone": 22.0,
         "fantasypros": 17.6
       },
@@ -570,6 +640,7 @@
         "nfl_team": "NE",
         "yahoo": 18.0,
         "richards": 9.0,
+        "richards_ceiling": false,
         "boone": 22.0,
         "fantasypros": 24.9
       },
@@ -578,6 +649,7 @@
         "nfl_team": "NO",
         "yahoo": 28.0,
         "richards": 13.5,
+        "richards_ceiling": false,
         "boone": 22.0,
         "fantasypros": 31.7
       },
@@ -586,6 +658,7 @@
         "nfl_team": "LA",
         "yahoo": 19.0,
         "richards": 7.0,
+        "richards_ceiling": false,
         "boone": 18.0,
         "fantasypros": 24.2
       },
@@ -594,6 +667,7 @@
         "nfl_team": "WAS",
         "yahoo": 18.0,
         "richards": 6.0,
+        "richards_ceiling": false,
         "boone": 18.0,
         "fantasypros": 23.0
       },
@@ -602,6 +676,7 @@
         "nfl_team": "DEN",
         "yahoo": 12.0,
         "richards": 6.0,
+        "richards_ceiling": false,
         "boone": 15.0,
         "fantasypros": 16.1
       },
@@ -610,6 +685,7 @@
         "nfl_team": "CHI",
         "yahoo": 19.0,
         "richards": 5.0,
+        "richards_ceiling": false,
         "boone": 14.0,
         "fantasypros": 19.1
       },
@@ -618,6 +694,7 @@
         "nfl_team": "GB",
         "yahoo": 26.0,
         "richards": 7.0,
+        "richards_ceiling": false,
         "boone": 14.0,
         "fantasypros": 16.9
       },
@@ -626,6 +703,7 @@
         "nfl_team": "TEN",
         "yahoo": 11.0,
         "richards": 6.0,
+        "richards_ceiling": false,
         "boone": 13.0,
         "fantasypros": 15.9
       },
@@ -634,6 +712,7 @@
         "nfl_team": "SF",
         "yahoo": 11.0,
         "richards": 5.0,
+        "richards_ceiling": false,
         "boone": 12.0,
         "fantasypros": 8.0
       },
@@ -642,6 +721,7 @@
         "nfl_team": "KC",
         "yahoo": 8.0,
         "richards": 4.0,
+        "richards_ceiling": true,
         "boone": 12.0,
         "fantasypros": 1.9
       },
@@ -650,6 +730,7 @@
         "nfl_team": "DEN",
         "yahoo": 5.0,
         "richards": 4.0,
+        "richards_ceiling": true,
         "boone": 12.0,
         "fantasypros": 15.3
       },
@@ -658,6 +739,7 @@
         "nfl_team": "DEN",
         "yahoo": 11.0,
         "richards": 5.0,
+        "richards_ceiling": false,
         "boone": 12.0,
         "fantasypros": 14.2
       },
@@ -666,6 +748,7 @@
         "nfl_team": "PIT",
         "yahoo": 13.0,
         "richards": 4.0,
+        "richards_ceiling": true,
         "boone": 12.0,
         "fantasypros": 16.6
       },
@@ -674,6 +757,7 @@
         "nfl_team": "MIN",
         "yahoo": 8.0,
         "richards": 6.0,
+        "richards_ceiling": false,
         "boone": 10.0,
         "fantasypros": 11.7
       },
@@ -682,6 +766,7 @@
         "nfl_team": "WAS",
         "yahoo": 11.0,
         "richards": 4.0,
+        "richards_ceiling": true,
         "boone": 10.0,
         "fantasypros": 15.4
       },
@@ -690,6 +775,7 @@
         "nfl_team": "GB",
         "yahoo": 3.0,
         "richards": 4.0,
+        "richards_ceiling": true,
         "boone": 9.0,
         "fantasypros": null
       },
@@ -698,6 +784,7 @@
         "nfl_team": "PHI",
         "yahoo": 10.0,
         "richards": 4.0,
+        "richards_ceiling": true,
         "boone": 9.0,
         "fantasypros": 6.2
       },
@@ -706,6 +793,7 @@
         "nfl_team": "HOU",
         "yahoo": 11.0,
         "richards": 4.0,
+        "richards_ceiling": true,
         "boone": 8.0,
         "fantasypros": 1.3
       },
@@ -714,6 +802,7 @@
         "nfl_team": "SEA",
         "yahoo": 8.0,
         "richards": 4.0,
+        "richards_ceiling": true,
         "boone": 8.0,
         "fantasypros": 1.4
       },
@@ -722,6 +811,7 @@
         "nfl_team": "LV",
         "yahoo": 3.0,
         "richards": 4.0,
+        "richards_ceiling": true,
         "boone": 8.0,
         "fantasypros": 2.0
       },
@@ -730,6 +820,7 @@
         "nfl_team": "GB",
         "yahoo": 11.0,
         "richards": 6.0,
+        "richards_ceiling": false,
         "boone": 8.0,
         "fantasypros": 18.9
       },
@@ -738,6 +829,7 @@
         "nfl_team": "NYJ",
         "yahoo": 4.0,
         "richards": 4.0,
+        "richards_ceiling": true,
         "boone": 8.0,
         "fantasypros": null
       },
@@ -746,6 +838,7 @@
         "nfl_team": "TEN",
         "yahoo": 8.0,
         "richards": 4.0,
+        "richards_ceiling": true,
         "boone": 8.0,
         "fantasypros": null
       },
@@ -754,6 +847,7 @@
         "nfl_team": "ARI",
         "yahoo": 5.0,
         "richards": 4.0,
+        "richards_ceiling": true,
         "boone": 8.0,
         "fantasypros": 8.4
       },
@@ -762,6 +856,7 @@
         "nfl_team": "ATL",
         "yahoo": 1.0,
         "richards": 4.0,
+        "richards_ceiling": true,
         "boone": 7.0,
         "fantasypros": null
       },
@@ -770,6 +865,7 @@
         "nfl_team": "SEA",
         "yahoo": 3.0,
         "richards": 4.0,
+        "richards_ceiling": true,
         "boone": 7.0,
         "fantasypros": null
       },
@@ -778,6 +874,7 @@
         "nfl_team": "CAR",
         "yahoo": 11.0,
         "richards": 4.0,
+        "richards_ceiling": true,
         "boone": 7.0,
         "fantasypros": 20.8
       },
@@ -786,6 +883,7 @@
         "nfl_team": "JAX",
         "yahoo": 3.0,
         "richards": 4.0,
+        "richards_ceiling": true,
         "boone": 7.0,
         "fantasypros": 1.7
       },
@@ -794,6 +892,7 @@
         "nfl_team": "TB",
         "yahoo": null,
         "richards": 4.0,
+        "richards_ceiling": true,
         "boone": 7.0,
         "fantasypros": 3.7
       },
@@ -802,6 +901,7 @@
         "nfl_team": "BUF",
         "yahoo": 1.0,
         "richards": 4.0,
+        "richards_ceiling": true,
         "boone": 6.0,
         "fantasypros": null
       },
@@ -810,6 +910,7 @@
         "nfl_team": "NO",
         "yahoo": 2.0,
         "richards": 4.0,
+        "richards_ceiling": true,
         "boone": 6.0,
         "fantasypros": null
       },
@@ -818,6 +919,7 @@
         "nfl_team": "LAC",
         "yahoo": 6.0,
         "richards": 4.0,
+        "richards_ceiling": true,
         "boone": 6.0,
         "fantasypros": 1.0
       },
@@ -826,6 +928,7 @@
         "nfl_team": "TEN",
         "yahoo": 2.0,
         "richards": 4.0,
+        "richards_ceiling": true,
         "boone": 5.0,
         "fantasypros": null
       },
@@ -834,6 +937,7 @@
         "nfl_team": "NYG",
         "yahoo": 1.0,
         "richards": 4.0,
+        "richards_ceiling": true,
         "boone": 5.0,
         "fantasypros": null
       },
@@ -842,6 +946,7 @@
         "nfl_team": "MIN",
         "yahoo": 1.0,
         "richards": 4.0,
+        "richards_ceiling": true,
         "boone": 5.0,
         "fantasypros": null
       },
@@ -850,6 +955,7 @@
         "nfl_team": "WAS",
         "yahoo": 1.0,
         "richards": 4.0,
+        "richards_ceiling": true,
         "boone": 5.0,
         "fantasypros": null
       },
@@ -858,6 +964,7 @@
         "nfl_team": "IND",
         "yahoo": null,
         "richards": 4.0,
+        "richards_ceiling": true,
         "boone": 4.0,
         "fantasypros": null
       },
@@ -866,6 +973,7 @@
         "nfl_team": "CIN",
         "yahoo": 1.0,
         "richards": 4.0,
+        "richards_ceiling": true,
         "boone": 4.0,
         "fantasypros": null
       },
@@ -874,6 +982,7 @@
         "nfl_team": "DAL",
         "yahoo": null,
         "richards": 4.0,
+        "richards_ceiling": true,
         "boone": 4.0,
         "fantasypros": null
       },
@@ -882,6 +991,7 @@
         "nfl_team": "BAL",
         "yahoo": 1.0,
         "richards": 4.0,
+        "richards_ceiling": true,
         "boone": 4.0,
         "fantasypros": null
       },
@@ -890,6 +1000,7 @@
         "nfl_team": "SEA",
         "yahoo": 1.0,
         "richards": 4.0,
+        "richards_ceiling": true,
         "boone": 4.0,
         "fantasypros": null
       },
@@ -898,6 +1009,7 @@
         "nfl_team": "ARI",
         "yahoo": 1.0,
         "richards": 4.0,
+        "richards_ceiling": true,
         "boone": 3.0,
         "fantasypros": null
       },
@@ -906,6 +1018,7 @@
         "nfl_team": "NO",
         "yahoo": null,
         "richards": 4.0,
+        "richards_ceiling": true,
         "boone": 3.0,
         "fantasypros": null
       },
@@ -914,6 +1027,7 @@
         "nfl_team": "PHI",
         "yahoo": null,
         "richards": 4.0,
+        "richards_ceiling": true,
         "boone": 3.0,
         "fantasypros": null
       },
@@ -922,6 +1036,7 @@
         "nfl_team": "TB",
         "yahoo": null,
         "richards": 4.0,
+        "richards_ceiling": true,
         "boone": 3.0,
         "fantasypros": null
       },
@@ -930,6 +1045,7 @@
         "nfl_team": "GB",
         "yahoo": 2.0,
         "richards": 4.0,
+        "richards_ceiling": true,
         "boone": 2.0,
         "fantasypros": null
       },
@@ -938,6 +1054,7 @@
         "nfl_team": "CLE",
         "yahoo": 1.0,
         "richards": 4.0,
+        "richards_ceiling": true,
         "boone": 2.0,
         "fantasypros": null
       },
@@ -946,6 +1063,7 @@
         "nfl_team": "NYG",
         "yahoo": null,
         "richards": 4.0,
+        "richards_ceiling": true,
         "boone": 2.0,
         "fantasypros": null
       },
@@ -954,6 +1072,7 @@
         "nfl_team": "CLE",
         "yahoo": null,
         "richards": 4.0,
+        "richards_ceiling": true,
         "boone": 2.0,
         "fantasypros": null
       },
@@ -962,6 +1081,7 @@
         "nfl_team": "CAR",
         "yahoo": null,
         "richards": 4.0,
+        "richards_ceiling": true,
         "boone": 1.0,
         "fantasypros": null
       },
@@ -970,6 +1090,7 @@
         "nfl_team": "MIA",
         "yahoo": null,
         "richards": 4.0,
+        "richards_ceiling": true,
         "boone": 1.0,
         "fantasypros": null
       },
@@ -978,6 +1099,7 @@
         "nfl_team": "SF",
         "yahoo": null,
         "richards": 4.0,
+        "richards_ceiling": true,
         "boone": 1.0,
         "fantasypros": null
       },
@@ -986,6 +1108,7 @@
         "nfl_team": "MIA",
         "yahoo": 1.0,
         "richards": 4.0,
+        "richards_ceiling": true,
         "boone": 1.0,
         "fantasypros": null
       },
@@ -994,6 +1117,7 @@
         "nfl_team": "LAC",
         "yahoo": 1.0,
         "richards": 4.0,
+        "richards_ceiling": true,
         "boone": 1.0,
         "fantasypros": null
       },
@@ -1002,6 +1126,7 @@
         "nfl_team": "DET",
         "yahoo": null,
         "richards": 4.0,
+        "richards_ceiling": true,
         "boone": 1.0,
         "fantasypros": null
       },
@@ -1010,6 +1135,7 @@
         "nfl_team": "NYG",
         "yahoo": 1.0,
         "richards": 4.0,
+        "richards_ceiling": true,
         "boone": 1.0,
         "fantasypros": null
       },
@@ -1018,6 +1144,7 @@
         "nfl_team": "KC",
         "yahoo": 1.0,
         "richards": 4.0,
+        "richards_ceiling": true,
         "boone": null,
         "fantasypros": null
       },
@@ -1026,6 +1153,7 @@
         "nfl_team": "PHI",
         "yahoo": 1.0,
         "richards": 4.0,
+        "richards_ceiling": true,
         "boone": null,
         "fantasypros": null
       },
@@ -1034,6 +1162,7 @@
         "nfl_team": "TB",
         "yahoo": 8.0,
         "richards": 5.0,
+        "richards_ceiling": false,
         "boone": null,
         "fantasypros": null
       },
@@ -1042,6 +1171,7 @@
         "nfl_team": "BUF",
         "yahoo": 1.0,
         "richards": 4.0,
+        "richards_ceiling": true,
         "boone": null,
         "fantasypros": null
       }
@@ -1052,6 +1182,7 @@
         "nfl_team": "SEA",
         "yahoo": 68.0,
         "richards": 43.0,
+        "richards_ceiling": false,
         "boone": 78.0,
         "fantasypros": 55.4
       },
@@ -1060,6 +1191,7 @@
         "nfl_team": "CIN",
         "yahoo": 68.0,
         "richards": 42.5,
+        "richards_ceiling": false,
         "boone": 77.0,
         "fantasypros": 57.1
       },
@@ -1068,6 +1200,7 @@
         "nfl_team": "DET",
         "yahoo": 68.0,
         "richards": 42.0,
+        "richards_ceiling": false,
         "boone": 72.0,
         "fantasypros": 51.3
       },
@@ -1076,6 +1209,7 @@
         "nfl_team": "LA",
         "yahoo": 65.0,
         "richards": 41.5,
+        "richards_ceiling": false,
         "boone": 67.0,
         "fantasypros": 54.0
       },
@@ -1084,6 +1218,7 @@
         "nfl_team": "CLE",
         "yahoo": 52.0,
         "richards": 37.5,
+        "richards_ceiling": false,
         "boone": 62.0,
         "fantasypros": 40.5
       },
@@ -1092,6 +1227,7 @@
         "nfl_team": "NO",
         "yahoo": 52.0,
         "richards": 28.0,
+        "richards_ceiling": false,
         "boone": 62.0,
         "fantasypros": 40.4
       },
@@ -1100,6 +1236,7 @@
         "nfl_team": "DAL",
         "yahoo": 61.0,
         "richards": 37.5,
+        "richards_ceiling": false,
         "boone": 62.0,
         "fantasypros": 41.3
       },
@@ -1108,6 +1245,7 @@
         "nfl_team": "CAR",
         "yahoo": 46.0,
         "richards": 24.0,
+        "richards_ceiling": false,
         "boone": 53.0,
         "fantasypros": 33.8
       },
@@ -1116,6 +1254,7 @@
         "nfl_team": "GB",
         "yahoo": 40.0,
         "richards": 16.5,
+        "richards_ceiling": false,
         "boone": 51.0,
         "fantasypros": 31.5
       },
@@ -1124,6 +1263,7 @@
         "nfl_team": "HOU",
         "yahoo": 42.0,
         "richards": 27.0,
+        "richards_ceiling": false,
         "boone": 50.0,
         "fantasypros": 38.3
       },
@@ -1132,6 +1272,7 @@
         "nfl_team": "BAL",
         "yahoo": 40.0,
         "richards": 24.5,
+        "richards_ceiling": false,
         "boone": 49.0,
         "fantasypros": 37.2
       },
@@ -1140,6 +1281,7 @@
         "nfl_team": "ATL",
         "yahoo": 45.0,
         "richards": 22.0,
+        "richards_ceiling": false,
         "boone": 46.0,
         "fantasypros": 36.1
       },
@@ -1148,6 +1290,7 @@
         "nfl_team": "JAX",
         "yahoo": 40.0,
         "richards": 16.5,
+        "richards_ceiling": false,
         "boone": 44.0,
         "fantasypros": 33.5
       },
@@ -1156,6 +1299,7 @@
         "nfl_team": "NYJ",
         "yahoo": 38.0,
         "richards": 18.5,
+        "richards_ceiling": false,
         "boone": 42.0,
         "fantasypros": 29.2
       },
@@ -1164,6 +1308,7 @@
         "nfl_team": "CIN",
         "yahoo": 35.0,
         "richards": 16.0,
+        "richards_ceiling": false,
         "boone": 41.0,
         "fantasypros": 31.4
       },
@@ -1172,6 +1317,7 @@
         "nfl_team": "DAL",
         "yahoo": 36.0,
         "richards": 24.0,
+        "richards_ceiling": false,
         "boone": 40.0,
         "fantasypros": 39.1
       },
@@ -1180,6 +1326,7 @@
         "nfl_team": "LA",
         "yahoo": 30.0,
         "richards": 15.0,
+        "richards_ceiling": false,
         "boone": 37.0,
         "fantasypros": 26.2
       },
@@ -1188,6 +1335,7 @@
         "nfl_team": "DEN",
         "yahoo": 38.0,
         "richards": 16.5,
+        "richards_ceiling": false,
         "boone": 36.0,
         "fantasypros": 32.0
       },
@@ -1196,6 +1344,7 @@
         "nfl_team": "LAC",
         "yahoo": 34.0,
         "richards": 21.0,
+        "richards_ceiling": false,
         "boone": 35.0,
         "fantasypros": 27.2
       },
@@ -1204,6 +1353,7 @@
         "nfl_team": "NYG",
         "yahoo": 35.0,
         "richards": 19.5,
+        "richards_ceiling": false,
         "boone": 35.0,
         "fantasypros": 36.6
       },
@@ -1212,6 +1362,7 @@
         "nfl_team": "SF",
         "yahoo": 29.0,
         "richards": 14.5,
+        "richards_ceiling": false,
         "boone": 34.0,
         "fantasypros": 25.8
       },
@@ -1220,6 +1371,7 @@
         "nfl_team": "CAR",
         "yahoo": 33.0,
         "richards": 16.5,
+        "richards_ceiling": false,
         "boone": 34.0,
         "fantasypros": 29.9
       },
@@ -1228,6 +1380,7 @@
         "nfl_team": "BUF",
         "yahoo": 30.0,
         "richards": 17.5,
+        "richards_ceiling": false,
         "boone": 33.0,
         "fantasypros": 25.7
       },
@@ -1236,6 +1389,7 @@
         "nfl_team": "CAR",
         "yahoo": 26.0,
         "richards": 9.0,
+        "richards_ceiling": false,
         "boone": 30.0,
         "fantasypros": 22.7
       },
@@ -1244,6 +1398,7 @@
         "nfl_team": "TB",
         "yahoo": 31.0,
         "richards": 15.5,
+        "richards_ceiling": false,
         "boone": 30.0,
         "fantasypros": 31.0
       },
@@ -1252,6 +1407,7 @@
         "nfl_team": "KC",
         "yahoo": 29.0,
         "richards": 13.5,
+        "richards_ceiling": false,
         "boone": 30.0,
         "fantasypros": 23.3
       },
@@ -1260,6 +1416,7 @@
         "nfl_team": "CHI",
         "yahoo": 22.0,
         "richards": 8.0,
+        "richards_ceiling": false,
         "boone": 28.0,
         "fantasypros": 24.2
       },
@@ -1268,6 +1425,7 @@
         "nfl_team": "DET",
         "yahoo": 23.0,
         "richards": 11.0,
+        "richards_ceiling": false,
         "boone": 26.0,
         "fantasypros": 25.9
       },
@@ -1276,6 +1434,7 @@
         "nfl_team": "NE",
         "yahoo": 19.0,
         "richards": 14.0,
+        "richards_ceiling": false,
         "boone": 22.0,
         "fantasypros": 29.5
       },
@@ -1284,6 +1443,7 @@
         "nfl_team": "WAS",
         "yahoo": 23.0,
         "richards": 8.0,
+        "richards_ceiling": false,
         "boone": 22.0,
         "fantasypros": 19.6
       },
@@ -1292,6 +1452,7 @@
         "nfl_team": "WAS",
         "yahoo": 21.0,
         "richards": 9.0,
+        "richards_ceiling": false,
         "boone": 21.0,
         "fantasypros": 25.2
       },
@@ -1300,6 +1461,7 @@
         "nfl_team": "GB",
         "yahoo": 26.0,
         "richards": 9.0,
+        "richards_ceiling": false,
         "boone": 21.0,
         "fantasypros": 22.7
       },
@@ -1308,6 +1470,7 @@
         "nfl_team": "IND",
         "yahoo": 23.0,
         "richards": 6.0,
+        "richards_ceiling": false,
         "boone": 20.0,
         "fantasypros": 16.4
       },
@@ -1316,6 +1479,7 @@
         "nfl_team": "PIT",
         "yahoo": 19.0,
         "richards": 6.0,
+        "richards_ceiling": false,
         "boone": 20.0,
         "fantasypros": 22.8
       },
@@ -1324,6 +1488,7 @@
         "nfl_team": "CHI",
         "yahoo": 18.0,
         "richards": 8.0,
+        "richards_ceiling": false,
         "boone": 19.0,
         "fantasypros": 22.9
       },
@@ -1332,6 +1497,7 @@
         "nfl_team": "ARI",
         "yahoo": 10.0,
         "richards": 7.0,
+        "richards_ceiling": false,
         "boone": 18.0,
         "fantasypros": 13.6
       },
@@ -1340,6 +1506,7 @@
         "nfl_team": "CLE",
         "yahoo": 23.0,
         "richards": 6.5,
+        "richards_ceiling": false,
         "boone": 15.0,
         "fantasypros": 15.8
       },
@@ -1348,6 +1515,7 @@
         "nfl_team": "TB",
         "yahoo": 18.0,
         "richards": 5.5,
+        "richards_ceiling": false,
         "boone": 14.0,
         "fantasypros": 17.2
       },
@@ -1356,6 +1524,7 @@
         "nfl_team": "SF",
         "yahoo": 13.0,
         "richards": 5.5,
+        "richards_ceiling": false,
         "boone": 13.0,
         "fantasypros": 17.6
       },
@@ -1364,6 +1533,7 @@
         "nfl_team": "JAX",
         "yahoo": 18.0,
         "richards": 6.5,
+        "richards_ceiling": false,
         "boone": 13.0,
         "fantasypros": 15.8
       },
@@ -1372,6 +1542,7 @@
         "nfl_team": "TEN",
         "yahoo": 20.0,
         "richards": 6.0,
+        "richards_ceiling": false,
         "boone": 12.0,
         "fantasypros": 19.8
       },
@@ -1380,6 +1551,7 @@
         "nfl_team": "PIT",
         "yahoo": 8.0,
         "richards": 4.0,
+        "richards_ceiling": true,
         "boone": 12.0,
         "fantasypros": 12.2
       },
@@ -1388,6 +1560,7 @@
         "nfl_team": "LV",
         "yahoo": 10.0,
         "richards": 4.0,
+        "richards_ceiling": true,
         "boone": 11.0,
         "fantasypros": 6.0
       },
@@ -1396,6 +1569,7 @@
         "nfl_team": "NO",
         "yahoo": 5.0,
         "richards": 5.0,
+        "richards_ceiling": false,
         "boone": 11.0,
         "fantasypros": 11.4
       },
@@ -1404,6 +1578,7 @@
         "nfl_team": "CLE",
         "yahoo": 7.0,
         "richards": 5.0,
+        "richards_ceiling": false,
         "boone": 11.0,
         "fantasypros": 17.7
       },
@@ -1412,6 +1587,7 @@
         "nfl_team": "NYJ",
         "yahoo": 6.0,
         "richards": 4.0,
+        "richards_ceiling": true,
         "boone": 10.0,
         "fantasypros": 11.9
       },
@@ -1420,6 +1596,7 @@
         "nfl_team": "NO",
         "yahoo": 8.0,
         "richards": 6.0,
+        "richards_ceiling": false,
         "boone": 10.0,
         "fantasypros": 7.2
       },
@@ -1428,6 +1605,7 @@
         "nfl_team": "JAX",
         "yahoo": 7.0,
         "richards": 4.0,
+        "richards_ceiling": true,
         "boone": 10.0,
         "fantasypros": 14.6
       },
@@ -1436,6 +1614,7 @@
         "nfl_team": "NE",
         "yahoo": 6.0,
         "richards": 4.0,
+        "richards_ceiling": true,
         "boone": 10.0,
         "fantasypros": 15.6
       },
@@ -1444,6 +1623,7 @@
         "nfl_team": "KC",
         "yahoo": 8.0,
         "richards": 4.0,
+        "richards_ceiling": true,
         "boone": 10.0,
         "fantasypros": 14.4
       },
@@ -1452,6 +1632,7 @@
         "nfl_team": "DEN",
         "yahoo": 7.0,
         "richards": 7.0,
+        "richards_ceiling": false,
         "boone": 10.0,
         "fantasypros": 18.9
       },
@@ -1460,6 +1641,7 @@
         "nfl_team": "PHI",
         "yahoo": 14.0,
         "richards": 4.0,
+        "richards_ceiling": true,
         "boone": 9.0,
         "fantasypros": 12.9
       },
@@ -1468,6 +1650,7 @@
         "nfl_team": "MIN",
         "yahoo": 8.0,
         "richards": 6.5,
+        "richards_ceiling": false,
         "boone": 9.0,
         "fantasypros": 15.2
       },
@@ -1476,6 +1659,7 @@
         "nfl_team": "LAC",
         "yahoo": 10.0,
         "richards": 7.5,
+        "richards_ceiling": false,
         "boone": 9.0,
         "fantasypros": 17.1
       },
@@ -1484,6 +1668,7 @@
         "nfl_team": "PHI",
         "yahoo": 7.0,
         "richards": 4.0,
+        "richards_ceiling": true,
         "boone": 8.0,
         "fantasypros": 16.7
       },
@@ -1492,6 +1677,7 @@
         "nfl_team": "ARI",
         "yahoo": 8.0,
         "richards": 4.0,
+        "richards_ceiling": true,
         "boone": 8.0,
         "fantasypros": 13.9
       },
@@ -1500,6 +1686,7 @@
         "nfl_team": "IND",
         "yahoo": 3.0,
         "richards": 4.0,
+        "richards_ceiling": true,
         "boone": 8.0,
         "fantasypros": 16.5
       },
@@ -1508,6 +1695,7 @@
         "nfl_team": "MIA",
         "yahoo": 7.0,
         "richards": 4.0,
+        "richards_ceiling": true,
         "boone": 7.0,
         "fantasypros": 7.5
       },
@@ -1516,6 +1704,7 @@
         "nfl_team": "MIA",
         "yahoo": 4.0,
         "richards": 4.0,
+        "richards_ceiling": true,
         "boone": 7.0,
         "fantasypros": null
       },
@@ -1524,6 +1713,7 @@
         "nfl_team": "BUF",
         "yahoo": 2.0,
         "richards": 4.0,
+        "richards_ceiling": true,
         "boone": 7.0,
         "fantasypros": 13.1
       },
@@ -1532,6 +1722,7 @@
         "nfl_team": "BAL",
         "yahoo": 3.0,
         "richards": 4.0,
+        "richards_ceiling": true,
         "boone": 7.0,
         "fantasypros": 8.0
       },
@@ -1540,6 +1731,7 @@
         "nfl_team": "TEN",
         "yahoo": 7.0,
         "richards": 4.0,
+        "richards_ceiling": true,
         "boone": 7.0,
         "fantasypros": 14.7
       },
@@ -1548,6 +1740,7 @@
         "nfl_team": "WAS",
         "yahoo": 3.0,
         "richards": 4.0,
+        "richards_ceiling": true,
         "boone": 6.0,
         "fantasypros": 3.7
       },
@@ -1556,6 +1749,7 @@
         "nfl_team": "MIA",
         "yahoo": 2.0,
         "richards": 4.0,
+        "richards_ceiling": true,
         "boone": 6.0,
         "fantasypros": 1.3
       },
@@ -1564,6 +1758,7 @@
         "nfl_team": "LAC",
         "yahoo": 1.0,
         "richards": 4.0,
+        "richards_ceiling": true,
         "boone": 6.0,
         "fantasypros": 8.4
       },
@@ -1572,6 +1767,7 @@
         "nfl_team": "SF",
         "yahoo": 4.0,
         "richards": 4.0,
+        "richards_ceiling": true,
         "boone": 6.0,
         "fantasypros": 10.8
       },
@@ -1580,6 +1776,7 @@
         "nfl_team": "BAL",
         "yahoo": 1.0,
         "richards": 4.0,
+        "richards_ceiling": true,
         "boone": 6.0,
         "fantasypros": 4.8
       },
@@ -1588,6 +1785,7 @@
         "nfl_team": "DEN",
         "yahoo": 2.0,
         "richards": 4.0,
+        "richards_ceiling": true,
         "boone": 6.0,
         "fantasypros": 7.4
       },
@@ -1596,6 +1794,7 @@
         "nfl_team": "BUF",
         "yahoo": 1.0,
         "richards": 4.0,
+        "richards_ceiling": true,
         "boone": 6.0,
         "fantasypros": null
       },
@@ -1604,6 +1803,7 @@
         "nfl_team": "SEA",
         "yahoo": 5.0,
         "richards": 4.0,
+        "richards_ceiling": true,
         "boone": 6.0,
         "fantasypros": 9.3
       },
@@ -1612,6 +1812,7 @@
         "nfl_team": "TB",
         "yahoo": 1.0,
         "richards": 4.0,
+        "richards_ceiling": true,
         "boone": 6.0,
         "fantasypros": 1.0
       },
@@ -1620,6 +1821,7 @@
         "nfl_team": "HOU",
         "yahoo": 2.0,
         "richards": 4.0,
+        "richards_ceiling": true,
         "boone": 6.0,
         "fantasypros": 11.6
       },
@@ -1628,6 +1830,7 @@
         "nfl_team": "IND",
         "yahoo": 6.0,
         "richards": 4.0,
+        "richards_ceiling": true,
         "boone": 6.0,
         "fantasypros": 8.7
       },
@@ -1636,6 +1839,7 @@
         "nfl_team": "DAL",
         "yahoo": 3.0,
         "richards": 4.0,
+        "richards_ceiling": true,
         "boone": 5.0,
         "fantasypros": null
       },
@@ -1644,6 +1848,7 @@
         "nfl_team": "KC",
         "yahoo": 1.0,
         "richards": 4.0,
+        "richards_ceiling": true,
         "boone": 4.0,
         "fantasypros": null
       },
@@ -1652,6 +1857,7 @@
         "nfl_team": "HOU",
         "yahoo": 3.0,
         "richards": 4.0,
+        "richards_ceiling": true,
         "boone": 4.0,
         "fantasypros": 2.7
       },
@@ -1660,6 +1866,7 @@
         "nfl_team": "CLE",
         "yahoo": 1.0,
         "richards": 4.0,
+        "richards_ceiling": true,
         "boone": 3.0,
         "fantasypros": null
       },
@@ -1668,6 +1875,7 @@
         "nfl_team": "LV",
         "yahoo": 2.0,
         "richards": 4.0,
+        "richards_ceiling": true,
         "boone": 3.0,
         "fantasypros": null
       },
@@ -1676,6 +1884,7 @@
         "nfl_team": "ARI",
         "yahoo": 1.0,
         "richards": 4.0,
+        "richards_ceiling": true,
         "boone": 3.0,
         "fantasypros": null
       },
@@ -1684,6 +1893,7 @@
         "nfl_team": "CHI",
         "yahoo": 2.0,
         "richards": 4.0,
+        "richards_ceiling": true,
         "boone": 3.0,
         "fantasypros": null
       },
@@ -1692,6 +1902,7 @@
         "nfl_team": "NYG",
         "yahoo": 6.0,
         "richards": 4.0,
+        "richards_ceiling": true,
         "boone": 3.0,
         "fantasypros": 5.1
       },
@@ -1700,6 +1911,7 @@
         "nfl_team": "NYJ",
         "yahoo": 1.0,
         "richards": 4.0,
+        "richards_ceiling": true,
         "boone": 3.0,
         "fantasypros": 1.0
       },
@@ -1708,6 +1920,7 @@
         "nfl_team": "PIT",
         "yahoo": 1.0,
         "richards": 4.0,
+        "richards_ceiling": true,
         "boone": 2.0,
         "fantasypros": null
       },
@@ -1716,6 +1929,7 @@
         "nfl_team": "IND",
         "yahoo": 2.0,
         "richards": 4.0,
+        "richards_ceiling": true,
         "boone": 1.0,
         "fantasypros": null
       },
@@ -1724,6 +1938,7 @@
         "nfl_team": "NE",
         "yahoo": null,
         "richards": 4.0,
+        "richards_ceiling": true,
         "boone": 1.0,
         "fantasypros": null
       },
@@ -1732,6 +1947,7 @@
         "nfl_team": "ATL",
         "yahoo": 1.0,
         "richards": 4.0,
+        "richards_ceiling": true,
         "boone": 1.0,
         "fantasypros": null
       },
@@ -1740,6 +1956,7 @@
         "nfl_team": "TB",
         "yahoo": 3.0,
         "richards": 4.0,
+        "richards_ceiling": true,
         "boone": 1.0,
         "fantasypros": null
       },
@@ -1748,6 +1965,7 @@
         "nfl_team": "DET",
         "yahoo": 2.0,
         "richards": 4.0,
+        "richards_ceiling": true,
         "boone": 1.0,
         "fantasypros": null
       },
@@ -1756,6 +1974,7 @@
         "nfl_team": "LV",
         "yahoo": 1.0,
         "richards": 4.0,
+        "richards_ceiling": true,
         "boone": 1.0,
         "fantasypros": null
       },
@@ -1764,6 +1983,7 @@
         "nfl_team": "GB",
         "yahoo": 5.0,
         "richards": 4.0,
+        "richards_ceiling": true,
         "boone": 1.0,
         "fantasypros": null
       },
@@ -1772,6 +1992,7 @@
         "nfl_team": null,
         "yahoo": null,
         "richards": 4.0,
+        "richards_ceiling": true,
         "boone": 1.0,
         "fantasypros": null
       },
@@ -1780,6 +2001,7 @@
         "nfl_team": "HOU",
         "yahoo": null,
         "richards": 4.0,
+        "richards_ceiling": true,
         "boone": 1.0,
         "fantasypros": null
       },
@@ -1788,6 +2010,7 @@
         "nfl_team": "CIN",
         "yahoo": 1.0,
         "richards": 4.0,
+        "richards_ceiling": true,
         "boone": null,
         "fantasypros": null
       },
@@ -1796,6 +2019,7 @@
         "nfl_team": "TEN",
         "yahoo": 1.0,
         "richards": 4.0,
+        "richards_ceiling": true,
         "boone": null,
         "fantasypros": null
       },
@@ -1804,6 +2028,7 @@
         "nfl_team": "SEA",
         "yahoo": 1.0,
         "richards": 4.0,
+        "richards_ceiling": true,
         "boone": null,
         "fantasypros": null
       },
@@ -1812,6 +2037,7 @@
         "nfl_team": "KC",
         "yahoo": 4.0,
         "richards": 4.0,
+        "richards_ceiling": true,
         "boone": null,
         "fantasypros": null
       },
@@ -1820,6 +2046,7 @@
         "nfl_team": "NYG",
         "yahoo": 1.0,
         "richards": 4.0,
+        "richards_ceiling": true,
         "boone": null,
         "fantasypros": null
       },
@@ -1828,6 +2055,7 @@
         "nfl_team": "LV",
         "yahoo": 1.0,
         "richards": 4.0,
+        "richards_ceiling": true,
         "boone": null,
         "fantasypros": null
       },
@@ -1836,6 +2064,7 @@
         "nfl_team": "TEN",
         "yahoo": 1.0,
         "richards": 4.0,
+        "richards_ceiling": true,
         "boone": null,
         "fantasypros": null
       },
@@ -1844,6 +2073,7 @@
         "nfl_team": "CLE",
         "yahoo": 1.0,
         "richards": 4.0,
+        "richards_ceiling": true,
         "boone": null,
         "fantasypros": null
       },
@@ -1852,6 +2082,7 @@
         "nfl_team": "MIN",
         "yahoo": 1.0,
         "richards": 4.0,
+        "richards_ceiling": true,
         "boone": null,
         "fantasypros": null
       },
@@ -1860,6 +2091,7 @@
         "nfl_team": "BUF",
         "yahoo": 1.0,
         "richards": 4.0,
+        "richards_ceiling": true,
         "boone": null,
         "fantasypros": null
       },
@@ -1868,6 +2100,7 @@
         "nfl_team": "LA",
         "yahoo": 1.0,
         "richards": 4.0,
+        "richards_ceiling": true,
         "boone": null,
         "fantasypros": null
       },
@@ -1876,6 +2109,7 @@
         "nfl_team": "PIT",
         "yahoo": 3.0,
         "richards": 4.0,
+        "richards_ceiling": true,
         "boone": null,
         "fantasypros": null
       },
@@ -1884,6 +2118,7 @@
         "nfl_team": "GB",
         "yahoo": 1.0,
         "richards": 4.0,
+        "richards_ceiling": true,
         "boone": null,
         "fantasypros": null
       },
@@ -1892,6 +2127,7 @@
         "nfl_team": "HOU",
         "yahoo": 1.0,
         "richards": 4.0,
+        "richards_ceiling": true,
         "boone": null,
         "fantasypros": null
       },
@@ -1900,6 +2136,7 @@
         "nfl_team": "DEN",
         "yahoo": 1.0,
         "richards": 4.0,
+        "richards_ceiling": true,
         "boone": null,
         "fantasypros": null
       },
@@ -1908,6 +2145,7 @@
         "nfl_team": "CAR",
         "yahoo": 1.0,
         "richards": 4.0,
+        "richards_ceiling": true,
         "boone": null,
         "fantasypros": null
       },
@@ -1916,6 +2154,7 @@
         "nfl_team": "ATL",
         "yahoo": 1.0,
         "richards": 4.0,
+        "richards_ceiling": true,
         "boone": null,
         "fantasypros": null
       }
@@ -1926,6 +2165,7 @@
         "nfl_team": "ARI",
         "yahoo": 46.0,
         "richards": 29.0,
+        "richards_ceiling": false,
         "boone": 44.0,
         "fantasypros": 26.2
       },
@@ -1934,6 +2174,7 @@
         "nfl_team": "LV",
         "yahoo": 47.0,
         "richards": 27.5,
+        "richards_ceiling": false,
         "boone": 39.0,
         "fantasypros": 28.0
       },
@@ -1942,6 +2183,7 @@
         "nfl_team": "BUF",
         "yahoo": 36.0,
         "richards": 15.0,
+        "richards_ceiling": false,
         "boone": 31.0,
         "fantasypros": 19.4
       },
@@ -1950,6 +2192,7 @@
         "nfl_team": "IND",
         "yahoo": 26.0,
         "richards": 14.0,
+        "richards_ceiling": false,
         "boone": 22.0,
         "fantasypros": 15.2
       },
@@ -1958,6 +2201,7 @@
         "nfl_team": "DET",
         "yahoo": 30.0,
         "richards": 9.5,
+        "richards_ceiling": false,
         "boone": 21.0,
         "fantasypros": 13.0
       },
@@ -1966,6 +2210,7 @@
         "nfl_team": "SF",
         "yahoo": 25.0,
         "richards": 9.0,
+        "richards_ceiling": false,
         "boone": 19.0,
         "fantasypros": 12.7
       },
@@ -1974,6 +2219,7 @@
         "nfl_team": "GB",
         "yahoo": 25.0,
         "richards": 8.5,
+        "richards_ceiling": false,
         "boone": 18.0,
         "fantasypros": 15.2
       },
@@ -1982,6 +2228,7 @@
         "nfl_team": "KC",
         "yahoo": 23.0,
         "richards": 8.0,
+        "richards_ceiling": false,
         "boone": 15.0,
         "fantasypros": 11.2
       },
@@ -1990,6 +2237,7 @@
         "nfl_team": "CHI",
         "yahoo": 26.0,
         "richards": 8.5,
+        "richards_ceiling": false,
         "boone": 14.0,
         "fantasypros": 15.8
       },
@@ -1998,6 +2246,7 @@
         "nfl_team": "NYG",
         "yahoo": 23.0,
         "richards": 9.5,
+        "richards_ceiling": false,
         "boone": 13.0,
         "fantasypros": 12.0
       },
@@ -2006,6 +2255,7 @@
         "nfl_team": "NO",
         "yahoo": 17.0,
         "richards": 6.5,
+        "richards_ceiling": false,
         "boone": 9.0,
         "fantasypros": 9.3
       },
@@ -2014,6 +2264,7 @@
         "nfl_team": "CLE",
         "yahoo": 17.0,
         "richards": 6.5,
+        "richards_ceiling": false,
         "boone": 8.0,
         "fantasypros": 11.3
       },
@@ -2022,6 +2273,7 @@
         "nfl_team": "ATL",
         "yahoo": 14.0,
         "richards": 7.5,
+        "richards_ceiling": false,
         "boone": 8.0,
         "fantasypros": 8.3
       },
@@ -2030,6 +2282,7 @@
         "nfl_team": "BAL",
         "yahoo": 11.0,
         "richards": 5.0,
+        "richards_ceiling": false,
         "boone": 8.0,
         "fantasypros": 7.3
       },
@@ -2038,6 +2291,7 @@
         "nfl_team": "LAC",
         "yahoo": 16.0,
         "richards": 4.0,
+        "richards_ceiling": true,
         "boone": 7.0,
         "fantasypros": null
       },
@@ -2046,6 +2300,7 @@
         "nfl_team": "LA",
         "yahoo": 5.0,
         "richards": 4.0,
+        "richards_ceiling": true,
         "boone": 7.0,
         "fantasypros": 1.0
       },
@@ -2054,6 +2309,7 @@
         "nfl_team": "HOU",
         "yahoo": 8.0,
         "richards": 4.0,
+        "richards_ceiling": true,
         "boone": 7.0,
         "fantasypros": 5.9
       },
@@ -2062,6 +2318,7 @@
         "nfl_team": "DAL",
         "yahoo": 11.0,
         "richards": 4.0,
+        "richards_ceiling": true,
         "boone": 7.0,
         "fantasypros": 3.0
       },
@@ -2070,6 +2327,7 @@
         "nfl_team": "NE",
         "yahoo": 2.0,
         "richards": 4.0,
+        "richards_ceiling": true,
         "boone": 6.0,
         "fantasypros": 5.3
       },
@@ -2078,6 +2336,7 @@
         "nfl_team": "NYJ",
         "yahoo": 3.0,
         "richards": 4.0,
+        "richards_ceiling": true,
         "boone": 6.0,
         "fantasypros": null
       },
@@ -2086,6 +2345,7 @@
         "nfl_team": "PHI",
         "yahoo": 9.0,
         "richards": 8.0,
+        "richards_ceiling": false,
         "boone": 6.0,
         "fantasypros": 8.0
       },
@@ -2094,6 +2354,7 @@
         "nfl_team": "PIT",
         "yahoo": 6.0,
         "richards": 4.0,
+        "richards_ceiling": true,
         "boone": 4.0,
         "fantasypros": null
       },
@@ -2102,6 +2363,7 @@
         "nfl_team": "CAR",
         "yahoo": 4.0,
         "richards": 4.0,
+        "richards_ceiling": true,
         "boone": 3.0,
         "fantasypros": null
       },
@@ -2110,6 +2372,7 @@
         "nfl_team": "MIN",
         "yahoo": 2.0,
         "richards": 4.0,
+        "richards_ceiling": true,
         "boone": 3.0,
         "fantasypros": null
       },
@@ -2118,6 +2381,7 @@
         "nfl_team": "JAX",
         "yahoo": 1.0,
         "richards": 4.0,
+        "richards_ceiling": true,
         "boone": 2.0,
         "fantasypros": 4.8
       },
@@ -2126,6 +2390,7 @@
         "nfl_team": "SEA",
         "yahoo": 3.0,
         "richards": 4.0,
+        "richards_ceiling": true,
         "boone": 1.0,
         "fantasypros": null
       },
@@ -2134,6 +2399,7 @@
         "nfl_team": "TEN",
         "yahoo": 1.0,
         "richards": 4.0,
+        "richards_ceiling": true,
         "boone": 1.0,
         "fantasypros": null
       },
@@ -2142,6 +2408,7 @@
         "nfl_team": "MIA",
         "yahoo": 1.0,
         "richards": 4.0,
+        "richards_ceiling": true,
         "boone": 1.0,
         "fantasypros": null
       },
@@ -2150,6 +2417,7 @@
         "nfl_team": "DEN",
         "yahoo": 3.0,
         "richards": 4.0,
+        "richards_ceiling": true,
         "boone": 1.0,
         "fantasypros": null
       },
@@ -2158,6 +2426,7 @@
         "nfl_team": "WAS",
         "yahoo": 1.0,
         "richards": 4.0,
+        "richards_ceiling": true,
         "boone": 1.0,
         "fantasypros": null
       },
@@ -2166,6 +2435,7 @@
         "nfl_team": "TB",
         "yahoo": 2.0,
         "richards": 4.0,
+        "richards_ceiling": true,
         "boone": 1.0,
         "fantasypros": null
       },
@@ -2174,6 +2444,7 @@
         "nfl_team": "LA",
         "yahoo": 1.0,
         "richards": 4.0,
+        "richards_ceiling": true,
         "boone": 1.0,
         "fantasypros": null
       },
@@ -2182,6 +2453,7 @@
         "nfl_team": "CIN",
         "yahoo": 1.0,
         "richards": 4.0,
+        "richards_ceiling": true,
         "boone": 1.0,
         "fantasypros": null
       },
@@ -2190,6 +2462,7 @@
         "nfl_team": "LV",
         "yahoo": null,
         "richards": 4.0,
+        "richards_ceiling": true,
         "boone": 1.0,
         "fantasypros": null
       },
@@ -2198,6 +2471,7 @@
         "nfl_team": "PIT",
         "yahoo": 1.0,
         "richards": 4.0,
+        "richards_ceiling": true,
         "boone": null,
         "fantasypros": null
       },
@@ -2206,6 +2480,7 @@
         "nfl_team": "BUF",
         "yahoo": 1.0,
         "richards": 4.0,
+        "richards_ceiling": true,
         "boone": null,
         "fantasypros": null
       },
@@ -2214,6 +2489,7 @@
         "nfl_team": "SEA",
         "yahoo": 1.0,
         "richards": 4.0,
+        "richards_ceiling": true,
         "boone": null,
         "fantasypros": null
       },
@@ -2222,6 +2498,7 @@
         "nfl_team": "PHI",
         "yahoo": 3.0,
         "richards": 4.0,
+        "richards_ceiling": true,
         "boone": null,
         "fantasypros": null
       }
