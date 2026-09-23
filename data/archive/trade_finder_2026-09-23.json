@@ -20,7 +20,8 @@
             "richards": 47.0,
             "boone": 92.0,
             "fantasypros": 75.1
-          }
+          },
+          "richards_ceiling": false
         },
         {
           "player": "James Cook",
@@ -30,7 +31,8 @@
             "richards": 36.5,
             "boone": 63.0,
             "fantasypros": 59.3
-          }
+          },
+          "richards_ceiling": false
         },
         {
           "player": "Davante Adams",
@@ -40,7 +42,8 @@
             "richards": 15.0,
             "boone": 37.0,
             "fantasypros": 26.2
-          }
+          },
+          "richards_ceiling": false
         },
         {
           "player": "Lamar Jackson",
@@ -50,7 +53,8 @@
             "richards": 16.0,
             "boone": 26.0,
             "fantasypros": 28.6
-          }
+          },
+          "richards_ceiling": false
         },
         {
           "player": "Terry McLaurin",
@@ -60,7 +64,8 @@
             "richards": 9.0,
             "boone": 21.0,
             "fantasypros": 25.2
-          }
+          },
+          "richards_ceiling": false
         },
         {
           "player": "Travis Kelce",
@@ -70,7 +75,8 @@
             "richards": 8.0,
             "boone": 15.0,
             "fantasypros": 11.2
-          }
+          },
+          "richards_ceiling": false
         },
         {
           "player": "Kyle Pitts",
@@ -80,7 +86,8 @@
             "richards": 7.5,
             "boone": 8.0,
             "fantasypros": 8.3
-          }
+          },
+          "richards_ceiling": false
         },
         {
           "player": "Makai Lemon",
@@ -90,7 +97,8 @@
             "richards": 4.0,
             "boone": 8.0,
             "fantasypros": 16.7
-          }
+          },
+          "richards_ceiling": true
         },
         {
           "player": "Mike Washington Jr.",
@@ -100,7 +108,8 @@
             "richards": 4.0,
             "boone": 8.0,
             "fantasypros": 2.0
-          }
+          },
+          "richards_ceiling": true
         },
         {
           "player": "Brandon Aubrey",
@@ -110,7 +119,8 @@
             "richards": null,
             "boone": null,
             "fantasypros": null
-          }
+          },
+          "richards_ceiling": false
         },
         {
           "player": "Rams",
@@ -120,7 +130,8 @@
             "richards": null,
             "boone": null,
             "fantasypros": null
-          }
+          },
+          "richards_ceiling": false
         }
       ]
     },
@@ -136,7 +147,8 @@
             "richards": 37.5,
             "boone": 71.0,
             "fantasypros": 50.5
-          }
+          },
+          "richards_ceiling": false
         },
         {
           "player": "Chase Brown",
@@ -146,7 +158,8 @@
             "richards": 33.5,
             "boone": 57.0,
             "fantasypros": 46.8
-          }
+          },
+          "richards_ceiling": false
         },
         {
           "player": "Jaylen Waddle",
@@ -156,7 +169,8 @@
             "richards": 16.5,
             "boone": 36.0,
             "fantasypros": 32.0
-          }
+          },
+          "richards_ceiling": false
         },
         {
           "player": "Josh Allen",
@@ -166,7 +180,8 @@
             "richards": 23.0,
             "boone": 32.0,
             "fantasypros": 29.1
-          }
+          },
+          "richards_ceiling": false
         },
         {
           "player": "Rome Odunze",
@@ -176,7 +191,8 @@
             "richards": 8.0,
             "boone": 19.0,
             "fantasypros": 22.9
-          }
+          },
+          "richards_ceiling": false
         },
         {
           "player": "George Kittle",
@@ -186,7 +202,8 @@
             "richards": 9.0,
             "boone": 19.0,
             "fantasypros": 12.7
-          }
+          },
+          "richards_ceiling": false
         },
         {
           "player": "Michael Wilson",
@@ -196,7 +213,8 @@
             "richards": 7.0,
             "boone": 18.0,
             "fantasypros": 13.6
-          }
+          },
+          "richards_ceiling": false
         },
         {
           "player": "Kaelon Black",
@@ -206,7 +224,8 @@
             "richards": 5.0,
             "boone": 12.0,
             "fantasypros": 8.0
-          }
+          },
+          "richards_ceiling": false
         },
         {
           "player": "Dalton Schultz",
@@ -216,7 +235,8 @@
             "richards": 4.0,
             "boone": 7.0,
             "fantasypros": 5.9
-          }
+          },
+          "richards_ceiling": true
         },
         {
           "player": "Tyler Loop",
@@ -226,7 +246,8 @@
             "richards": null,
             "boone": null,
             "fantasypros": null
-          }
+          },
+          "richards_ceiling": false
         },
         {
           "player": "Packers",
@@ -236,7 +257,8 @@
             "richards": null,
             "boone": null,
             "fantasypros": null
-          }
+          },
+          "richards_ceiling": false
         }
       ]
     },
@@ -252,7 +274,8 @@
             "richards": 40.5,
             "boone": 73.0,
             "fantasypros": 52.3
-          }
+          },
+          "richards_ceiling": false
         },
         {
           "player": "Drake London",
@@ -262,7 +285,8 @@
             "richards": 22.0,
             "boone": 46.0,
             "fantasypros": 36.1
-          }
+          },
+          "richards_ceiling": false
         },
         {
           "player": "Emeka Egbuka",
@@ -272,7 +296,8 @@
             "richards": 15.5,
             "boone": 30.0,
             "fantasypros": 31.0
-          }
+          },
+          "richards_ceiling": false
         },
         {
           "player": "TreVeyon Henderson",
@@ -282,7 +307,8 @@
             "richards": 8.5,
             "boone": 24.0,
             "fantasypros": 28.2
-          }
+          },
+          "richards_ceiling": false
         },
         {
           "player": "DK Metcalf",
@@ -292,7 +318,8 @@
             "richards": 6.0,
             "boone": 20.0,
             "fantasypros": 22.8
-          }
+          },
+          "richards_ceiling": false
         },
         {
           "player": "Brian Thomas Jr.",
@@ -302,7 +329,8 @@
             "richards": 6.5,
             "boone": 13.0,
             "fantasypros": 15.8
-          }
+          },
+          "richards_ceiling": false
         },
         {
           "player": "Jakobi Meyers",
@@ -312,7 +340,8 @@
             "richards": 4.0,
             "boone": 10.0,
             "fantasypros": 14.6
-          }
+          },
+          "richards_ceiling": true
         },
         {
           "player": "Braelon Allen",
@@ -322,7 +351,8 @@
             "richards": 4.0,
             "boone": 8.0,
             "fantasypros": null
-          }
+          },
+          "richards_ceiling": true
         },
         {
           "player": "Bryce Young",
@@ -332,7 +362,8 @@
             "richards": 5.0,
             "boone": 4.0,
             "fantasypros": 1.0
-          }
+          },
+          "richards_ceiling": false
         },
         {
           "player": "Chargers",
@@ -342,7 +373,8 @@
             "richards": null,
             "boone": null,
             "fantasypros": null
-          }
+          },
+          "richards_ceiling": false
         },
         {
           "player": "Chris Boswell",
@@ -352,7 +384,8 @@
             "richards": null,
             "boone": null,
             "fantasypros": null
-          }
+          },
+          "richards_ceiling": false
         }
       ]
     },
@@ -368,7 +401,8 @@
             "richards": 37.5,
             "boone": 62.0,
             "fantasypros": 40.5
-          }
+          },
+          "richards_ceiling": false
         },
         {
           "player": "Omarion Hampton",
@@ -378,7 +412,8 @@
             "richards": 24.0,
             "boone": 56.0,
             "fantasypros": 41.6
-          }
+          },
+          "richards_ceiling": false
         },
         {
           "player": "Christian Watson",
@@ -388,7 +423,8 @@
             "richards": 16.5,
             "boone": 51.0,
             "fantasypros": 31.5
-          }
+          },
+          "richards_ceiling": false
         },
         {
           "player": "Travis Etienne",
@@ -398,7 +434,8 @@
             "richards": 13.5,
             "boone": 22.0,
             "fantasypros": 31.7
-          }
+          },
+          "richards_ceiling": false
         },
         {
           "player": "Chris Godwin",
@@ -408,7 +445,8 @@
             "richards": 5.5,
             "boone": 14.0,
             "fantasypros": 17.2
-          }
+          },
+          "richards_ceiling": false
         },
         {
           "player": "Patrick Mahomes",
@@ -418,7 +456,8 @@
             "richards": 8.0,
             "boone": 13.0,
             "fantasypros": 9.2
-          }
+          },
+          "richards_ceiling": false
         },
         {
           "player": "Tony Pollard",
@@ -428,7 +467,8 @@
             "richards": 6.0,
             "boone": 13.0,
             "fantasypros": 15.9
-          }
+          },
+          "richards_ceiling": false
         },
         {
           "player": "Adonai Mitchell",
@@ -438,7 +478,8 @@
             "richards": 4.0,
             "boone": 10.0,
             "fantasypros": 11.9
-          }
+          },
+          "richards_ceiling": true
         },
         {
           "player": "Jared Goff",
@@ -448,7 +489,8 @@
             "richards": 5.0,
             "boone": 7.0,
             "fantasypros": 7.6
-          }
+          },
+          "richards_ceiling": false
         },
         {
           "player": "Texans",
@@ -458,7 +500,8 @@
             "richards": null,
             "boone": null,
             "fantasypros": null
-          }
+          },
+          "richards_ceiling": false
         },
         {
           "player": "Evan McPherson",
@@ -468,7 +511,8 @@
             "richards": null,
             "boone": null,
             "fantasypros": null
-          }
+          },
+          "richards_ceiling": false
         }
       ]
     },
@@ -484,7 +528,8 @@
             "richards": 43.0,
             "boone": 82.0,
             "fantasypros": 67.5
-          }
+          },
+          "richards_ceiling": false
         },
         {
           "player": "Breece Hall",
@@ -494,7 +539,8 @@
             "richards": 24.0,
             "boone": 46.0,
             "fantasypros": 37.6
-          }
+          },
+          "richards_ceiling": false
         },
         {
           "player": "Brock Bowers",
@@ -504,7 +550,8 @@
             "richards": 27.5,
             "boone": 39.0,
             "fantasypros": 28.0
-          }
+          },
+          "richards_ceiling": false
         },
         {
           "player": "Malik Nabers",
@@ -514,7 +561,8 @@
             "richards": 19.5,
             "boone": 35.0,
             "fantasypros": 36.6
-          }
+          },
+          "richards_ceiling": false
         },
         {
           "player": "Tyler Warren",
@@ -524,7 +572,8 @@
             "richards": 14.0,
             "boone": 22.0,
             "fantasypros": 15.2
-          }
+          },
+          "richards_ceiling": false
         },
         {
           "player": "Denzel Boston",
@@ -534,7 +583,8 @@
             "richards": 6.5,
             "boone": 15.0,
             "fantasypros": 15.8
-          }
+          },
+          "richards_ceiling": false
         },
         {
           "player": "Dak Prescott",
@@ -544,7 +594,8 @@
             "richards": 11.0,
             "boone": 12.0,
             "fantasypros": 8.0
-          }
+          },
+          "richards_ceiling": false
         },
         {
           "player": "Jordan Mason",
@@ -554,7 +605,8 @@
             "richards": 6.0,
             "boone": 10.0,
             "fantasypros": 11.7
-          }
+          },
+          "richards_ceiling": false
         },
         {
           "player": "Devaughn Vele",
@@ -564,7 +616,8 @@
             "richards": 6.0,
             "boone": 10.0,
             "fantasypros": 7.2
-          }
+          },
+          "richards_ceiling": false
         },
         {
           "player": "Patriots",
@@ -574,7 +627,8 @@
             "richards": null,
             "boone": null,
             "fantasypros": null
-          }
+          },
+          "richards_ceiling": false
         },
         {
           "player": "Spencer Shrader",
@@ -584,7 +638,8 @@
             "richards": null,
             "boone": null,
             "fantasypros": null
-          }
+          },
+          "richards_ceiling": false
         }
       ]
     },
@@ -600,7 +655,8 @@
             "richards": 42.0,
             "boone": 72.0,
             "fantasypros": 51.3
-          }
+          },
+          "richards_ceiling": false
         },
         {
           "player": "Zay Flowers",
@@ -610,7 +666,8 @@
             "richards": 24.5,
             "boone": 49.0,
             "fantasypros": 37.2
-          }
+          },
+          "richards_ceiling": false
         },
         {
           "player": "Kyren Williams",
@@ -620,7 +677,8 @@
             "richards": 20.0,
             "boone": 39.0,
             "fantasypros": 39.6
-          }
+          },
+          "richards_ceiling": false
         },
         {
           "player": "Ladd McConkey",
@@ -630,7 +688,8 @@
             "richards": 21.0,
             "boone": 35.0,
             "fantasypros": 27.2
-          }
+          },
+          "richards_ceiling": false
         },
         {
           "player": "Jaylen Warren",
@@ -640,7 +699,8 @@
             "richards": 10.0,
             "boone": 28.0,
             "fantasypros": 25.5
-          }
+          },
+          "richards_ceiling": false
         },
         {
           "player": "Aaron Jones",
@@ -650,7 +710,8 @@
             "richards": 9.0,
             "boone": 22.0,
             "fantasypros": 17.6
-          }
+          },
+          "richards_ceiling": false
         },
         {
           "player": "Dontayvion Wicks",
@@ -660,7 +721,8 @@
             "richards": 4.0,
             "boone": 9.0,
             "fantasypros": 12.9
-          }
+          },
+          "richards_ceiling": true
         },
         {
           "player": "Rashod Bateman",
@@ -670,7 +732,8 @@
             "richards": 4.0,
             "boone": 7.0,
             "fantasypros": 8.0
-          }
+          },
+          "richards_ceiling": true
         },
         {
           "player": "Eagles",
@@ -680,7 +743,8 @@
             "richards": null,
             "boone": null,
             "fantasypros": null
-          }
+          },
+          "richards_ceiling": false
         },
         {
           "player": "Jason Myers",
@@ -690,7 +754,8 @@
             "richards": null,
             "boone": null,
             "fantasypros": null
-          }
+          },
+          "richards_ceiling": false
         },
         {
           "player": "C.J. Stroud",
@@ -700,7 +765,8 @@
             "richards": 4.0,
             "boone": 0.0,
             "fantasypros": 1.0
-          }
+          },
+          "richards_ceiling": true
         }
       ]
     },
@@ -716,7 +782,8 @@
             "richards": 25.5,
             "boone": 53.0,
             "fantasypros": 43.7
-          }
+          },
+          "richards_ceiling": false
         },
         {
           "player": "DeVonta Smith",
@@ -726,7 +793,8 @@
             "richards": 24.0,
             "boone": 53.0,
             "fantasypros": 33.8
-          }
+          },
+          "richards_ceiling": false
         },
         {
           "player": "Parker Washington",
@@ -736,7 +804,8 @@
             "richards": 16.5,
             "boone": 44.0,
             "fantasypros": 33.5
-          }
+          },
+          "richards_ceiling": false
         },
         {
           "player": "George Pickens",
@@ -746,7 +815,8 @@
             "richards": 24.0,
             "boone": 40.0,
             "fantasypros": 39.1
-          }
+          },
+          "richards_ceiling": false
         },
         {
           "player": "Dalton Kincaid",
@@ -756,7 +826,8 @@
             "richards": 15.0,
             "boone": 31.0,
             "fantasypros": 19.4
-          }
+          },
+          "richards_ceiling": false
         },
         {
           "player": "Kyle Monangai",
@@ -766,7 +837,8 @@
             "richards": 5.0,
             "boone": 14.0,
             "fantasypros": 19.1
-          }
+          },
+          "richards_ceiling": false
         },
         {
           "player": "Jonah Coleman",
@@ -776,7 +848,8 @@
             "richards": 4.0,
             "boone": 12.0,
             "fantasypros": 15.3
-          }
+          },
+          "richards_ceiling": true
         },
         {
           "player": "Jordan Love",
@@ -786,7 +859,8 @@
             "richards": 4.0,
             "boone": 4.0,
             "fantasypros": 1.0
-          }
+          },
+          "richards_ceiling": true
         },
         {
           "player": "Tyler Shough",
@@ -796,7 +870,8 @@
             "richards": 6.0,
             "boone": 4.0,
             "fantasypros": 1.0
-          }
+          },
+          "richards_ceiling": false
         },
         {
           "player": "Tyler Bass",
@@ -806,7 +881,8 @@
             "richards": null,
             "boone": null,
             "fantasypros": null
-          }
+          },
+          "richards_ceiling": false
         },
         {
           "player": "Bills",
@@ -816,7 +892,8 @@
             "richards": null,
             "boone": null,
             "fantasypros": null
-          }
+          },
+          "richards_ceiling": false
         }
       ]
     },
@@ -832,7 +909,8 @@
             "richards": 43.0,
             "boone": 78.0,
             "fantasypros": 55.4
-          }
+          },
+          "richards_ceiling": false
         },
         {
           "player": "Derrick Henry",
@@ -842,7 +920,8 @@
             "richards": 35.0,
             "boone": 67.0,
             "fantasypros": 48.9
-          }
+          },
+          "richards_ceiling": false
         },
         {
           "player": "Chuba Hubbard",
@@ -852,7 +931,8 @@
             "richards": 15.0,
             "boone": 36.0,
             "fantasypros": 23.3
-          }
+          },
+          "richards_ceiling": false
         },
         {
           "player": "Quinshon Judkins",
@@ -862,7 +942,8 @@
             "richards": 11.5,
             "boone": 23.0,
             "fantasypros": 25.8
-          }
+          },
+          "richards_ceiling": false
         },
         {
           "player": "Caleb Williams",
@@ -872,7 +953,8 @@
             "richards": 9.0,
             "boone": 13.0,
             "fantasypros": 12.0
-          }
+          },
+          "richards_ceiling": false
         },
         {
           "player": "Xavier Worthy",
@@ -882,7 +964,8 @@
             "richards": 4.0,
             "boone": 10.0,
             "fantasypros": 14.4
-          }
+          },
+          "richards_ceiling": true
         },
         {
           "player": "MarShawn Lloyd",
@@ -892,7 +975,8 @@
             "richards": 6.0,
             "boone": 8.0,
             "fantasypros": 18.9
-          }
+          },
+          "richards_ceiling": false
         },
         {
           "player": "Harold Fannin Jr.",
@@ -902,7 +986,8 @@
             "richards": 6.5,
             "boone": 8.0,
             "fantasypros": 11.3
-          }
+          },
+          "richards_ceiling": false
         },
         {
           "player": "Bo Nix",
@@ -912,7 +997,8 @@
             "richards": 4.0,
             "boone": 3.0,
             "fantasypros": 1.0
-          }
+          },
+          "richards_ceiling": true
         },
         {
           "player": "Harrison Butker",
@@ -922,7 +1008,8 @@
             "richards": null,
             "boone": null,
             "fantasypros": null
-          }
+          },
+          "richards_ceiling": false
         },
         {
           "player": "Panthers",
@@ -932,7 +1019,8 @@
             "richards": null,
             "boone": null,
             "fantasypros": null
-          }
+          },
+          "richards_ceiling": false
         }
       ]
     },
@@ -948,7 +1036,8 @@
             "richards": 42.5,
             "boone": 77.0,
             "fantasypros": 57.1
-          }
+          },
+          "richards_ceiling": false
         },
         {
           "player": "D'Andre Swift",
@@ -958,7 +1047,8 @@
             "richards": 22.5,
             "boone": 55.0,
             "fantasypros": 40.3
-          }
+          },
+          "richards_ceiling": false
         },
         {
           "player": "Javonte Williams",
@@ -968,7 +1058,8 @@
             "richards": 24.0,
             "boone": 43.0,
             "fantasypros": 40.8
-          }
+          },
+          "richards_ceiling": false
         },
         {
           "player": "Mike Evans",
@@ -978,7 +1069,8 @@
             "richards": 14.5,
             "boone": 34.0,
             "fantasypros": 25.8
-          }
+          },
+          "richards_ceiling": false
         },
         {
           "player": "Jalen Coker",
@@ -988,7 +1080,8 @@
             "richards": 9.0,
             "boone": 30.0,
             "fantasypros": 22.7
-          }
+          },
+          "richards_ceiling": false
         },
         {
           "player": "Luther Burden III",
@@ -998,7 +1091,8 @@
             "richards": 8.0,
             "boone": 28.0,
             "fantasypros": 24.2
-          }
+          },
+          "richards_ceiling": false
         },
         {
           "player": "Jacory Croskey-Merritt",
@@ -1008,7 +1102,8 @@
             "richards": 6.0,
             "boone": 18.0,
             "fantasypros": 23.0
-          }
+          },
+          "richards_ceiling": false
         },
         {
           "player": "Jayden Daniels",
@@ -1018,7 +1113,8 @@
             "richards": 4.0,
             "boone": 2.0,
             "fantasypros": 1.0
-          }
+          },
+          "richards_ceiling": true
         },
         {
           "player": "Cairo Santos",
@@ -1028,7 +1124,8 @@
             "richards": null,
             "boone": null,
             "fantasypros": null
-          }
+          },
+          "richards_ceiling": false
         },
         {
           "player": "Vikings",
@@ -1038,7 +1135,8 @@
             "richards": null,
             "boone": null,
             "fantasypros": null
-          }
+          },
+          "richards_ceiling": false
         },
         {
           "player": "Daniel Jones",
@@ -1048,7 +1146,8 @@
             "richards": 4.0,
             "boone": 0.0,
             "fantasypros": 1.0
-          }
+          },
+          "richards_ceiling": true
         }
       ]
     },
@@ -1064,7 +1163,8 @@
             "richards": 26.0,
             "boone": 43.0,
             "fantasypros": 42.4
-          }
+          },
+          "richards_ceiling": false
         },
         {
           "player": "Rashee Rice",
@@ -1074,7 +1174,8 @@
             "richards": 13.5,
             "boone": 30.0,
             "fantasypros": 23.3
-          }
+          },
+          "richards_ceiling": false
         },
         {
           "player": "Jameson Williams",
@@ -1084,7 +1185,8 @@
             "richards": 11.0,
             "boone": 26.0,
             "fantasypros": 25.9
-          }
+          },
+          "richards_ceiling": false
         },
         {
           "player": "Tucker Kraft",
@@ -1094,7 +1196,8 @@
             "richards": 8.5,
             "boone": 18.0,
             "fantasypros": 15.2
-          }
+          },
+          "richards_ceiling": false
         },
         {
           "player": "Joe Burrow",
@@ -1104,7 +1207,8 @@
             "richards": 11.0,
             "boone": 13.0,
             "fantasypros": 12.8
-          }
+          },
+          "richards_ceiling": false
         },
         {
           "player": "Rico Dowdle",
@@ -1114,7 +1218,8 @@
             "richards": 4.0,
             "boone": 12.0,
             "fantasypros": 16.6
-          }
+          },
+          "richards_ceiling": true
         },
         {
           "player": "Courtland Sutton",
@@ -1124,7 +1229,8 @@
             "richards": 7.0,
             "boone": 10.0,
             "fantasypros": 18.9
-          }
+          },
+          "richards_ceiling": false
         },
         {
           "player": "Dallas Goedert",
@@ -1134,7 +1240,8 @@
             "richards": 8.0,
             "boone": 6.0,
             "fantasypros": 8.0
-          }
+          },
+          "richards_ceiling": false
         },
         {
           "player": "Antonio Williams",
@@ -1144,7 +1251,8 @@
             "richards": 4.0,
             "boone": 6.0,
             "fantasypros": 3.7
-          }
+          },
+          "richards_ceiling": true
         },
         {
           "player": "Ka'imi Fairbairn",
@@ -1154,7 +1262,8 @@
             "richards": null,
             "boone": null,
             "fantasypros": null
-          }
+          },
+          "richards_ceiling": false
         },
         {
           "player": "Bengals",
@@ -1164,7 +1273,8 @@
             "richards": null,
             "boone": null,
             "fantasypros": null
-          }
+          },
+          "richards_ceiling": false
         }
       ]
     },
@@ -1180,7 +1290,8 @@
             "richards": 30.5,
             "boone": 63.0,
             "fantasypros": 45.9
-          }
+          },
+          "richards_ceiling": false
         },
         {
           "player": "Trey McBride",
@@ -1190,7 +1301,8 @@
             "richards": 29.0,
             "boone": 44.0,
             "fantasypros": 26.2
-          }
+          },
+          "richards_ceiling": false
         },
         {
           "player": "Jeremiyah Love",
@@ -1200,7 +1312,8 @@
             "richards": 16.5,
             "boone": 37.0,
             "fantasypros": 36.6
-          }
+          },
+          "richards_ceiling": false
         },
         {
           "player": "A.J. Brown",
@@ -1210,7 +1323,8 @@
             "richards": 14.0,
             "boone": 22.0,
             "fantasypros": 29.5
-          }
+          },
+          "richards_ceiling": false
         },
         {
           "player": "Brock Purdy",
@@ -1220,7 +1334,8 @@
             "richards": 11.0,
             "boone": 18.0,
             "fantasypros": 10.0
-          }
+          },
+          "richards_ceiling": false
         },
         {
           "player": "J.K. Dobbins",
@@ -1230,7 +1345,8 @@
             "richards": 6.0,
             "boone": 15.0,
             "fantasypros": 16.1
-          }
+          },
+          "richards_ceiling": false
         },
         {
           "player": "Deebo Samuel",
@@ -1240,7 +1356,8 @@
             "richards": 5.5,
             "boone": 13.0,
             "fantasypros": 17.6
-          }
+          },
+          "richards_ceiling": false
         },
         {
           "player": "Jordan Addison",
@@ -1250,7 +1367,8 @@
             "richards": 6.5,
             "boone": 9.0,
             "fantasypros": 15.2
-          }
+          },
+          "richards_ceiling": false
         },
         {
           "player": "Wan'Dale Robinson",
@@ -1260,7 +1378,8 @@
             "richards": 4.0,
             "boone": 7.0,
             "fantasypros": 14.7
-          }
+          },
+          "richards_ceiling": true
         },
         {
           "player": "Seahawks",
@@ -1270,7 +1389,8 @@
             "richards": null,
             "boone": null,
             "fantasypros": null
-          }
+          },
+          "richards_ceiling": false
         },
         {
           "player": "Eddy Pineiro",
@@ -1280,7 +1400,8 @@
             "richards": null,
             "boone": null,
             "fantasypros": null
-          }
+          },
+          "richards_ceiling": false
         }
       ]
     },
@@ -1296,7 +1417,8 @@
             "richards": 41.5,
             "boone": 67.0,
             "fantasypros": 54.0
-          }
+          },
+          "richards_ceiling": false
         },
         {
           "player": "Tee Higgins",
@@ -1306,7 +1428,8 @@
             "richards": 16.0,
             "boone": 41.0,
             "fantasypros": 31.4
-          }
+          },
+          "richards_ceiling": false
         },
         {
           "player": "Tetairoa McMillan",
@@ -1316,7 +1439,8 @@
             "richards": 16.5,
             "boone": 34.0,
             "fantasypros": 29.9
-          }
+          },
+          "richards_ceiling": false
         },
         {
           "player": "Bhayshul Tuten",
@@ -1326,7 +1450,8 @@
             "richards": 12.0,
             "boone": 33.0,
             "fantasypros": 34.7
-          }
+          },
+          "richards_ceiling": false
         },
         {
           "player": "Cam Skattebo",
@@ -1336,7 +1461,8 @@
             "richards": 16.5,
             "boone": 32.0,
             "fantasypros": 33.1
-          }
+          },
+          "richards_ceiling": false
         },
         {
           "player": "Matthew Golden",
@@ -1346,7 +1472,8 @@
             "richards": 9.0,
             "boone": 21.0,
             "fantasypros": 22.7
-          }
+          },
+          "richards_ceiling": false
         },
         {
           "player": "Josh Downs",
@@ -1356,7 +1483,8 @@
             "richards": 6.0,
             "boone": 20.0,
             "fantasypros": 16.4
-          }
+          },
+          "richards_ceiling": false
         },
         {
           "player": "Trevor Lawrence",
@@ -1366,7 +1494,8 @@
             "richards": 8.0,
             "boone": 17.0,
             "fantasypros": 19.0
-          }
+          },
+          "richards_ceiling": false
         },
         {
           "player": "Carnell Tate",
@@ -1376,7 +1505,8 @@
             "richards": 6.0,
             "boone": 12.0,
             "fantasypros": 19.8
-          }
+          },
+          "richards_ceiling": false
         },
         {
           "player": "Broncos",
@@ -1386,7 +1516,8 @@
             "richards": null,
             "boone": null,
             "fantasypros": null
-          }
+          },
+          "richards_ceiling": false
         },
         {
           "player": "Chase McLaughlin",
@@ -1396,7 +1527,8 @@
             "richards": null,
             "boone": null,
             "fantasypros": null
-          }
+          },
+          "richards_ceiling": false
         }
       ]
     },
@@ -1412,7 +1544,8 @@
             "richards": 41.5,
             "boone": 74.0,
             "fantasypros": 60.9
-          }
+          },
+          "richards_ceiling": false
         },
         {
           "player": "Chris Olave",
@@ -1422,7 +1555,8 @@
             "richards": 28.0,
             "boone": 62.0,
             "fantasypros": 40.4
-          }
+          },
+          "richards_ceiling": false
         },
         {
           "player": "Bucky Irving",
@@ -1432,7 +1566,8 @@
             "richards": 20.0,
             "boone": 39.0,
             "fantasypros": 38.6
-          }
+          },
+          "richards_ceiling": false
         },
         {
           "player": "DJ Moore",
@@ -1442,7 +1577,8 @@
             "richards": 17.5,
             "boone": 33.0,
             "fantasypros": 25.7
-          }
+          },
+          "richards_ceiling": false
         },
         {
           "player": "Sam LaPorta",
@@ -1452,7 +1588,8 @@
             "richards": 9.5,
             "boone": 21.0,
             "fantasypros": 13.0
-          }
+          },
+          "richards_ceiling": false
         },
         {
           "player": "Jalen Hurts",
@@ -1462,7 +1599,8 @@
             "richards": 10.0,
             "boone": 20.0,
             "fantasypros": 24.7
-          }
+          },
+          "richards_ceiling": false
         },
         {
           "player": "Isaiah Likely",
@@ -1472,7 +1610,8 @@
             "richards": 9.5,
             "boone": 13.0,
             "fantasypros": 12.0
-          }
+          },
+          "richards_ceiling": false
         },
         {
           "player": "Romeo Doubs",
@@ -1482,7 +1621,8 @@
             "richards": 4.0,
             "boone": 10.0,
             "fantasypros": 15.6
-          }
+          },
+          "richards_ceiling": true
         },
         {
           "player": "Matthew Stafford",
@@ -1492,7 +1632,8 @@
             "richards": 5.0,
             "boone": 9.0,
             "fantasypros": 1.0
-          }
+          },
+          "richards_ceiling": false
         },
         {
           "player": "Jake Bates",
@@ -1502,7 +1643,8 @@
             "richards": null,
             "boone": null,
             "fantasypros": null
-          }
+          },
+          "richards_ceiling": false
         },
         {
           "player": "Lions",
@@ -1512,7 +1654,8 @@
             "richards": null,
             "boone": null,
             "fantasypros": null
-          }
+          },
+          "richards_ceiling": false
         }
       ]
     },
@@ -1528,7 +1671,8 @@
             "richards": 37.5,
             "boone": 62.0,
             "fantasypros": 41.3
-          }
+          },
+          "richards_ceiling": false
         },
         {
           "player": "Nico Collins",
@@ -1538,7 +1682,8 @@
             "richards": 27.0,
             "boone": 50.0,
             "fantasypros": 38.3
-          }
+          },
+          "richards_ceiling": false
         },
         {
           "player": "Garrett Wilson",
@@ -1548,7 +1693,8 @@
             "richards": 18.5,
             "boone": 42.0,
             "fantasypros": 29.2
-          }
+          },
+          "richards_ceiling": false
         },
         {
           "player": "David Montgomery",
@@ -1558,7 +1704,8 @@
             "richards": 12.5,
             "boone": 36.0,
             "fantasypros": 33.1
-          }
+          },
+          "richards_ceiling": false
         },
         {
           "player": "Rhamondre Stevenson",
@@ -1568,7 +1715,8 @@
             "richards": 9.0,
             "boone": 22.0,
             "fantasypros": 24.9
-          }
+          },
+          "richards_ceiling": false
         },
         {
           "player": "Stefon Diggs",
@@ -1578,7 +1726,8 @@
             "richards": 8.0,
             "boone": 22.0,
             "fantasypros": 19.6
-          }
+          },
+          "richards_ceiling": false
         },
         {
           "player": "Blake Corum",
@@ -1588,7 +1737,8 @@
             "richards": 7.0,
             "boone": 18.0,
             "fantasypros": 24.2
-          }
+          },
+          "richards_ceiling": false
         },
         {
           "player": "Josh Jacobs",
@@ -1598,7 +1748,8 @@
             "richards": 7.0,
             "boone": 14.0,
             "fantasypros": 16.9
-          }
+          },
+          "richards_ceiling": false
         },
         {
           "player": "Drake Maye",
@@ -1608,7 +1759,8 @@
             "richards": 5.0,
             "boone": 11.0,
             "fantasypros": 24.5
-          }
+          },
+          "richards_ceiling": false
         },
         {
           "player": "Cam Little",
@@ -1618,7 +1770,8 @@
             "richards": null,
             "boone": null,
             "fantasypros": null
-          }
+          },
+          "richards_ceiling": false
         },
         {
           "player": "Chiefs",
@@ -1628,7 +1781,8 @@
             "richards": null,
             "boone": null,
             "fantasypros": null
-          }
+          },
+          "richards_ceiling": false
         }
       ]
     }
