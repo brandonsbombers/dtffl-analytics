@@ -1,0 +1,1636 @@
+{
+  "generated": "2026-09-23",
+  "season": 2026,
+  "sources": [
+    "Yahoo",
+    "Richards",
+    "Boone",
+    "FantasyPros"
+  ],
+  "teams": [
+    {
+      "team_name": "Bold's Ladies of the Evening",
+      "owner": "M. Bold",
+      "roster": [
+        {
+          "player": "Jahmyr Gibbs",
+          "pos": "RB",
+          "values": {
+            "yahoo": 72.0,
+            "richards": 47.0,
+            "boone": 92.0,
+            "fantasypros": 75.1
+          }
+        },
+        {
+          "player": "James Cook",
+          "pos": "RB",
+          "values": {
+            "yahoo": 53.0,
+            "richards": 36.5,
+            "boone": 63.0,
+            "fantasypros": 59.3
+          }
+        },
+        {
+          "player": "Davante Adams",
+          "pos": "WR",
+          "values": {
+            "yahoo": 30.0,
+            "richards": 15.0,
+            "boone": 37.0,
+            "fantasypros": 26.2
+          }
+        },
+        {
+          "player": "Lamar Jackson",
+          "pos": "QB",
+          "values": {
+            "yahoo": 34.0,
+            "richards": 16.0,
+            "boone": 26.0,
+            "fantasypros": 28.6
+          }
+        },
+        {
+          "player": "Terry McLaurin",
+          "pos": "WR",
+          "values": {
+            "yahoo": 21.0,
+            "richards": 9.0,
+            "boone": 21.0,
+            "fantasypros": 25.2
+          }
+        },
+        {
+          "player": "Travis Kelce",
+          "pos": "TE",
+          "values": {
+            "yahoo": 23.0,
+            "richards": 8.0,
+            "boone": 15.0,
+            "fantasypros": 11.2
+          }
+        },
+        {
+          "player": "Kyle Pitts",
+          "pos": "TE",
+          "values": {
+            "yahoo": 14.0,
+            "richards": 7.5,
+            "boone": 8.0,
+            "fantasypros": 8.3
+          }
+        },
+        {
+          "player": "Makai Lemon",
+          "pos": "WR",
+          "values": {
+            "yahoo": 7.0,
+            "richards": 4.0,
+            "boone": 8.0,
+            "fantasypros": 16.7
+          }
+        },
+        {
+          "player": "Mike Washington Jr.",
+          "pos": "RB",
+          "values": {
+            "yahoo": 3.0,
+            "richards": 4.0,
+            "boone": 8.0,
+            "fantasypros": 2.0
+          }
+        },
+        {
+          "player": "Brandon Aubrey",
+          "pos": "K",
+          "values": {
+            "yahoo": null,
+            "richards": null,
+            "boone": null,
+            "fantasypros": null
+          }
+        },
+        {
+          "player": "Rams",
+          "pos": "DST",
+          "values": {
+            "yahoo": null,
+            "richards": null,
+            "boone": null,
+            "fantasypros": null
+          }
+        }
+      ]
+    },
+    {
+      "team_name": "Brandon's Bombers",
+      "owner": "B. Gill",
+      "roster": [
+        {
+          "player": "Christian McCaffrey",
+          "pos": "RB",
+          "values": {
+            "yahoo": 53.0,
+            "richards": 37.5,
+            "boone": 71.0,
+            "fantasypros": 50.5
+          }
+        },
+        {
+          "player": "Chase Brown",
+          "pos": "RB",
+          "values": {
+            "yahoo": 53.0,
+            "richards": 33.5,
+            "boone": 57.0,
+            "fantasypros": 46.8
+          }
+        },
+        {
+          "player": "Jaylen Waddle",
+          "pos": "WR",
+          "values": {
+            "yahoo": 38.0,
+            "richards": 16.5,
+            "boone": 36.0,
+            "fantasypros": 32.0
+          }
+        },
+        {
+          "player": "Josh Allen",
+          "pos": "QB",
+          "values": {
+            "yahoo": 46.0,
+            "richards": 23.0,
+            "boone": 32.0,
+            "fantasypros": 29.1
+          }
+        },
+        {
+          "player": "Rome Odunze",
+          "pos": "WR",
+          "values": {
+            "yahoo": 18.0,
+            "richards": 8.0,
+            "boone": 19.0,
+            "fantasypros": 22.9
+          }
+        },
+        {
+          "player": "George Kittle",
+          "pos": "TE",
+          "values": {
+            "yahoo": 25.0,
+            "richards": 9.0,
+            "boone": 19.0,
+            "fantasypros": 12.7
+          }
+        },
+        {
+          "player": "Michael Wilson",
+          "pos": "WR",
+          "values": {
+            "yahoo": 10.0,
+            "richards": 7.0,
+            "boone": 18.0,
+            "fantasypros": 13.6
+          }
+        },
+        {
+          "player": "Kaelon Black",
+          "pos": "RB",
+          "values": {
+            "yahoo": 11.0,
+            "richards": 5.0,
+            "boone": 12.0,
+            "fantasypros": 8.0
+          }
+        },
+        {
+          "player": "Dalton Schultz",
+          "pos": "TE",
+          "values": {
+            "yahoo": 8.0,
+            "richards": 4.0,
+            "boone": 7.0,
+            "fantasypros": 5.9
+          }
+        },
+        {
+          "player": "Tyler Loop",
+          "pos": "K",
+          "values": {
+            "yahoo": null,
+            "richards": null,
+            "boone": null,
+            "fantasypros": null
+          }
+        },
+        {
+          "player": "Packers",
+          "pos": "DST",
+          "values": {
+            "yahoo": null,
+            "richards": null,
+            "boone": null,
+            "fantasypros": null
+          }
+        }
+      ]
+    },
+    {
+      "team_name": "Concepts of a Draft Strategy",
+      "owner": "E. Filson",
+      "roster": [
+        {
+          "player": "Jonathan Taylor",
+          "pos": "RB",
+          "values": {
+            "yahoo": 69.0,
+            "richards": 40.5,
+            "boone": 73.0,
+            "fantasypros": 52.3
+          }
+        },
+        {
+          "player": "Drake London",
+          "pos": "WR",
+          "values": {
+            "yahoo": 45.0,
+            "richards": 22.0,
+            "boone": 46.0,
+            "fantasypros": 36.1
+          }
+        },
+        {
+          "player": "Emeka Egbuka",
+          "pos": "WR",
+          "values": {
+            "yahoo": 31.0,
+            "richards": 15.5,
+            "boone": 30.0,
+            "fantasypros": 31.0
+          }
+        },
+        {
+          "player": "TreVeyon Henderson",
+          "pos": "RB",
+          "values": {
+            "yahoo": 28.0,
+            "richards": 8.5,
+            "boone": 24.0,
+            "fantasypros": 28.2
+          }
+        },
+        {
+          "player": "DK Metcalf",
+          "pos": "WR",
+          "values": {
+            "yahoo": 19.0,
+            "richards": 6.0,
+            "boone": 20.0,
+            "fantasypros": 22.8
+          }
+        },
+        {
+          "player": "Brian Thomas Jr.",
+          "pos": "WR",
+          "values": {
+            "yahoo": 18.0,
+            "richards": 6.5,
+            "boone": 13.0,
+            "fantasypros": 15.8
+          }
+        },
+        {
+          "player": "Jakobi Meyers",
+          "pos": "WR",
+          "values": {
+            "yahoo": 7.0,
+            "richards": 4.0,
+            "boone": 10.0,
+            "fantasypros": 14.6
+          }
+        },
+        {
+          "player": "Braelon Allen",
+          "pos": "RB",
+          "values": {
+            "yahoo": 4.0,
+            "richards": 4.0,
+            "boone": 8.0,
+            "fantasypros": null
+          }
+        },
+        {
+          "player": "Bryce Young",
+          "pos": "QB",
+          "values": {
+            "yahoo": 8.0,
+            "richards": 5.0,
+            "boone": 4.0,
+            "fantasypros": 1.0
+          }
+        },
+        {
+          "player": "Chargers",
+          "pos": "DST",
+          "values": {
+            "yahoo": null,
+            "richards": null,
+            "boone": null,
+            "fantasypros": null
+          }
+        },
+        {
+          "player": "Chris Boswell",
+          "pos": "K",
+          "values": {
+            "yahoo": null,
+            "richards": null,
+            "boone": null,
+            "fantasypros": null
+          }
+        }
+      ]
+    },
+    {
+      "team_name": "Curry O'jus",
+      "owner": "O. Naik",
+      "roster": [
+        {
+          "player": "Justin Jefferson",
+          "pos": "WR",
+          "values": {
+            "yahoo": 52.0,
+            "richards": 37.5,
+            "boone": 62.0,
+            "fantasypros": 40.5
+          }
+        },
+        {
+          "player": "Omarion Hampton",
+          "pos": "RB",
+          "values": {
+            "yahoo": 46.0,
+            "richards": 24.0,
+            "boone": 56.0,
+            "fantasypros": 41.6
+          }
+        },
+        {
+          "player": "Christian Watson",
+          "pos": "WR",
+          "values": {
+            "yahoo": 40.0,
+            "richards": 16.5,
+            "boone": 51.0,
+            "fantasypros": 31.5
+          }
+        },
+        {
+          "player": "Travis Etienne",
+          "pos": "RB",
+          "values": {
+            "yahoo": 28.0,
+            "richards": 13.5,
+            "boone": 22.0,
+            "fantasypros": 31.7
+          }
+        },
+        {
+          "player": "Chris Godwin",
+          "pos": "WR",
+          "values": {
+            "yahoo": 18.0,
+            "richards": 5.5,
+            "boone": 14.0,
+            "fantasypros": 17.2
+          }
+        },
+        {
+          "player": "Patrick Mahomes",
+          "pos": "QB",
+          "values": {
+            "yahoo": 29.0,
+            "richards": 8.0,
+            "boone": 13.0,
+            "fantasypros": 9.2
+          }
+        },
+        {
+          "player": "Tony Pollard",
+          "pos": "RB",
+          "values": {
+            "yahoo": 11.0,
+            "richards": 6.0,
+            "boone": 13.0,
+            "fantasypros": 15.9
+          }
+        },
+        {
+          "player": "Adonai Mitchell",
+          "pos": "WR",
+          "values": {
+            "yahoo": 6.0,
+            "richards": 4.0,
+            "boone": 10.0,
+            "fantasypros": 11.9
+          }
+        },
+        {
+          "player": "Jared Goff",
+          "pos": "QB",
+          "values": {
+            "yahoo": 18.0,
+            "richards": 5.0,
+            "boone": 7.0,
+            "fantasypros": 7.6
+          }
+        },
+        {
+          "player": "Texans",
+          "pos": "DST",
+          "values": {
+            "yahoo": null,
+            "richards": null,
+            "boone": null,
+            "fantasypros": null
+          }
+        },
+        {
+          "player": "Evan McPherson",
+          "pos": "K",
+          "values": {
+            "yahoo": null,
+            "richards": null,
+            "boone": null,
+            "fantasypros": null
+          }
+        }
+      ]
+    },
+    {
+      "team_name": "Dunlavy's Destroyers",
+      "owner": "S. Dunlavy",
+      "roster": [
+        {
+          "player": "Bijan Robinson",
+          "pos": "RB",
+          "values": {
+            "yahoo": 63.0,
+            "richards": 43.0,
+            "boone": 82.0,
+            "fantasypros": 67.5
+          }
+        },
+        {
+          "player": "Breece Hall",
+          "pos": "RB",
+          "values": {
+            "yahoo": 40.0,
+            "richards": 24.0,
+            "boone": 46.0,
+            "fantasypros": 37.6
+          }
+        },
+        {
+          "player": "Brock Bowers",
+          "pos": "TE",
+          "values": {
+            "yahoo": 47.0,
+            "richards": 27.5,
+            "boone": 39.0,
+            "fantasypros": 28.0
+          }
+        },
+        {
+          "player": "Malik Nabers",
+          "pos": "WR",
+          "values": {
+            "yahoo": 35.0,
+            "richards": 19.5,
+            "boone": 35.0,
+            "fantasypros": 36.6
+          }
+        },
+        {
+          "player": "Tyler Warren",
+          "pos": "TE",
+          "values": {
+            "yahoo": 26.0,
+            "richards": 14.0,
+            "boone": 22.0,
+            "fantasypros": 15.2
+          }
+        },
+        {
+          "player": "Denzel Boston",
+          "pos": "WR",
+          "values": {
+            "yahoo": 23.0,
+            "richards": 6.5,
+            "boone": 15.0,
+            "fantasypros": 15.8
+          }
+        },
+        {
+          "player": "Dak Prescott",
+          "pos": "QB",
+          "values": {
+            "yahoo": 24.0,
+            "richards": 11.0,
+            "boone": 12.0,
+            "fantasypros": 8.0
+          }
+        },
+        {
+          "player": "Jordan Mason",
+          "pos": "RB",
+          "values": {
+            "yahoo": 8.0,
+            "richards": 6.0,
+            "boone": 10.0,
+            "fantasypros": 11.7
+          }
+        },
+        {
+          "player": "Devaughn Vele",
+          "pos": "WR",
+          "values": {
+            "yahoo": 8.0,
+            "richards": 6.0,
+            "boone": 10.0,
+            "fantasypros": 7.2
+          }
+        },
+        {
+          "player": "Patriots",
+          "pos": "DST",
+          "values": {
+            "yahoo": null,
+            "richards": null,
+            "boone": null,
+            "fantasypros": null
+          }
+        },
+        {
+          "player": "Spencer Shrader",
+          "pos": "K",
+          "values": {
+            "yahoo": null,
+            "richards": null,
+            "boone": null,
+            "fantasypros": null
+          }
+        }
+      ]
+    },
+    {
+      "team_name": "Fooseball is the Devil",
+      "owner": "Sundeep",
+      "roster": [
+        {
+          "player": "Amon-Ra St. Brown",
+          "pos": "WR",
+          "values": {
+            "yahoo": 68.0,
+            "richards": 42.0,
+            "boone": 72.0,
+            "fantasypros": 51.3
+          }
+        },
+        {
+          "player": "Zay Flowers",
+          "pos": "WR",
+          "values": {
+            "yahoo": 40.0,
+            "richards": 24.5,
+            "boone": 49.0,
+            "fantasypros": 37.2
+          }
+        },
+        {
+          "player": "Kyren Williams",
+          "pos": "RB",
+          "values": {
+            "yahoo": 44.0,
+            "richards": 20.0,
+            "boone": 39.0,
+            "fantasypros": 39.6
+          }
+        },
+        {
+          "player": "Ladd McConkey",
+          "pos": "WR",
+          "values": {
+            "yahoo": 34.0,
+            "richards": 21.0,
+            "boone": 35.0,
+            "fantasypros": 27.2
+          }
+        },
+        {
+          "player": "Jaylen Warren",
+          "pos": "RB",
+          "values": {
+            "yahoo": 19.0,
+            "richards": 10.0,
+            "boone": 28.0,
+            "fantasypros": 25.5
+          }
+        },
+        {
+          "player": "Aaron Jones",
+          "pos": "RB",
+          "values": {
+            "yahoo": 18.0,
+            "richards": 9.0,
+            "boone": 22.0,
+            "fantasypros": 17.6
+          }
+        },
+        {
+          "player": "Dontayvion Wicks",
+          "pos": "WR",
+          "values": {
+            "yahoo": 14.0,
+            "richards": 4.0,
+            "boone": 9.0,
+            "fantasypros": 12.9
+          }
+        },
+        {
+          "player": "Rashod Bateman",
+          "pos": "WR",
+          "values": {
+            "yahoo": 3.0,
+            "richards": 4.0,
+            "boone": 7.0,
+            "fantasypros": 8.0
+          }
+        },
+        {
+          "player": "Eagles",
+          "pos": "DST",
+          "values": {
+            "yahoo": null,
+            "richards": null,
+            "boone": null,
+            "fantasypros": null
+          }
+        },
+        {
+          "player": "Jason Myers",
+          "pos": "K",
+          "values": {
+            "yahoo": null,
+            "richards": null,
+            "boone": null,
+            "fantasypros": null
+          }
+        },
+        {
+          "player": "C.J. Stroud",
+          "pos": "QB",
+          "values": {
+            "yahoo": 7.0,
+            "richards": 4.0,
+            "boone": 0.0,
+            "fantasypros": 1.0
+          }
+        }
+      ]
+    },
+    {
+      "team_name": "Gus's Mad Mongooses",
+      "owner": "L. Gill",
+      "roster": [
+        {
+          "player": "Saquon Barkley",
+          "pos": "RB",
+          "values": {
+            "yahoo": 43.0,
+            "richards": 25.5,
+            "boone": 53.0,
+            "fantasypros": 43.7
+          }
+        },
+        {
+          "player": "DeVonta Smith",
+          "pos": "WR",
+          "values": {
+            "yahoo": 46.0,
+            "richards": 24.0,
+            "boone": 53.0,
+            "fantasypros": 33.8
+          }
+        },
+        {
+          "player": "Parker Washington",
+          "pos": "WR",
+          "values": {
+            "yahoo": 40.0,
+            "richards": 16.5,
+            "boone": 44.0,
+            "fantasypros": 33.5
+          }
+        },
+        {
+          "player": "George Pickens",
+          "pos": "WR",
+          "values": {
+            "yahoo": 36.0,
+            "richards": 24.0,
+            "boone": 40.0,
+            "fantasypros": 39.1
+          }
+        },
+        {
+          "player": "Dalton Kincaid",
+          "pos": "TE",
+          "values": {
+            "yahoo": 36.0,
+            "richards": 15.0,
+            "boone": 31.0,
+            "fantasypros": 19.4
+          }
+        },
+        {
+          "player": "Kyle Monangai",
+          "pos": "RB",
+          "values": {
+            "yahoo": 19.0,
+            "richards": 5.0,
+            "boone": 14.0,
+            "fantasypros": 19.1
+          }
+        },
+        {
+          "player": "Jonah Coleman",
+          "pos": "RB",
+          "values": {
+            "yahoo": 5.0,
+            "richards": 4.0,
+            "boone": 12.0,
+            "fantasypros": 15.3
+          }
+        },
+        {
+          "player": "Jordan Love",
+          "pos": "QB",
+          "values": {
+            "yahoo": 15.0,
+            "richards": 4.0,
+            "boone": 4.0,
+            "fantasypros": 1.0
+          }
+        },
+        {
+          "player": "Tyler Shough",
+          "pos": "QB",
+          "values": {
+            "yahoo": 14.0,
+            "richards": 6.0,
+            "boone": 4.0,
+            "fantasypros": 1.0
+          }
+        },
+        {
+          "player": "Tyler Bass",
+          "pos": "K",
+          "values": {
+            "yahoo": null,
+            "richards": null,
+            "boone": null,
+            "fantasypros": null
+          }
+        },
+        {
+          "player": "Bills",
+          "pos": "DST",
+          "values": {
+            "yahoo": null,
+            "richards": null,
+            "boone": null,
+            "fantasypros": null
+          }
+        }
+      ]
+    },
+    {
+      "team_name": "Happ's Fighting Sea Toads",
+      "owner": "J. Happ",
+      "roster": [
+        {
+          "player": "Jaxon Smith-Njigba",
+          "pos": "WR",
+          "values": {
+            "yahoo": 68.0,
+            "richards": 43.0,
+            "boone": 78.0,
+            "fantasypros": 55.4
+          }
+        },
+        {
+          "player": "Derrick Henry",
+          "pos": "RB",
+          "values": {
+            "yahoo": 53.0,
+            "richards": 35.0,
+            "boone": 67.0,
+            "fantasypros": 48.9
+          }
+        },
+        {
+          "player": "Chuba Hubbard",
+          "pos": "RB",
+          "values": {
+            "yahoo": 33.0,
+            "richards": 15.0,
+            "boone": 36.0,
+            "fantasypros": 23.3
+          }
+        },
+        {
+          "player": "Quinshon Judkins",
+          "pos": "RB",
+          "values": {
+            "yahoo": 23.0,
+            "richards": 11.5,
+            "boone": 23.0,
+            "fantasypros": 25.8
+          }
+        },
+        {
+          "player": "Caleb Williams",
+          "pos": "QB",
+          "values": {
+            "yahoo": 23.0,
+            "richards": 9.0,
+            "boone": 13.0,
+            "fantasypros": 12.0
+          }
+        },
+        {
+          "player": "Xavier Worthy",
+          "pos": "WR",
+          "values": {
+            "yahoo": 8.0,
+            "richards": 4.0,
+            "boone": 10.0,
+            "fantasypros": 14.4
+          }
+        },
+        {
+          "player": "MarShawn Lloyd",
+          "pos": "RB",
+          "values": {
+            "yahoo": 11.0,
+            "richards": 6.0,
+            "boone": 8.0,
+            "fantasypros": 18.9
+          }
+        },
+        {
+          "player": "Harold Fannin Jr.",
+          "pos": "TE",
+          "values": {
+            "yahoo": 17.0,
+            "richards": 6.5,
+            "boone": 8.0,
+            "fantasypros": 11.3
+          }
+        },
+        {
+          "player": "Bo Nix",
+          "pos": "QB",
+          "values": {
+            "yahoo": 12.0,
+            "richards": 4.0,
+            "boone": 3.0,
+            "fantasypros": 1.0
+          }
+        },
+        {
+          "player": "Harrison Butker",
+          "pos": "K",
+          "values": {
+            "yahoo": null,
+            "richards": null,
+            "boone": null,
+            "fantasypros": null
+          }
+        },
+        {
+          "player": "Panthers",
+          "pos": "DST",
+          "values": {
+            "yahoo": null,
+            "richards": null,
+            "boone": null,
+            "fantasypros": null
+          }
+        }
+      ]
+    },
+    {
+      "team_name": "Joseph Water Buffaloes",
+      "owner": "M. Joseph",
+      "roster": [
+        {
+          "player": "Ja'Marr Chase",
+          "pos": "WR",
+          "values": {
+            "yahoo": 68.0,
+            "richards": 42.5,
+            "boone": 77.0,
+            "fantasypros": 57.1
+          }
+        },
+        {
+          "player": "D'Andre Swift",
+          "pos": "RB",
+          "values": {
+            "yahoo": 39.0,
+            "richards": 22.5,
+            "boone": 55.0,
+            "fantasypros": 40.3
+          }
+        },
+        {
+          "player": "Javonte Williams",
+          "pos": "RB",
+          "values": {
+            "yahoo": 42.0,
+            "richards": 24.0,
+            "boone": 43.0,
+            "fantasypros": 40.8
+          }
+        },
+        {
+          "player": "Mike Evans",
+          "pos": "WR",
+          "values": {
+            "yahoo": 29.0,
+            "richards": 14.5,
+            "boone": 34.0,
+            "fantasypros": 25.8
+          }
+        },
+        {
+          "player": "Jalen Coker",
+          "pos": "WR",
+          "values": {
+            "yahoo": 26.0,
+            "richards": 9.0,
+            "boone": 30.0,
+            "fantasypros": 22.7
+          }
+        },
+        {
+          "player": "Luther Burden III",
+          "pos": "WR",
+          "values": {
+            "yahoo": 22.0,
+            "richards": 8.0,
+            "boone": 28.0,
+            "fantasypros": 24.2
+          }
+        },
+        {
+          "player": "Jacory Croskey-Merritt",
+          "pos": "RB",
+          "values": {
+            "yahoo": 18.0,
+            "richards": 6.0,
+            "boone": 18.0,
+            "fantasypros": 23.0
+          }
+        },
+        {
+          "player": "Jayden Daniels",
+          "pos": "QB",
+          "values": {
+            "yahoo": 14.0,
+            "richards": 4.0,
+            "boone": 2.0,
+            "fantasypros": 1.0
+          }
+        },
+        {
+          "player": "Cairo Santos",
+          "pos": "K",
+          "values": {
+            "yahoo": null,
+            "richards": null,
+            "boone": null,
+            "fantasypros": null
+          }
+        },
+        {
+          "player": "Vikings",
+          "pos": "DST",
+          "values": {
+            "yahoo": null,
+            "richards": null,
+            "boone": null,
+            "fantasypros": null
+          }
+        },
+        {
+          "player": "Daniel Jones",
+          "pos": "QB",
+          "values": {
+            "yahoo": 7.0,
+            "richards": 4.0,
+            "boone": 0.0,
+            "fantasypros": 1.0
+          }
+        }
+      ]
+    },
+    {
+      "team_name": "Michael Bolton Soul Providers",
+      "owner": "L. Ross",
+      "roster": [
+        {
+          "player": "De'Von Achane",
+          "pos": "RB",
+          "values": {
+            "yahoo": 39.0,
+            "richards": 26.0,
+            "boone": 43.0,
+            "fantasypros": 42.4
+          }
+        },
+        {
+          "player": "Rashee Rice",
+          "pos": "WR",
+          "values": {
+            "yahoo": 29.0,
+            "richards": 13.5,
+            "boone": 30.0,
+            "fantasypros": 23.3
+          }
+        },
+        {
+          "player": "Jameson Williams",
+          "pos": "WR",
+          "values": {
+            "yahoo": 23.0,
+            "richards": 11.0,
+            "boone": 26.0,
+            "fantasypros": 25.9
+          }
+        },
+        {
+          "player": "Tucker Kraft",
+          "pos": "TE",
+          "values": {
+            "yahoo": 25.0,
+            "richards": 8.5,
+            "boone": 18.0,
+            "fantasypros": 15.2
+          }
+        },
+        {
+          "player": "Joe Burrow",
+          "pos": "QB",
+          "values": {
+            "yahoo": 25.0,
+            "richards": 11.0,
+            "boone": 13.0,
+            "fantasypros": 12.8
+          }
+        },
+        {
+          "player": "Rico Dowdle",
+          "pos": "RB",
+          "values": {
+            "yahoo": 13.0,
+            "richards": 4.0,
+            "boone": 12.0,
+            "fantasypros": 16.6
+          }
+        },
+        {
+          "player": "Courtland Sutton",
+          "pos": "WR",
+          "values": {
+            "yahoo": 7.0,
+            "richards": 7.0,
+            "boone": 10.0,
+            "fantasypros": 18.9
+          }
+        },
+        {
+          "player": "Dallas Goedert",
+          "pos": "TE",
+          "values": {
+            "yahoo": 9.0,
+            "richards": 8.0,
+            "boone": 6.0,
+            "fantasypros": 8.0
+          }
+        },
+        {
+          "player": "Antonio Williams",
+          "pos": "WR",
+          "values": {
+            "yahoo": 3.0,
+            "richards": 4.0,
+            "boone": 6.0,
+            "fantasypros": 3.7
+          }
+        },
+        {
+          "player": "Ka'imi Fairbairn",
+          "pos": "K",
+          "values": {
+            "yahoo": null,
+            "richards": null,
+            "boone": null,
+            "fantasypros": null
+          }
+        },
+        {
+          "player": "Bengals",
+          "pos": "DST",
+          "values": {
+            "yahoo": null,
+            "richards": null,
+            "boone": null,
+            "fantasypros": null
+          }
+        }
+      ]
+    },
+    {
+      "team_name": "More Cowbell",
+      "owner": "A. Maki",
+      "roster": [
+        {
+          "player": "Ashton Jeanty",
+          "pos": "RB",
+          "values": {
+            "yahoo": 51.0,
+            "richards": 30.5,
+            "boone": 63.0,
+            "fantasypros": 45.9
+          }
+        },
+        {
+          "player": "Trey McBride",
+          "pos": "TE",
+          "values": {
+            "yahoo": 46.0,
+            "richards": 29.0,
+            "boone": 44.0,
+            "fantasypros": 26.2
+          }
+        },
+        {
+          "player": "Jeremiyah Love",
+          "pos": "RB",
+          "values": {
+            "yahoo": 35.0,
+            "richards": 16.5,
+            "boone": 37.0,
+            "fantasypros": 36.6
+          }
+        },
+        {
+          "player": "A.J. Brown",
+          "pos": "WR",
+          "values": {
+            "yahoo": 19.0,
+            "richards": 14.0,
+            "boone": 22.0,
+            "fantasypros": 29.5
+          }
+        },
+        {
+          "player": "Brock Purdy",
+          "pos": "QB",
+          "values": {
+            "yahoo": 25.0,
+            "richards": 11.0,
+            "boone": 18.0,
+            "fantasypros": 10.0
+          }
+        },
+        {
+          "player": "J.K. Dobbins",
+          "pos": "RB",
+          "values": {
+            "yahoo": 12.0,
+            "richards": 6.0,
+            "boone": 15.0,
+            "fantasypros": 16.1
+          }
+        },
+        {
+          "player": "Deebo Samuel",
+          "pos": "WR",
+          "values": {
+            "yahoo": 13.0,
+            "richards": 5.5,
+            "boone": 13.0,
+            "fantasypros": 17.6
+          }
+        },
+        {
+          "player": "Jordan Addison",
+          "pos": "WR",
+          "values": {
+            "yahoo": 8.0,
+            "richards": 6.5,
+            "boone": 9.0,
+            "fantasypros": 15.2
+          }
+        },
+        {
+          "player": "Wan'Dale Robinson",
+          "pos": "WR",
+          "values": {
+            "yahoo": 7.0,
+            "richards": 4.0,
+            "boone": 7.0,
+            "fantasypros": 14.7
+          }
+        },
+        {
+          "player": "Seahawks",
+          "pos": "DST",
+          "values": {
+            "yahoo": null,
+            "richards": null,
+            "boone": null,
+            "fantasypros": null
+          }
+        },
+        {
+          "player": "Eddy Pineiro",
+          "pos": "K",
+          "values": {
+            "yahoo": null,
+            "richards": null,
+            "boone": null,
+            "fantasypros": null
+          }
+        }
+      ]
+    },
+    {
+      "team_name": "Niko's Plane Freaks",
+      "owner": "N. Joseph",
+      "roster": [
+        {
+          "player": "Puka Nacua",
+          "pos": "WR",
+          "values": {
+            "yahoo": 65.0,
+            "richards": 41.5,
+            "boone": 67.0,
+            "fantasypros": 54.0
+          }
+        },
+        {
+          "player": "Tee Higgins",
+          "pos": "WR",
+          "values": {
+            "yahoo": 35.0,
+            "richards": 16.0,
+            "boone": 41.0,
+            "fantasypros": 31.4
+          }
+        },
+        {
+          "player": "Tetairoa McMillan",
+          "pos": "WR",
+          "values": {
+            "yahoo": 33.0,
+            "richards": 16.5,
+            "boone": 34.0,
+            "fantasypros": 29.9
+          }
+        },
+        {
+          "player": "Bhayshul Tuten",
+          "pos": "RB",
+          "values": {
+            "yahoo": 27.0,
+            "richards": 12.0,
+            "boone": 33.0,
+            "fantasypros": 34.7
+          }
+        },
+        {
+          "player": "Cam Skattebo",
+          "pos": "RB",
+          "values": {
+            "yahoo": 35.0,
+            "richards": 16.5,
+            "boone": 32.0,
+            "fantasypros": 33.1
+          }
+        },
+        {
+          "player": "Matthew Golden",
+          "pos": "WR",
+          "values": {
+            "yahoo": 26.0,
+            "richards": 9.0,
+            "boone": 21.0,
+            "fantasypros": 22.7
+          }
+        },
+        {
+          "player": "Josh Downs",
+          "pos": "WR",
+          "values": {
+            "yahoo": 23.0,
+            "richards": 6.0,
+            "boone": 20.0,
+            "fantasypros": 16.4
+          }
+        },
+        {
+          "player": "Trevor Lawrence",
+          "pos": "QB",
+          "values": {
+            "yahoo": 23.0,
+            "richards": 8.0,
+            "boone": 17.0,
+            "fantasypros": 19.0
+          }
+        },
+        {
+          "player": "Carnell Tate",
+          "pos": "WR",
+          "values": {
+            "yahoo": 20.0,
+            "richards": 6.0,
+            "boone": 12.0,
+            "fantasypros": 19.8
+          }
+        },
+        {
+          "player": "Broncos",
+          "pos": "DST",
+          "values": {
+            "yahoo": null,
+            "richards": null,
+            "boone": null,
+            "fantasypros": null
+          }
+        },
+        {
+          "player": "Chase McLaughlin",
+          "pos": "K",
+          "values": {
+            "yahoo": null,
+            "richards": null,
+            "boone": null,
+            "fantasypros": null
+          }
+        }
+      ]
+    },
+    {
+      "team_name": "Pioneer_Workman",
+      "owner": "M. Ireland",
+      "roster": [
+        {
+          "player": "Kenneth Walker III",
+          "pos": "RB",
+          "values": {
+            "yahoo": 62.0,
+            "richards": 41.5,
+            "boone": 74.0,
+            "fantasypros": 60.9
+          }
+        },
+        {
+          "player": "Chris Olave",
+          "pos": "WR",
+          "values": {
+            "yahoo": 52.0,
+            "richards": 28.0,
+            "boone": 62.0,
+            "fantasypros": 40.4
+          }
+        },
+        {
+          "player": "Bucky Irving",
+          "pos": "RB",
+          "values": {
+            "yahoo": 41.0,
+            "richards": 20.0,
+            "boone": 39.0,
+            "fantasypros": 38.6
+          }
+        },
+        {
+          "player": "DJ Moore",
+          "pos": "WR",
+          "values": {
+            "yahoo": 30.0,
+            "richards": 17.5,
+            "boone": 33.0,
+            "fantasypros": 25.7
+          }
+        },
+        {
+          "player": "Sam LaPorta",
+          "pos": "TE",
+          "values": {
+            "yahoo": 30.0,
+            "richards": 9.5,
+            "boone": 21.0,
+            "fantasypros": 13.0
+          }
+        },
+        {
+          "player": "Jalen Hurts",
+          "pos": "QB",
+          "values": {
+            "yahoo": 25.0,
+            "richards": 10.0,
+            "boone": 20.0,
+            "fantasypros": 24.7
+          }
+        },
+        {
+          "player": "Isaiah Likely",
+          "pos": "TE",
+          "values": {
+            "yahoo": 23.0,
+            "richards": 9.5,
+            "boone": 13.0,
+            "fantasypros": 12.0
+          }
+        },
+        {
+          "player": "Romeo Doubs",
+          "pos": "WR",
+          "values": {
+            "yahoo": 6.0,
+            "richards": 4.0,
+            "boone": 10.0,
+            "fantasypros": 15.6
+          }
+        },
+        {
+          "player": "Matthew Stafford",
+          "pos": "QB",
+          "values": {
+            "yahoo": 18.0,
+            "richards": 5.0,
+            "boone": 9.0,
+            "fantasypros": 1.0
+          }
+        },
+        {
+          "player": "Jake Bates",
+          "pos": "K",
+          "values": {
+            "yahoo": null,
+            "richards": null,
+            "boone": null,
+            "fantasypros": null
+          }
+        },
+        {
+          "player": "Lions",
+          "pos": "DST",
+          "values": {
+            "yahoo": null,
+            "richards": null,
+            "boone": null,
+            "fantasypros": null
+          }
+        }
+      ]
+    },
+    {
+      "team_name": "Smaby Nots",
+      "owner": "N. Smaby",
+      "roster": [
+        {
+          "player": "CeeDee Lamb",
+          "pos": "WR",
+          "values": {
+            "yahoo": 61.0,
+            "richards": 37.5,
+            "boone": 62.0,
+            "fantasypros": 41.3
+          }
+        },
+        {
+          "player": "Nico Collins",
+          "pos": "WR",
+          "values": {
+            "yahoo": 42.0,
+            "richards": 27.0,
+            "boone": 50.0,
+            "fantasypros": 38.3
+          }
+        },
+        {
+          "player": "Garrett Wilson",
+          "pos": "WR",
+          "values": {
+            "yahoo": 38.0,
+            "richards": 18.5,
+            "boone": 42.0,
+            "fantasypros": 29.2
+          }
+        },
+        {
+          "player": "David Montgomery",
+          "pos": "RB",
+          "values": {
+            "yahoo": 31.0,
+            "richards": 12.5,
+            "boone": 36.0,
+            "fantasypros": 33.1
+          }
+        },
+        {
+          "player": "Rhamondre Stevenson",
+          "pos": "RB",
+          "values": {
+            "yahoo": 18.0,
+            "richards": 9.0,
+            "boone": 22.0,
+            "fantasypros": 24.9
+          }
+        },
+        {
+          "player": "Stefon Diggs",
+          "pos": "WR",
+          "values": {
+            "yahoo": 23.0,
+            "richards": 8.0,
+            "boone": 22.0,
+            "fantasypros": 19.6
+          }
+        },
+        {
+          "player": "Blake Corum",
+          "pos": "RB",
+          "values": {
+            "yahoo": 19.0,
+            "richards": 7.0,
+            "boone": 18.0,
+            "fantasypros": 24.2
+          }
+        },
+        {
+          "player": "Josh Jacobs",
+          "pos": "RB",
+          "values": {
+            "yahoo": 26.0,
+            "richards": 7.0,
+            "boone": 14.0,
+            "fantasypros": 16.9
+          }
+        },
+        {
+          "player": "Drake Maye",
+          "pos": "QB",
+          "values": {
+            "yahoo": 18.0,
+            "richards": 5.0,
+            "boone": 11.0,
+            "fantasypros": 24.5
+          }
+        },
+        {
+          "player": "Cam Little",
+          "pos": "K",
+          "values": {
+            "yahoo": null,
+            "richards": null,
+            "boone": null,
+            "fantasypros": null
+          }
+        },
+        {
+          "player": "Chiefs",
+          "pos": "DST",
+          "values": {
+            "yahoo": null,
+            "richards": null,
+            "boone": null,
+            "fantasypros": null
+          }
+        }
+      ]
+    }
+  ]
+}
