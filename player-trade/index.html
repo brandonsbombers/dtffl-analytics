@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -505,6 +504,18 @@ function formatBenefit(pct, leftLabel, rightLabel) {
   if (rounded > 0) return { text: `${leftLabel} +${rounded}%`, cls: 'benefit-left' };
   return { text: `${rightLabel} +${Math.abs(rounded)}%`, cls: 'benefit-right' };
 }
+// combines the benefit text with the qualifying-match indicator into one clean
+// piece instead of "Even" next to a separate "MATCH" pill — an even trade that
+// qualifies just reads "🧩 Even Match"; a directional qualifying trade keeps its
+// usual MATCH pill since the % is the important part there, not the parity.
+function formatBenefitCell(pct, leftLabel, rightLabel, withinTol) {
+  const b = formatBenefit(pct, leftLabel, rightLabel);
+  if (withinTol && b.text === 'Even') {
+    return `<span class="benefit-even">🧩 Even Match</span>`;
+  }
+  const badge = withinTol ? '<span class="qual-badge">MATCH</span>' : '';
+  return `<span class="${b.cls}">${b.text}</span>${badge}`;
+}
 function sourceKeyFor(label) { return label.toLowerCase().replace(/[^a-z]/g, ''); }
 
 function findTrades() {
@@ -588,12 +599,11 @@ function renderPanel(tabKey, rows, targetLeftBenefit, tolerance, leftLabel, left
       if (rv !== null && rightDisplay === '—') rightDisplay = rv.toFixed(1);
     }
     const sourceCells = sourceKeys.map((sk, i) => {
-      const b = formatBenefit(r.perSource[sk], leftLabel, r.oppLabel);
       const withinTol = r.perSource[sk] !== null && Math.abs(r.perSource[sk] - targetLeftBenefit) <= tolerance;
       const usesCeiling = sk === 'richards' &&
         (leftGroup.some(p => p.richards_ceiling) || r.rightGroup.some(p => p.richards_ceiling));
       const ceilingMark = usesCeiling ? ' <span title="Richards did not rank at least one of these players — using his ≤4 ceiling, not a real rank" style="cursor:help;">†</span>' : '';
-      return `<td data-label="${SOURCES[i]}" class="${b.cls}">${b.text}${ceilingMark}${withinTol ? '<span class="qual-badge">MATCH</span>' : ''}</td>`;
+      return `<td data-label="${SOURCES[i]}">${formatBenefitCell(r.perSource[sk], leftLabel, r.oppLabel, withinTol)}${ceilingMark}</td>`;
     }).join('');
 
     return `<tr>
@@ -628,4 +638,3 @@ loadData();
 
 </body>
 </html>
-
