@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tiers Breakdown -- DTFFL Weekly</title>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+body{background:#0f172a;color:#e2e8f0;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;padding-bottom:40px;}
+.hdr{padding:18px 16px 12px;border-bottom:1px solid #1e293b;}
+.hdr h1{font-size:20px;font-weight:800;color:#f8fafc;}
+.hdr p{font-size:12px;color:#64748b;margin-top:4px;}
+.controls{display:flex;gap:10px;flex-wrap:wrap;padding:12px 16px;border-bottom:1px solid #1e293b;}
+select{background:#1e293b;color:#e2e8f0;border:1px solid #334155;border-radius:8px;padding:8px 10px;font-size:13px;}
+.tabs{display:flex;gap:6px;padding:10px 16px 0;flex-wrap:wrap;}
+.tab-btn{background:#1e293b;color:#94a3b8;border:1px solid #334155;border-radius:999px;padding:6px 14px;font-size:12px;font-weight:600;cursor:pointer;}
+.tab-btn.active{background:#4ade80;color:#0f172a;border-color:#4ade80;}
+table{width:100%;border-collapse:collapse;margin-top:12px;font-size:12px;}
+th{position:sticky;top:0;background:#1e293b;color:#94a3b8;text-align:left;padding:8px 10px;cursor:pointer;white-space:nowrap;border-bottom:1px solid #334155;}
+th:hover{color:#f8fafc;}
+td{padding:7px 10px;border-bottom:1px solid #1e293b;white-space:nowrap;}
+tr:hover td{background:#1e293b;}
+.bombers-row td{background:#26344a;}
+.bombers-row:hover td{background:#334155;}
+.wrap{overflow-x:auto;padding:0 8px;}
+.badge-yes{color:#4ade80;font-weight:700;}
+.badge-no{color:#64748b;}
+.badge-inj{color:#fb923c;font-weight:700;}
+.footer{padding:20px 16px 0;font-size:11px;color:#334155;text-align:center;}
+
+.tier-info{margin:12px 16px 4px;background:#1e293b;border:1px solid #334155;border-radius:10px;}
+.tier-info summary{padding:12px 14px;cursor:pointer;font-weight:700;color:#f1f5f9;font-size:13px;list-style:none;}
+.tier-info summary::-webkit-details-marker{display:none;}
+.tier-info-body{padding:0 14px 14px;font-size:12px;color:#94a3b8;line-height:1.65;}
+.tier-info-body ul{margin:6px 0 6px 18px;}
+.tier-summary-line{padding:10px 16px 0;font-size:12px;color:#94a3b8;display:flex;gap:16px;flex-wrap:wrap;}
+.tier-summary-line b{color:#e2e8f0;}
+.tier-row{display:flex;align-items:stretch;margin:10px 16px;border-radius:10px;overflow:hidden;border:1px solid #334155;}
+.tier-label{flex:0 0 60px;display:flex;align-items:center;justify-content:center;font-size:24px;font-weight:900;color:#0f172a;}
+.tier-players{flex:1;display:flex;flex-wrap:wrap;gap:6px;padding:10px;background:#1e293b;align-content:flex-start;}
+.tier-empty-msg{color:#475569;font-size:12px;padding:10px;font-style:italic;}
+.player-chip{background:#0f172a;border:1px solid #334155;border-radius:8px;padding:6px 9px;font-size:11px;min-width:140px;}
+.player-chip.bombers{border-color:#4ade80;}
+.player-chip .pname{font-weight:700;color:#f1f5f9;display:block;font-size:12px;}
+.player-chip .pmeta{color:#64748b;font-size:10px;margin-top:2px;display:block;}
+.injury-badge{display:inline-block;margin-left:5px;padding:1px 5px;border-radius:5px;font-size:9px;font-weight:800;color:#0f172a;}
+.injury-badge.q{background:#facc15;}
+.injury-badge.d{background:#fb923c;}
+.tier-more-btn{background:#0f172a;border:1px dashed #334155;border-radius:8px;padding:6px 9px;font-size:11px;color:#94a3b8;cursor:pointer;min-width:140px;}
+@media (max-width:640px){
+  .tier-row{flex-direction:column;margin:8px 10px;}
+  .tier-label{flex:0 0 auto;padding:6px;font-size:16px;}
+}
+</style></head><body>
+<div class="hdr">
+  <h1>Tiers Breakdown</h1>
+  <p>League-specific S-F tiers by season-to-date Toledo PPG -- not equal-sized buckets.</p>
+  <p id="genLabel" style="margin-top:6px;color:#334155;"></p>
+</div>
+<details class="tier-info">
+  <summary>How Tiers Work</summary>
+  <div class="tier-info-body">
+    <p><b>S</b> = true positional elites &nbsp;&middot;&nbsp; <b>A</b> = high-end, just below elite
+       &nbsp;&middot;&nbsp; <b>B</b> = strong weekly starter &nbsp;&middot;&nbsp;
+       <b>C</b> = ordinary/solid starter &nbsp;&middot;&nbsp; <b>D</b> = marginal starter /
+       useful depth &nbsp;&middot;&nbsp; <b>E</b> = bench-level but still rosterable
+       &nbsp;&middot;&nbsp; <b>F</b> = waiver/replacement-level.</p>
+    <ul>
+      <li>Tiers are built from <b>your</b> Toledo league scoring (season-to-date PPG), not generic fantasy points.</li>
+      <li>Tiers are <b>not</b> equal-sized buckets -- a tier's size reflects real gaps in production, not a fixed count.</li>
+      <li>E is the last rosterable tier; F is waiver/replacement level.</li>
+      <li>Rosterability targets: QB 20 &middot; RB 42 &middot; WR/TE 65 &middot; K 14 -- players
+          statistically similar to the nominal cutoff can stay rosterable past the target.</li>
+      <li>FLEX compares RB, WR, and TE directly against each other, not each player's own positional tier.</li>
+      <li>Out / IR / PUP / Suspended players are forced to F regardless of season production -- they can't help you this week. Questionable (Q) and Doubtful (D) players keep their production-based tier but show a warning badge.</li>
+    </ul>
+  </div>
+</details>
+<div class="tabs"><button class="tab-btn active" data-tab="QB" onclick="switchTierTab('QB')">QB</button><button class="tab-btn" data-tab="RB" onclick="switchTierTab('RB')">RB</button><button class="tab-btn" data-tab="WRTE" onclick="switchTierTab('WRTE')">WR/TE</button><button class="tab-btn" data-tab="FLEX" onclick="switchTierTab('FLEX')">FLEX</button><button class="tab-btn" data-tab="K" onclick="switchTierTab('K')">K</button></div>
+<div id="tierSummary" class="tier-summary-line"></div>
+<div id="tierRows"></div>
+<div class="footer">DTFFL Analytics - Toledo scoring - nflverse-supplemented weekly stats</div>
+<script>
+const TIER_COLORS = {"S": "#f87171", "A": "#fb923c", "B": "#f59e0b", "C": "#facc15", "D": "#86efac", "E": "#22c55e", "F": "#2dd4bf"};
+const TIER_ORDER = ["S", "A", "B", "C", "D", "E", "F"];
+const BOMBERS_TEAM_NAME = "Brandon's Bombers";
+const F_TIER_INITIAL_SHOW = 40;   // long tail of waiver scrubs -- render a
+                                    // manageable slice first with a
+                                    // "Show all" expander, not the whole list
+let TIER_RAW = null, tierTab = "QB", fTierExpanded = false;
+
+function switchTierTab(tab) {
+  tierTab = tab;
+  fTierExpanded = false;
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.toggle('active', b.dataset.tab === tab));
+  renderTiers();
+}
+
+function expandFTier() {
+  fTierExpanded = true;
+  renderTiers();
+}
+
+function playerChip(p, hasTargets) {
+  const bombers = p.FantasyTeam === BOMBERS_TEAM_NAME ? ' bombers' : '';
+  const parts = [`${p.PPG ?? '--'} PPG`, `${p.Total_Fpts ?? '--'} pts`];
+  if (hasTargets) parts.push(`${p.Avg_Targets ?? '--'} tgt/g`);
+  const badge = p.Injury_Flag
+    ? `<span class="injury-badge ${p.Injury_Flag.toLowerCase()}">${p.Injury_Flag}</span>`
+    : '';
+  return `<div class="player-chip${bombers}">
+    <span class="pname">#${p.Rank} ${p.Player}${badge}</span>
+    <span class="pmeta">${p.Pos}${p.Team ? ' - ' + p.Team : ''}</span>
+    <span class="pmeta">${parts.join(' | ')}</span>
+  </div>`;
+}
+
+function renderTiers() {
+  if (!TIER_RAW) return;
+  const tabData = TIER_RAW.tabs[tierTab];
+  if (!tabData) return;
+  const hasTargets = ['RB','WRTE','FLEX'].includes(tierTab);
+
+  const rows = TIER_ORDER.map(t => {
+    let players = tabData.tiers[t] || [];
+    let body;
+    if (players.length === 0) {
+      body = '<div class="tier-empty-msg">No players in this tier</div>';
+    } else if (t === 'F' && players.length > F_TIER_INITIAL_SHOW && !fTierExpanded) {
+      const shown = players.slice(0, F_TIER_INITIAL_SHOW);
+      body = shown.map(p => playerChip(p, hasTargets)).join('')
+        + `<div class="tier-more-btn" onclick="expandFTier()">Show all ${players.length}...</div>`;
+    } else {
+      body = players.map(p => playerChip(p, hasTargets)).join('');
+    }
+    return `<div class="tier-row">
+      <div class="tier-label" style="background:${TIER_COLORS[t]}">${t}</div>
+      <div class="tier-players">${body}</div>
+    </div>`;
+  }).join('');
+
+  document.getElementById('tierRows').innerHTML = rows;
+  const s = tabData.summary;
+  document.getElementById('tierSummary').innerHTML =
+    `<span>Rosterable Target: <b>${s.rosterable_target}</b></span>` +
+    `<span>Actual S-E Players: <b>${s.actual_s_e}</b></span>` +
+    `<span>Waiver/F Players: <b>${s.waiver_f}</b></span>`;
+}
+
+async function initTiers(jsonPath) {
+  const res = await fetch(jsonPath);
+  TIER_RAW = await res.json();
+  document.getElementById('genLabel').textContent =
+    `Season ${TIER_RAW.season} - Through Week ${TIER_RAW.through_week} - Updated ${TIER_RAW.generated}`;
+  renderTiers();
+}
+
+initTiers('data/tiers_breakdown.json');
+</script>
+</body></html>
