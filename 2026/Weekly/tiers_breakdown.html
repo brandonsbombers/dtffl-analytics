@@ -40,6 +40,7 @@ tr:hover td{background:#1e293b;}
 .tier-empty-msg{color:#475569;font-size:12px;padding:10px;font-style:italic;}
 .player-chip{background:#0f172a;border:1px solid #334155;border-radius:8px;padding:6px 9px;font-size:11px;min-width:140px;}
 .player-chip.bombers{border-color:#4ade80;}
+.player-chip.freeagent{border-color:#38bdf8;}
 .player-chip .pname{font-weight:700;color:#f1f5f9;display:block;font-size:12px;}
 .player-chip .pmeta{color:#64748b;font-size:10px;margin-top:2px;display:block;}
 .injury-badge{display:inline-block;margin-left:5px;padding:1px 5px;border-radius:5px;font-size:9px;font-weight:800;color:#0f172a;}
@@ -72,6 +73,7 @@ tr:hover td{background:#1e293b;}
           statistically similar to the nominal cutoff can stay rosterable past the target.</li>
       <li>FLEX compares RB, WR, and TE directly against each other, not each player's own positional tier.</li>
       <li>Out / IR / PUP / Suspended players are forced to F regardless of season production -- they can't help you this week. Questionable (Q) and Doubtful (D) players keep their production-based tier but show a warning badge.</li>
+      <li>Green border = Brandon's Bombers, blue border = free agent -- both based on this week's actual ownership, not an older snapshot.</li>
     </ul>
   </div>
 </details>
@@ -101,13 +103,15 @@ function expandFTier() {
 }
 
 function playerChip(p, hasTargets) {
-  const bombers = p.FantasyTeam === BOMBERS_TEAM_NAME ? ' bombers' : '';
+  let highlightClass = '';
+  if (p.FantasyTeam === BOMBERS_TEAM_NAME) highlightClass = ' bombers';
+  else if (p.Available === true) highlightClass = ' freeagent';
   const parts = [`${p.PPG ?? '--'} PPG`, `${p.Total_Fpts ?? '--'} pts`];
   if (hasTargets) parts.push(`${p.Avg_Targets ?? '--'} tgt/g`);
   const badge = p.Injury_Flag
     ? `<span class="injury-badge ${p.Injury_Flag.toLowerCase()}">${p.Injury_Flag}</span>`
     : '';
-  return `<div class="player-chip${bombers}">
+  return `<div class="player-chip${highlightClass}">
     <span class="pname">#${p.Rank} ${p.Player}${badge}</span>
     <span class="pmeta">${p.Pos}${p.Team ? ' - ' + p.Team : ''}</span>
     <span class="pmeta">${parts.join(' | ')}</span>
