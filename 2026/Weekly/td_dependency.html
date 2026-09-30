@@ -25,6 +25,7 @@ tr:hover td{background:#1e293b;}
 .badge-yes{color:#4ade80;font-weight:700;}
 .badge-no{color:#64748b;}
 .badge-inj{color:#fb923c;font-weight:700;}
+.badge-red{color:#f87171;font-weight:700;}
 .footer{padding:20px 16px 0;font-size:11px;color:#334155;text-align:center;}
 </style></head><body>
 <div class="hdr">
@@ -142,6 +143,15 @@ function render() {
       if (c === 'Dropable') {
         const cls = v === 'Yes (Inj)' ? 'badge-inj' : (v === 'Yes' ? 'badge-yes' : 'badge-no');
         v = `<span class="${cls}">${v}</span>`;
+      }
+      if (c === 'RK' || c === 'PA') {
+        const rk = r['RK'];
+        let cls = '';
+        if (rk !== null && rk !== undefined && rk !== '') {
+          if (rk <= 8) cls = 'badge-yes';        // top-8 easiest matchup -- green
+          else if (rk >= 25) cls = 'badge-red';  // bottom-8 hardest matchup -- red
+        }
+        v = (v === null || v === undefined) ? '' : `<span class="${cls}">${v}</span>`;
       }
       return `<td>${v ?? ''}</td>`;
     }).join('');
