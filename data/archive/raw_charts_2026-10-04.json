@@ -1,0 +1,1792 @@
+{
+  "generated": "2026-10-04",
+  "season": 2026,
+  "positions": {
+    "QB": [
+      {
+        "player": "Josh Allen",
+        "nfl_team": "BUF",
+        "yahoo": 32.0,
+        "richards": 23.0,
+        "fantasypros": 29.1
+      },
+      {
+        "player": "Lamar Jackson",
+        "nfl_team": "BAL",
+        "yahoo": 22.0,
+        "richards": 16.0,
+        "fantasypros": 28.6
+      },
+      {
+        "player": "Brock Purdy",
+        "nfl_team": "SF",
+        "yahoo": 21.0,
+        "richards": 11.0,
+        "fantasypros": 24.5
+      },
+      {
+        "player": "Jalen Hurts",
+        "nfl_team": "PHI",
+        "yahoo": 17.0,
+        "richards": 8.0,
+        "fantasypros": 12.0
+      },
+      {
+        "player": "Patrick Mahomes II",
+        "nfl_team": "KC",
+        "yahoo": 16.0,
+        "richards": 9.0,
+        "fantasypros": 12.8
+      },
+      {
+        "player": "Trevor Lawrence",
+        "nfl_team": "JAX",
+        "yahoo": 14.0,
+        "richards": 9.0,
+        "fantasypros": 19.0
+      },
+      {
+        "player": "Dak Prescott",
+        "nfl_team": "DAL",
+        "yahoo": 12.0,
+        "richards": 12.0,
+        "fantasypros": 10.0
+      },
+      {
+        "player": "Caleb Williams",
+        "nfl_team": "CHI",
+        "yahoo": 12.0,
+        "richards": 8.0,
+        "fantasypros": 9.2
+      },
+      {
+        "player": "Joe Burrow",
+        "nfl_team": "CIN",
+        "yahoo": 12.0,
+        "richards": 11.0,
+        "fantasypros": 24.7
+      },
+      {
+        "player": "Tyler Shough",
+        "nfl_team": "NO",
+        "yahoo": 10.0,
+        "richards": 8.0,
+        "fantasypros": 7.6
+      },
+      {
+        "player": "Matthew Stafford",
+        "nfl_team": "LA",
+        "yahoo": 9.0,
+        "richards": 6.0,
+        "fantasypros": 3.6
+      },
+      {
+        "player": "Jared Goff",
+        "nfl_team": "DET",
+        "yahoo": 7.0,
+        "richards": 7.0,
+        "fantasypros": 8.0
+      },
+      {
+        "player": "Jordan Love",
+        "nfl_team": "GB",
+        "yahoo": 4.0,
+        "richards": null,
+        "fantasypros": 1.0
+      },
+      {
+        "player": "Bo Nix",
+        "nfl_team": "DEN",
+        "yahoo": 3.0,
+        "richards": null,
+        "fantasypros": 1.0
+      },
+      {
+        "player": "Justin Herbert",
+        "nfl_team": "LAC",
+        "yahoo": 3.0,
+        "richards": null,
+        "fantasypros": 1.0
+      },
+      {
+        "player": "Jayden Daniels",
+        "nfl_team": "WAS",
+        "yahoo": 3.0,
+        "richards": null,
+        "fantasypros": 1.0
+      },
+      {
+        "player": "Drake Maye",
+        "nfl_team": "NE",
+        "yahoo": 3.0,
+        "richards": null,
+        "fantasypros": 5.6
+      },
+      {
+        "player": "Bryce Young",
+        "nfl_team": "CAR",
+        "yahoo": 3.0,
+        "richards": null,
+        "fantasypros": 1.0
+      },
+      {
+        "player": "Sam Darnold",
+        "nfl_team": "SEA",
+        "yahoo": 2.0,
+        "richards": null,
+        "fantasypros": 1.0
+      },
+      {
+        "player": "Kirk Cousins",
+        "nfl_team": "LV",
+        "yahoo": 1.0,
+        "richards": null,
+        "fantasypros": 1.0
+      },
+      {
+        "player": "Jacoby Brissett",
+        "nfl_team": "ARI",
+        "yahoo": 1.0,
+        "richards": null,
+        "fantasypros": 1.0
+      },
+      {
+        "player": "Carson Beck",
+        "nfl_team": "ARI",
+        "yahoo": 0.0,
+        "richards": null,
+        "fantasypros": null
+      },
+      {
+        "player": "Carson Wentz",
+        "nfl_team": "MIN",
+        "yahoo": 0.0,
+        "richards": null,
+        "fantasypros": null
+      },
+      {
+        "player": "Cade Klubnik",
+        "nfl_team": "NYJ",
+        "yahoo": 0.0,
+        "richards": null,
+        "fantasypros": null
+      },
+      {
+        "player": "Baker Mayfield",
+        "nfl_team": "TB",
+        "yahoo": 0.0,
+        "richards": null,
+        "fantasypros": 1.0
+      },
+      {
+        "player": "Aaron Rodgers",
+        "nfl_team": "PIT",
+        "yahoo": 0.0,
+        "richards": null,
+        "fantasypros": 1.0
+      },
+      {
+        "player": "Cam Ward",
+        "nfl_team": "TEN",
+        "yahoo": 0.0,
+        "richards": null,
+        "fantasypros": 1.0
+      },
+      {
+        "player": "Case Keenum",
+        "nfl_team": "CHI",
+        "yahoo": 0.0,
+        "richards": null,
+        "fantasypros": null
+      },
+      {
+        "player": "Jameis Winston",
+        "nfl_team": "NYG",
+        "yahoo": 0.0,
+        "richards": null,
+        "fantasypros": null
+      },
+      {
+        "player": "Jalon Daniels",
+        "nfl_team": "TB",
+        "yahoo": 0.0,
+        "richards": null,
+        "fantasypros": null
+      },
+      {
+        "player": "C.J. Stroud",
+        "nfl_team": "HOU",
+        "yahoo": 0.0,
+        "richards": null,
+        "fantasypros": 1.0
+      },
+      {
+        "player": "Deshaun Watson",
+        "nfl_team": "CLE",
+        "yahoo": 0.0,
+        "richards": null,
+        "fantasypros": 1.0
+      },
+      {
+        "player": "Daniel Jones",
+        "nfl_team": "IND",
+        "yahoo": 0.0,
+        "richards": null,
+        "fantasypros": 1.0
+      },
+      {
+        "player": "Fernando Mendoza",
+        "nfl_team": "LV",
+        "yahoo": 0.0,
+        "richards": null,
+        "fantasypros": null
+      },
+      {
+        "player": "Geno Smith",
+        "nfl_team": "NYJ",
+        "yahoo": 0.0,
+        "richards": null,
+        "fantasypros": 1.0
+      },
+      {
+        "player": "J.J. McCarthy",
+        "nfl_team": "NYG",
+        "yahoo": 0.0,
+        "richards": null,
+        "fantasypros": null
+      },
+      {
+        "player": "Marcus Mariota",
+        "nfl_team": "WAS",
+        "yahoo": 0.0,
+        "richards": null,
+        "fantasypros": 1.0
+      },
+      {
+        "player": "Kyler Murray",
+        "nfl_team": "MIN",
+        "yahoo": 0.0,
+        "richards": null,
+        "fantasypros": 1.0
+      },
+      {
+        "player": "Malik Willis",
+        "nfl_team": "MIA",
+        "yahoo": 0.0,
+        "richards": null,
+        "fantasypros": 1.0
+      },
+      {
+        "player": "Shedeur Sanders",
+        "nfl_team": "CLE",
+        "yahoo": 0.0,
+        "richards": null,
+        "fantasypros": null
+      },
+      {
+        "player": "Michael Penix Jr.",
+        "nfl_team": "ATL",
+        "yahoo": 0.0,
+        "richards": null,
+        "fantasypros": 1.0
+      },
+      {
+        "player": "Tua Tagovailoa",
+        "nfl_team": "ATL",
+        "yahoo": 0.0,
+        "richards": null,
+        "fantasypros": null
+      },
+      {
+        "player": "Tyson Bagent",
+        "nfl_team": "CHI",
+        "yahoo": 0.0,
+        "richards": null,
+        "fantasypros": null
+      }
+    ],
+    "RB": [
+      {
+        "player": "Jahmyr Gibbs",
+        "nfl_team": "DET",
+        "yahoo": 92.0,
+        "richards": 51.5,
+        "fantasypros": 75.1
+      },
+      {
+        "player": "Bijan Robinson",
+        "nfl_team": "ATL",
+        "yahoo": 84.0,
+        "richards": 48.5,
+        "fantasypros": 67.5
+      },
+      {
+        "player": "Kenneth Walker III",
+        "nfl_team": "KC",
+        "yahoo": 76.0,
+        "richards": 45.5,
+        "fantasypros": 60.9
+      },
+      {
+        "player": "Jonathan Taylor",
+        "nfl_team": "IND",
+        "yahoo": 73.0,
+        "richards": 40.5,
+        "fantasypros": 52.3
+      },
+      {
+        "player": "Christian McCaffrey",
+        "nfl_team": "SF",
+        "yahoo": 71.0,
+        "richards": 40.5,
+        "fantasypros": 48.9
+      },
+      {
+        "player": "Derrick Henry",
+        "nfl_team": "BAL",
+        "yahoo": 67.0,
+        "richards": 39.0,
+        "fantasypros": 50.5
+      },
+      {
+        "player": "James Cook III",
+        "nfl_team": "BUF",
+        "yahoo": 63.0,
+        "richards": 39.5,
+        "fantasypros": 59.3
+      },
+      {
+        "player": "Chase Brown",
+        "nfl_team": "CIN",
+        "yahoo": 57.0,
+        "richards": 31.0,
+        "fantasypros": 45.9
+      },
+      {
+        "player": "Jeremiyah Love",
+        "nfl_team": "ARI",
+        "yahoo": 54.0,
+        "richards": 22.0,
+        "fantasypros": 40.3
+      },
+      {
+        "player": "Ashton Jeanty",
+        "nfl_team": "LV",
+        "yahoo": 52.0,
+        "richards": 23.0,
+        "fantasypros": 46.8
+      },
+      {
+        "player": "D'Andre Swift",
+        "nfl_team": "CHI",
+        "yahoo": 50.0,
+        "richards": 25.5,
+        "fantasypros": 41.6
+      },
+      {
+        "player": "Kyren Williams",
+        "nfl_team": "LA",
+        "yahoo": 47.0,
+        "richards": 23.0,
+        "fantasypros": 40.8
+      },
+      {
+        "player": "Saquon Barkley",
+        "nfl_team": "PHI",
+        "yahoo": 43.0,
+        "richards": 29.5,
+        "fantasypros": 42.4
+      },
+      {
+        "player": "Javonte Williams",
+        "nfl_team": "DAL",
+        "yahoo": 43.0,
+        "richards": 26.0,
+        "fantasypros": 43.7
+      },
+      {
+        "player": "Chuba Hubbard",
+        "nfl_team": "CAR",
+        "yahoo": 40.0,
+        "richards": 20.0,
+        "fantasypros": 33.1
+      },
+      {
+        "player": "Omarion Hampton",
+        "nfl_team": "LAC",
+        "yahoo": 38.0,
+        "richards": 18.0,
+        "fantasypros": 38.6
+      },
+      {
+        "player": "Breece Hall",
+        "nfl_team": "NYJ",
+        "yahoo": 36.0,
+        "richards": 22.0,
+        "fantasypros": 36.6
+      },
+      {
+        "player": "Jaylen Warren",
+        "nfl_team": "PIT",
+        "yahoo": 35.0,
+        "richards": 15.0,
+        "fantasypros": 28.2
+      },
+      {
+        "player": "Bucky Irving",
+        "nfl_team": "TB",
+        "yahoo": 34.0,
+        "richards": 18.0,
+        "fantasypros": 37.6
+      },
+      {
+        "player": "Bhayshul Tuten",
+        "nfl_team": "JAX",
+        "yahoo": 33.0,
+        "richards": 14.0,
+        "fantasypros": 39.6
+      },
+      {
+        "player": "Cam Skattebo",
+        "nfl_team": "NYG",
+        "yahoo": 32.0,
+        "richards": 20.0,
+        "fantasypros": 34.7
+      },
+      {
+        "player": "David Montgomery",
+        "nfl_team": "HOU",
+        "yahoo": 31.0,
+        "richards": 11.5,
+        "fantasypros": 33.1
+      },
+      {
+        "player": "Quinshon Judkins",
+        "nfl_team": "CLE",
+        "yahoo": 27.0,
+        "richards": 9.5,
+        "fantasypros": 25.8
+      },
+      {
+        "player": "Aaron Jones Sr.",
+        "nfl_team": "MIN",
+        "yahoo": 23.0,
+        "richards": 9.0,
+        "fantasypros": 20.8
+      },
+      {
+        "player": "Jadarian Price",
+        "nfl_team": "SEA",
+        "yahoo": 22.0,
+        "richards": 13.0,
+        "fantasypros": 25.5
+      },
+      {
+        "player": "Rhamondre Stevenson",
+        "nfl_team": "NE",
+        "yahoo": 22.0,
+        "richards": 10.0,
+        "fantasypros": 24.2
+      },
+      {
+        "player": "TreVeyon Henderson",
+        "nfl_team": "NE",
+        "yahoo": 22.0,
+        "richards": 7.5,
+        "fantasypros": 31.7
+      },
+      {
+        "player": "Jacory Croskey-Merritt",
+        "nfl_team": "WAS",
+        "yahoo": 21.0,
+        "richards": 7.0,
+        "fantasypros": 23.3
+      },
+      {
+        "player": "Braelon Allen",
+        "nfl_team": "NYJ",
+        "yahoo": 18.0,
+        "richards": 5.0,
+        "fantasypros": 8.0
+      },
+      {
+        "player": "Travis Etienne Jr.",
+        "nfl_team": "NO",
+        "yahoo": 16.0,
+        "richards": 11.5,
+        "fantasypros": 24.9
+      },
+      {
+        "player": "Josh Jacobs",
+        "nfl_team": "GB",
+        "yahoo": 16.0,
+        "richards": 8.0,
+        "fantasypros": 16.9
+      },
+      {
+        "player": "Blake Corum",
+        "nfl_team": "LA",
+        "yahoo": 15.0,
+        "richards": 7.0,
+        "fantasypros": 25.7
+      },
+      {
+        "player": "Kyle Monangai",
+        "nfl_team": "CHI",
+        "yahoo": 15.0,
+        "richards": 5.0,
+        "fantasypros": 23.0
+      },
+      {
+        "player": "J.K. Dobbins",
+        "nfl_team": "DEN",
+        "yahoo": 14.0,
+        "richards": 6.0,
+        "fantasypros": 18.9
+      },
+      {
+        "player": "Tony Pollard",
+        "nfl_team": "TEN",
+        "yahoo": 14.0,
+        "richards": 7.0,
+        "fantasypros": 19.1
+      },
+      {
+        "player": "RJ Harvey",
+        "nfl_team": "DEN",
+        "yahoo": 14.0,
+        "richards": 5.0,
+        "fantasypros": 15.9
+      },
+      {
+        "player": "Emmett Johnson",
+        "nfl_team": "KC",
+        "yahoo": 13.0,
+        "richards": null,
+        "fantasypros": 16.6
+      },
+      {
+        "player": "Kaelon Black",
+        "nfl_team": "SF",
+        "yahoo": 13.0,
+        "richards": 5.0,
+        "fantasypros": 17.6
+      },
+      {
+        "player": "Alvin Kamara",
+        "nfl_team": "NO",
+        "yahoo": 12.0,
+        "richards": 5.0,
+        "fantasypros": 1.9
+      },
+      {
+        "player": "Jordan Mason",
+        "nfl_team": "MIN",
+        "yahoo": 12.0,
+        "richards": 6.0,
+        "fantasypros": 14.2
+      },
+      {
+        "player": "Mike Washington Jr.",
+        "nfl_team": "LV",
+        "yahoo": 12.0,
+        "richards": null,
+        "fantasypros": 15.4
+      },
+      {
+        "player": "Rachaad White",
+        "nfl_team": "WAS",
+        "yahoo": 11.0,
+        "richards": null,
+        "fantasypros": 15.3
+      },
+      {
+        "player": "Ollie Gordon II",
+        "nfl_team": "MIA",
+        "yahoo": 10.0,
+        "richards": 5.0,
+        "fantasypros": null
+      },
+      {
+        "player": "Zach Charbonnet",
+        "nfl_team": "SEA",
+        "yahoo": 10.0,
+        "richards": 5.0,
+        "fantasypros": 1.0
+      },
+      {
+        "player": "Rico Dowdle",
+        "nfl_team": "PIT",
+        "yahoo": 10.0,
+        "richards": null,
+        "fantasypros": 11.7
+      },
+      {
+        "player": "Jaylen Wright",
+        "nfl_team": "MIA",
+        "yahoo": 9.0,
+        "richards": 5.0,
+        "fantasypros": 1.3
+      },
+      {
+        "player": "Brian Robinson Jr.",
+        "nfl_team": "ATL",
+        "yahoo": 8.0,
+        "richards": null,
+        "fantasypros": null
+      },
+      {
+        "player": "Woody Marks",
+        "nfl_team": "HOU",
+        "yahoo": 8.0,
+        "richards": null,
+        "fantasypros": 8.4
+      },
+      {
+        "player": "Tyler Allgeier",
+        "nfl_team": "ARI",
+        "yahoo": 8.0,
+        "richards": null,
+        "fantasypros": 1.7
+      },
+      {
+        "player": "Keaton Mitchell",
+        "nfl_team": "LAC",
+        "yahoo": 8.0,
+        "richards": null,
+        "fantasypros": null
+      },
+      {
+        "player": "Jonah Coleman",
+        "nfl_team": "DEN",
+        "yahoo": 8.0,
+        "richards": null,
+        "fantasypros": 16.1
+      },
+      {
+        "player": "Jonathon Brooks",
+        "nfl_team": "CAR",
+        "yahoo": 7.0,
+        "richards": null,
+        "fantasypros": 2.0
+      },
+      {
+        "player": "Chris Rodriguez Jr.",
+        "nfl_team": "JAX",
+        "yahoo": 7.0,
+        "richards": null,
+        "fantasypros": 1.4
+      },
+      {
+        "player": "Tank Bigsby",
+        "nfl_team": "PHI",
+        "yahoo": 7.0,
+        "richards": null,
+        "fantasypros": null
+      },
+      {
+        "player": "MarShawn Lloyd",
+        "nfl_team": "GB",
+        "yahoo": 7.0,
+        "richards": null,
+        "fantasypros": 6.2
+      },
+      {
+        "player": "Kaleb Johnson",
+        "nfl_team": "GB",
+        "yahoo": 7.0,
+        "richards": null,
+        "fantasypros": null
+      },
+      {
+        "player": "Kenny Gainwell",
+        "nfl_team": "TB",
+        "yahoo": 7.0,
+        "richards": null,
+        "fantasypros": 3.7
+      },
+      {
+        "player": "Nicholas Singleton",
+        "nfl_team": "TEN",
+        "yahoo": 6.0,
+        "richards": null,
+        "fantasypros": null
+      },
+      {
+        "player": "Kendre Miller",
+        "nfl_team": "NO",
+        "yahoo": 6.0,
+        "richards": null,
+        "fantasypros": null
+      },
+      {
+        "player": "Emanuel Wilson",
+        "nfl_team": "SEA",
+        "yahoo": 6.0,
+        "richards": null,
+        "fantasypros": null
+      },
+      {
+        "player": "Najee Harris",
+        "nfl_team": "NYG",
+        "yahoo": 6.0,
+        "richards": null,
+        "fantasypros": null
+      },
+      {
+        "player": "Tyjae Spears",
+        "nfl_team": "TEN",
+        "yahoo": 6.0,
+        "richards": null,
+        "fantasypros": null
+      },
+      {
+        "player": "James Conner",
+        "nfl_team": "ARI",
+        "yahoo": 5.0,
+        "richards": null,
+        "fantasypros": null
+      },
+      {
+        "player": "Ty Johnson",
+        "nfl_team": "BUF",
+        "yahoo": 5.0,
+        "richards": null,
+        "fantasypros": null
+      },
+      {
+        "player": "George Holani",
+        "nfl_team": "SEA",
+        "yahoo": 5.0,
+        "richards": null,
+        "fantasypros": null
+      },
+      {
+        "player": "Ray Davis",
+        "nfl_team": "BUF",
+        "yahoo": 5.0,
+        "richards": null,
+        "fantasypros": null
+      },
+      {
+        "player": "Isaiah Davis",
+        "nfl_team": "NYJ",
+        "yahoo": 5.0,
+        "richards": null,
+        "fantasypros": null
+      },
+      {
+        "player": "Justice Hill",
+        "nfl_team": "BAL",
+        "yahoo": 4.0,
+        "richards": null,
+        "fantasypros": null
+      },
+      {
+        "player": "Sione Vaki",
+        "nfl_team": "DET",
+        "yahoo": 4.0,
+        "richards": null,
+        "fantasypros": null
+      },
+      {
+        "player": "Tyler Goodson",
+        "nfl_team": "DAL",
+        "yahoo": 4.0,
+        "richards": null,
+        "fantasypros": null
+      },
+      {
+        "player": "Raheim Sanders",
+        "nfl_team": "CLE",
+        "yahoo": 4.0,
+        "richards": null,
+        "fantasypros": null
+      },
+      {
+        "player": "Samaje Perine",
+        "nfl_team": "CIN",
+        "yahoo": 3.0,
+        "richards": null,
+        "fantasypros": null
+      },
+      {
+        "player": "Kaytron Allen",
+        "nfl_team": "WAS",
+        "yahoo": 2.0,
+        "richards": null,
+        "fantasypros": null
+      },
+      {
+        "player": "Kimani Vidal",
+        "nfl_team": "LAC",
+        "yahoo": 2.0,
+        "richards": null,
+        "fantasypros": null
+      },
+      {
+        "player": "Sean Tucker",
+        "nfl_team": "TB",
+        "yahoo": 1.0,
+        "richards": null,
+        "fantasypros": null
+      },
+      {
+        "player": "AJ Dillon",
+        "nfl_team": "CAR",
+        "yahoo": 1.0,
+        "richards": null,
+        "fantasypros": null
+      },
+      {
+        "player": "Seth McGowan",
+        "nfl_team": "IND",
+        "yahoo": 1.0,
+        "richards": null,
+        "fantasypros": null
+      },
+      {
+        "player": "Demond Claiborne",
+        "nfl_team": "MIN",
+        "yahoo": 1.0,
+        "richards": null,
+        "fantasypros": null
+      },
+      {
+        "player": "Chris Brooks",
+        "nfl_team": "GB",
+        "yahoo": 1.0,
+        "richards": null,
+        "fantasypros": null
+      },
+      {
+        "player": "Will Shipley",
+        "nfl_team": "PHI",
+        "yahoo": 1.0,
+        "richards": null,
+        "fantasypros": null
+      },
+      {
+        "player": "Tyrone Tracy Jr.",
+        "nfl_team": "NYG",
+        "yahoo": 1.0,
+        "richards": null,
+        "fantasypros": null
+      },
+      {
+        "player": "Dylan Sampson",
+        "nfl_team": "CLE",
+        "yahoo": 0.0,
+        "richards": null,
+        "fantasypros": null
+      },
+      {
+        "player": "Devin Singletary",
+        "nfl_team": "NYG",
+        "yahoo": 0.0,
+        "richards": null,
+        "fantasypros": null
+      },
+      {
+        "player": "Kareem Hunt",
+        "nfl_team": null,
+        "yahoo": 0.0,
+        "richards": null,
+        "fantasypros": null
+      },
+      {
+        "player": "Jordan James",
+        "nfl_team": "SF",
+        "yahoo": 0.0,
+        "richards": null,
+        "fantasypros": null
+      },
+      {
+        "player": "Emari Demercado",
+        "nfl_team": "DAL",
+        "yahoo": 0.0,
+        "richards": null,
+        "fantasypros": null
+      },
+      {
+        "player": "Jarquez Hunter",
+        "nfl_team": "MIA",
+        "yahoo": 0.0,
+        "richards": null,
+        "fantasypros": null
+      }
+    ],
+    "WR": [
+      {
+        "player": "Jaxon Smith-Njigba",
+        "nfl_team": "SEA",
+        "yahoo": 82.0,
+        "richards": 50.0,
+        "fantasypros": 55.4
+      },
+      {
+        "player": "Ja'Marr Chase",
+        "nfl_team": "CIN",
+        "yahoo": 77.0,
+        "richards": 44.5,
+        "fantasypros": 57.1
+      },
+      {
+        "player": "Amon-Ra St. Brown",
+        "nfl_team": "DET",
+        "yahoo": 72.0,
+        "richards": 41.0,
+        "fantasypros": 54.0
+      },
+      {
+        "player": "CeeDee Lamb",
+        "nfl_team": "DAL",
+        "yahoo": 67.0,
+        "richards": 41.0,
+        "fantasypros": 51.3
+      },
+      {
+        "player": "Chris Olave",
+        "nfl_team": "NO",
+        "yahoo": 62.0,
+        "richards": 35.0,
+        "fantasypros": 40.5
+      },
+      {
+        "player": "Zay Flowers",
+        "nfl_team": "BAL",
+        "yahoo": 59.0,
+        "richards": 28.5,
+        "fantasypros": 39.1
+      },
+      {
+        "player": "Drake London",
+        "nfl_team": "ATL",
+        "yahoo": 59.0,
+        "richards": 26.0,
+        "fantasypros": 37.2
+      },
+      {
+        "player": "Justin Jefferson",
+        "nfl_team": "CLE",
+        "yahoo": 57.0,
+        "richards": 37.5,
+        "fantasypros": 38.3
+      },
+      {
+        "player": "Puka Nacua",
+        "nfl_team": "LA",
+        "yahoo": 52.0,
+        "richards": 35.0,
+        "fantasypros": 41.3
+      },
+      {
+        "player": "Christian Watson",
+        "nfl_team": "GB",
+        "yahoo": 51.0,
+        "richards": 18.5,
+        "fantasypros": 33.8
+      },
+      {
+        "player": "Nico Collins",
+        "nfl_team": "HOU",
+        "yahoo": 51.0,
+        "richards": 28.0,
+        "fantasypros": 33.5
+      },
+      {
+        "player": "Garrett Wilson",
+        "nfl_team": "NYJ",
+        "yahoo": 49.0,
+        "richards": 21.0,
+        "fantasypros": 29.2
+      },
+      {
+        "player": "DeVonta Smith",
+        "nfl_team": "CAR",
+        "yahoo": 48.0,
+        "richards": 21.0,
+        "fantasypros": 36.1
+      },
+      {
+        "player": "Parker Washington",
+        "nfl_team": "JAX",
+        "yahoo": 44.0,
+        "richards": 21.5,
+        "fantasypros": 40.4
+      },
+      {
+        "player": "Davante Adams",
+        "nfl_team": "LA",
+        "yahoo": 42.0,
+        "richards": 16.0,
+        "fantasypros": 32.0
+      },
+      {
+        "player": "George Pickens",
+        "nfl_team": "DAL",
+        "yahoo": 40.0,
+        "richards": 24.0,
+        "fantasypros": 36.6
+      },
+      {
+        "player": "Tee Higgins",
+        "nfl_team": "CIN",
+        "yahoo": 40.0,
+        "richards": 18.0,
+        "fantasypros": 31.5
+      },
+      {
+        "player": "Malik Nabers",
+        "nfl_team": "NYG",
+        "yahoo": 38.0,
+        "richards": 11.0,
+        "fantasypros": 31.4
+      },
+      {
+        "player": "Tetairoa McMillan",
+        "nfl_team": "CAR",
+        "yahoo": 35.0,
+        "richards": 16.5,
+        "fantasypros": 29.9
+      },
+      {
+        "player": "Matthew Golden",
+        "nfl_team": "GB",
+        "yahoo": 35.0,
+        "richards": 12.0,
+        "fantasypros": 22.9
+      },
+      {
+        "player": "DJ Moore",
+        "nfl_team": "BUF",
+        "yahoo": 35.0,
+        "richards": 16.0,
+        "fantasypros": 29.5
+      },
+      {
+        "player": "Rashee Rice",
+        "nfl_team": "KC",
+        "yahoo": 33.0,
+        "richards": 14.5,
+        "fantasypros": 25.8
+      },
+      {
+        "player": "Jaylen Waddle",
+        "nfl_team": "DEN",
+        "yahoo": 33.0,
+        "richards": 15.5,
+        "fantasypros": 31.0
+      },
+      {
+        "player": "Luther Burden III",
+        "nfl_team": "CHI",
+        "yahoo": 32.0,
+        "richards": 10.5,
+        "fantasypros": 24.2
+      },
+      {
+        "player": "Michael Wilson",
+        "nfl_team": "ARI",
+        "yahoo": 32.0,
+        "richards": 10.5,
+        "fantasypros": 18.9
+      },
+      {
+        "player": "Mike Evans",
+        "nfl_team": "SF",
+        "yahoo": 32.0,
+        "richards": 14.5,
+        "fantasypros": 25.2
+      },
+      {
+        "player": "Ladd McConkey",
+        "nfl_team": "LAC",
+        "yahoo": 32.0,
+        "richards": 15.0,
+        "fantasypros": 26.2
+      },
+      {
+        "player": "Jalen Coker",
+        "nfl_team": "CAR",
+        "yahoo": 31.0,
+        "richards": 9.0,
+        "fantasypros": 22.8
+      },
+      {
+        "player": "Deebo Samuel Sr.",
+        "nfl_team": "SF",
+        "yahoo": 31.0,
+        "richards": 6.5,
+        "fantasypros": 22.7
+      },
+      {
+        "player": "Josh Downs",
+        "nfl_team": "IND",
+        "yahoo": 30.0,
+        "richards": 8.0,
+        "fantasypros": 19.8
+      },
+      {
+        "player": "Emeka Egbuka",
+        "nfl_team": "TB",
+        "yahoo": 28.0,
+        "richards": 11.0,
+        "fantasypros": 25.9
+      },
+      {
+        "player": "Terry McLaurin",
+        "nfl_team": "WAS",
+        "yahoo": 27.0,
+        "richards": 11.0,
+        "fantasypros": 25.7
+      },
+      {
+        "player": "Jameson Williams",
+        "nfl_team": "DET",
+        "yahoo": 25.0,
+        "richards": 9.0,
+        "fantasypros": 27.2
+      },
+      {
+        "player": "A.J. Brown",
+        "nfl_team": "NE",
+        "yahoo": 22.0,
+        "richards": 14.0,
+        "fantasypros": 23.3
+      },
+      {
+        "player": "DK Metcalf",
+        "nfl_team": "PIT",
+        "yahoo": 22.0,
+        "richards": 6.0,
+        "fantasypros": 19.6
+      },
+      {
+        "player": "Stefon Diggs",
+        "nfl_team": "WAS",
+        "yahoo": 21.0,
+        "richards": 7.0,
+        "fantasypros": 17.6
+      },
+      {
+        "player": "Denzel Boston",
+        "nfl_team": "CLE",
+        "yahoo": 18.0,
+        "richards": 5.5,
+        "fantasypros": 17.7
+      },
+      {
+        "player": "Rome Odunze",
+        "nfl_team": "CHI",
+        "yahoo": 15.0,
+        "richards": 5.0,
+        "fantasypros": 22.7
+      },
+      {
+        "player": "Jordan Addison",
+        "nfl_team": "MIN",
+        "yahoo": 15.0,
+        "richards": 7.5,
+        "fantasypros": 15.8
+      },
+      {
+        "player": "Jordyn Tyson",
+        "nfl_team": "NO",
+        "yahoo": 14.0,
+        "richards": 5.0,
+        "fantasypros": 11.6
+      },
+      {
+        "player": "Jakobi Meyers",
+        "nfl_team": "JAX",
+        "yahoo": 12.0,
+        "richards": null,
+        "fantasypros": 15.8
+      },
+      {
+        "player": "Carnell Tate",
+        "nfl_team": "TEN",
+        "yahoo": 12.0,
+        "richards": 5.5,
+        "fantasypros": 17.1
+      },
+      {
+        "player": "KC Concepcion Jr.",
+        "nfl_team": "CLE",
+        "yahoo": 11.0,
+        "richards": null,
+        "fantasypros": 16.7
+      },
+      {
+        "player": "Keenan Allen",
+        "nfl_team": "IND",
+        "yahoo": 10.0,
+        "richards": null,
+        "fantasypros": 8.0
+      },
+      {
+        "player": "Kalif Raymond",
+        "nfl_team": "CHI",
+        "yahoo": 10.0,
+        "richards": 5.5,
+        "fantasypros": null
+      },
+      {
+        "player": "Malik Washington",
+        "nfl_team": "MIA",
+        "yahoo": 10.0,
+        "richards": null,
+        "fantasypros": 7.2
+      },
+      {
+        "player": "Dontayvion Wicks",
+        "nfl_team": "PHI",
+        "yahoo": 10.0,
+        "richards": null,
+        "fantasypros": 13.9
+      },
+      {
+        "player": "Devaughn Vele",
+        "nfl_team": "NO",
+        "yahoo": 10.0,
+        "richards": 5.5,
+        "fantasypros": 11.9
+      },
+      {
+        "player": "Chris Bell",
+        "nfl_team": "MIA",
+        "yahoo": 10.0,
+        "richards": null,
+        "fantasypros": 4.8
+      },
+      {
+        "player": "Adonai Mitchell",
+        "nfl_team": "NYJ",
+        "yahoo": 10.0,
+        "richards": null,
+        "fantasypros": 14.7
+      },
+      {
+        "player": "Romeo Doubs",
+        "nfl_team": "NE",
+        "yahoo": 10.0,
+        "richards": null,
+        "fantasypros": 17.2
+      },
+      {
+        "player": "Makai Lemon",
+        "nfl_team": "PHI",
+        "yahoo": 10.0,
+        "richards": null,
+        "fantasypros": 15.2
+      },
+      {
+        "player": "Chris Godwin Jr.",
+        "nfl_team": "TB",
+        "yahoo": 9.0,
+        "richards": null,
+        "fantasypros": 16.4
+      },
+      {
+        "player": "Brian Thomas Jr.",
+        "nfl_team": "JAX",
+        "yahoo": 9.0,
+        "richards": null,
+        "fantasypros": 14.6
+      },
+      {
+        "player": "Tre Tucker",
+        "nfl_team": "LV",
+        "yahoo": 8.0,
+        "richards": null,
+        "fantasypros": 6.0
+      },
+      {
+        "player": "Xavier Worthy",
+        "nfl_team": "KC",
+        "yahoo": 8.0,
+        "richards": null,
+        "fantasypros": 12.9
+      },
+      {
+        "player": "Quentin Johnston",
+        "nfl_team": "LAC",
+        "yahoo": 7.0,
+        "richards": null,
+        "fantasypros": 15.6
+      },
+      {
+        "player": "Caleb Douglas",
+        "nfl_team": "MIA",
+        "yahoo": 7.0,
+        "richards": null,
+        "fantasypros": 9.3
+      },
+      {
+        "player": "Courtland Sutton",
+        "nfl_team": "DEN",
+        "yahoo": 7.0,
+        "richards": null,
+        "fantasypros": 16.5
+      },
+      {
+        "player": "Alec Pierce",
+        "nfl_team": "IND",
+        "yahoo": 7.0,
+        "richards": null,
+        "fantasypros": 13.6
+      },
+      {
+        "player": "Michael Pittman Jr.",
+        "nfl_team": "PIT",
+        "yahoo": 7.0,
+        "richards": null,
+        "fantasypros": 8.4
+      },
+      {
+        "player": "Marvin Harrison Jr.",
+        "nfl_team": "ARI",
+        "yahoo": 7.0,
+        "richards": null,
+        "fantasypros": 12.2
+      },
+      {
+        "player": "Antonio Williams",
+        "nfl_team": "WAS",
+        "yahoo": 6.0,
+        "richards": null,
+        "fantasypros": 2.7
+      },
+      {
+        "player": "Ted Hurst III",
+        "nfl_team": "TB",
+        "yahoo": 6.0,
+        "richards": null,
+        "fantasypros": 1.3
+      },
+      {
+        "player": "Khalil Shakir",
+        "nfl_team": "BUF",
+        "yahoo": 6.0,
+        "richards": null,
+        "fantasypros": 14.4
+      },
+      {
+        "player": "Kayshon Boutte",
+        "nfl_team": "HOU",
+        "yahoo": 6.0,
+        "richards": null,
+        "fantasypros": 10.8
+      },
+      {
+        "player": "Ja'Kobi Lane",
+        "nfl_team": "BAL",
+        "yahoo": 6.0,
+        "richards": null,
+        "fantasypros": 1.0
+      },
+      {
+        "player": "Keon Coleman",
+        "nfl_team": "BUF",
+        "yahoo": 6.0,
+        "richards": null,
+        "fantasypros": null
+      },
+      {
+        "player": "Rashod Bateman",
+        "nfl_team": "BAL",
+        "yahoo": 6.0,
+        "richards": null,
+        "fantasypros": 11.4
+      },
+      {
+        "player": "Pat Bryant",
+        "nfl_team": "DEN",
+        "yahoo": 6.0,
+        "richards": null,
+        "fantasypros": 7.4
+      },
+      {
+        "player": "Rashid Shaheed",
+        "nfl_team": "SEA",
+        "yahoo": 6.0,
+        "richards": null,
+        "fantasypros": 7.5
+      },
+      {
+        "player": "Tre' Harris",
+        "nfl_team": null,
+        "yahoo": 6.0,
+        "richards": null,
+        "fantasypros": 8.7
+      },
+      {
+        "player": "Wan'Dale Robinson",
+        "nfl_team": "TEN",
+        "yahoo": 6.0,
+        "richards": null,
+        "fantasypros": 13.1
+      },
+      {
+        "player": "De'Zhaun Stribling",
+        "nfl_team": "SF",
+        "yahoo": 5.0,
+        "richards": null,
+        "fantasypros": 3.7
+      },
+      {
+        "player": "Ryan Flournoy",
+        "nfl_team": "DAL",
+        "yahoo": 5.0,
+        "richards": null,
+        "fantasypros": null
+      },
+      {
+        "player": "Jauan Jennings",
+        "nfl_team": "MIN",
+        "yahoo": 5.0,
+        "richards": null,
+        "fantasypros": null
+      },
+      {
+        "player": "Mack Hollins",
+        "nfl_team": "NE",
+        "yahoo": 5.0,
+        "richards": null,
+        "fantasypros": null
+      },
+      {
+        "player": "Kendrick Bourne",
+        "nfl_team": "ARI",
+        "yahoo": 4.0,
+        "richards": null,
+        "fantasypros": null
+      },
+      {
+        "player": "Malachi Fields",
+        "nfl_team": "NYG",
+        "yahoo": 4.0,
+        "richards": null,
+        "fantasypros": 5.1
+      },
+      {
+        "player": "Tyquan Thornton",
+        "nfl_team": "KC",
+        "yahoo": 4.0,
+        "richards": null,
+        "fantasypros": null
+      },
+      {
+        "player": "Konata Mumpfield",
+        "nfl_team": "LA",
+        "yahoo": 3.0,
+        "richards": null,
+        "fantasypros": null
+      },
+      {
+        "player": "Jordan Watkins",
+        "nfl_team": "SF",
+        "yahoo": 3.0,
+        "richards": null,
+        "fantasypros": null
+      },
+      {
+        "player": "Isaac TeSlaa",
+        "nfl_team": "DET",
+        "yahoo": 3.0,
+        "richards": null,
+        "fantasypros": null
+      },
+      {
+        "player": "Roman Wilson",
+        "nfl_team": "PIT",
+        "yahoo": 3.0,
+        "richards": null,
+        "fantasypros": null
+      },
+      {
+        "player": "Omar Cooper Jr.",
+        "nfl_team": "NYJ",
+        "yahoo": 2.0,
+        "richards": null,
+        "fantasypros": null
+      },
+      {
+        "player": "Jayden Reed",
+        "nfl_team": "GB",
+        "yahoo": 1.0,
+        "richards": null,
+        "fantasypros": null
+      },
+      {
+        "player": "Tyreek Hill",
+        "nfl_team": null,
+        "yahoo": 1.0,
+        "richards": null,
+        "fantasypros": null
+      },
+      {
+        "player": "Jaylin Noel",
+        "nfl_team": "HOU",
+        "yahoo": null,
+        "richards": null,
+        "fantasypros": 1.0
+      }
+    ],
+    "TE": [
+      {
+        "player": "Brock Bowers",
+        "nfl_team": "LV",
+        "yahoo": 48.0,
+        "richards": 29.5,
+        "fantasypros": 28.0
+      },
+      {
+        "player": "Trey McBride",
+        "nfl_team": "ARI",
+        "yahoo": 44.0,
+        "richards": 31.0,
+        "fantasypros": 26.2
+      },
+      {
+        "player": "George Kittle",
+        "nfl_team": "SF",
+        "yahoo": 26.0,
+        "richards": 13.5,
+        "fantasypros": 13.0
+      },
+      {
+        "player": "Dalton Kincaid",
+        "nfl_team": "BUF",
+        "yahoo": 25.0,
+        "richards": 12.0,
+        "fantasypros": 15.2
+      },
+      {
+        "player": "Tyler Warren",
+        "nfl_team": "IND",
+        "yahoo": 22.0,
+        "richards": 11.0,
+        "fantasypros": 15.2
+      },
+      {
+        "player": "Travis Kelce",
+        "nfl_team": "KC",
+        "yahoo": 20.0,
+        "richards": 9.0,
+        "fantasypros": 11.3
+      },
+      {
+        "player": "Sam LaPorta",
+        "nfl_team": "DET",
+        "yahoo": 19.0,
+        "richards": 9.5,
+        "fantasypros": 15.8
+      },
+      {
+        "player": "Tucker Kraft",
+        "nfl_team": "GB",
+        "yahoo": 17.0,
+        "richards": 6.0,
+        "fantasypros": 19.4
+      },
+      {
+        "player": "Colston Loveland",
+        "nfl_team": "CHI",
+        "yahoo": 13.0,
+        "richards": 5.5,
+        "fantasypros": 12.7
+      },
+      {
+        "player": "Juwan Johnson",
+        "nfl_team": "NO",
+        "yahoo": 13.0,
+        "richards": 8.0,
+        "fantasypros": 11.2
+      },
+      {
+        "player": "Kenyon Sadiq",
+        "nfl_team": "NYJ",
+        "yahoo": 10.0,
+        "richards": 6.0,
+        "fantasypros": null
+      },
+      {
+        "player": "Harold Fannin Jr.",
+        "nfl_team": "CLE",
+        "yahoo": 10.0,
+        "richards": 6.0,
+        "fantasypros": 12.0
+      },
+      {
+        "player": "Isaiah Likely",
+        "nfl_team": "NYG",
+        "yahoo": 9.0,
+        "richards": 8.0,
+        "fantasypros": 9.3
+      },
+      {
+        "player": "Jake Ferguson",
+        "nfl_team": "DAL",
+        "yahoo": 8.0,
+        "richards": null,
+        "fantasypros": 3.0
+      },
+      {
+        "player": "Dallas Goedert",
+        "nfl_team": "PHI",
+        "yahoo": 7.0,
+        "richards": 8.0,
+        "fantasypros": 8.0
+      },
+      {
+        "player": "Terrance Ferguson",
+        "nfl_team": "LA",
+        "yahoo": 7.0,
+        "richards": null,
+        "fantasypros": 5.9
+      },
+      {
+        "player": "Mark Andrews",
+        "nfl_team": "BAL",
+        "yahoo": 7.0,
+        "richards": null,
+        "fantasypros": 8.3
+      },
+      {
+        "player": "Dalton Schultz",
+        "nfl_team": "HOU",
+        "yahoo": 7.0,
+        "richards": null,
+        "fantasypros": 4.8
+      },
+      {
+        "player": "Darren Waller",
+        "nfl_team": "CAR",
+        "yahoo": 6.0,
+        "richards": 5.5,
+        "fantasypros": null
+      },
+      {
+        "player": "Kyle Pitts Sr.",
+        "nfl_team": "ATL",
+        "yahoo": 5.0,
+        "richards": 6.0,
+        "fantasypros": 7.3
+      },
+      {
+        "player": "Oronde Gadsden II",
+        "nfl_team": "LAC",
+        "yahoo": 4.0,
+        "richards": null,
+        "fantasypros": null
+      },
+      {
+        "player": "Pat Freiermuth",
+        "nfl_team": "PIT",
+        "yahoo": 3.0,
+        "richards": null,
+        "fantasypros": null
+      },
+      {
+        "player": "Hunter Henry",
+        "nfl_team": "NE",
+        "yahoo": 3.0,
+        "richards": null,
+        "fantasypros": 5.3
+      },
+      {
+        "player": "Brenton Strange",
+        "nfl_team": "JAX",
+        "yahoo": 2.0,
+        "richards": null,
+        "fantasypros": 1.0
+      },
+      {
+        "player": "T.J. Hockenson",
+        "nfl_team": "MIN",
+        "yahoo": 2.0,
+        "richards": null,
+        "fantasypros": null
+      },
+      {
+        "player": "AJ Barner",
+        "nfl_team": "SEA",
+        "yahoo": 1.0,
+        "richards": null,
+        "fantasypros": null
+      },
+      {
+        "player": "Mike Gesicki",
+        "nfl_team": "CIN",
+        "yahoo": 1.0,
+        "richards": null,
+        "fantasypros": null
+      },
+      {
+        "player": "Chig Okonkwo",
+        "nfl_team": "WAS",
+        "yahoo": 1.0,
+        "richards": null,
+        "fantasypros": null
+      },
+      {
+        "player": "Tyler Higbee",
+        "nfl_team": "LA",
+        "yahoo": 1.0,
+        "richards": null,
+        "fantasypros": null
+      },
+      {
+        "player": "Michael Mayer",
+        "nfl_team": "LV",
+        "yahoo": 1.0,
+        "richards": null,
+        "fantasypros": null
+      },
+      {
+        "player": "Greg Dulcich",
+        "nfl_team": "MIA",
+        "yahoo": 1.0,
+        "richards": null,
+        "fantasypros": null
+      },
+      {
+        "player": "Cade Otton",
+        "nfl_team": "TB",
+        "yahoo": 0.0,
+        "richards": null,
+        "fantasypros": null
+      },
+      {
+        "player": "Gunnar Helm",
+        "nfl_team": "TEN",
+        "yahoo": 0.0,
+        "richards": null,
+        "fantasypros": null
+      },
+      {
+        "player": "Evan Engram",
+        "nfl_team": "DEN",
+        "yahoo": 0.0,
+        "richards": null,
+        "fantasypros": null
+      },
+      {
+        "player": "Colby Parkinson",
+        "nfl_team": "LA",
+        "yahoo": 0.0,
+        "richards": null,
+        "fantasypros": null
+      },
+      {
+        "player": "Matt Hibner",
+        "nfl_team": null,
+        "yahoo": 0.0,
+        "richards": null,
+        "fantasypros": null
+      }
+    ]
+  }
+}
