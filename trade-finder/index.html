@@ -215,7 +215,7 @@ footer.sitenav a span.icon { font-size: 1.25rem; }
 
 <header class="hero">
   <h1>🔄 Trade Finder</h1>
-  <p>Compare two rosters across Yahoo / Richards / Boone / FantasyPros</p>
+  <p>Compare two rosters across Yahoo / Richards / FantasyPros</p>
 </header>
 
 <main>
@@ -286,7 +286,7 @@ footer.sitenav a span.icon { font-size: 1.25rem; }
 /* ──────────────────────────────────────────────────────────────────────────
    DTFFL Trade Finder — fully client-side, multi-chart.
    Data source: ../data/trade_finder_latest.json (published by the Colab notebook).
-   Each of the 4 charts (Yahoo/Richards/Boone/FantasyPros) is evaluated
+   Each of the 3 charts (Yahoo/Richards/FantasyPros) is evaluated
    SEPARATELY against the target/tolerance; a combo qualifies for display if
    ANY chart lands within tolerance. All 4 charts' numbers are always shown
    for a qualifying combo, not just the one(s) that qualified it.
@@ -296,7 +296,7 @@ const DATA_URL = '../data/trade_finder_latest.json';
 const MAX_ROWS_PER_TAB = 30;
 
 let TEAMS = [];
-let SOURCES = [];         // e.g. ['Yahoo','Richards','Boone','FantasyPros']
+let SOURCES = [];         // e.g. ['Yahoo','Richards','FantasyPros']
 let currentResults = {};
 
 function sideLabel(team) {
@@ -318,7 +318,7 @@ async function loadData() {
     if (!resp.ok) throw new Error(`HTTP ${resp.status}`);
     const payload = await resp.json();
     TEAMS = payload.teams || [];
-    SOURCES = payload.sources || ['Yahoo', 'Richards', 'Boone', 'FantasyPros'];
+    SOURCES = payload.sources || ['Yahoo', 'Richards', 'FantasyPros'];
     populateTeamDropdowns();
     statusEl.textContent = `Rosters loaded (updated ${payload.generated || 'unknown date'}) — ${TEAMS.length} teams, ${SOURCES.length} charts.`;
     document.getElementById('findTradesBtn').disabled = false;
@@ -424,19 +424,6 @@ function formatBenefit(pct, leftLabel, rightLabel) {
   return { text: `${rightLabel} +${Math.abs(rounded)}%`, cls: 'benefit-right' };
 }
 
-// combines the benefit text with the qualifying-match indicator into one clean
-// piece instead of "Even" next to a separate "MATCH" pill — an even trade that
-// qualifies just reads "🧩 Even Match"; a directional qualifying trade keeps its
-// usual MATCH pill since the % is the important part there, not the parity.
-function formatBenefitCell(pct, leftLabel, rightLabel, withinTol) {
-  const b = formatBenefit(pct, leftLabel, rightLabel);
-  if (withinTol && b.text === 'Even') {
-    return `<span class="benefit-even">🧩 Even Match</span>`;
-  }
-  const badge = withinTol ? '<span class="qual-badge">MATCH</span>' : '';
-  return `<span class="${b.cls}">${b.text}</span>${badge}`;
-}
-
 const TAB_SHAPES = {
   '1v1': [[1, 1]],
   '1v2': [[1, 2], [2, 1]],
@@ -539,12 +526,10 @@ function renderPanel(tabKey, rows, targetLeftBenefit, tolerance, leftLabel, righ
     }
 
     const sourceCells = sourceKeys.map(sk => {
+      const b = formatBenefit(r.perSource[sk], leftLabel, rightLabel);
       const withinTol = r.perSource[sk] !== null && Math.abs(r.perSource[sk] - targetLeftBenefit) <= tolerance;
       const label = SOURCES[sourceKeys.indexOf(sk)];
-      const usesCeiling = sk === 'richards' &&
-        (r.leftGroup.some(p => p.richards_ceiling) || r.rightGroup.some(p => p.richards_ceiling));
-      const ceilingMark = usesCeiling ? ' <span title="Richards did not rank at least one of these players — using his ≤4 ceiling, not a real rank" style="cursor:help;">†</span>' : '';
-      return `<td data-label="${label}">${formatBenefitCell(r.perSource[sk], leftLabel, rightLabel, withinTol)}${ceilingMark}</td>`;
+      return `<td data-label="${label}" class="${b.cls}">${b.text}${withinTol ? '<span class="qual-badge">MATCH</span>' : ''}</td>`;
     }).join('');
 
     return `<tr>
