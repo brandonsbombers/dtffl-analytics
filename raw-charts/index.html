@@ -215,7 +215,7 @@ footer.sitenav a span.icon { font-size: 1.25rem; }
 
 <header class="hero">
   <h1>📊 Raw Charts</h1>
-  <p>Yahoo / Richards / Boone / FantasyPros trade values, side by side, unscaled</p>
+  <p>Yahoo / Richards / FantasyPros trade values, side by side, unscaled</p>
 </header>
 
 <main>
@@ -229,7 +229,6 @@ footer.sitenav a span.icon { font-size: 1.25rem; }
     <div class="search-sort-row">
       <input type="text" id="searchBox" placeholder="Search player…">
       <select id="sortSelect">
-        <option value="boone">Sort: Boone</option>
         <option value="yahoo">Sort: Yahoo</option>
         <option value="richards">Sort: Richards</option>
         <option value="fantasypros">Sort: FantasyPros</option>
@@ -256,7 +255,7 @@ footer.sitenav a span.icon { font-size: 1.25rem; }
 const DATA_URL = '../data/raw_charts_latest.json';
 let DATA = null;
 let currentPos = 'QB';
-let sortKey = 'boone';
+let sortKey = 'yahoo';
 let searchQuery = '';
 
 async function loadData() {
@@ -302,8 +301,7 @@ function render() {
     return `<tr>
       <td data-label="Player">${nameCell}</td>
       <td data-label="Yahoo">${fmt(r.yahoo)}</td>
-      <td data-label="Richards">${fmt(r.richards)}${r.richards_ceiling ? ' <span title="Richards did not rank this player — using his ≤4 ceiling, not a real rank" style="cursor:help;">†</span>' : ''}</td>
-      <td data-label="Boone">${fmt(r.boone)}</td>
+      <td data-label="Richards">${fmt(r.richards)}</td>
       <td data-label="FantasyPros">${fmt(r.fantasypros)}</td>
     </tr>`;
   }).join('');
@@ -312,7 +310,7 @@ function render() {
     <table class="responsive-table">
       <thead>
         <tr>
-          <th>Player</th><th>Yahoo</th><th>Richards</th><th>Boone</th><th>FantasyPros</th>
+          <th>Player</th><th>Yahoo</th><th>Richards</th><th>FantasyPros</th>
         </tr>
       </thead>
       <tbody>${rowsHtml}</tbody>
