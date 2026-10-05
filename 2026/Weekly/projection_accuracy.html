@@ -27,12 +27,48 @@ tr:hover td{background:#1e293b;}
 .badge-inj{color:#fb923c;font-weight:700;}
 .badge-red{color:#f87171;font-weight:700;}
 .footer{padding:20px 16px 0;font-size:11px;color:#334155;text-align:center;}
+
+.tier-info{margin:12px 16px 4px;background:#1e293b;border:1px solid #334155;border-radius:10px;}
+.tier-info summary{padding:12px 14px;cursor:pointer;font-weight:700;color:#f1f5f9;font-size:13px;list-style:none;}
+.tier-info summary::-webkit-details-marker{display:none;}
+.tier-info-body{padding:0 14px 14px;font-size:12px;color:#94a3b8;line-height:1.65;}
+.tier-info-body ul{margin:6px 0 6px 18px;}
+.tier-summary-line{padding:10px 16px 0;font-size:12px;color:#94a3b8;display:flex;gap:16px;flex-wrap:wrap;}
+.tier-summary-line b{color:#e2e8f0;}
+.tier-row{display:flex;align-items:stretch;margin:10px 16px;border-radius:10px;overflow:hidden;border:1px solid #334155;}
+.tier-label{flex:0 0 60px;display:flex;align-items:center;justify-content:center;font-size:24px;font-weight:900;color:#0f172a;}
+.tier-players{flex:1;display:flex;flex-wrap:wrap;gap:6px;padding:10px;background:#1e293b;align-content:flex-start;}
+.tier-empty-msg{color:#475569;font-size:12px;padding:10px;font-style:italic;}
+.player-chip{background:#0f172a;border:1px solid #334155;border-radius:8px;padding:6px 9px;font-size:11px;min-width:140px;}
+.player-chip.bombers{border-color:#4ade80;}
+.player-chip.freeagent{border-color:#38bdf8;}
+.player-chip .pname{font-weight:700;color:#f1f5f9;display:block;font-size:12px;}
+.player-chip .pmeta{color:#64748b;font-size:10px;margin-top:2px;display:block;}
+.injury-badge{display:inline-block;margin-left:5px;padding:1px 5px;border-radius:5px;font-size:9px;font-weight:800;color:#0f172a;}
+.injury-badge.q{background:#facc15;}
+.injury-badge.d{background:#fb923c;}
+.tier-more-btn{background:#0f172a;border:1px dashed #334155;border-radius:8px;padding:6px 9px;font-size:11px;color:#94a3b8;cursor:pointer;min-width:140px;}
+@media (max-width:640px){
+  .tier-row{flex-direction:column;margin:8px 10px;}
+  .tier-label{flex:0 0 auto;padding:6px;font-size:16px;}
+}
 </style></head><body>
 <div class="hdr">
   <h1>CBS Projection Accuracy YTD</h1>
-  <p>Walk-forward accuracy bands -- how much to trust this week's CBS projection, by position and projected-points bucket. Team filters apply to all tabs; leave on "All" when viewing YTD Summary (no per-team breakdown exists there).</p>
+  <p>Walk-forward accuracy bands -- how much to trust this week's CBS projection.</p>
   <p id="genLabel" style="margin-top:6px;color:#334155;"></p>
 </div>
+
+<details class="tier-info">
+  <summary>How to Read This Report</summary>
+  <div class="tier-info-body">
+    <p><b>YTD Summary</b> -- how far off CBS's projection typically runs, by position and by how big the projection was. <b>Sample Size</b> = how many player-weeks that row is based on (small = noisier). <b>Typical Miss (+/-)</b> = average size of the error either direction. <b>Direction of Miss</b>: positive means CBS tends to UNDER-shoot (actual usually comes in higher); negative means it tends to OVER-shoot.</p>
+    <p><b>Last Week</b> -- what the model predicted (Expected Low/High) vs. what actually happened, for the most recently completed week, sorted by biggest miss.</p>
+    <p><b>This Week</b> -- this week's CBS projection, adjusted for the typical miss learned from past weeks (Adjusted Projection), with an expected range. Confidence Basis shows whether that range is based on enough players at this exact position + point range, or a wider fallback when the sample was too thin.</p>
+    <p><b>Under/Over-Projected</b> -- players CBS has consistently gotten wrong across multiple weeks, split into currently healthy (a possible real modeling gap) vs. currently injured (CBS just hasn't caught up to the news).</p>
+  </div>
+</details>
+
 <div class="controls">
   <select id="teamFilter"></select>
   <select id="nflTeamFilter"></select>
