@@ -65,6 +65,7 @@ function populateTeamFilter(data) {
   const sel = document.getElementById('teamFilter');
   sel.innerHTML = '<option value="ALL">All Fantasy Teams</option>'
     + '<option value="BOMBERS_ALL">Bombers + Available</option>'
+    + '<option value="WATCHLIST">Watchlist</option>'
     + '<option value="AVAILABLE">Available (No Team)</option>';
   fantasyTeams(data).forEach(t => {
     const opt = document.createElement('option');
@@ -119,7 +120,11 @@ function render() {
   let rows = (RAW.tabs[currentTab] || []).slice();
 
   const teamVal = document.getElementById('teamFilter').value;
-  if (teamVal === 'AVAILABLE') rows = rows.filter(r => r.FantasyTeam === 'Available');
+    if (teamVal === 'WATCHLIST') {
+    const wl = new Set((RAW.watchlist || []).map(w => w.Player + '|' + w.Pos));
+    rows = rows.filter(r => wl.has(r.Player + '|' + r.Pos));
+  }
+  else if (teamVal === 'AVAILABLE') rows = rows.filter(r => r.FantasyTeam === 'Available');
   else if (teamVal === 'BOMBERS_ALL') rows = rows.filter(r => r.FantasyTeam === 'Available' || r.FantasyTeam === BOMBERS_TEAM_NAME);
   else if (teamVal !== 'ALL') rows = rows.filter(r => r.FantasyTeam === teamVal);
 
