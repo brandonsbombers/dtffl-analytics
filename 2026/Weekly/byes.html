@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Byes -- DTFFL Weekly</title>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+body{background:#0f172a;color:#e2e8f0;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;padding-bottom:40px;}
+.hdr{padding:18px 16px 12px;border-bottom:1px solid #1e293b;}
+.hdr h1{font-size:20px;font-weight:800;color:#f8fafc;}
+.hdr p{font-size:12px;color:#64748b;margin-top:4px;}
+.controls{display:flex;gap:10px;flex-wrap:wrap;padding:12px 16px;border-bottom:1px solid #1e293b;}
+select{background:#1e293b;color:#e2e8f0;border:1px solid #334155;border-radius:8px;padding:8px 10px;font-size:13px;}
+.tabs{display:flex;gap:6px;padding:10px 16px 0;flex-wrap:wrap;}
+.tab-btn{background:#1e293b;color:#94a3b8;border:1px solid #334155;border-radius:999px;padding:6px 14px;font-size:12px;font-weight:600;cursor:pointer;}
+.tab-btn.active{background:#4ade80;color:#0f172a;border-color:#4ade80;}
+table{width:100%;border-collapse:collapse;margin-top:12px;font-size:12px;}
+th{position:sticky;top:0;background:#1e293b;color:#94a3b8;text-align:left;padding:8px 10px;cursor:pointer;white-space:nowrap;border-bottom:1px solid #334155;}
+th:hover{color:#f8fafc;}
+td{padding:7px 10px;border-bottom:1px solid #1e293b;white-space:nowrap;}
+tr:hover td{background:#1e293b;}
+.bombers-row td{background:#26344a;}
+.bombers-row:hover td{background:#334155;}
+.wrap{overflow-x:auto;padding:0 8px;}
+.badge-yes{color:#4ade80;font-weight:700;}
+.badge-no{color:#64748b;}
+.badge-inj{color:#fb923c;font-weight:700;}
+.badge-red{color:#f87171;font-weight:700;}
+.footer{padding:20px 16px 0;font-size:11px;color:#334155;text-align:center;}
+
+.bye-info{padding:10px 16px 0;font-size:12px;color:#94a3b8;}
+.bye-info b{color:#e2e8f0;}
+.bye-cards{padding:6px 16px 0;}
+.bye-card{margin:12px 0;background:#1e293b;border:1px solid #334155;border-radius:10px;overflow:hidden;}
+.bye-card.bombers{border-color:#4ade80;}
+.bye-card-hdr{display:flex;gap:12px;align-items:baseline;flex-wrap:wrap;padding:10px 12px;border-bottom:1px solid #334155;}
+.bye-team{font-weight:800;color:#f1f5f9;font-size:14px;}
+.bye-owner{color:#64748b;font-size:12px;}
+.bye-total{margin-left:auto;font-weight:800;color:#fb923c;font-size:13px;}
+.bye-poscounts{padding:8px 12px 0;font-size:12px;color:#94a3b8;}
+.bye-players{display:flex;flex-wrap:wrap;gap:6px;padding:10px 12px 12px;}
+.bye-chip{background:#0f172a;border:1px solid #334155;border-radius:8px;padding:6px 9px;font-size:11px;min-width:150px;}
+.bye-chip .pname{font-weight:700;color:#f1f5f9;display:block;font-size:12px;}
+.bye-chip .pmeta{color:#64748b;font-size:10px;margin-top:2px;display:block;}
+.byinj{display:inline-block;margin-left:5px;padding:1px 5px;border-radius:5px;font-size:9px;font-weight:800;color:#0f172a;background:#f87171;}
+.byinj.q{background:#facc15;}
+.byinj.d{background:#fb923c;}
+.zero-cell{color:#475569;}
+.bye-empty{padding:16px;color:#64748b;font-size:13px;font-style:italic;}
+</style></head><body>
+<div class="hdr">
+  <h1>Byes (Wk8)</h1>
+  <p>Rostered players whose NFL team is on bye -- who needs a waiver move. Count, count by position, and the players affected.</p>
+  <p id="genLabel" style="margin-top:6px;color:#334155;"></p>
+</div>
+<div class="controls">
+  <select id="byTeamFilter"></select>
+  <span id="rowCount" style="align-self:center;font-size:12px;color:#64748b;"></span>
+</div>
+<div class="bye-info" id="byeTeams"></div>
+<div class="wrap" id="byesSummary"></div>
+<div class="bye-cards" id="byesCards"></div>
+<div class="footer">DTFFL Analytics - Toledo scoring - nflverse-supplemented weekly stats</div>
+<script>
+const BOMBERS_TEAM_NAME = "Brandon's Bombers";
+let BYES_RAW = null, bySortCol = 'Total', bySortAsc = false;
+
+function colVal(t, col) {
+  if (col === 'FantasyTeam') return t.FantasyTeam;
+  if (col === 'Owner') return t.Owner || '';
+  if (col === 'Total') return t.Total;
+  return (t.by_pos && t.by_pos[col]) || 0;
+}
+
+function bySortBy(col) {
+  if (bySortCol === col) { bySortAsc = !bySortAsc; }
+  else { bySortCol = col; bySortAsc = (col === 'FantasyTeam' || col === 'Owner'); }
+  renderByes();
+}
+
+function injBadge(status) {
+  if (!status) return '';
+  const s = String(status).toLowerCase();
+  let cls = '', txt = status;
+  if (s === 'questionable' || s === 'q') { cls = ' q'; txt = 'Q'; }
+  else if (s === 'doubtful' || s === 'd') { cls = ' d'; txt = 'D'; }
+  return `<span class="byinj${cls}">${txt}</span>`;
+}
+
+function populateByesTeamFilter(data) {
+  const sel = document.getElementById('byTeamFilter');
+  sel.innerHTML = '<option value="ALL">All Fantasy Teams</option>'
+    + '<option value="BOMBERS">Brandon\'s Bombers only</option>';
+  data.tabs.teams.map(t => t.FantasyTeam).sort().forEach(n => {
+    const opt = document.createElement('option');
+    opt.value = n; opt.textContent = n;
+    sel.appendChild(opt);
+  });
+}
+
+function renderByes() {
+  if (!BYES_RAW) return;
+  const posCols = BYES_RAW.tabs.pos_cols || [];
+  let rows = (BYES_RAW.tabs.teams || []).slice();
+
+  const sel = document.getElementById('byTeamFilter').value;
+  if (sel === 'BOMBERS') rows = rows.filter(t => t.FantasyTeam === BOMBERS_TEAM_NAME);
+  else if (sel !== 'ALL') rows = rows.filter(t => t.FantasyTeam === sel);
+
+  rows.sort((a, b) => {
+    const av = colVal(a, bySortCol), bv = colVal(b, bySortCol);
+    let cmp = (typeof av === 'string') ? av.localeCompare(bv) : (av - bv);
+    if (!bySortAsc) cmp = -cmp;
+    return cmp || a.FantasyTeam.localeCompare(b.FantasyTeam);
+  });
+
+  const cols = ['FantasyTeam', 'Owner', 'Total'].concat(posCols);
+  const labels = {FantasyTeam: 'Fantasy Team'};
+  const thead = '<tr>' + cols.map(c =>
+    `<th onclick="bySortBy('${c}')">${labels[c] || c}${bySortCol === c ? (bySortAsc ? ' &#9650;' : ' &#9660;') : ''}</th>`
+  ).join('') + '</tr>';
+
+  const tbody = rows.map(t => {
+    const cls = t.FantasyTeam === BOMBERS_TEAM_NAME ? ' class="bombers-row"' : '';
+    const cells = cols.map(c => {
+      const v = colVal(t, c);
+      if (c === 'FantasyTeam' || c === 'Owner') return `<td>${v}</td>`;
+      if (v === 0) return `<td class="zero-cell">0</td>`;
+      return c === 'Total' ? `<td><span class="badge-red">${v}</span></td>` : `<td>${v}</td>`;
+    }).join('');
+    return `<tr${cls}>${cells}</tr>`;
+  }).join('');
+  document.getElementById('byesSummary').innerHTML =
+    `<table><thead>${thead}</thead><tbody>${tbody}</tbody></table>`;
+
+  const withByes = rows.filter(t => t.Total > 0);
+  const cards = withByes.map(t => {
+    const counts = posCols.filter(p => t.by_pos[p] > 0).map(p => `${p} ${t.by_pos[p]}`).join(' &middot; ');
+    const chips = t.Players.map(p => `<div class="bye-chip">
+        <span class="pname">${p.Player}${injBadge(p.Injury)}</span>
+        <span class="pmeta">${p.Pos} - ${p.Team}</span>
+        <span class="pmeta">Season Avg: ${p['Season Avg'] || '--'}</span>
+      </div>`).join('');
+    return `<div class="bye-card${t.FantasyTeam === BOMBERS_TEAM_NAME ? ' bombers' : ''}">
+      <div class="bye-card-hdr">
+        <span class="bye-team">${t.FantasyTeam}</span>
+        <span class="bye-owner">${t.Owner || ''}</span>
+        <span class="bye-total">${t.Total} on bye</span>
+      </div>
+      <div class="bye-poscounts">${counts}</div>
+      <div class="bye-players">${chips}</div>
+    </div>`;
+  }).join('');
+  document.getElementById('byesCards').innerHTML =
+    cards || '<div class="bye-empty">No rostered players on bye for the selected team(s).</div>';
+  document.getElementById('rowCount').textContent =
+    `${withByes.length} of ${rows.length} teams affected`;
+}
+
+async function initByes(jsonPath) {
+  const res = await fetch(jsonPath);
+  BYES_RAW = await res.json();
+  populateByesTeamFilter(BYES_RAW);
+  document.getElementById('byTeamFilter').addEventListener('change', renderByes);
+  document.getElementById('genLabel').textContent =
+    `Season ${BYES_RAW.season} - Through Week ${BYES_RAW.through_week} - Updated ${BYES_RAW.generated}`;
+  const bt = BYES_RAW.tabs.bye_teams || [];
+  document.getElementById('byeTeams').innerHTML = bt.length
+    ? `NFL teams on bye in Week ${BYES_RAW.tabs.bye_week}: <b>${bt.join(', ')}</b>`
+    : `No NFL teams found on bye in Week ${BYES_RAW.tabs.bye_week}.`;
+  renderByes();
+}
+
+initByes('data/byes.json');
+</script>
+</body></html>
