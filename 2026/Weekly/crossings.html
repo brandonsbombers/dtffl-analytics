@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Level Crossings -- DTFFL Weekly</title>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+body{background:#0f172a;color:#e2e8f0;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;padding-bottom:40px;}
+.hdr{padding:18px 16px 12px;border-bottom:1px solid #1e293b;}
+.hdr h1{font-size:20px;font-weight:800;color:#f8fafc;}
+.hdr p{font-size:12px;color:#64748b;margin-top:4px;}
+.controls{display:flex;gap:10px;flex-wrap:wrap;padding:12px 16px;border-bottom:1px solid #1e293b;}
+select{background:#1e293b;color:#e2e8f0;border:1px solid #334155;border-radius:8px;padding:8px 10px;font-size:13px;}
+.tabs{display:flex;gap:6px;padding:10px 16px 0;flex-wrap:wrap;}
+.tab-btn{background:#1e293b;color:#94a3b8;border:1px solid #334155;border-radius:999px;padding:6px 14px;font-size:12px;font-weight:600;cursor:pointer;}
+.tab-btn.active{background:#4ade80;color:#0f172a;border-color:#4ade80;}
+table{width:100%;border-collapse:collapse;margin-top:12px;font-size:12px;}
+th{position:sticky;top:0;background:#1e293b;color:#94a3b8;text-align:left;padding:8px 10px;cursor:pointer;white-space:nowrap;border-bottom:1px solid #334155;}
+th:hover{color:#f8fafc;}
+td{padding:7px 10px;border-bottom:1px solid #1e293b;white-space:nowrap;}
+tr:hover td{background:#1e293b;}
+.bombers-row td{background:#26344a;}
+.bombers-row:hover td{background:#334155;}
+.wrap{overflow-x:auto;padding:0 8px;}
+.badge-yes{color:#4ade80;font-weight:700;}
+.badge-no{color:#64748b;}
+.badge-inj{color:#fb923c;font-weight:700;}
+.badge-red{color:#f87171;font-weight:700;}
+.footer{padding:20px 16px 0;font-size:11px;color:#334155;text-align:center;}
+
+.tier-info{margin:12px 16px 4px;background:#1e293b;border:1px solid #334155;border-radius:10px;}
+.tier-info summary{padding:12px 14px;cursor:pointer;font-weight:700;color:#f1f5f9;font-size:13px;list-style:none;}
+.tier-info summary::-webkit-details-marker{display:none;}
+.tier-info-body{padding:0 14px 14px;font-size:12px;color:#94a3b8;line-height:1.65;}
+.tier-info-body ul{margin:6px 0 6px 18px;}
+.tier-summary-line{padding:10px 16px 0;font-size:12px;color:#94a3b8;display:flex;gap:16px;flex-wrap:wrap;}
+.tier-summary-line b{color:#e2e8f0;}
+.tier-row{display:flex;align-items:stretch;margin:10px 16px;border-radius:10px;overflow:hidden;border:1px solid #334155;}
+.tier-label{flex:0 0 60px;display:flex;align-items:center;justify-content:center;font-size:24px;font-weight:900;color:#0f172a;}
+.tier-players{flex:1;display:flex;flex-wrap:wrap;gap:6px;padding:10px;background:#1e293b;align-content:flex-start;}
+.tier-empty-msg{color:#475569;font-size:12px;padding:10px;font-style:italic;}
+.player-chip{background:#0f172a;border:1px solid #334155;border-radius:8px;padding:6px 9px;font-size:11px;min-width:140px;}
+.player-chip.bombers{border-color:#4ade80;}
+.player-chip.freeagent{border-color:#38bdf8;}
+.player-chip .pname{font-weight:700;color:#f1f5f9;display:block;font-size:12px;}
+.player-chip .pmeta{color:#64748b;font-size:10px;margin-top:2px;display:block;}
+.injury-badge{display:inline-block;margin-left:5px;padding:1px 5px;border-radius:5px;font-size:9px;font-weight:800;color:#0f172a;}
+.injury-badge.q{background:#facc15;}
+.injury-badge.d{background:#fb923c;}
+.tier-more-btn{background:#0f172a;border:1px dashed #334155;border-radius:8px;padding:6px 9px;font-size:11px;color:#94a3b8;cursor:pointer;min-width:140px;}
+@media (max-width:640px){
+  .tier-row{flex-direction:column;margin:8px 10px;}
+  .tier-label{flex:0 0 auto;padding:6px;font-size:16px;}
+}
+
+.tr-label{flex:0 0 104px;flex-direction:column;gap:2px;text-align:center;padding:6px 4px;}
+.tr-num{font-size:24px;font-weight:900;line-height:1;}
+.tr-name{font-size:11px;font-weight:800;letter-spacing:.3px;text-transform:uppercase;}
+.tr-rng{font-size:9px;font-weight:600;opacity:.75;}
+.tr-chip{min-width:190px;}
+.tr-chip .up{color:#4ade80;} .tr-chip .dn{color:#f87171;} .tr-chip .same{color:#cbd5e1;}
+.tr-chip svg{display:block;margin-top:4px;}
+.td-badge{display:inline-block;margin-left:5px;padding:1px 5px;border-radius:5px;font-size:9px;font-weight:800;color:#0f172a;background:#c084fc;}
+.tr-note{padding:10px 16px 0;font-size:12px;color:#fb923c;}
+.cr-count{font-size:22px;font-weight:900;line-height:1;}
+.cr-hold-btn{background:#0f172a;border:1px dashed #334155;border-radius:8px;padding:8px 12px;font-size:12px;color:#94a3b8;cursor:pointer;}
+.band-table{border-collapse:collapse;margin:6px 0;font-size:11px;width:auto;}
+.band-table th,.band-table td{padding:3px 10px;border-bottom:1px solid #334155;text-align:left;cursor:default;position:static;background:none;color:#94a3b8;}
+.band-table th{color:#e2e8f0;}
+@media (max-width:640px){
+  .tr-label{flex:0 0 auto;flex-direction:row;gap:10px;justify-content:flex-start;padding:6px 12px;}
+}
+</style></head><body>
+<div class="hdr">
+  <h1>Level Crossings (Wk6)</h1>
+  <p>Players whose recent level crosses a line vs their season level -- waiver to rosterable, usable to elite, and the reverse.</p>
+  <p id="genLabel" style="margin-top:6px;color:#334155;"></p>
+</div>
+<details class="tier-info">
+  <summary>How Level Crossings Work</summary>
+  <div class="tier-info-body" id="crInfo"></div>
+</details>
+<div class="controls">
+  <select id="crFilter">
+    <option value="ALL">All Players</option>
+    <option value="AVAILABLE">Available (No Team)</option>
+    <option value="BOMBERS">Brandon's Bombers</option>
+    <option value="BOMBERS_ALL">Bombers + Available</option>
+    <option value="WATCHLIST">Watchlist</option>
+  </select>
+</div>
+<div class="tabs"><button class="tab-btn" data-tab="QB" onclick="switchCrTab('QB')">QB</button><button class="tab-btn" data-tab="RB" onclick="switchCrTab('RB')">RB</button><button class="tab-btn" data-tab="WRTE" onclick="switchCrTab('WRTE')">WR/TE</button><button class="tab-btn active" data-tab="FLEX" onclick="switchCrTab('FLEX')">FLEX</button></div>
+<div id="crSummary" class="tier-summary-line"></div>
+<div id="crRows"></div>
+<div class="footer">DTFFL Analytics - Toledo scoring - nflverse-supplemented weekly stats</div>
+<script>
+const BOMBERS_TEAM_NAME = "Brandon's Bombers";
+
+function sgn(v) {
+  if (v === null || v === undefined) return '--';
+  return (v > 0 ? '+' : '') + v;
+}
+
+function sparkSvg(vals, up) {
+  const W = 92, H = 26, pad = 3;
+  const nums = (vals || []).filter(v => v !== null && v !== undefined);
+  if (nums.length < 2) return '';
+  const lo = Math.min(...nums), hi = Math.max(...nums), span = (hi - lo) || 1;
+  const n = vals.length, dx = (W - 2 * pad) / Math.max(1, n - 1);
+  const X = i => pad + i * dx, Y = v => H - pad - ((v - lo) / span) * (H - 2 * pad - 3);
+  let path = '', pen = false, ticks = '', lastI = -1;
+  vals.forEach((v, i) => {
+    if (v === null || v === undefined) {
+      pen = false;
+      ticks += '<line x1="' + X(i).toFixed(1) + '" x2="' + X(i).toFixed(1) + '" y1="' + (H - 1) + '" y2="' + (H - 5) + '" stroke="#475569" stroke-width="1"/>';
+      return;
+    }
+    path += (pen ? 'L' : 'M') + X(i).toFixed(1) + ' ' + Y(v).toFixed(1) + ' ';
+    pen = true; lastI = i;
+  });
+  const col = up ? '#4ade80' : '#f87171';
+  const dot = lastI >= 0 ? '<circle cx="' + X(lastI).toFixed(1) + '" cy="' + Y(vals[lastI]).toFixed(1) + '" r="2.2" fill="' + col + '"/>' : '';
+  return '<svg width="' + W + '" height="' + H + '" viewBox="0 0 ' + W + ' ' + H + '">' + ticks
+    + '<path d="' + path + '" fill="none" stroke="' + col + '" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round"/>' + dot + '</svg>';
+}
+
+function trChip(p, showTier) {
+  let cls = '';
+  if (p.FantasyTeam === BOMBERS_TEAM_NAME) cls = ' bombers';
+  else if (p.Available === true) cls = ' freeagent';
+  const badges = (p.Injury_Flag ? '<span class="injury-badge ' + p.Injury_Flag.toLowerCase() + '">' + p.Injury_Flag + '</span>' : '')
+    + (p.TD_Driven ? '<span class="td-badge" title="Rise leans on touchdowns">TD</span>' : '');
+  const up = (p.Trend_Z ?? 0) >= 0;
+  const exc = p.Excused_Wks ? ' (' + p.Excused_Wks + ' excused)' : '';
+  const exp = (p.Exp_Delta !== null && p.Exp_Delta !== undefined) ? ' | exp ' + sgn(p.Exp_Delta) + ' pts' : '';
+  const tierTag = showTier && p.Tier_Name
+    ? ' | <span style="color:' + p.Tier_Color + ';font-weight:700">' + p.Tier_Name + '</span>' : '';
+  let lvl = '';
+  if (p.Season_Level && p.Recent_Level) {
+    const mv = p.Level_Move || 'same';
+    const bands = p.Crossing ? ' <span class="' + mv + '">(' + p.Season_Band + ' &rarr; ' + p.Recent_Band + ')</span>' : '';
+    lvl = '<span class="pmeta">Level <b class="' + mv + '">' + p.Season_Level + ' &rarr; ' + p.Recent_Level + '</b>' + bands + '</span>';
+  }
+  return '<div class="player-chip tr-chip' + cls + '">'
+    + '<span class="pname">#' + p.Rank + ' ' + p.Player + badges + '</span>'
+    + '<span class="pmeta">' + p.Pos + (p.Team ? ' - ' + p.Team : '') + ' | ' + p.Games + ' gm' + exc + '</span>'
+    + '<span class="pmeta">Recent ' + (p.Recent_PPG ?? '--') + ' | Szn ' + (p.Season_PPG ?? '--')
+    + ' | <b class="' + ((p.PPG_Delta ?? 0) >= 0 ? 'up' : 'dn') + '">' + sgn(p.PPG_Delta) + '</b></span>'
+    + lvl
+    + '<span class="pmeta">Usage ' + sgn(p.Opp_Delta) + ' opp/g | Slope ' + sgn(p.Slope) + '/wk</span>'
+    + '<span class="pmeta">Trend z ' + sgn(p.Trend_Z) + exp + tierTag + '</span>'
+    + sparkSvg(p.Spark, up)
+    + '</div>';
+}
+
+function ownerKeep(p, ownerFilter, wl) {
+  switch (ownerFilter) {
+    case 'AVAILABLE':   return p.Available === true;
+    case 'BOMBERS':     return p.FantasyTeam === BOMBERS_TEAM_NAME;
+    case 'BOMBERS_ALL': return p.Available === true || p.FantasyTeam === BOMBERS_TEAM_NAME;
+    case 'WATCHLIST':   return wl.has(p.Player + '|' + p.Pos);
+    default:            return true;
+  }
+}
+
+function bandBoundsHtml(model) {
+  const order = (model.band_order || []).filter(b => b !== 'Waiver');
+  const bb = model.band_bounds || {};
+  const head = '<tr><th>Group</th>' + order.map(b => '<th>' + b + '</th>').join('') + '</tr>';
+  const body = Object.keys(bb).map(g =>
+    '<tr><td>' + (g === 'WRTE' ? 'WR/TE' : g) + '</td>'
+    + order.map(b => '<td>' + (bb[g][b] !== undefined ? '&ge; ' + bb[g][b] : '--') + '</td>').join('') + '</tr>').join('');
+  return '<table class="band-table">' + head + body + '</table>';
+}
+
+let CR_RAW = null, crTab = "FLEX", crFilter = 'ALL', holdOpen = false;
+
+function switchCrTab(tab) {
+  crTab = tab;
+  holdOpen = false;
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.toggle('active', b.dataset.tab === tab));
+  renderCrossings();
+}
+
+function openHold() { holdOpen = true; renderCrossings(); }
+
+function secRow(sec, players, arrow, expander) {
+  const body = expander ? expander
+    : (players.length ? players.map(p => trChip(p, true)).join('') : '<div class="tier-empty-msg">No players this week</div>');
+  return '<div class="tier-row">'
+    + '<div class="tier-label tr-label" style="background:' + sec.color + '">'
+    + '<span class="cr-count">' + arrow + ' ' + players.length + '</span><span class="tr-name">' + sec.label + '</span></div>'
+    + '<div class="tier-players">' + body + '</div></div>';
+}
+
+function renderCrossings() {
+  if (!CR_RAW) return;
+  const tab = CR_RAW.tabs[crTab];
+  if (!tab) return;
+  const wl = new Set((CR_RAW.watchlist || []).map(w => w.Player + '|' + w.Pos));
+  const filtered = crFilter !== 'ALL';
+  let shown = 0;
+  let html = (tab.sections || []).map(sec => {
+    const players = sec.players.filter(p => ownerKeep(p, crFilter, wl));
+    shown += players.length;
+    if (filtered && players.length === 0) return '';
+    return secRow(sec, players, sec.direction === 'up' ? '&#9650;' : '&#9660;', null);
+  }).join('');
+
+  const hold = tab.hold;
+  const holdPlayers = hold.players.filter(p => ownerKeep(p, crFilter, wl));
+  if (holdPlayers.length || !filtered) {
+    const expander = holdOpen ? null
+      : '<div class="cr-hold-btn" onclick="openHold()">Show ' + holdPlayers.length + ' players who hold their level...</div>';
+    html += secRow(hold, holdPlayers, '&#9644;', expander);
+  }
+  document.getElementById('crRows').innerHTML = html;
+  const s = tab.summary;
+  document.getElementById('crSummary').innerHTML =
+    '<span>Players in pool: <b>' + s.players + '</b></span>'
+    + '<span>Rising across a band: <b>' + s.up + '</b></span>'
+    + '<span>Dropping across a band: <b>' + s.down + '</b></span>'
+    + '<span>Holding level: <b>' + s.hold + '</b></span>';
+}
+
+function renderCrInfo() {
+  const m = CR_RAW.tabs.model;
+  if (!m) return;
+  document.getElementById('crInfo').innerHTML =
+    '<ul>'
+    + '<li><b>Why this report exists:</b> trend alone is level-blind. A waiver player going from 5.8 to 8.9 PPG and a starter going from 16 to 19 both read as +3, but one is a pickup and the other is a difference-maker. This page sorts by <b>what kind of move</b> a player is making.</li>'
+    + '<li><b>Level</b> = the Tiers Breakdown S-F system (same stabilization, same natural-break cutoffs) run on played games only (byes and inactive weeks excused). <b>Season level</b> is his tier; <b>recent level</b> places his recency-weighted PPG (half-life ' + m.half_life + ' wks, shrunk for small samples) on the same cutoffs, so a few hot games cannot jump a player to Elite.</li>'
+    + '<li><b>Bands:</b> Waiver (F) &middot; Bench (E) &middot; Usable (C/D) &middot; Starter (B) &middot; Elite (S/A). A <b>crossing</b> is any change of band. Sections are named by the band he is moving <b>into</b>, so "Rising to Usable" holds both Waiver &rarr; Usable and Bench &rarr; Usable. Each chip shows the exact letter move.</li>'
+    + '<li><b>Cutoffs this week</b> (stabilized PPG, own-position tables, used on every tab including FLEX): ' + bandBoundsHtml(m) + '</li>'
+    + '<li>Risers are ordered best trend first, droppers worst trend first. <b>#rank</b> and the colored tier tag match the Trending report, so you can compare the two player-for-player. Players who change letter inside a band (e.g. C &rarr; D) are in "Holding level".</li>'
+    + '<li>Sparkline = weekly Toledo points; ticks mark excused weeks. Green border = Brandon\'s Bombers, blue border = free agent, from this week\'s ownership. Out/IR/PUP/Suspended players are hidden.</li>'
+    + '</ul>';
+}
+
+async function initCrossings(jsonPath) {
+  const res = await fetch(jsonPath);
+  CR_RAW = await res.json();
+  document.getElementById('crFilter').addEventListener('change', e => { crFilter = e.target.value; renderCrossings(); });
+  document.getElementById('genLabel').textContent =
+    'Season ' + CR_RAW.season + ' - Through Week ' + CR_RAW.through_week + ' - Updated ' + CR_RAW.generated;
+  renderCrInfo();
+  renderCrossings();
+}
+
+initCrossings('data/crossings.json');
+</script>
+</body></html>
