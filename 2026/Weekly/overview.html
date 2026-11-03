@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Weekly Overview -- DTFFL Weekly</title>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+body{background:#0f172a;color:#e2e8f0;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;padding-bottom:40px;}
+.hdr{padding:18px 16px 12px;border-bottom:1px solid #1e293b;}
+.hdr h1{font-size:20px;font-weight:800;color:#f8fafc;}
+.hdr p{font-size:12px;color:#64748b;margin-top:4px;}
+.controls{display:flex;gap:10px;flex-wrap:wrap;padding:12px 16px;border-bottom:1px solid #1e293b;}
+select{background:#1e293b;color:#e2e8f0;border:1px solid #334155;border-radius:8px;padding:8px 10px;font-size:13px;}
+.tabs{display:flex;gap:6px;padding:10px 16px 0;flex-wrap:wrap;}
+.tab-btn{background:#1e293b;color:#94a3b8;border:1px solid #334155;border-radius:999px;padding:6px 14px;font-size:12px;font-weight:600;cursor:pointer;}
+.tab-btn.active{background:#4ade80;color:#0f172a;border-color:#4ade80;}
+table{width:100%;border-collapse:collapse;margin-top:12px;font-size:12px;}
+th{position:sticky;top:0;background:#1e293b;color:#94a3b8;text-align:left;padding:8px 10px;cursor:pointer;white-space:nowrap;border-bottom:1px solid #334155;}
+th:hover{color:#f8fafc;}
+td{padding:7px 10px;border-bottom:1px solid #1e293b;white-space:nowrap;}
+tr:hover td{background:#1e293b;}
+.bombers-row td{background:#26344a;}
+.bombers-row:hover td{background:#334155;}
+.wrap{overflow-x:auto;padding:0 8px;}
+.badge-yes{color:#4ade80;font-weight:700;}
+.badge-no{color:#64748b;}
+.badge-inj{color:#fb923c;font-weight:700;}
+.badge-red{color:#f87171;font-weight:700;}
+.footer{padding:20px 16px 0;font-size:11px;color:#334155;text-align:center;}
+
+.tier-info{margin:12px 16px 4px;background:#1e293b;border:1px solid #334155;border-radius:10px;}
+.tier-info summary{padding:12px 14px;cursor:pointer;font-weight:700;color:#f1f5f9;font-size:13px;list-style:none;}
+.tier-info summary::-webkit-details-marker{display:none;}
+.tier-info-body{padding:0 14px 14px;font-size:12px;color:#94a3b8;line-height:1.65;}
+.tier-info-body ul{margin:6px 0 6px 18px;}
+.tier-summary-line{padding:10px 16px 0;font-size:12px;color:#94a3b8;display:flex;gap:16px;flex-wrap:wrap;}
+.tier-summary-line b{color:#e2e8f0;}
+.tier-row{display:flex;align-items:stretch;margin:10px 16px;border-radius:10px;overflow:hidden;border:1px solid #334155;}
+.tier-label{flex:0 0 60px;display:flex;align-items:center;justify-content:center;font-size:24px;font-weight:900;color:#0f172a;}
+.tier-players{flex:1;display:flex;flex-wrap:wrap;gap:6px;padding:10px;background:#1e293b;align-content:flex-start;}
+.tier-empty-msg{color:#475569;font-size:12px;padding:10px;font-style:italic;}
+.player-chip{background:#0f172a;border:1px solid #334155;border-radius:8px;padding:6px 9px;font-size:11px;min-width:140px;}
+.player-chip.bombers{border-color:#4ade80;}
+.player-chip.freeagent{border-color:#38bdf8;}
+.player-chip .pname{font-weight:700;color:#f1f5f9;display:block;font-size:12px;}
+.player-chip .pmeta{color:#64748b;font-size:10px;margin-top:2px;display:block;}
+.injury-badge{display:inline-block;margin-left:5px;padding:1px 5px;border-radius:5px;font-size:9px;font-weight:800;color:#0f172a;}
+.injury-badge.q{background:#facc15;}
+.injury-badge.d{background:#fb923c;}
+.tier-more-btn{background:#0f172a;border:1px dashed #334155;border-radius:8px;padding:6px 9px;font-size:11px;color:#94a3b8;cursor:pointer;min-width:140px;}
+@media (max-width:640px){
+  .tier-row{flex-direction:column;margin:8px 10px;}
+  .tier-label{flex:0 0 auto;padding:6px;font-size:16px;}
+}
+
+.ov-banner{margin:12px 16px 0;padding:10px 12px;background:#422006;border:1px solid #92400e;border-radius:8px;color:#fdba74;font-size:12px;line-height:1.55;}
+.ov-banner b{color:#fed7aa;}
+.ov-key{margin:12px 16px 0;}
+.ov-key summary{display:flex;align-items:center;flex-wrap:wrap;gap:6px 10px;}
+.ov-key summary .k-title{font-weight:800;color:#f1f5f9;}
+.ov-key summary .k-end{font-size:11px;color:#94a3b8;font-weight:600;}
+.ov-key summary .k-hint{font-size:11px;color:#64748b;font-weight:500;flex-basis:100%;}
+.ov-grad{display:inline-block;width:170px;height:10px;border-radius:5px;background:linear-gradient(90deg,#22c55e,#a3e635,#facc15,#fb923c,#ef4444);}
+.ov-key .tier-info-body p{margin:0 0 8px;}
+.ov-key-ctl{display:flex;gap:10px;flex-wrap:wrap;margin:10px 0 6px;}
+.ov-key-tier{display:flex;gap:12px;align-items:flex-start;padding:8px 6px;border-bottom:1px solid #334155;border-radius:6px;}
+.ov-key-tier.sel{background:#0f172a;outline:2px solid #e2e8f0;}
+.ov-key-sw{flex:0 0 92px;text-align:center;border-radius:6px;padding:7px 4px;font-weight:800;font-size:12px;color:#0f172a;line-height:1.25;}
+.ov-key-sw small{display:block;font-weight:700;font-size:10px;opacity:.8;}
+.ov-key-txt{font-size:12px;color:#cbd5e1;line-height:1.55;}
+.ov-key-meta{font-size:11px;color:#64748b;margin:2px 0 6px;}
+.ov-legend{display:flex;flex-wrap:wrap;gap:8px 18px;margin-top:10px;font-size:11px;color:#94a3b8;}
+.ov-legend span.chip{display:inline-block;min-width:34px;text-align:center;padding:2px 6px;border-radius:4px;font-weight:700;font-size:10px;margin-right:6px;}
+.ov-detail{margin:10px 16px 0;padding:9px 12px;background:#1e293b;border:1px solid #334155;border-left:4px solid #475569;border-radius:8px;font-size:12px;color:#cbd5e1;line-height:1.55;min-height:40px;}
+.ov-detail b{color:#f8fafc;}
+.ov-wrap{overflow:auto;max-height:78vh;margin:10px 8px 0;border-top:1px solid #1e293b;}
+table.ov{border-collapse:separate;border-spacing:0;font-size:12px;margin:0;width:auto;}
+table.ov th{position:sticky;top:0;z-index:10;background:#1e293b;color:#94a3b8;padding:8px 8px;text-align:center;cursor:pointer;white-space:nowrap;border-bottom:1px solid #334155;border-right:1px solid #0f172a;}
+table.ov th:hover{color:#f8fafc;}
+table.ov th.txt{text-align:left;}
+table.ov th.cur{color:#fbbf24;border-bottom:2px solid #fbbf24;}
+table.ov th.name{left:0;z-index:20;}
+table.ov td{padding:0;border-bottom:1px solid #0f172a;border-right:1px solid #0f172a;white-space:nowrap;}
+table.ov td.name{position:sticky;left:0;z-index:5;background:#0f172a;padding:7px 10px;min-width:190px;max-width:230px;overflow:hidden;text-overflow:ellipsis;border-right:1px solid #334155;}
+table.ov td.name .pm{color:#64748b;font-size:10px;margin-left:4px;}
+table.ov td.own{padding:7px 10px;color:#94a3b8;font-size:11px;}
+table.ov tr.bombers-row td.name{background:#26344a;}
+table.ov tr.bombers-row td.own{background:#26344a;}
+table.ov tr:hover td.name,table.ov tr:hover td.own{background:#1e293b;}
+table.ov td.sc{text-align:center;color:#0f172a;font-weight:700;cursor:pointer;min-width:46px;padding:7px 4px;font-variant-numeric:tabular-nums;}
+table.ov td.sc:hover{outline:2px solid #f8fafc;outline-offset:-2px;}
+table.ov td.sc.sel{outline:2px solid #f8fafc;outline-offset:-2px;}
+table.ov td.st{text-align:center;font-size:10px;font-weight:700;padding:7px 4px;color:#475569;}
+table.ov td.st-bye{background:#1e293b;color:#94a3b8;}
+table.ov td.st-tbd{color:#475569;font-style:italic;font-weight:600;}
+table.ov td.st-dnp{background:#2a1215;color:#f87171;}
+table.ov td.st-na{color:#475569;}
+@media (max-width:640px){
+  table.ov{font-size:11px;}
+  table.ov td.name{min-width:150px;max-width:160px;padding:6px 6px;}
+  table.ov td.sc{min-width:40px;}
+  .ov-key-tier{flex-direction:column;gap:6px;}
+  .ov-key-sw{flex:0 0 auto;align-self:flex-start;min-width:92px;}
+}
+</style></head><body>
+<div class="hdr">
+  <h1>Weekly Overview</h1>
+  <p>Every week of the season for the top scorers at QB, RB and WR/TE -- Toledo fantasy points, season average and last-5 average. Byes and unplayed games are never counted.</p>
+  <p id="genLabel" style="margin-top:6px;color:#334155;"></p>
+</div>
+<div id="partialBanner" class="ov-banner" style="display:none;"></div>
+<details class="tier-info ov-key" id="keyBox">
+  <summary><span class="k-title">Color Key</span><span class="k-end">Best tier</span><span class="ov-grad"></span><span class="k-end">Lowest tier</span>
+    <span class="k-hint">Colors are machine-learning tiers rebuilt for every week and position, so each score is judged against that week's scores. Tap to expand the full key.</span></summary>
+  <div class="tier-info-body">
+    <div id="keyText"></div>
+    <div class="ov-key-ctl">
+      <select id="keyGroup"></select>
+      <select id="keyCol"></select>
+    </div>
+    <div id="keyTiers"></div>
+    <div class="ov-legend" id="keyLegend"></div>
+  </div>
+</details>
+<div class="controls">
+  <select id="teamFilter"></select>
+  <select id="nflTeamFilter"></select>
+  <span id="rowCount" style="align-self:center;font-size:12px;color:#64748b;"></span>
+</div>
+<div class="tabs"><button class="tab-btn active" data-tab="ALL" onclick="switchTab('ALL')">ALL</button><button class="tab-btn" data-tab="QB" onclick="switchTab('QB')">QB</button><button class="tab-btn" data-tab="RB" onclick="switchTab('RB')">RB</button><button class="tab-btn" data-tab="WRTE" onclick="switchTab('WRTE')">WR/TE</button></div>
+<div id="cellDetail" class="ov-detail">Tap or hover any colored score to see why it got its color. Click a column header to sort; click again to flip ascending / descending.</div>
+<div class="ov-wrap" id="tableWrap"></div>
+<div class="footer">DTFFL Analytics - Toledo scoring - nflverse-supplemented weekly stats</div>
+<script>
+const BOMBERS_TEAM_NAME = "Brandon's Bombers";
+const STATUS_WORD = {BYE:'BYE', TBD:'TBD', DNP:'DNP', NA:'\u2014'};
+let OV = null, COLS = [], TIERS = {}, ovTab = 'ALL', sortCol = 'total', sortAsc = false, selCell = null;
+
+function esc(s) { return String(s ?? '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+function grpLabel(g) { return g === 'WRTE' ? 'WR/TE' : (g === 'ALL' ? 'All players' : g); }
+function colByKey(k) { return COLS.find(c => c.key === k); }
+function colLong(col) {
+  if (col.kind === 'week') return 'Week ' + col.week;
+  if (col.kind === 'avg') return 'season average (YTD)';
+  if (col.kind === 'l5') return 'last-' + OV.tabs.recent_n + '-games average';
+  return 'season total';
+}
+function tierInfo(row, colKey) {
+  const g = TIERS[row.TG]; const t = g && g[colKey];
+  return t ? t : null;
+}
+
+// ── Filters ──
+function fantasyTeams() {
+  const m = new Map();
+  OV.tabs.players.forEach(r => { if (r.FantasyTeam && r.FantasyTeam !== 'Available') m.set(r.FantasyTeam, r.Owner || ''); });
+  return Array.from(m.entries()).sort((a, b) => a[0].localeCompare(b[0]));
+}
+function populateFilters() {
+  const f = document.getElementById('teamFilter');
+  f.innerHTML = '<option value="ALL">All Fantasy Teams</option>'
+    + '<option value="BOMBERS_ALL">Bombers + Available</option>'
+    + '<option value="WATCHLIST">Watchlist</option>'
+    + '<option value="AVAILABLE">Available (No Team)</option>';
+  fantasyTeams().forEach(([t, o]) => {
+    const opt = document.createElement('option');
+    opt.value = t; opt.textContent = o && o !== t ? t + ' (' + o + ')' : t; f.appendChild(opt);
+  });
+  const n = document.getElementById('nflTeamFilter');
+  n.innerHTML = '<option value="ALL">All NFL Teams</option>';
+  Array.from(new Set(OV.tabs.players.map(r => r.Team).filter(Boolean))).sort().forEach(t => {
+    const opt = document.createElement('option'); opt.value = t; opt.textContent = t; n.appendChild(opt);
+  });
+}
+
+function switchTab(tab) {
+  ovTab = tab;
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.toggle('active', b.dataset.tab === tab));
+  const kg = document.getElementById('keyGroup');
+  if (tab !== 'ALL' && kg && Array.from(kg.options).some(o => o.value === tab)) kg.value = tab;
+  render(); renderKey();
+}
+
+// ── Sorting: text asc first, numbers best-first; blanks/BYE/TBD/DNP always last ──
+function sortBy(key) {
+  const col = colByKey(key);
+  const isText = (key === 'player' || key === 'owner');
+  if (sortCol === key) sortAsc = !sortAsc; else { sortCol = key; sortAsc = isText; }
+  render();
+}
+function sortVal(r, key) {
+  if (key === 'player') return r.Player.toLowerCase();
+  if (key === 'owner') return (r.Owner || '').toLowerCase();
+  const c = r.c[key];
+  return (c && c[2] === 'P' && c[0] !== null) ? c[0] : null;
+}
+
+function visibleRows() {
+  let rows = OV.tabs.players.slice();
+  if (ovTab !== 'ALL') rows = rows.filter(r => r.Grp === ovTab);
+  const tv = document.getElementById('teamFilter').value;
+  if (tv === 'WATCHLIST') {
+    const wl = new Set((OV.watchlist || []).map(w => w.Player + '|' + w.Pos));
+    rows = rows.filter(r => wl.has(r.Player + '|' + r.Pos));
+  } else if (tv === 'AVAILABLE') rows = rows.filter(r => r.FantasyTeam === 'Available');
+  else if (tv === 'BOMBERS_ALL') rows = rows.filter(r => r.FantasyTeam === 'Available' || r.FantasyTeam === BOMBERS_TEAM_NAME);
+  else if (tv !== 'ALL') rows = rows.filter(r => r.FantasyTeam === tv);
+  const nv = document.getElementById('nflTeamFilter').value;
+  if (nv !== 'ALL') rows = rows.filter(r => r.Team === nv);
+  rows.sort((a, b) => {
+    const av = sortVal(a, sortCol), bv = sortVal(b, sortCol);
+    if (av === null && bv === null) return a.Rank - b.Rank;
+    if (av === null) return 1;
+    if (bv === null) return -1;
+    let cmp = (typeof av === 'string') ? av.localeCompare(bv) : av - bv;
+    if (cmp === 0) return a.Rank - b.Rank;
+    return sortAsc ? cmp : -cmp;
+  });
+  return rows;
+}
+
+// ── Cells ──
+function cellTitle(r, col, v, tier, k, ti) {
+  let t = r.Player + ' - ' + col.label + ': ' + v.toFixed(1) + ' pts';
+  if (tier) t += ' - Tier ' + (ti + 1) + ' of ' + k + ' (' + tier.lo.toFixed(1) + (tier.hi !== tier.lo ? ' to ' + tier.hi.toFixed(1) : '') + ') - tap for why';
+  return t;
+}
+function cellHtml(r, col) {
+  const c = r.c[col.key];
+  if (!c) return '<td class="st st-na">\u2014</td>';
+  const v = c[0], ti = c[1], s = c[2];
+  if (s === 'P' && v !== null) {
+    const ti_ = tierInfo(r, col.key);
+    const tier = (ti_ && ti !== null) ? ti_.tiers[ti] : null;
+    const bg = tier ? tier.color : '#334155';
+    const sel = (selCell && selCell.id === r.id && selCell.key === col.key) ? ' sel' : '';
+    return '<td class="sc' + sel + '" style="background:' + bg + '" data-id="' + r.id + '" data-c="' + col.key + '" title="'
+      + esc(cellTitle(r, col, v, tier, ti_ ? ti_.k : 0, ti)) + '">' + v.toFixed(1) + '</td>';
+  }
+  const tips = {BYE: 'Bye week - his NFL team does not play. Not counted.',
+                TBD: 'Game not final yet - not counted in totals, averages or colors.',
+                DNP: 'Team played but he had no snaps, opportunities or points. Not counted in averages.',
+                NA: 'No data saved for this week. Not counted.'};
+  return '<td class="st st-' + s.toLowerCase() + '" title="' + esc(tips[s] || '') + '">' + (STATUS_WORD[s] || '') + '</td>';
+}
+
+function render() {
+  if (!OV) return;
+  const rows = visibleRows();
+  const arrow = k => sortCol === k ? (sortAsc ? ' &#9650;' : ' &#9660;') : '';
+  let head = '<tr><th class="txt name" onclick="sortBy(\'player\')">Player' + arrow('player') + '</th>'
+    + '<th class="txt" onclick="sortBy(\'owner\')">Owner' + arrow('owner') + '</th>';
+  COLS.forEach(col => {
+    const cur = (col.kind === 'week' && col.week === OV.tabs.current_week) ? ' cur' : '';
+    head += '<th class="' + cur.trim() + '" onclick="sortBy(\'' + col.key + '\')">' + esc(col.label) + arrow(col.key) + '</th>';
+  });
+  head += '</tr>';
+  const body = rows.map(r => {
+    const cls = r.FantasyTeam === BOMBERS_TEAM_NAME ? ' class="bombers-row"' : '';
+    const nm = '<td class="name" title="' + esc(r.Player + ' - ' + r.Pos + ' - ' + (r.Team || '')) + '">' + esc(r.Player)
+      + '<span class="pm">' + esc(r.PosLabel) + ' - ' + esc(r.Team || '') + '</span></td>';
+    const own = '<td class="own" title="' + esc(r.FantasyTeam || '') + '">' + esc(r.Owner) + '</td>';
+    return '<tr' + cls + '>' + nm + own + COLS.map(col => cellHtml(r, col)).join('') + '</tr>';
+  }).join('');
+  document.getElementById('tableWrap').innerHTML = '<table class="ov"><thead>' + head + '</thead><tbody>' + body + '</tbody></table>';
+  document.getElementById('rowCount').textContent = rows.length + ' players';
+}
+
+// ── Click a score -> why it has that color ──
+function onCellClick(e) {
+  const td = e.target.closest('td.sc'); if (!td) return;
+  const r = OV.tabs.players[+td.dataset.id], col = colByKey(td.dataset.c);
+  selCell = {id: r.id, key: col.key};
+  const c = r.c[col.key], t = tierInfo(r, col.key), tier = t ? t.tiers[c[1]] : null;
+  const box = document.getElementById('cellDetail');
+  box.style.borderLeftColor = tier ? tier.color : '#475569';
+  box.innerHTML = tier
+    ? '<b>' + esc(r.Player) + '</b> (' + esc(r.PosLabel) + ' - ' + esc(r.Team || '') + ') &mdash; ' + esc(col.label) + ': <b>' + c[0].toFixed(1) + '</b> '
+      + (col.kind === 'avg' || col.kind === 'l5' ? 'pts/game' : 'pts') + '. Tier ' + (c[1] + 1) + ' of ' + t.k + '. ' + esc(tier.sentence)
+    : esc(r.Player) + ' &mdash; ' + esc(col.label) + ': ' + c[0].toFixed(1);
+  const kg = document.getElementById('keyGroup'), kc = document.getElementById('keyCol');
+  if (kg && Array.from(kg.options).some(o => o.value === r.TG)) kg.value = r.TG;
+  if (kc) kc.value = col.key;
+  renderKey(c[1]); render();
+}
+
+// ── Color key ──
+function renderKey(hiTier) {
+  const g = document.getElementById('keyGroup').value, ck = document.getElementById('keyCol').value;
+  const col = colByKey(ck), t = TIERS[g] && TIERS[g][ck];
+  const box = document.getElementById('keyTiers');
+  if (!t) {
+    box.innerHTML = '<div class="ov-key-meta">No counted scores yet for ' + esc(grpLabel(g)) + ' in ' + esc(colLong(col))
+      + ' (bye, not yet played, or no data), so there are no tiers to show.</div>';
+    return;
+  }
+  const head = '<div class="ov-key-meta">' + esc(grpLabel(g)) + ' &middot; ' + esc(colLong(col)) + ' &middot; ' + t.n
+    + ' scores &middot; the clustering chose <b>' + t.k + ' tiers</b>' + (t.silhouette !== null ? ' (silhouette ' + t.silhouette + ')' : '')
+    + ' &middot; median ' + t.median + ' ' + t.unit + '</div>';
+  box.innerHTML = head + t.tiers.map(x => {
+    const rng = x.hi !== x.lo ? x.lo.toFixed(1) + ' &ndash; ' + x.hi.toFixed(1) : x.lo.toFixed(1);
+    const label = x.i === 0 ? 'Best tier' : (x.i === t.k - 1 ? 'Lowest tier' : 'Tier ' + (x.i + 1) + ' of ' + t.k);
+    return '<div class="ov-key-tier' + (hiTier === x.i ? ' sel' : '') + '"><div class="ov-key-sw" style="background:' + x.color + '">'
+      + rng + '<small>' + label + '</small><small>' + x.n + (x.n === 1 ? ' player' : ' players') + '</small></div><div class="ov-key-txt">' + esc(x.sentence) + '</div></div>';
+  }).join('');
+}
+
+function initKey() {
+  const kg = document.getElementById('keyGroup'), kc = document.getElementById('keyCol');
+  kg.innerHTML = Object.keys(TIERS).map(g => '<option value="' + g + '">' + esc(grpLabel(g)) + '</option>').join('');
+  const cw = OV.tabs.current_week;
+  kc.innerHTML = COLS.map(c => '<option value="' + c.key + '">' + esc(c.label) + '</option>').join('');
+  kc.value = 'w' + cw;
+  kg.addEventListener('change', () => renderKey());
+  kc.addEventListener('change', () => renderKey());
+  document.getElementById('keyText').innerHTML =
+    '<p><b>How the colors work.</b> Every score on this page is colored by a <b>machine-learning tier</b>, and the tiers are rebuilt for '
+    + '<b>every column</b> (each week, Total, Avg YTD and Avg Last ' + OV.tabs.recent_n + ') ' + (OV.tabs.scope === 'position' ? 'and <b>separately for QBs, RBs and WR/TEs</b>' : 'across all players') + '. '
+    + 'For each one, K-Means clustering finds the natural groups in that column\'s scores and a silhouette score decides how many groups there are ('
+    + OV.tabs.k_range[0] + '&ndash;' + OV.tabs.k_range[1] + ' allowed) &mdash; so the number of colors is decided by the data, not set by hand. '
+    + 'The best group is always green, the weakest red, with yellow/orange between.</p>'
+    + '<p><b>Why this matters:</b> a 12-point game is judged against the other scores <i>that same week</i> at that position. In a high-scoring week it can land in a low tier; in a low-scoring week the same 12 can be a top tier. '
+    + 'Tap or hover any colored score to see exactly why it got its color, or use the pickers below to read every tier\'s range and explanation for any column.</p>';
+  document.getElementById('keyLegend').innerHTML =
+    '<span><span class="chip" style="background:#1e293b;color:#94a3b8">BYE</span>NFL team is off that week &mdash; not counted</span>'
+    + '<span><span class="chip" style="background:#0f172a;color:#64748b;font-style:italic">TBD</span>game not final yet (future week or still to play) &mdash; not counted</span>'
+    + '<span><span class="chip" style="background:#2a1215;color:#f87171">DNP</span>' + (OV.tabs.dnp_as_zero ? 'n/a' : 'team played but he had no snaps or stats &mdash; not counted in averages') + '</span>'
+    + '<span><span class="chip" style="background:#0f172a;color:#64748b">\u2014</span>no data saved for that week</span>';
+  renderKey();
+}
+
+async function init(jsonPath) {
+  const res = await fetch(jsonPath);
+  OV = await res.json();
+  COLS = OV.tabs.columns; TIERS = OV.tabs.tiers;
+  document.getElementById('genLabel').textContent =
+    'Season ' + OV.season + ' - Through Week ' + OV.through_week + ' - Updated ' + OV.generated
+    + ' - Top ' + OV.tabs.players.length + ' by total fantasy points';
+  const p = OV.tabs.partial;
+  if (p && p.is_partial) {
+    const ip = (p.in_progress_teams || []).length ? ' Games in progress: <b>' + p.in_progress_teams.join(', ') + '</b>.' : '';
+    document.getElementById('partialBanner').innerHTML =
+      '<b>Week ' + OV.tabs.current_week + ' is still in progress.</b> ' + p.final_teams.length + ' NFL teams are final; '
+      + p.pending_teams.length + ' have not finished (<b>' + p.pending_teams.join(', ') + '</b>).' + ip
+      + ' Their Week ' + OV.tabs.current_week + ' cells show TBD and are left out of Total, both averages and the Week ' + OV.tabs.current_week + ' colors.';
+    document.getElementById('partialBanner').style.display = 'block';
+  }
+  populateFilters();
+  document.getElementById('teamFilter').addEventListener('change', render);
+  document.getElementById('nflTeamFilter').addEventListener('change', render);
+  document.getElementById('tableWrap').addEventListener('click', onCellClick);
+  initKey();
+  render();
+}
+
+init('data/overview.json');
+</script>
+</body></html>
