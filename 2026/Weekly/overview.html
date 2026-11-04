@@ -92,7 +92,8 @@ table.ov td.sc:hover{outline:2px solid #f8fafc;outline-offset:-2px;}
 table.ov td.sc.sel{outline:2px solid #f8fafc;outline-offset:-2px;}
 table.ov td.st{text-align:center;font-size:10px;font-weight:700;padding:7px 4px;color:#475569;}
 table.ov td.st-bye{background:#1e293b;color:#94a3b8;}
-table.ov td.st-tbd{color:#475569;font-style:italic;font-weight:600;}
+table.ov td.st-tbd{color:#64748b;font-weight:600;min-width:52px;}
+table.ov td.st-tbd.tbd-plain{font-style:italic;color:#475569;}
 table.ov td.st-dnp{background:#2a1215;color:#f87171;}
 table.ov td.st-na{color:#475569;}
 @media (max-width:640px){
@@ -241,7 +242,8 @@ function cellHtml(r, col) {
                 TBD: 'Game not final yet - not counted in totals, averages or colors.',
                 DNP: 'Team played but he had no snaps, opportunities or points. Not counted in averages.',
                 NA: 'No data saved for this week. Not counted.'};
-  return '<td class="st st-' + s.toLowerCase() + '" title="' + esc(tips[s] || '') + '">' + (STATUS_WORD[s] || '') + '</td>';
+  if (s === 'TBD' && c[3]) return '<td class="st st-tbd" title="' + esc('Not final yet (' + (c[3].startsWith('@') ? 'away at ' + c[3].slice(1) : 'home vs ' + c[3].slice(3)) + ') - not counted in totals, averages or colors.') + '">' + esc(c[3]) + '</td>';
+  return '<td class="st st-' + s.toLowerCase() + (s === 'TBD' ? ' tbd-plain' : '') + '" title="' + esc(tips[s] || '') + '">' + (STATUS_WORD[s] || '') + '</td>';
 }
 
 function render() {
@@ -323,7 +325,7 @@ function initKey() {
     + 'Tap or hover any colored score to see exactly why it got its color, or use the pickers below to read every tier\'s range and explanation for any column.</p>';
   document.getElementById('keyLegend').innerHTML =
     '<span><span class="chip" style="background:#1e293b;color:#94a3b8">BYE</span>NFL team is off that week &mdash; not counted</span>'
-    + '<span><span class="chip" style="background:#0f172a;color:#64748b;font-style:italic">TBD</span>game not final yet (future week or still to play) &mdash; not counted</span>'
+    + '<span><span class="chip" style="background:#0f172a;color:#64748b">@NYG</span>game not final yet &mdash; shows the opponent (<b>@NYG</b> = away, <b>vs NYG</b> = home); not counted</span>'
     + '<span><span class="chip" style="background:#2a1215;color:#f87171">DNP</span>' + (OV.tabs.dnp_as_zero ? 'n/a' : 'team played but he had no snaps or stats &mdash; not counted in averages') + '</span>'
     + '<span><span class="chip" style="background:#0f172a;color:#64748b">\u2014</span>no data saved for that week</span>';
   renderKey();
@@ -342,7 +344,7 @@ async function init(jsonPath) {
     document.getElementById('partialBanner').innerHTML =
       '<b>Week ' + OV.tabs.current_week + ' is still in progress.</b> ' + p.final_teams.length + ' NFL teams are final; '
       + p.pending_teams.length + ' have not finished (<b>' + p.pending_teams.join(', ') + '</b>).' + ip
-      + ' Their Week ' + OV.tabs.current_week + ' cells show TBD and are left out of Total, both averages and the Week ' + OV.tabs.current_week + ' colors.';
+      + ' Their Week ' + OV.tabs.current_week + ' cells show the upcoming matchup instead of a score and are left out of Total, both averages and the Week ' + OV.tabs.current_week + ' colors.';
     document.getElementById('partialBanner').style.display = 'block';
   }
   populateFilters();
